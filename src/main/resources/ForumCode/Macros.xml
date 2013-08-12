@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>ForumCode</web>
+<name>Macros</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+<creationDate>1375308000000</creationDate>
+<date>1375308000000</date>
+<contentUpdateDate>1375308000000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity output=false}}
+## make sure we have all these extensions
+$xwiki.jsx.use('XWiki.Ratings', { 'minify' : false })
+$xwiki.ssx.use('XWiki.Ratings')
+$xwiki.ssfx.use('uicomponents/viewers/comments.css', true)
+$xwiki.jsfx.use('uicomponents/widgets/notification.js', {'forceSkinAction' : true, 'defer' : false})
+$xwiki.ssfx.use('uicomponents/widgets/notification.css', true)
+$xwiki.jsfx.use('js/xwiki/widgets/modalPopup.js', {'forceSkinAction' : true, 'defer' : false})
+$xwiki.ssfx.use('js/xwiki/widgets/modalPopup.css', true)
+$xwiki.jsfx.use('uicomponents/widgets/confirmationBox.js', {'forceSkinAction' : true, 'defer' : false})
+$xwiki.ssfx.use('uicomponents/widgets/confirmationBox.css', true)
+$xwiki.jsfx.use('uicomponents/widgets/confirmedAjaxRequest.js', {'forceSkinAction' : true, 'defer' : false})
+$xwiki.jsfx.use('uicomponents/widgets/fullScreen.js', {'forceSkinAction' : true, 'defer' : false})
+$xwiki.ssfx.use('uicomponents/widgets/fullScreen.css', true)
+$xwiki.jsx.use('ForumCode.JavascriptExtension', {'forceSkinAction' : true, 'defer' : false})
+$xwiki.ssx.use('ForumCode.StyleSheetExtension')
+
+#**
+  * Display the avatar of a user with maximum width and height
+  * keeping the aspect ratio.
+  *
+  * @param $userdoc User document
+  * @param $width the maximum width
+  * @param $height the maximum height
+  * @author plibbrecht@curriki.org
+  *#
+#macro(curriki_avatar_width_height $userdoc $width $height)
+#set($reqHeight=$!height+$!height)
+#set($reqWidth=$!width+$!width)
+#set($assetAuthorDisplayName = $!xwiki.getUserName($userdoc.fullName, false))
+#set($userobj = $userdoc.getObject("XWiki.XWikiUsers"))
+#set($current_avatar = $userobj.get('avatar'))
+
+#if($current_avatar &amp;&amp; "${current_avatar}" != "") ## {
+   #set($attach = $userdoc.getAttachment("${current_avatar}").attachment)
+
+     #set($src=$userdoc.getAttachmentURL($current_avatar,"download"))##
+  #if($viewer == "embed-teachhub")
+    &lt;a target="_blank" href="$userdoc.getURL("view")" title="$xwiki.curriki.escapeForJS($assetAuthorDisplayName)" class="photo"&gt;
+  #else
+    &lt;a href="$userdoc.getURL("view")" title="$xwiki.curriki.escapeForJS($assetAuthorDisplayName)" class="photo"&gt;
+  #end
+      #if("$!width"=="" &amp;&amp; "$!height"=="")##
+         &lt;img src="$src" class="photo"/&gt;##
+      #elseif("$!width"=="")##
+         &lt;img src="$src?height=$reqHeight" height="$height" class="photo"/&gt;##
+      #elseif("$!height"=="")##
+         &lt;img src="$src?width=$reqWidth" width="$width" class="photo"/&gt;##
+      #else##
+         &lt;img src="$src?width=$reqWidth&amp;height=$reqHeight&amp;keepAspectRatio=true" class="photo"/&gt;
+      #end##
+    &lt;/a&gt;
+#else ## } {
+  #set($src=$xwiki.getSkinFile("noavatar.png"))##
+ #if($viewer == "embed-teachhub")
+  &lt;a target="_blank" href="/xwiki/bin/view/MyCurriki/Profile?user=$userdoc" title="$xwiki.curriki.escapeForJS($assetAuthorDisplayName)"&gt;
+ #else
+  &lt;a href="/xwiki/bin/view/MyCurriki/Profile?user=$userdoc" title="$xwiki.curriki.escapeForJS($assetAuthorDisplayName)"&gt;
+ #end
+ #if("$!width"=="" &amp;&amp; "$!height"=="")##
+     &lt;img src="$src" class="photo"/&gt;
+ #elseif("$!width"=="")##
+     &lt;img src="$src?height=$reqHeight" height="$height" class="photo"/&gt;
+ #elseif("$!height"=="")##
+     &lt;img src="$src?width=$reqWidth" width="$width" class="photo"/&gt;
+ #else##
+     &lt;img src="$src?width=$width&amp;height=$reqHeight&amp;keepAspectRatio=true" class="photo"/&gt;
+ #end##
+ &lt;/a&gt;
+#end ## }
+#end ## macro ## }
+## use curriki avatars
+#macro(mediumUserAvatar2 $user)
+  #curriki_avatar_width_height($xwiki.getDocument($user) 48 "")
+#end
+#macro(smallUserAvater2 $user)
+  #curriki_avatar_width_height($xwiki.getDocument($user) 48 "")
+#end
+
+#macro(cleanHTMLMacro $value)
+$value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '').replaceFirst("$regextool.quote('{{/html}}')$", '')
+#end
+
+##
+##---------------------------------------------------------------------
+## Macros
+##---------------------------------------------------------------------
+##
+## If we are viewing this page through the commentAdd or save actions then we should redirect to view
+## This doesn't apply if it is being viewed through javascript.
+#macro(redirectIfActionNotView)
+  #if(!$requestedByAjax &amp;&amp; $xcontext.getAction() != 'view' &amp;&amp; $xcontext.getAction() != 'get')
+    #if(!$captchaAnswerWrong)
+      $response.sendRedirect("$doc.getURL('view')");
+    #else
+      #foreach($name in $request.getParameterNames())
+        #set($queryString = "$!queryString&amp;$name=$escapetool.url($request.get($name))")
+      #end
+      $response.sendRedirect($doc.getURL('view', "captchaAnswerWrong=1&amp;$queryString"));
+    #end
+    $response.setContentLength(0)
+    #stop
+  #end
+#end
+##
+##
+##
+#macro(addCommentToThreads $comment $commentThreads $rootKey)
+  #set($thread = $commentThreads.get("$!{comment.replyto}"))
+  #if("$!{thread}" == '')
+    #set($thread = $commentThreads.get($rootKey))
+  #end
+  #set($discard = $thread.add($comment.number))
+  #set($thread = '')
+#end
+##
+##
+##
+#macro(displayThread $key $commentThreads, $commentDoc)
+  ## If request parameter replyto is specified then we show the form under that comment.
+  #if($replyTo == "$key" &amp;&amp; $replyToConversation == $commentDoc.fullName)
+    #displayCommentForm($commentDoc)
+    #set($replied = true)
+  #end
+  ##
+  #set($thread = $commentThreads.get("$!key"))
+  #if($thread.size() &gt; 0)
+    &lt;ul class="commentreplies"&gt;
+    #foreach($commentID in $thread)
+      &lt;li class="reply"&gt;
+      #displayComment($commentDoc.getObject($xCommentClass, $commentID))
+      &lt;div class="comments"&gt;
+        #displayThread($commentID, $commentThreads)
+      &lt;/div&gt;
+      &lt;/li&gt;
+    #end
+    &lt;/ul&gt;
+  #end
+#end
+##
+##
+##
+#macro(displayComment $comment, $commentDoc)
+  ## compute the conversation id to make proper permalinks for comments
+  #if ("$!conversationId" == "")
+    #set($conversationId = $commentDoc.name)
+  #end
+  #if(!$commentodd || $commentodd=="even")
+   #set($commentodd = "odd")
+  #else
+   #set($commentodd = "even")
+  #end 
+  &lt;div id="xwikicomment_${conversationId}_${comment.number}" class="comment $commentodd #if($comment.getProperty('author').value == $commentDoc.creator) commentByCreator#end"&gt;
+    &lt;div class="comment-layout"&gt;
+    &lt;span class="user-avatar"&gt;
+     #if("$!comment.replyto" == '')#smallUserAvater2($comment.author)#{else}#smallUserAvater2($comment.author)#end
+    &lt;/span&gt; 
+    &lt;span class="comment-meta"&gt;
+		&lt;span class="user"&gt;$!xwiki.getUserName($doc.display('author', 'view', $comment))&lt;/span&gt;
+		#set($date = $comment.getProperty('date').value)
+		&lt;span class="time"&gt;$!xwiki.formatDate($date)&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;div class="comment-content"&gt;
+      $commentDoc.getRenderedContent($comment.getProperty('comment').getValue(), $doc.getSyntax().toIdString())
+	  &lt;span class="actions"&gt;
+	   ## compose the comment permalink in conversation carefully, taking care of making it point to the article's conversation view and not to the conversation itself
+       #set($commentPermalinkInConversation = $doc.getURL('view'))
+       #set($parentArticle = $doc.parent)
+       #if (!$isTopic &amp;&amp; $parentArticle != "")
+        #set($commentPermalinkInConversation = $xwiki.getURL($doc.parent, 'view'))
+       #end
+        &lt;span class="permalink"&gt;&lt;a class="permalink" href="$escapetool.xml($commentPermalinkInConversation)#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.permalink')"&gt;$msg.get('core.viewers.comments.permalink')&lt;/a&gt;&lt;/span&gt;
+        #if($commentDoc.hasAccessLevel('comment'))
+        &lt;span class="commenttool commentreply"&gt;&lt;a class="commentreply" href="$escapetool.xml($xredirect.replaceAll('&amp;?replyto=\d++', ''))&amp;amp;replyto=${comment.number}&amp;amp;replytoconversation=${escapetool.url($commentDoc.fullName)}#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.reply')"#if("$!replyTo" == "${comment.number}" &amp;&amp; "$!replyToConversation" == "$!commentDoc.fullName") style="display: none;"#end&gt;$msg.get('core.viewers.comments.reply')&lt;/a&gt;&lt;/span&gt;
+        #end
+        #if ($context.user!="XWiki.XWikiGuest")
+          &lt;span class="flag"&gt;
+           &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
+          &lt;/span&gt;
+        #end
+       &lt;/span&gt;	   
+    &lt;/div&gt;&lt;!-- /.comment-content --&gt;
+  &lt;/div&gt; &lt;!-- /.comment-layout --&gt;
+    &lt;div class="comment-moderation"&gt;
+        #if(($comment.author == $xcontext.user)
+             ||$doc.creator == $xcontext.user
+             ||$hasAdmin)
+          ## Although this will fail if the javascript is not working, we assume it's always working
+          ## so edit comment will redirect to the conversations view of the article for which we edited comment, so that we have a correct reloading after save
+          #set($commentEditRedirect = $commentDoc.getURL('get', 'xpage=xpart&amp;vm=conversations.vm'))
+          &lt;span class="commenttool commentedit"&gt;&lt;a class="edit" href="$commentDoc.getURL('view', "number=${comment.number}&amp;amp;xredirect=$escapetool.url($commentEditRedirect)")" title="$msg.get('core.viewers.comments.edit')"&gt;$msg.get('core.viewers.comments.edit')&lt;/a&gt;&lt;/span&gt;
+        #end
+        #if(($comment.author == $xcontext.user)
+             ||$doc.creator == $xcontext.user
+             ||$hasAdmin)
+          &lt;span class="commenttool commentdelete"&gt;&lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deletecomment&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;amp;commentnumber=${comment.number}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('core.viewers.comments.delete')"&gt;$msg.get('core.viewers.comments.delete')&lt;/a&gt;&lt;/span&gt;
+        #end
+     &lt;/div&gt;
+#end
+##
+##
+##
+#macro(displayCommentForm $commentDoc)
+ ## compute the conversation id to make proper permalinks for comments
+ #if ("$!conversationId" == "")
+    #set($conversationId = $commentDoc.name)
+ #end
+ #if($commentDoc.hasAccessLevel('edit'))
+    ## prepare a nice redirect URL: for the reply form, redirect to the comemnt to which we replied, 
+    ## for the new comment form, redirect to the conversation itself
+    #if ("$!replyTo" != "")
+      #set($redirectURL = $doc.getURL('view', '#xwikicomment_${conversationId}_${replyTo}'))
+    #else
+      #set($redirectURL = $doc.getURL('view', '#${conversationId}'))
+    #end
+   #if($xcontext.user != 'XWiki.XWikiGuest')
+    &lt;div class="comment user"&gt;
+     &lt;form id="${conversationId}_addcommentform" action="$escapetool.xml($commentDoc.getURL('commentadd', "xredirect=$escapetool.url($redirectURL)"))" method="post" class="AddComment"&gt;
+      &lt;div class="comment-layout"&gt;
+       &lt;span class="user-avatar"&gt;
+       #mediumUserAvatar2($context.user)
+       &lt;/span&gt;
+       &lt;div class="comment-reply"&gt;
+		&lt;span class="comment-meta"&gt;
+        #if($xcontext.user != 'XWiki.XWikiGuest')
+          $msg.get('core.viewers.comments.add.guestName.prompt') $xwiki.getUserName($xcontext.user)
+          &lt;input type="hidden" name="${xCommentClass}_author" value="$xcontext.user"/&gt;
+        #else
+          $msg.get('core.viewers.comments.add.guestName.prompt') &lt;input type="text" id="${xCommentClass}_author" name="${xCommentClass}_author" value="$author"/&gt;
+          &lt;a href='$escapetool.xml($xwiki.getURL('XWiki.XWikiLogin', 'login', "xredirect=$escapetool.url($xwiki.getRequestURL())"))'&gt;$msg.get('login')&lt;/a&gt;
+        #end
+        &lt;/span&gt;
+		&lt;div class="comment-content"&gt;
+		 ## CSRF prevention
+         &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+         &lt;input type="hidden" name="${xCommentClass}_date" value=""/&gt;
+         &lt;input type="hidden" name="${xCommentClass}_replyto" value="$!replyTo"/&gt;
+         &lt;div class="commentcontainer"&gt;
+           &lt;label for="${xCommentClass}_comment_${conversationId}"&gt;$msg.get('core.viewers.comments.add.comment.label')&lt;/label&gt;
+           &lt;textarea id='${xCommentClass}_comment_${conversationId}' rows='5' cols="80" name='${xCommentClass}_comment' class="maximizable"&gt;$!comment&lt;/textarea&gt;
+           ## adding to wysiwyg editors
+           #addEditor("${xCommentClass}_comment_${conversationId}", $commentDoc)
+         &lt;/div&gt;
+         #if($xcontext.user == 'XWiki.XWikiGuest' &amp;&amp; $offerGuestsCaptcha)
+          #displayCaptcha()
+         #end
+         &lt;div&gt;
+          &lt;input class="button" type="submit" value="$msg.get('core.viewers.comments.add.submit')"/&gt;
+          &lt;a class="cancel secondary button" href="$doc.getURL('view')"&gt;$msg.get('core.viewers.comments.add.cancel')&lt;/a&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;&lt;!-- answer-content --&gt; 
+       &lt;/div&gt;&lt;!-- answer-reply --&gt; 
+      &lt;/div&gt;&lt;!-- answer-layout --&gt; 
+     &lt;/form&gt;
+    &lt;/div&gt;  
+   #end   
+  #else
+   &lt;div class="answer user"&gt;
+   #if($doc.space.startsWith("Group_")||$doc.space.startsWith("Discussions_Group_"))
+    &lt;p class="norights"&gt;$msg.get('conversation.groups.norights')&lt;/p&gt;
+   #else
+    &lt;p class="norights"&gt;$msg.get('conversation.norights')&lt;/p&gt;   
+   #end
+   &lt;/div&gt;
+  #end
+#end
+##
+##
+##
+#macro(displayCaptcha)
+  &lt;div id='commentCaptcha'&gt;
+  ## We only want to hide the captcha if we're sure the user has javascript, if this is an ajax call then it's a safe bet.
+  #if($hideCaptcha)
+    &lt;script type='text/javascript'&gt;
+    $('commentCaptcha').style.display = "none";
+    var handler = function() {
+      var captchaDiv = $('commentCaptcha');
+      var image = new Element('img', {'src' : '$commentDoc.getURL("imagecaptcha")?nounce=$datetool.getSystemTime()', 'alt' : '$escapetool.javascript($msg.get("core.captcha.image.alternateText"))'});
+      captchaDiv.insertBefore(image, captchaDiv.firstChild);
+      Event.observe(image, 'load', function() {
+        Effect.SlideDown('commentCaptcha', { duration: 0.7 });
+      });
+      Event.stopObserving($('${xCommentClass}_comment'), 'focus', handler);
+    }.bind(this);
+    Event.observe($('${xCommentClass}_comment'), 'focus', handler);
+    &lt;/script&gt;
+  #else
+    &lt;img src='$commentDoc.getURL("imagecaptcha")?nounce=$datetool.getSystemTime()' alt='$msg.get("core.captcha.image.alternateText")' /&gt;
+  #end
+  &lt;input type='hidden' name='captcha_type' value='image'/&gt;
+  &lt;br/&gt;
+  &lt;label for='captcha_answer'&gt;$msg.get('core.captcha.image.instruction')&lt;/label&gt;
+  &lt;br/&gt;
+  &lt;input id='captcha_answer' name='captcha_answer' type='text'&gt;
+  #if($captchaAnswerWrong)
+    &lt;span style="color:#C00; font-weight:bold; margin:0 0 0 5px;"&gt;$msg.get('core.captcha.captchaAnswerIsWrong')&lt;/span&gt;
+  #end
+  &lt;div class="wikimodel-emptyline"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+#end
+###
+### Done copying
+###
+###
+### Display the avatar of a user, or a standard image if the user has no avatar
+###
+### @param username The name of the user whose avatar will be displayed
+###
+#macro(resizedUserAvatar $username $size)
+  #if(!$picturelist)
+    #set($picturelist = $util.hashMap)
+  #end
+  #if(!$picturelist.containsKey("${username}--${size}"))
+    #set($picture = "&lt;img class='avatar avatar_${escapetool.xml(${size})}' src='")
+    #if ($xwiki.getDocument($username).getObject('XWiki.XWikiGroups'))
+      #set ($picture = $picture.concat($xwiki.getSkinFile('icons/xwiki/noavatargroup.png', true)))
+    #else
+      #set ($picture = $picture.concat($xwiki.getSkinFile('icons/xwiki/noavatar.png', true)))
+    #end
+    #set($profiledoc = $xwiki.getDocument($username))
+    #if (!$profiledoc.isNew())
+      #if($profiledoc.attachmentList.size() != 0)
+        #set($profileobj = $profiledoc.getObject('XWiki.XWikiUsers', 0))
+        #set($avatarFileName = $profileobj.getProperty('avatar').value)
+        #if("$!avatarFileName" != "")
+          #foreach ($attach in $profiledoc.attachmentList)
+            #if($attach.filename == $avatarFileName)
+              #set($pictureurl = $profiledoc.getAttachmentURL($avatarFileName))
+              #set($picture = "&lt;img src='")
+              #set($picture = $picture.concat($pictureurl))
+              #if ($size &gt; 0)
+                #set($picture = $picture.concat("?width=${escapetool.xml(${size})}&amp;amp;height=${escapetool.xml(${size})}&amp;amp;keepAspectRatio=true"))
+              #end
+              #set($picture = $picture.concat("' alt='"))
+              #set($picture = $picture.concat(${xwiki.getUserName($username, false)}))
+              #set($picture = $picture.concat("' title='"))
+              #set($picture = $picture.concat(${xwiki.getUserName($username, false)}))
+              #set($picture = $picture.concat("'/&gt;"))
+              #break
+            #end
+          #end
+        #end
+      #else
+        #set($picture = $picture.concat("' width='${size}' alt='${xwiki.getUserName($username, false)}' title='${xwiki.getUserName($username, false)}'/&gt;"))
+      #end
+    #end
+    #set ($discard = $!picturelist.put("${username}--${size}", $picture))
+  #end
+  $picturelist.get("${username}--${size}")##
+#end
+###
+#macro(displayTopicSortButton $field) 
+  #set($sortclass = "forum-sort-button-inactive")
+  #if($request.sortfield)
+   #set($currentfield = $request.sortfield)
+  #else
+   #set($currentfield = "date")
+  #end   
+  #if($request.sortorder)
+   #set($currentorder = $request.sortorder)
+  #else
+   #set($currentorder = "desc")
+  #end  
+  #set($nextorder = "desc")   
+  #if($currentfield==$field)
+   #set($sortclass = "forum-sort-button-active")
+   #if($currentorder=="desc")
+    #set($style = "forum-sort-button-desc")
+    #set($nextorder = "asc")   
+   #else
+    #set($style = "forum-sort-button-asc")
+    #set($nextorder = "desc")    
+   #end
+  #end
+  #if($doc.space.startsWith("Group_"))
+   #set($viewer = "")
+  #else
+   #set($viewer = "")
+  #end
+  &lt;span class="${sortclass} ${style}"&gt;&lt;a href="$doc.getURL("view", "${viewer}sortfield=${field}&amp;sortorder=${nextorder}")" onclick=""&gt;$msg.get("conversations.forum.sorttopicsby.${field}")&lt;/a&gt;&lt;/span&gt;   
+#end
+###
+###
+#macro(displayTopicAddForm $space)
+    #set($newTopicName = $space + "." + $xwiki.getUniquePageName($space, 'Topic'))
+    #set($newTopicDoc = $xwiki.getDocument($newTopicName))
+    #if($newTopicDoc.hasAccessLevel("edit"))
+    &lt;div class="addconversation-container addtopic-container"&gt;
+     &lt;div class="addconversation-container-button addtopic-container-button"&gt;
+      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator"&gt;$msg.get('conversations.topic.add.activator')&lt;/a&gt;
+     &lt;/div&gt;
+     &lt;div class="addconversation-container-form addtopic-container-form"&gt;
+     ## Create a fake topic object to be able to display the status and the type selectors
+     &lt;form class="#if("$!request.action" != "addtopic")hidden#end addconversation" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
+      &lt;div&gt;
+        &lt;input type="hidden" name="action" value="addtopic" /&gt;
+        &lt;input type="hidden" name="page" value="$escapetool.xml($newTopicName)" /&gt;
+        &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
+        &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
+        &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
+        &lt;input type="hidden" name="xredirect" value="$escapetool.xml($doc.getURL('view'))" /&gt;
+      &lt;/div&gt;
+      &lt;dl&gt;
+        &lt;dt&gt;$msg.get('ForumCode.TopicClass_title')&lt;/dt&gt;
+        &lt;dd&gt;&lt;input type="text" name="title" /&gt;&lt;/dd&gt;
+        #set($fakeTopic = $newTopicDoc.newObject('ForumCode.TopicClass'))
+        ##&lt;dt&gt;$msg.get('ForumCode.TopicClass_type')&lt;/dt&gt;
+        ##&lt;dd&gt;$newTopicDoc.display('type', 'edit', $fakeTopic)&lt;/dd&gt;       
+        &lt;dt&gt;$msg.get('ForumCode.TopicClass_description')&lt;/dt&gt;
+        &lt;dd&gt;#cleanHTMLMacro($newTopicDoc.display('description', 'edit', $fakeTopic))&lt;/dd&gt;
+        ## adding wysiwyg
+        #addEditor("ForumCode.TopicClass_0_description", $newTopicDoc)
+      &lt;/dl&gt;
+      &lt;div&gt;
+        ## Cannot choose status, will always create as in progress
+        &lt;input type="hidden" name="ForumCode.TopicClass_${fakeTopic.number}_status" value="inprogress" /&gt;      
+      &lt;/div&gt;
+      
+      &lt;div class="buttons"&gt;
+        &lt;input class="button" type="submit" class="button" value="$msg.get('save')" /&gt;
+        &lt;a class="button cancel" href="$doc.getURL('view')" class="cancel"&gt;$msg.get('cancel')&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  #end
+#end
+##
+##
+#macro(displayConversationAddForm)
+  #set($newAnswerName = $doc.space + "." + $xwiki.getUniquePageName($doc.space, "${doc.name}Answer"))
+  #set($newAnswerDoc = $xwiki.getDocument($newAnswerName))
+  #if($newAnswerDoc.hasAccessLevel("edit"))
+  &lt;div class="addconversation-container addanswer-container"&gt;
+    &lt;div class="addconversation-container-button addanswer-container-button"&gt;
+     &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator"&gt;$msg.get('conversation.add.activator')&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="addconversation-container-form addanswer-container-form"&gt;
+      ## Create a fake conversation object to be able to display the status and the type selectors
+     &lt;form class="#if("$!request.action" != "addconversation")hidden#end addconversation" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
+      &lt;div&gt;
+        &lt;input type="hidden" name="action" value="addconversation" /&gt;
+        &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
+        &lt;input type="hidden" name="page" value="$escapetool.xml($newAnswerName)" /&gt;
+        &lt;input type="hidden" name="space" value="$escapetool.xml($doc.space)" /&gt;
+        &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
+        &lt;input type="hidden" name="xredirect" value="$escapetool.xml($doc.getURL('view'))" /&gt;
+      &lt;/div&gt;
+      &lt;dl&gt;
+        #set($fakeConversation = $newAnswerDoc.newObject('ForumCode.AnswerClass'))
+        &lt;dt&gt;$msg.get('ForumCode.AnswerClass_answer')&lt;/dt&gt;
+        &lt;dd&gt;#cleanHTMLMacro($newAnswerDoc.display('answer', 'edit', $fakeConversation))&lt;/dd&gt;  
+        ## adding wysiwyg
+        #addEditor("ForumCode.AnswerClass_0_answer", $newAnswerDoc)
+      &lt;/dl&gt;
+      
+      &lt;div class="buttons"&gt;
+        &lt;input class="button" type="submit" class="button" value="$msg.get('save')" /&gt;
+        &lt;a class="button cancel" href="$doc.getURL('view')" class="cancel"&gt;$msg.get('cancel')&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  #end
+  &lt;div class="clearfloats"&gt;&lt;/div&gt;
+#end
+##
+##
+##
+##
+#macro(displayTopics)
+  #set($step = 10)
+  #set($count = 0)
+  #set($nb = $step + 1)
+  #set($start = 0)
+  #set($nextstart = $nb)
+  #if($request.start)
+   #set($start = $util.parseInt($request.start))
+   #set($nextstart = $start + $step)
+  #end
+  #if($request.sortfield=="votes")
+   ## sort by votes - requires programming rights
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}", $nb, $start, [ $doc.fullName ]))
+  #elseif($request.sortfield=="comments")
+   ## sort by comments - requires programming rights
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by 1 order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $doc.fullName ]))
+  #else
+   ## sort by last update date
+   #set($topics = $xwiki.searchDocuments(", BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ? order by doc.date $!{currentorder}", $nb, $start, [$doc.fullName, 'ForumCode.TopicClass']))
+  #end
+  #foreach($topic in $topics)
+    #if($count!=$step)
+     #displayForumTopic($topic false)
+     #set($count = $count + 1)
+    #end 
+  #end
+  #if($topics.size()==$nb)
+  &lt;div id="forum-more"&gt;
+  &lt;a href="$doc.getURL("view", "start=${nextstart}")"&gt;$msg.get("conversations.forum.more", [$step])&lt;/a&gt;
+  &lt;/div&gt;
+  #end
+#end
+
+##
+#macro(displayForumAddThis $topicDoc, $topicTitle) 
+#set($addThisTitle = $msg.get("conversations.addthis.title", [$topicTitle, $topicDoc.getExternalURL()]))
+#set($addThisDesc = $msg.get("conversations.addthis.desc", [$topicTitle, $topicDoc.getExternalURL()]))
+&lt;div class="topic-addthis"&gt;
+&lt;!-- AddThis Button BEGIN --&gt;
+&lt;div class="addthis_toolbox addthis_default_style "
+addthis:url="${escapetool.xml($topicDoc.getExternalURL())}"
+addthis:title="${escapetool.xml($addThisTitle)}"
+#if($addThisDesc!="" &amp;&amp; $addThisDesc!="conversations.addthis.desc")
+addthis:description="${escapetool.xml($addThisDesc)}"
+#end
+&gt;
+&lt;a class="addthis_button_preferred_1"&gt;&lt;/a&gt;
+&lt;a class="addthis_button_preferred_2"&gt;&lt;/a&gt;
+&lt;a class="addthis_button_preferred_3"&gt;&lt;/a&gt;
+&lt;a class="addthis_button_preferred_4"&gt;&lt;/a&gt;
+&lt;a class="addthis_button_compact"&gt;&lt;/a&gt;
+&lt;a class="addthis_counter addthis_bubble_style"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;var addthis_config =
+{"data_track_addressbar":true};&lt;/script&gt;
+&lt;script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51acd2cb7dc9d536"&gt;&lt;/script&gt;
+&lt;!-- AddThis Button END --&gt;
+&lt;/div&gt;
+#end
+##
+#macro(displayForumActions $topicDoc) 
+&lt;span class="topic-actions-flag conversation-flag"&gt;
+ &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($topicDoc.fullName)}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
+&lt;/span&gt;
+&lt;span class="topic-actions-permalink"&gt;
+ &lt;a href="$topicDoc.getURL()"&gt;&lt;/a&gt;
+&lt;/span&gt;
+#end
+##
+
+
+## TO DO : display all metadata, as specified in requirements
+#macro(displayForumTopic $topic $withdetails)
+  #set($topicDoc = $xwiki.getDocument($topic))  
+  #set($topicTitle = $topicDoc.displayTitle)
+  #set($topicDescription = $topicDoc.display('description'))
+  #set($topicComments = 0)
+  #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+  #if($topicAnswers)
+  #foreach($topicAnswer in $topicAnswers)
+    #set($answerDoc = $xwiki.getDocument($topicAnswer))
+    #set($topicComments = $topicComments + $answerDoc.getComments().size())
+  #end
+  #set($nbCommentsAnswers = $topicAnswers.size() + $topicComments)
+  #else
+  #set($nbCommentsAnswers = 0)  
+  #end
+  &lt;div class="topic"&gt;
+    &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
+    &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+    &lt;span class="topic-comments"&gt;$nbCommentsAnswers&lt;/span&gt;
+    &lt;div class="topic-metadata"&gt;      
+      &lt;span class="topic-metas"&gt;
+        &lt;span class="topic-author"&gt;$!xwiki.getUserName($topicDoc.creator)&lt;/span&gt;
+        &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
+        &lt;span class="topic-answers"&gt;$topicAnswers.size()&lt;/span&gt;
+        &lt;div class="topic-vote conversation-like"&gt;
+            #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
+            &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
+            &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    #if($withdetails)
+    &lt;div class="topic-description"&gt;
+    #cleanHTMLMacro($!topicDescription)
+     &lt;div class="topic-actions"&gt;
+      &lt;span class="left"&gt;
+        #displayForumActions($topicDoc)
+      &lt;/span&gt;
+      &lt;span class="topic-vote2 conversation-like center"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+      &lt;span class="right"&gt;
+       #displayForumAddThis($topicDoc, $topicTitle)             
+      &lt;/span&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="topic-moderation"&gt;
+    #if(($topicDoc.creator==$context.user)
+         ||$doc.creator == $xcontext.user
+         ||$hasAdmin)
+    &lt;a class="topic-edit" href="$topicDoc.getURL("edit")" title="$msg.get("conversations.forum.edit")"&gt;$msg.get("conversations.forum.edit")&lt;/a&gt;
+    #end
+    #if(($topicDoc.creator==$context.user)
+         ||$doc.creator == $xcontext.user
+         ||$hasAdmin)
+     #set($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($xredirect)}")
+     &lt;a class="topic-delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$msg.get('conversation.forum.delete.title')"&gt;$msg.get('conversation.forum.delete')&lt;/a&gt;
+    #end
+    &lt;/div&gt;  
+  #end
+  &lt;/div&gt;
+#end
+##
+##
+##
+#macro(displayAnswers)
+  ## The list of existing conversations with their comments
+  ## Find all the documents which are the children of this document and have an object of type conversation inside
+  #set($conversationsSql = ', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName != ? order by doc.date desc')
+  #set($conversationsSqlParams = [$doc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate'])
+  #set($conversationDocs = $xwiki.searchDocuments($conversationsSql, $conversationsSqlParams))
+  &lt;div class="answers"&gt;
+    #foreach($conversationDocName in $conversationDocs)
+      #set($conversationDoc = $xwiki.getDocument($conversationDocName))
+      #set($conversationObject = $conversationDoc.getObject('ForumCode.AnswerClass'))
+      #set($comments = $conversationDoc.getComments())
+      ## Compose a conversation id for the conversation from the document name only.
+      ## We don't need clearname anymore and neither the date as we control the topic name
+      #set($conversationId = $conversationDoc.name)
+      &lt;div class="answer" id="$conversationId"&gt;
+        &lt;div class="answer-layout"&gt;
+          &lt;span class="user-avatar"&gt;
+          #smallUserAvater2($conversationDoc.creator)
+          &lt;/span&gt;
+          &lt;div class="answer-reply"&gt;
+				&lt;span class="answer-meta"&gt;
+					&lt;span class="user"&gt;$xwiki.getUserName($conversationDoc.creator)&lt;/span&gt;
+					&lt;span class="time"&gt;$msg.get('conversation.updatedate', [$xwiki.formatDate($conversationDoc.date)])&lt;/span&gt;
+					&lt;span class="votes conversation-ratings"&gt;
+                     &lt;span class="conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null)class="canVote" title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end &gt;
+                      &lt;input type="hidden" name="documenttolike" value="$conversationDoc.fullName" /&gt;
+                     &lt;/span&gt;
+                     #set($rating = $services.ratings.getAverageRating($conversationDoc).nbVotes)
+                     &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$rating&lt;/span&gt;
+                    &lt;/span&gt;
+					&lt;span class="comments"&gt;$comments.size()&lt;/span&gt;
+				&lt;/span&gt;
+				&lt;div class="answer-content"&gt;
+ 				    #cleanHTMLMacro($conversationDoc.answer)
+					&lt;span class="actions"&gt;
+					 #if($context.user!="XWiki.XWikiUsers")
+                     &lt;span class="flag"&gt;
+                      &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
+                     &lt;/span&gt;
+                     #end
+					 &lt;span class="conversation-permalink"&gt;
+                          &lt;a class="permalink" href="$escapetool.xml($doc.getURL('view'))#${conversationId}" title="$msg.get('conversation.permalink.tooltip')"&gt;
+                          ## We need to put image here since we cannot do background + indented text + fixed width as we do for comment tools, because overflow: hidden is messing up the display of the other icons.
+                          &lt;/a&gt;
+                     &lt;/span&gt;
+					&lt;/span&gt;
+				&lt;/div&gt;
+		 &lt;/div&gt;&lt;!-- / .answer-reply --&gt;
+         &lt;div class="answer-moderation"&gt;
+            #if(($conversationDoc.creator==$context.user)
+                 ||$hasAdmin)
+              &lt;a class="edit" href="$conversationDoc.getURL('edit')" title="$msg.get('conversation.edit.title')"&gt;$msg.get('conversation.edit')&lt;/a&gt;
+            #end
+            #if(($conversationDoc.creator==$context.user)
+                 ||$hasAdmin)
+              &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('conversation.delete.title')"&gt;$msg.get('conversation.delete')&lt;/a&gt;
+            #end
+         &lt;/div&gt;&lt;!-- / .answer-moderation --&gt;
+	    &lt;/div&gt;&lt;!-- / .answer-layout --&gt;
+        &lt;div class="comments"&gt;
+          #if($comments.size() &gt; 0)
+            #set($rootKey = "-1")
+            #set($commentThreads = $util.hashMap)
+            #set($discard = $commentThreads.put($rootKey, $util.arrayList))
+            #foreach($comment in $comments)
+              #set($discard = $commentThreads.put("${comment.number}", $util.arrayList))
+            #end
+            #foreach($comment in $comments)
+              #addCommentToThreads($comment, $commentThreads, $rootKey)
+            #end
+            ##
+            ## Comments will be rendered in the context of the conversation document.
+            #set($commentDoc = $conversationDoc)
+            ##
+            #displayThread($rootKey, $commentThreads, $commentDoc)
+          #else
+            &lt;p class="noitems"&gt;$msg.get('conversation.empty')&lt;/p&gt;
+          #end
+          #if(!$replied)
+            #displayCommentForm($conversationDoc)
+          #end
+        &lt;/div&gt;&lt;!-- / .comments --&gt;
+      &lt;/div&gt;&lt;!-- / .answer --&gt;
+    #end
+  &lt;/div&gt;&lt;!-- / .answers --&gt;
+#end
+##
+##
+#macro(addEditor $fieldname $editorDoc)
+ #if(!$myeditors)
+  #set($myeditors = $util.hashMap)
+  #end
+ #set($config = $myeditors.get($editorDoc.fullName))
+ #if(!$config)
+  #set($config = $util.hashMap)
+  #set($ok = $config.put("doc", $editorDoc))
+  #set($ok = $config.put("editors", $fieldname))
+  #set($ok = $myeditors.put($editorDoc.fullName, $config))
+ #else
+  #set($ok = $config.put("editors", "${config.get('editors')},$fieldname"))
+ #end
+#end
+
+#macro(displayEditors)
+  #if($myeditors)
+    #if($services.wysiwyg.isSyntaxSupported($doc.syntax.toIdString()))
+      #wysiwyg_import(false)
+      #foreach($myeditor in $myeditors.values())
+       ## only prepare the editor but do not activate it
+       #foreach($myeditor2 in $myeditor.get("editors").split(","))
+        #set($parameters = $util.hashMap)
+        #wysiwyg_storeConfig($parameters $myeditor.get("doc") $myeditor2 false)
+        #wysiwyg_prepareEditor($parameters)
+       #end
+       ##wysiwyg_editProperties($myeditor.get("doc") $myeditor.get("editors") false)
+      #end
+    #else
+      #warning("The new GWT-based WYSIWYG editor doesn't support the syntax of the current document: &lt;em&gt;$doc.syntax.toIdString()&lt;/em&gt;.")
+    #end
+  #end
+#end
+##
+##
+## Load the rich text object properties using a compact WYSIWYG editor.
+#**
+  * Creates a new WYSIWYG editor instance using the given configuration parameters.
+  *
+  * @param $parameters WYSIWYG editor configuration parameters
+  *#
+#macro(wysiwyg_prepareEditor $parameters)
+  #set($jsVarName = "wysiwygConfig${util.generateRandomString(4)}")
+  #wysiwyg_writeConfig($jsVarName $parameters)
+  &lt;script type="text/javascript"&gt;
+      //&lt;![CDATA[
+      // force waiting for dom loaded to activate wysiwyg
+      document.observe("xwiki:dom:loaded", function(){
+       var Wysiwyg = Wysiwyg || {};
+       var WysiwygConfig = WysiwygConfig || {};
+         WysiwygConfig['${parameters.hookId}'] = $jsVarName; 
+         ## $('${parameters.hookId}').wysiwyg = new WysiwygEditor($jsVarName);
+         $jsVarName = undefined;
+         $('${parameters.hookId}').observe('focus', function(event){
+             if ($('${parameters.hookId}').wysiwyg == undefined) {
+              $('${parameters.hookId}').wysiwyg = new WysiwygEditor(WysiwygConfig['${parameters.hookId}']);
+             }
+         });
+      });
+    //]]&gt;
+  &lt;/script&gt;
+#end
+
+#**
+ * Summary of active discussions
+ *#
+#macro(displayTopicsSummary $forumDocName $topicsPage)
+  ## add js for ajax reload of most viewed topic
+  #set($nb = 10)
+  #set($start = 0)
+  #set($currentorder = "desc")
+  #set($datesorder = "")
+  #set($commentsorder = "")
+  #set($votesorder = "")
+  #set($nextdatesorder = "desc")
+  #set($nextcommentsorder = "desc")
+  #set($nextvotesorder = "desc")
+  #if($request.sortfield=="votes")
+   #if($request.sortorder=="asc")
+    #set($currentorder = "asc")    
+    #set($votesorder = "asc")
+   #else
+    #set($votesorder = "desc")
+    #set($nextvotesorder = "asc") 
+   #end
+   ## sort by votes - requires programming rights
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes' order by nbvotes.value $!{currentorder}", $nb, $start, [ $forumDocName ]))
+  #elseif($request.sortfield=="comments")
+    #if($request.sortorder=="asc")
+    #set($currentorder = "asc")    
+    #set($commentsorder = "asc")
+   #else
+    #set($commentsorder = "desc") 
+    #set($nextcommentsorder = "asc")
+   #end
+   ## sort by comments - requires programming rights
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by 1 order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $forumDocName ]))
+  #else
+    #if($request.sortorder=="asc")
+    #set($currentorder = "asc")    
+    #set($datesorder = "asc")
+   #else
+    #set($datesorder = "desc")   
+    #set($nextdatesorder = "asc")
+   #end
+   ## sort by last update date
+   #set($topics = $xwiki.searchDocuments(", BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ? order by doc.date $!{currentorder}", $nb, $start, [$forumDocName, 'ForumCode.TopicClass']))
+  #end
+  #set($commentsurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=comments&amp;sortorder=${nextcommentsorder}"))
+  #set($votesurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=votes&amp;sortorder=${nextvotesorder}"))
+  #set($datesurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=dates&amp;sortorder=${nextdatesorder}"))
+  &lt;!-- Discussions Sidebar Block --&gt;
+  #if(!$request.xpart)
+  &lt;div id="discussionTopics"&gt;
+  #end
+	&lt;h3&gt;$msg.get("discussion.panel.title")&lt;/h3&gt;
+	$msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
+	         &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
+	         &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
+	&lt;div class="tableScroll"&gt;
+		&lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
+			&lt;caption&gt;$msg.get("discussion.panel.title")&lt;/caption&gt;
+			&lt;colgroup&gt;
+				&lt;col class="date" /&gt;
+				&lt;col class="votes" /&gt;
+				&lt;col class="comments" /&gt;
+			&lt;/colgroup&gt;
+			&lt;tr&gt;
+				&lt;th class="topics"&gt;$msg.get("discussion.panel.topics")&lt;/th&gt;
+				&lt;th class="votes"&gt;$msg.get("discussion.panel.votes")&lt;/th&gt;
+				&lt;th class="comments"&gt;$msg.get("discussion.panel.comments")&lt;/th&gt;
+			&lt;/tr&gt;
+  #foreach($topic in $topics)
+    #set($topicDoc = $xwiki.getDocument($topic))  
+    #set($topicTitle = $topicDoc.displayTitle)
+    #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
+    #set($topicComments = 0)
+    #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+    #if($topicAnswers)
+     #foreach($topicAnswer in $topicAnswers)
+      #set($answerDoc = $xwiki.getDocument($topicAnswer))
+      #set($topicComments = $topicComments + $answerDoc.getComments().size())
+     #end
+     #set($nbCommentsAnswers = $topicAnswers.size() + $topicComments)
+    #else
+     #set($nbCommentsAnswers = 0)  
+    #end
+    #if(!$topicodd || $topicodd=="even")
+     #set($topicodd = "odd")
+    #else
+     #set($topicodd = "even")
+    #end
+  		    &lt;tr class="${topicodd}"&gt;
+				&lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$topicTitle&lt;/a&gt;&lt;/td&gt;
+				&lt;td class="votes"&gt;${rating}&lt;/td&gt;
+				&lt;td class="comments"&gt;${nbCommentsAnswers}&lt;/td&gt;
+			&lt;/tr&gt;
+  #end
+  		&lt;/table&gt;
+	&lt;/div&gt;
+  #if(!$request.xpart)
+   &lt;/div&gt;
+  #end 
+#end
+</content></xwikidoc>
