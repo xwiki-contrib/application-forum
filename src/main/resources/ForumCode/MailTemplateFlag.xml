@@ -1,82 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xwikidoc>
-<web>ForumCode</web>
-<name>MailTemplateFlag</name>
-<language></language>
-<defaultLanguage></defaultLanguage>
-<translation>0</translation>
-<parent></parent>
-<creator>xwiki:XWiki.Admin</creator>
-<author>xwiki:XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-<creationDate>1375308000000</creationDate>
-<date>1375308000000</date>
-<contentUpdateDate>1375308000000</contentUpdateDate>
-<version>1.1</version>
-<title></title>
-<template></template>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment></comment>
-<minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>false</hidden>
-<object>
-<class>
-<name>XWiki.Mail</name>
-<customClass></customClass>
-<customMapping></customMapping>
-<defaultViewSheet></defaultViewSheet>
-<defaultEditSheet></defaultEditSheet>
-<defaultWeb></defaultWeb>
-<nameField></nameField>
-<validationScript></validationScript>
-<html>
-<disabled>0</disabled>
-<name>html</name>
-<number>4</number>
-<prettyName>HTML</prettyName>
-<rows>15</rows>
-<size>80</size>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</html>
-<language>
-<disabled>0</disabled>
-<name>language</name>
-<number>2</number>
-<prettyName>Language</prettyName>
-<size>5</size>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-</language>
-<subject>
-<disabled>0</disabled>
-<name>subject</name>
-<number>1</number>
-<prettyName>Subject</prettyName>
-<size>40</size>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-</subject>
-<text>
-<disabled>0</disabled>
-<name>text</name>
-<number>3</number>
-<prettyName>Text</prettyName>
-<rows>15</rows>
-<size>80</size>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</text>
-</class>
-<name>ForumCode.MailTemplateFlag</name>
-<number>0</number>
-<className>XWiki.Mail</className>
-<guid>3ad0de24-5c16-4d2d-b5b2-0b2586e90dcf</guid>
-<property>
-<html>A new discussion comment has been flagged.
+  <web>ForumCode</web>
+  <name>MailTemplateFlag</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1375308000000</creationDate>
+  <date>1375308000000</date>
+  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <template/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.Mail</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <html>
+        <disabled>0</disabled>
+        <name>html</name>
+        <number>4</number>
+        <prettyName>HTML</prettyName>
+        <rows>15</rows>
+        <size>80</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </html>
+      <language>
+        <disabled>0</disabled>
+        <name>language</name>
+        <number>2</number>
+        <prettyName>Language</prettyName>
+        <size>5</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </language>
+      <subject>
+        <disabled>0</disabled>
+        <name>subject</name>
+        <number>1</number>
+        <prettyName>Subject</prettyName>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </subject>
+      <text>
+        <disabled>0</disabled>
+        <name>text</name>
+        <number>3</number>
+        <prettyName>Text</prettyName>
+        <rows>15</rows>
+        <size>80</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </text>
+    </class>
+    <name>ForumCode.MailTemplateFlag</name>
+    <number>0</number>
+    <className>XWiki.Mail</className>
+    <guid>3ad0de24-5c16-4d2d-b5b2-0b2586e90dcf</guid>
+    <property>
+      <html>A new discussion comment has been flagged.
 &lt;br /&gt;&lt;br /&gt;
 You can view the flag record at the following url:
 &lt;br /&gt;&lt;br /&gt;
@@ -84,21 +85,22 @@ You can view the flag record at the following url:
 &lt;br /&gt;&lt;br /&gt;
 Thank you
 &lt;br /&gt;&lt;br /&gt;</html>
-</property>
-<property>
-<language>en</language>
-</property>
-<property>
-<subject>A new discussion comment has been flagged</subject>
-</property>
-<property>
-<text>A new discussion comment has been flagged.
+    </property>
+    <property>
+      <language>en</language>
+    </property>
+    <property>
+      <subject>A new discussion comment has been flagged</subject>
+    </property>
+    <property>
+      <text>A new discussion comment has been flagged.
 
 You can view the flag record at the following url:
 
 ${url}
 
 Thank you</text>
-</property>
-</object>
-<content></content></xwikidoc>
+    </property>
+  </object>
+  <content/>
+</xwikidoc>

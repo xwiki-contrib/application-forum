@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xwikidoc>
-<web>ForumCode</web>
-<name>MostActiveTopics</name>
-<language></language>
-<defaultLanguage></defaultLanguage>
-<translation>0</translation>
-<parent></parent>
-<creator>xwiki:XWiki.Admin</creator>
-<author>xwiki:XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-<creationDate>1375308000000</creationDate>
-<date>1375308000000</date>
-<contentUpdateDate>1375308000000</contentUpdateDate>
-<version>1.1</version>
-<title>MostViewTopics</title>
-<template></template>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment></comment>
-<minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>false</hidden>
-<content>{{include document="ForumCode.Macros" /}}
+  <web>ForumCode</web>
+  <name>MostActiveTopics</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1375308000000</creationDate>
+  <date>1375308000000</date>
+  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <version>1.1</version>
+  <title>MostViewTopics</title>
+  <template/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{include document="ForumCode.Macros" /}}
 {{velocity}}
 {{html clean=false}}
 #displayTopicsSummary("Discussions.WebHome", "ForumCode.MostActiveTopics")
 {{/html}}
-{{/velocity}}</content></xwikidoc>
+{{/velocity}}</content>
+</xwikidoc>

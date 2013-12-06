@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xwikidoc>
-<web>ForumCode</web>
-<name>StyleSheetExtension</name>
-<language></language>
-<defaultLanguage>en</defaultLanguage>
-<translation>0</translation>
-<parent></parent>
-<creator>xwiki:XWiki.Admin</creator>
-<author>xwiki:XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-<creationDate>1375308000000</creationDate>
-<date>1375308000000</date>
-<contentUpdateDate>1375308000000</contentUpdateDate>
-<version>1.1</version>
-<title></title>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment></comment>
-<minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>false</hidden><attachment>
-<filename>conversation-alert.png</filename>
-<filesize>600</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+  <web>ForumCode</web>
+  <name>StyleSheetExtension</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1375308000000</creationDate>
+  <date>1375308000000</date>
+  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <attachment>
+    <filename>conversation-alert.png</filename>
+    <filesize>600</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AsVCwMCcEk9RgAAABl0RVh0Q29tbWVudABDcmVhdGVk
 IHdpdGggR0lNUFeBDhcAAAHASURBVEjHtZahbuNAEIY/b4FhghJmpSBhke6k8LaSeXskuGXHKsNh
 LTJsnyDtG/TuAaK63CBSWFC17BbFIMDsyNry5WJn3bo/sdc7nt8znvlnPRoQx/E5cAmcA98OmKyA
@@ -37,13 +40,16 @@ bMxWJEVvaK3RWtfaDQYD0jQtlm8nYRj+AX66kBhjMMaQpil5njfa7Xa7Ynnj2Y5/tXLeiCiK8H2f
 PM9ZLBZkWXbslUcRiQrtuneJxPf98rpXQQdFUkSiUiDtwHns6p8UKlw3T5zSdgT3InJXfaD2DH58
 oqSfgdN9gqbx+9RiOq6AGxFZtZrxlTn/dESh34Hv1VF7CKpuwx4ITm3l1TkZuWif55pwG9mlVe19
 5U6ANyA5dDT6C6FhmdyY7Tp9AAAAAElFTkSuQmCC
-</content></attachment><attachment>
-<filename>conversation-feedback.png</filename>
-<filesize>713</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+</content>
+  </attachment>
+  <attachment>
+    <filename>conversation-feedback.png</filename>
+    <filesize>713</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AsVCwIpxe71RwAAABl0RVh0Q29tbWVudABDcmVhdGVk
 IHdpdGggR0lNUFeBDhcAAAIxSURBVEjHtZY/bxpBEMV/YCTSLdVRIJ2cApTmJCiQUiBBJDoaQklj
 m09gl1vFro7OSkcqJx8AhfScgiUXkSigp7GuoDgJxHaUaW4Rf/YOB5FX3dztzJt5uzezCWLgum4R
@@ -56,13 +62,16 @@ vu/TarUIgoDhcLjxVUpRLpfxfR+gmgIuTSSmzdUk+hBEbb5SCsuytHmZjJPqVAghtk9jJgWsTAt9
 2xwkwxY9OifJer3Wjw9Syle9J3fAxPQjxtnHWr+U8n6/C9+HM+QcGAGfdRdOnHmWrICvugKN/SN8
 p/vNKcNK78Fbx+9jVOuPkObGFDyWJCRqAo9RvS3Eq5Ty/bEsEkduK5mwoqsYslLcTeUoiaGyajha
 awbJnoGBifAvesbKX/Z16AkAAAAASUVORK5CYII=
-</content></attachment><attachment>
-<filename>conversation-like.png</filename>
-<filesize>563</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+</content>
+  </attachment>
+  <attachment>
+    <filename>conversation-like.png</filename>
+    <filesize>563</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AwGDi0cdwbvgwAAABl0RVh0Q29tbWVudABDcmVhdGVk
 IHdpdGggR0lNUFeBDhcAAAGbSURBVDjLjZTdUcJQEIU/GAsIFQgdpANDB9gBVIA+7pPytI9oBdAB
 WAHpwHRArMDYgS9nnZ0QlZ3JZO7Pnnv27LkXrgh3L9y9vGbv+A+Qs7tvNdwCp7RWXQXo7gt3X6Sp
@@ -72,13 +81,16 @@ B2oz6wDGAjtLj0I6RlRJyyVwFwsC7kTiLBzGyRp7oDWzOgF2QGjYAm+96hu54MdiYzFo1bU2ynH3
 T5UyE6MZULv7pxoX8aW8ImzTSItOX0QhAz8qodS+Iu0Lw5fAKjdll0qfK+EkGSol1Dp8qUZMky9/
 uj3KD4Ca0wp0K6CNgCrNHYFXHdgA99HhIR8uwjpisRajKPNVTEPDeb52F4+DmR2lRQm8Jwkmmr9N
 1+0CbPDqiWmp8oZelD2wyVfyX8De3Z1m32W9huIbFhytyB5WK2IAAAAASUVORK5CYII=
-</content></attachment><attachment>
-<filename>conversation-question.png</filename>
-<filesize>705</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+</content>
+  </attachment>
+  <attachment>
+    <filename>conversation-question.png</filename>
+    <filesize>705</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AsVCwE3FMyb5wAAABl0RVh0Q29tbWVudABDcmVhdGVk
 IHdpdGggR0lNUFeBDhcAAAIpSURBVEjHrZaxjtpAEIY/CJLpTGU6667AnaWLBJ0liMQDkCe4HE9w
 V26VUC3dJU9A0rgmBaUVTnJJgeQOFzm5ClS4QMISRRob+Q7b+E5MN97d+fefGc+/FQpMSnkD3AI9
@@ -91,13 +103,16 @@ I6vXpqoqqqombqMWFyfXPM8jDEOCIMAwDNrtdpJvgiDIBHkFvq2VoZ8c0DTtCLBYLHJbWNd1fN8/
 eihzQ13XsSwr8+/PGv1CiG/HARkLzqhM/282G6IoKqMtnzP15AJasgV+JAzS3fViaibz5j1iFdfg
 uaz8PgL3b5Ddu6zghSAx0CDWmKKuexZCXJ+7ReXMa6URM7otAPtY9FI5C5LBrBtLay8jZU/ANAvw
 P1eQz4sZxzz5AAAAAElFTkSuQmCC
-</content></attachment><attachment>
-<filename>conversation-replies.png</filename>
-<filesize>417</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABwAAAATCAYAAACDW21BAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+</content>
+  </attachment>
+  <attachment>
+    <filename>conversation-replies.png</filename>
+    <filesize>417</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABwAAAATCAYAAACDW21BAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AsVDSsfSp+DhwAAABl0RVh0Q29tbWVudABDcmVhdGVk
 IHdpdGggR0lNUFeBDhcAAAEJSURBVEjH1ZWxbcMwEEWfkwUEZIGUKZUJ4gAaIN5AmsD1L11dKW9g
 ewOnSiVYniAaQSNoAiMNDRiKaNAMEyC/FE54/Me7T/hjzUKKzOwRKIEXYD5R0gEt8C6pjQY60MYD
@@ -105,13 +120,16 @@ ewOnSiVYniAaQSNoAiMNDRiKaNAMEyC/FE54/Me7T/hjzUKKzOwRKIEXYD5R0gEt8C6pjQY60MYD
 4K/JBxwSMoYQ4DYRrJPUhQBXwCmBsyqopZIG4MGlR4x64HXsLijazKwEluNpuwLaAWt36LgsvQiD
 2rMya2A35Sga6KCfE06/pUnMWviyNR8NxeIWWDDQtXMzWptnSfuk76HLwfO9dcAR2Evq+S/6ApeG
 Tv6c1oqLAAAAAElFTkSuQmCC
-</content></attachment><attachment>
-<filename>conversation-suggestion.png</filename>
-<filesize>762</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
+</content>
+  </attachment>
+  <attachment>
+    <filename>conversation-suggestion.png</filename>
+    <filesize>762</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABkAAAAYCAYAAAAPtVbGAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AsVCwIWc4jYegAAABl0RVh0Q29tbWVudABDcmVhdGVk
 IHdpdGggR0lNUFeBDhcAAAJiSURBVEjHrZYvbNtAFMZ/9SzlmI0Mow60zFIGzCylk8pCssKQrmxj
 KTzUFR1sh8LijRhvwLBaKhVECqnUooRUrRQpLGaJFDDis2zXsbNqj727d9/3/ty9d3tUiFKqBZwC
@@ -125,13 +143,16 @@ ZnFzMpm8isL3fVzX5eHhIY0WYDqdpheh+J5ms1mqm8BtVY+K45ibmxs6nU4K7jgOURSVEmjHoijS
 3bvOd2lIQoidWo1u/VLKb2nvSqK5rDqh777jOFtrUZgtn0rnyX+YJUvgu44ge7uycq77zVuGla7B
 ruP3Cuj/w9g9KwOvJEmIusBVVW8DnqSU7+u82Kv5rdhJRKcVZB+qfiq1JCWRtZPRelSSslvgVxnh
 X7Uy63bdCJ68AAAAAElFTkSuQmCC
-</content></attachment><attachment>
-<filename>forums.png</filename>
-<filesize>18907</filesize>
-<author>xwiki:XWiki.imaxim</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAABEwAAAEsCAYAAADZzSZHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+</content>
+  </attachment>
+  <attachment>
+    <filename>forums.png</filename>
+    <filesize>18907</filesize>
+    <author>xwiki:XWiki.imaxim</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAABEwAAAEsCAYAAADZzSZHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
 bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
 eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0
@@ -463,26 +484,32 @@ AACADwkTAAAAAAAAHxImAAAAAAAAPiRMAAAAAAAAfEiYAAAAAAAA+JAwAQAAAAAA8CFhAgAAAAAA
 4EPCBAAAAAAAwIeECQAAAAAAgA8JEwAAAAAAAB8SJgAAAAAAAD4kTAAAAAAAAHxImAAAAAAAAPiQ
 MAEAAAAAAPAhYQIAAAAAAOBDwgQAAAAAAMCHhAkAAAAAAIAPCRMAAAAAAAAfEiYAAAAAAAA+JEwA
 AAAAAAB8SJgAAAAAAAD4/L8AAwAAPI7XjNDaCgAAAABJRU5ErkJggg==
-</content></attachment><attachment>
-<filename>home.png</filename>
-<filesize>363</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABoAAAAVCAYAAABYHP4bAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+</content>
+  </attachment>
+  <attachment>
+    <filename>home.png</filename>
+    <filesize>363</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>iVBORw0KGgoAAAANSUhEUgAAABoAAAAVCAYAAABYHP4bAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAQ1JREFUeNq8lYENwiAQRYF0gK7gBh1BN9AN7ASmG8gEpukCbuAIdQM7
 QkfACfAugXgSwQMSL/khXMK9Hnc9lLVWRHS2b8N9B7qBZrd2ibMfmqZJNIJnHWgGtcS3Be1ACyeA
 YoIoZHVr6/zdr8OYFRfkIVfQxq1smJSSDfIQ7a5M58AwoyZRk1MAGUEPF9i4+qAdCexrzWIZhYX3
 EOrzgUduZqoAIkpgqhCSBaNdVwLJgqlKCBsmcZyQgNgxAwh9e5Fvd9d5F5INdmiP7X1I/KClNtBN
 zqwTJGNDZh3bckA9uf/YoK0eQUsAifmqp7eJ+J+cwznTu9r+AkrVaC2MaXIz0twnOvg4HavRS4AB
 AMK1qHqrcTmaAAAAAElFTkSuQmCC
-</content></attachment><attachment>
-<filename>mainbg.jpg</filename>
-<filesize>1457</filesize>
-<author>xwiki:XWiki.ldubost</author>
-<date>1376295137000</date>
-<version>1.3</version>
-<comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QMraHR0cDov
+</content>
+  </attachment>
+  <attachment>
+    <filename>mainbg.jpg</filename>
+    <filesize>1457</filesize>
+    <author>xwiki:XWiki.ldubost</author>
+    <date>1376295137000</date>
+    <version>1.3</version>
+    <comment/>
+    <content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QMraHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
 OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MSA2NC4xNDA5NDksIDIwMTAvMTIvMDctMTA6
@@ -508,88 +535,89 @@ f5MhsrB6CkmOYTRH/9oACAECAAEFAiFC3//aAAgBAwABBQKDf//aAAgBAgIGPwIb/9oACAEDAgY/
 Ahv/2gAIAQEBBj8CATMnTLNjtOJ4j5NhQA//2gAIAQEDAT8hf0jpZRiIH//aAAgBAgMBPyEFci//
 2gAIAQMDAT8hAsb/2gAMAwEAAhEDEQAAEAAAAAAABBW3AAAAAAAAP//aAAgBAQMBPxB/004UDLL/
 AP/aAAgBAgMBPxACy2F//9oACAEDAwE/EH7hUVQL/9k=
-</content></attachment>
-<object>
-<class>
-<name>XWiki.StyleSheetExtension</name>
-<customClass></customClass>
-<customMapping></customMapping>
-<defaultViewSheet></defaultViewSheet>
-<defaultEditSheet></defaultEditSheet>
-<defaultWeb></defaultWeb>
-<nameField></nameField>
-<validationScript></validationScript>
-<cache>
-<cache>0</cache>
-<disabled>0</disabled>
-<displayType>select</displayType>
-<multiSelect>0</multiSelect>
-<name>cache</name>
-<number>5</number>
-<prettyName>Caching policy</prettyName>
-<relationalStorage>0</relationalStorage>
-<separator> </separator>
-<separators> ,|</separators>
-<size>1</size>
-<unmodifiable>0</unmodifiable>
-<values>long|short|default|forbid</values>
-<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-</cache>
-<code>
-<disabled>0</disabled>
-<name>code</name>
-<number>2</number>
-<prettyName>Code</prettyName>
-<rows>20</rows>
-<size>50</size>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</code>
-<name>
-<disabled>0</disabled>
-<name>name</name>
-<number>1</number>
-<prettyName>Name</prettyName>
-<size>30</size>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-</name>
-<parse>
-<disabled>0</disabled>
-<displayFormType>select</displayFormType>
-<displayType>yesno</displayType>
-<name>parse</name>
-<number>4</number>
-<prettyName>Parse content</prettyName>
-<unmodifiable>0</unmodifiable>
-<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
-</parse>
-<use>
-<cache>0</cache>
-<disabled>0</disabled>
-<displayType>select</displayType>
-<multiSelect>0</multiSelect>
-<name>use</name>
-<number>3</number>
-<prettyName>Use this extension</prettyName>
-<relationalStorage>0</relationalStorage>
-<separator> </separator>
-<separators> ,|</separators>
-<size>1</size>
-<unmodifiable>0</unmodifiable>
-<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
-<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
-</use>
-</class>
-<name>ForumCode.StyleSheetExtension</name>
-<number>0</number>
-<className>XWiki.StyleSheetExtension</className>
-<guid>49003be7-ca24-4309-a9cd-6902f70629cf</guid>
-<property>
-<cache>long</cache>
-</property>
-<property>
-<code>#set($imageDoc = $xwiki.getDocument("ForumCode.StyleSheetExtension"))
+</content>
+  </attachment>
+  <object>
+    <class>
+      <name>XWiki.StyleSheetExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <name>ForumCode.StyleSheetExtension</name>
+    <number>0</number>
+    <className>XWiki.StyleSheetExtension</className>
+    <guid>49003be7-ca24-4309-a9cd-6902f70629cf</guid>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>#set($imageDoc = $xwiki.getDocument("ForumCode.StyleSheetExtension"))
 /*
 **************************************************
                 XWiki Forum Application
@@ -1803,13 +1831,17 @@ a.addconversation-activator:hover {
 #groups-discussions-main .addconversation-container { margin-right: 85px; }
 
 
-</code></property><property><name>Forum</name>
-</property>
-<property>
-<parse>1</parse>
-</property>
-<property>
-<use>onDemand</use>
-</property>
-</object>
-<content></content></xwikidoc>
+</code>
+    </property>
+    <property>
+      <name>Forum</name>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+  <content/>
+</xwikidoc>
