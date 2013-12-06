@@ -15,16 +15,13 @@
 <contentUpdateDate>1375308000000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
-<template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.1</syntaxId>
 <hidden>false</hidden>
-<content>{{include document="ForumCode.Macros" /}}
-{{include document="ForumCode.Variables" /}}
-{{velocity}}
+<content>{{include document="ForumCode.Macros" /}}{{include document="ForumCode.Variables" /}}{{velocity}}
   #if($context.action != 'view')
     {{edittitle errorkey="conversations.forum.titleError" /}}
     : $msg.get('conversations.forum.description')
@@ -46,14 +43,12 @@
     &lt;span id="forum-title" class="forum-title"&gt;
       &lt;h1&gt;$doc.displayTitle&lt;/h1&gt;
     &lt;/span&gt;
-    #if($doc.hasAccessLevel('edit') &amp;&amp; $doc.creator==$context.user)
-     &lt;span class="commenttool commentedit"&gt;&lt;a class="edit" href="$doc.getURL('edit')" title="$msg.get('conversations.forum.edit')"&gt;$msg.get('conversations.forum.edit')&lt;/a&gt;&lt;/span&gt;
-    #end
-    &lt;span id="forum-topic-nb" class="conversation-topic"&gt;$topics.size()&lt;/span&gt; 
   &lt;/div&gt;
 {{/html}}
-  &lt;div id="forum-description"&gt;$doc.display('description')&lt;/div&gt;
-{{html clean=false}}
+  &lt;div id="forum-description"&gt;$doc.display('description')
+   &lt;span id="forum-topic-nb" class="conversation-topic"&gt;$topics.size()&lt;/span&gt; 
+  &lt;/div&gt;
+ {{html clean=false}}
   &lt;div id="forum-buttons"&gt;
   &lt;label&gt;$msg.get("conversations.forum.sorttopicsby")&lt;/label&gt;
    #displayTopicSortButton("date")

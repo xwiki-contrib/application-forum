@@ -15,7 +15,6 @@
 <contentUpdateDate>1375308000000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
-<template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
@@ -72,6 +71,7 @@ conversation.add.activator=Answer
 conversation.delete.confirm=Delete conversation ?
 conversation.delete.confirm.withReplies=Delete this conversation and its comments ?
 conversation.delete.done=Conversation deleted
+conversation.delete.success=Conversation deleted
 conversation.delete.failed=The conversation could not be deleted
 conversation.delete.inProgress=Delete in progress ...
 conversation.edit=Edit

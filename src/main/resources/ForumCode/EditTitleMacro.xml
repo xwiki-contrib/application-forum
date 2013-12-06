@@ -15,7 +15,6 @@
 <contentUpdateDate>1375308000000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
-<template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
@@ -140,12 +139,11 @@
 <code>{{velocity}}
   #if($context.action != 'view')
     #set($titleErrorKey = "$!xcontext.macro.params.errorkey")
-
-    {{html}}
+{{html clean="false"}}
       &lt;!-- Validate form with Groovy --&gt;
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
-      &lt;input type="hidden" name="xvalidation" value="ConversationCode.ValidateForum" /&gt; 
-    {{/html}}
+      &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateForum" /&gt; 
+{{/html}}
     #set ($titleIsValid = !$context.validationStatus.errors.contains($titleErrorKey))
     ##
     (%class="field-mandatory"%)
@@ -179,7 +177,7 @@
 <name>Edit document title</name>
 </property>
 <property>
-<supportsInlineMode>0</supportsInlineMode>
+<supportsInlineMode>1</supportsInlineMode>
 </property>
 <property>
 <visibility>Current Wiki</visibility>

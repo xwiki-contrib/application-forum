@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>ForumCode</web>
+<name>Translations</name>
+<language>fr</language>
+<defaultLanguage></defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+<creationDate>1375308000000</creationDate>
+<date>1375308000000</date>
+<contentUpdateDate>1375308000000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<content>ForumCode.TopicClass_title=Titre
+ForumCode.TopicClass_type=Type
+ForumCode.TopicClass_type_question=Question
+ForumCode.TopicClass_type_suggestion=Suggestion
+ForumCode.TopicClass_type_alert=Alerte
+ForumCode.TopicClass_type_feedback=Réactions
+ForumCode.TopicClass_status=Statut
+ForumCode.TopicClass_status_inprogress=En cours
+ForumCode.TopicClass_status_closed=Fermé
+ForumCode.TopicClass_status_integrated=Intégré
+conversations.title=Conversation
+conversation.add.activator=Répondre
+conversation.delete.confirm=Supprimer la conversation ?
+conversation.delete.confirm.withReplies=Supprimer cette conversation et ses commentaires ?
+conversation.delete.done=Conversation supprimée
+conversation.delete.success=Conversation supprimée
+conversation.delete.failed=La conversation ne peut pas être supprimée
+conversation.delete.inProgress=Suppression en cours...
+conversation.edit=Éditer
+conversation.edit.failed=Le formulaire utilisé pour créer la conversation ne peut pas être affiché
+conversation.delete=Supprimer
+conversation.delete.title=Supprimer cette conversation
+conversation.edit.title=Modifier les paramètres de cette conversation
+conversation.empty=Pas de commentaire
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.like.button=Votes
+conversation.like.button.tooltip=Voter pour cette conversation
+conversation.like.button.alreadyliked.tooltip=Vous avez déjà voté
+conversation.like.score.tooltip={0} utilisateur(s) ont trouvé cette conversation intéressante 
+conversation.like.failed=Le vote n'a pas pu être pris en compte :
+conversation.like.done=Votre vote a été pris en compte.
+conversation.like.loading=Sauvegarde du vote...
+conversation.permalink.tooltip=Lien permanent
+conversation.permalink=Lien permanent
+conversations.doc.title=Titre
+conversations.doc.date=Date
+conversations.doc.creator=Créateur
+rating.saveexception=Une erreur est survenue pendant la sauvegarde de votre vote
+rating.votenotvalid=Le vote n'est pas valide
+rating.voteoutofbounds=Le vote n'est pas valide
+conversations.forum.create=Nouveau forum
+conversations.forum.create.alreadyexists=Le forum suivant existe déjà : [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Créer
+conversations.forum.sorttopicsby=Trier les topics par
+conversations.forum.sorttopicsby.date=Date
+conversations.forum.sorttopicsby.votes=Votes
+conversations.forum.sorttopicsby.comments=Commentaires
+conversations.forum.titleError=Le titre ne doit pas dépasser 250 caractères
+conversations.forum.title=Titre
+conversations.forum.description=Description
+conversations.forum.edit=Modifier le topic
+conversations.forum.delete=Supprimer le topic
+conversations.forum.more=Voir {0} plus
+conversations.topic.create=Nouveau topic
+conversations.topic.create.submit=Créer
+conversations.topic.add.activator=Nouveau topic
+conversations.create.error.topic.norights=Vous n'avez pas les droits de créer un nouveau topic
+conversations.create.error.answer.norights=Vous n'avez pas les droits de créer une nouvelle réponse
+conversations.create.error.missingmetadata=Une raison technique a empêché la création
+conversations.create.error.missingtitle=Titre manquant
+conversations.deleteconversation.changecomment=Conversation supprimée
+conversations.deletecomment.changecomment=Commentaire supprimé
+conversations.deletecomment.error.nomailsent=L'email informant la suppression de la conversation n'a pas pu être envoyé 
+conversations.deletecomment.success=L'email informant la suppression d'un commentaire a été envoyé
+conversations.deletecomment.error.norights=Vous n'avez pas les droits de supprimer ce commentaire
+conversations.deletecomment.error.notfound=Commentaire non trouvé
+conversations.deleteconversation.error.nomailsent=L'email informant la suppression de la réponse n'a pas pu être envoyé
+conversations.deleteconversation.success=L'email informant que la suppression de la réponse a été envoyé
+conversations.deleteconversation.error.norights=Vous n'avez pas les droits de supprimer la réponse
+conversations.deleteconversation.error.notfound=Réponse non trouvée
+core.viewers.comments.delete.failed=Le commentaire n'a pas pu être supprimé
+ForumCode.AnswerClass_answer=Réponse
+ForumCode.TopicClass_description=Description
+
+## FLAG DIALOG
+conversations.flag.edit=Éditer
+conversations.flag.button=Flag
+conversations.flag.viewsource=View Flag Source
+conversations.flag.dialog.header=Flag a Comment
+conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
+conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
+conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
+conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
+conversations.flag.dialog.cancel.btt=Cancel
+conversations.flag.dialog.submit.btt=Submit
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+ForumCode.FlagClass_reason_=Selectionnez
+ForumCode.FlagClass_reason_1=promotes hate or violence
+ForumCode.FlagClass_reason_2=displays pornography
+ForumCode.FlagClass_reason_3=is empty or blank
+ForumCode.FlagClass_reason_4=is obviously commercial in nature, without clear educational relevance
+ForumCode.FlagClass_reason_5=is broken or has a virus
+ForumCode.FlagClass_reason_6=appears to be nonsensical
+ForumCode.FlagClass_reason_7=is objectionable for another reason
+## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=Discussion Flagged
+conversations.flag.success.dialog.message=You have successfully flagged this comment.
+conversations.flag.success.dialog.button=Close
+## FLAG livetable
+conversations.flag.reason=Reason
+conversations.flag.user=User
+conversations.flag.doc.creationDate=Date
+conversations.flag.message=Message
+conversations.flag.moderator=Moderator
+conversations.flag.status=Status
+conversations.flag.target=Target
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=Flag List
+conversations.flag.list.instructions=This is the list of flagged items
+conversations.flag.success.dialog.goback=Return to discussion
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=Discussion Topics
+discussion.panel.sortby=Sort By:
+discussion.panel.dates=Dates
+discussion.panel.votes=Votes
+discussion.panel.comments=Comments
+discussion.panel.topics=Topics##
+
+## rights
+conversation.groups.norights=Vous devez être membre de ce groupe pour participer à la discussion. Merci de contacter votre administrateur.
+conversation.norights=Vous n'avez pas les droits de participer à cette discussion
+
+## answer edit sheet
+conversations.answer.edit=Editer la réponse
+conversations.answer=Répondre</content></xwikidoc>

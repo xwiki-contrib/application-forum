@@ -15,7 +15,6 @@
 <contentUpdateDate>1375308000000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
-<template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
@@ -24,21 +23,20 @@
 <hidden>false</hidden>
 <content>{{velocity output=false}}
 ## make sure we have all these extensions
-$xwiki.jsx.use('XWiki.Ratings', { 'minify' : false })
-$xwiki.ssx.use('XWiki.Ratings')
-$xwiki.ssfx.use('uicomponents/viewers/comments.css', true)
-$xwiki.jsfx.use('uicomponents/widgets/notification.js', {'forceSkinAction' : true, 'defer' : false})
-$xwiki.ssfx.use('uicomponents/widgets/notification.css', true)
-$xwiki.jsfx.use('js/xwiki/widgets/modalPopup.js', {'forceSkinAction' : true, 'defer' : false})
-$xwiki.ssfx.use('js/xwiki/widgets/modalPopup.css', true)
-$xwiki.jsfx.use('uicomponents/widgets/confirmationBox.js', {'forceSkinAction' : true, 'defer' : false})
-$xwiki.ssfx.use('uicomponents/widgets/confirmationBox.css', true)
-$xwiki.jsfx.use('uicomponents/widgets/confirmedAjaxRequest.js', {'forceSkinAction' : true, 'defer' : false})
-$xwiki.jsfx.use('uicomponents/widgets/fullScreen.js', {'forceSkinAction' : true, 'defer' : false})
-$xwiki.ssfx.use('uicomponents/widgets/fullScreen.css', true)
-$xwiki.jsx.use('ForumCode.JavascriptExtension', {'forceSkinAction' : true, 'defer' : false})
-$xwiki.ssx.use('ForumCode.StyleSheetExtension')
-
+$xwiki.jsx.use('XWiki.Ratings', { 'minify' : false }) ##
+$xwiki.ssx.use('XWiki.Ratings') ##
+$xwiki.ssfx.use('uicomponents/viewers/comments.css', true) ##
+$xwiki.jsfx.use('uicomponents/widgets/notification.js', {'forceSkinAction' : true, 'defer' : false}) ##
+$xwiki.ssfx.use('uicomponents/widgets/notification.css', true) ##
+$xwiki.jsfx.use('js/xwiki/widgets/modalPopup.js', {'forceSkinAction' : true, 'defer' : false}) ##
+$xwiki.ssfx.use('js/xwiki/widgets/modalPopup.css', true) ##
+$xwiki.jsfx.use('uicomponents/widgets/confirmationBox.js', {'forceSkinAction' : true, 'defer' : false}) ##
+$xwiki.ssfx.use('uicomponents/widgets/confirmationBox.css', true) ##
+$xwiki.jsfx.use('uicomponents/widgets/confirmedAjaxRequest.js', {'forceSkinAction' : true, 'defer' : false}) ##
+$xwiki.jsfx.use('uicomponents/widgets/fullScreen.js', {'forceSkinAction' : true, 'defer' : false}) ##
+$xwiki.ssfx.use('uicomponents/widgets/fullScreen.css', true) ##
+$xwiki.jsx.use('ForumCode.JavascriptExtension', {'forceSkinAction' : true, 'defer' : false}) ##
+$xwiki.ssx.use('ForumCode.StyleSheetExtension') ##
 #**
   * Display the avatar of a user with maximum width and height
   * keeping the aspect ratio.
@@ -507,7 +505,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
    #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}", $nb, $start, [ $doc.fullName ]))
   #elseif($request.sortfield=="comments")
    ## sort by comments - requires programming rights
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by 1 order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $doc.fullName ]))
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by doc.fullName order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $doc.fullName ]))
   #else
    ## sort by last update date
    #set($topics = $xwiki.searchDocuments(", BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ? order by doc.date $!{currentorder}", $nb, $start, [$doc.fullName, 'ForumCode.TopicClass']))
@@ -811,7 +809,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($nextcommentsorder = "asc")
    #end
    ## sort by comments - requires programming rights
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by 1 order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $forumDocName ]))
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by doc.fullName order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $forumDocName ]))
   #else
     #if($request.sortorder=="asc")
     #set($currentorder = "asc")    
