@@ -32,7 +32,7 @@
   <groupId>org.xwiki.contrib.forum</groupId>
   <artifactId>application-forum</artifactId>
   <packaging>xar</packaging>
-  <name>XWiki Platform - Forum</name>
+  <name>XWiki Contrib - Forum</name>
   <version>1.0-SNAPSHOT</version>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <developers>
