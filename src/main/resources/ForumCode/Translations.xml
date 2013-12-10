@@ -81,6 +81,7 @@ conversation.delete=Delete
 conversation.delete.title=Delete this conversation
 conversation.edit.title=Modify the parameters of this conversation
 conversation.empty=No comment
+conversation.forum.delete.title=Delete Topic
 conversation.updatedate={0}
 conversation.creationdate={1}
 conversation.like.button=Votes
