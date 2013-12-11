@@ -658,6 +658,9 @@ viewers.Comments = Class.create({
       return;
     }
     conversationEdit.observe('click', function(event){
+      // for now we use non javascript editing for this one
+      return;
+  
       event.stop();
       // check if a form exists already and if it has something in it
       var existingForm = this.conversation.down('.conversation-editformcontainer form');
