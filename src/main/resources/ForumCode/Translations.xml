@@ -185,6 +185,9 @@ discussion.panel.topics=Topics##
 conversation.groups.norights=You must be a member of this group to participate to this discussion. Please contact the group admin.
 conversation.norights=You do not have rights to participate in this discussion.##
 
-## answer edit sheet
+## answer edit sheet ##
 conversations.answer.edit=Answer to topic {0}
-conversations.answer=Answer##</content></xwikidoc>
+conversations.answer=Answer
+
+## applications panel entry ##
+forum.applicationsPanelEntryLabel=Forums</content></xwikidoc>

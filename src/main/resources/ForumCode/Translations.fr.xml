@@ -152,4 +152,7 @@ conversation.norights=Vous n'avez pas les droits de participer à cette discussi
 
 ## answer edit sheet
 conversations.answer.edit=Réponse au topic {0}
-conversations.answer=Répondre</content></xwikidoc>
+conversations.answer=Répondre
+
+## applications panel entry ##
+forum.applicationsPanelEntryLabel=Forums</content></xwikidoc>
