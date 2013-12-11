@@ -32,7 +32,7 @@
   <groupId>org.xwiki.contrib.forum</groupId>
   <artifactId>application-forum</artifactId>
   <packaging>xar</packaging>
-  <name>XWiki Contrib - Forum</name>
+  <name>Forum Application</name>
   <version>1.1-SNAPSHOT</version>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <developers>
@@ -62,6 +62,9 @@
       <organization>Opcalia</organization>
     </developer>
   </developers>
+  <properties>
+    <xwiki.extension.name>Forum Application</xwiki.extension.name>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.xwiki.contrib.ratings</groupId>
