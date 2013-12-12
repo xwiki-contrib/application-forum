@@ -147,7 +147,7 @@
     #set ($titleIsValid = !$context.validationStatus.errors.contains($titleErrorKey))
     ##
     (%class="field-mandatory"%)
-      ; $msg.get('conversations.forum.title') {{html}}&lt;span class="mandatoryParenthesis"&gt;&amp;nbsp;(&lt;/span&gt;&lt;span class="mandatoryDot"&gt;?&lt;/span&gt;&lt;span class="mandatoryParenthesis"&gt;)&amp;nbsp;&lt;/span&gt;{{/html}}
+      ; $msg.get('conversations.forum.title')
       : (((
       #if (!$titleIsValid)
         {{error}}$msg.get($titleErrorKey){{/error}}

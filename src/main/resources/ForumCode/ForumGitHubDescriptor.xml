@@ -1,293 +1,289 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xwikidoc>
-  <web>ForumCode</web>
-  <name>ForumGitHubDescriptor</name>
-  <language/>
-  <defaultLanguage/>
-  <translation>0</translation>
-  <parent>GitHub.WebHome</parent>
-  <creator>xwiki:XWiki.Admin</creator>
-  <author>xwiki:XWiki.Admin</author>
-  <customClass/>
-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1375308000000</creationDate>
-  <date>1375308000000</date>
-  <contentUpdateDate>1375308000000</contentUpdateDate>
-  <version>1.1</version>
-  <title>ForumGitHubDescriptor</title>
-  <template/>
-  <defaultTemplate/>
-  <validationScript/>
-  <comment/>
-  <minorEdit>false</minorEdit>
-  <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>true</hidden>
-  <object>
-    <class>
-      <name>GitHubCode.GitHubConfigClass</name>
-      <customClass/>
-      <customMapping/>
-      <defaultViewSheet/>
-      <defaultEditSheet/>
-      <defaultWeb/>
-      <nameField/>
-      <validationScript/>
-      <defaultdate>
-        <customDisplay/>
-        <dateFormat>dd/MM/yyyy</dateFormat>
-        <disabled>0</disabled>
-        <emptyIsToday>0</emptyIsToday>
-        <name>defaultdate</name>
-        <number>11</number>
-        <picker>1</picker>
-        <prettyName>defaultdate</prettyName>
-        <size>20</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.DateClass</classType>
-      </defaultdate>
-      <defaultspace>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>defaultspace</name>
-        <number>9</number>
-        <picker>0</picker>
-        <prettyName>defaultspace</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </defaultspace>
-      <defaultuser>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>defaultuser</name>
-        <number>12</number>
-        <picker>0</picker>
-        <prettyName>defaultuser</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </defaultuser>
-      <description>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <editor>Text</editor>
-        <name>description</name>
-        <number>3</number>
-        <picker>0</picker>
-        <prettyName>description</prettyName>
-        <rows>5</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </description>
-      <name>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>name</name>
-        <number>1</number>
-        <picker>0</picker>
-        <prettyName>name</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </name>
-      <password>
-        <algorithm/>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>password</name>
-        <number>8</number>
-        <picker>0</picker>
-        <prettyName>password</prettyName>
-        <size>30</size>
-        <storageType>Clear</storageType>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.PasswordClass</classType>
-      </password>
-      <repository_name>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>repository_name</name>
-        <number>5</number>
-        <picker>0</picker>
-        <prettyName>repository name</prettyName>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </repository_name>
-      <repository_path>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>repository_path</name>
-        <number>6</number>
-        <picker>0</picker>
-        <prettyName>repository path</prettyName>
-        <size>80</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </repository_path>
-      <repository_user>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>repository_user</name>
-        <number>4</number>
-        <picker>0</picker>
-        <prettyName>repository user</prettyName>
-        <size>80</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </repository_user>
-      <savedlist>
-        <cache>0</cache>
-        <classname>XWiki.SavedListClass</classname>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <displayType>input</displayType>
-        <idField>doc.fullName</idField>
-        <multiSelect>0</multiSelect>
-        <name>savedlist</name>
-        <number>10</number>
-        <picker>0</picker>
-        <prettyName>savedlist</prettyName>
-        <relationalStorage>0</relationalStorage>
-        <separator> </separator>
-        <separators/>
-        <size>40</size>
-        <sort>value</sort>
-        <sql/>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <valueField>doc.title</valueField>
-        <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
-      </savedlist>
-      <status>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <editor>Text</editor>
-        <name>status</name>
-        <number>13</number>
-        <picker>0</picker>
-        <prettyName>status</prettyName>
-        <rows>5</rows>
-        <size>40</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </status>
-      <username>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>username</name>
-        <number>7</number>
-        <picker>0</picker>
-        <prettyName>username</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </username>
-      <version>
-        <customDisplay/>
-        <disabled>0</disabled>
-        <name>version</name>
-        <number>2</number>
-        <picker>0</picker>
-        <prettyName>version</prettyName>
-        <size>30</size>
-        <unmodifiable>0</unmodifiable>
-        <validationMessage/>
-        <validationRegExp/>
-        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-      </version>
-    </class>
-    <name>ForumCode.ForumGitHubDescriptor</name>
-    <number>0</number>
-    <className>GitHubCode.GitHubConfigClass</className>
-    <guid>a7ade3e4-a71a-4b70-9fce-c7dee85405db</guid>
-    <property>
-      <defaultdate>2013-08-01 00:00:00.0</defaultdate>
-    </property>
-    <property>
-      <defaultspace>ForumCode,Forums</defaultspace>
-    </property>
-    <property>
-      <defaultuser>xwiki:XWiki.Admin</defaultuser>
-    </property>
-    <property>
-      <description>New Forum Application</description>
-    </property>
-    <property>
-      <name>application-forum2</name>
-    </property>
-    <property>
-      <repository_name>application-forum2</repository_name>
-    </property>
-    <property>
-      <repository_path/>
-    </property>
-    <property>
-      <repository_user>xwikisas</repository_user>
-    </property>
-    <property>
-      <savedlist/>
-    </property>
-    <property>
-      <status>ForumCode/AnswerSheet;4.1;;
-ForumCode/ForumSheet;3.3;;
-ForumCode/MostActiveTopicsPanel;2.2;;
-ForumCode/ForumsHomePage;3.1;;
-ForumCode/JavascriptExtension;4.1;;
-ForumCode/FlagClass;2.1;;
-ForumCode/ForumTemplate;4.1;;
-ForumCode/NewFlagSheet;5.1;;
-ForumCode/ValidateForum;2.1;;
-ForumCode/FlagSheet;4.1;;
-ForumCode/Macros;8.11;;
-ForumCode/FlagTemplate;5.1;;
-ForumCode/StyleSheetExtension;14.7;;
-ForumCode/MostActiveTopics;4.1;;
-ForumCode/EditTitleMacro;2.1;;
-ForumCode/TopicClass;2.3;;
-Forums/WebHome;2.1;;
-ForumCode/MailTemplateFlag;2.2;;
-ForumCode/ForumClass;2.1;;
-ForumCode/Translations;6.2;;
-ForumCode/TopicTemplate;4.1;;
-ForumCode/FlagsHome;3.1;;
-ForumCode/Actions;3.1;;
-ForumCode/Styles;4.1;;
-ForumCode/TopicSheet;3.1;;
-ForumCode/AnswerTemplate;3.1;;
-ForumCode/Variables;1.1;;
-ForumCode/AnswerClass;2.1;;
-ForumCode/ForumGitHubDescriptor;3.1;;
+<web>ForumCode</web>
+<name>ForumGitHubDescriptor</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>GitHub.WebHome</parent>
+<creator>xwiki:XWiki.Admin</creator>
+<author>xwiki:XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+<creationDate>1375308000000</creationDate>
+<date>1375308000000</date>
+<contentUpdateDate>1375308000000</contentUpdateDate>
+<version>1.1</version>
+<title>ForumGitHubDescriptor</title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>true</hidden>
+<object>
+<class>
+<name>GitHubCode.GitHubConfigClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<defaultdate>
+<customDisplay></customDisplay>
+<dateFormat>dd/MM/yyyy</dateFormat>
+<disabled>0</disabled>
+<emptyIsToday>0</emptyIsToday>
+<name>defaultdate</name>
+<number>11</number>
+<picker>1</picker>
+<prettyName>defaultdate</prettyName>
+<size>20</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.DateClass</classType>
+</defaultdate>
+<defaultspace>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>defaultspace</name>
+<number>9</number>
+<picker>0</picker>
+<prettyName>defaultspace</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</defaultspace>
+<defaultuser>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>defaultuser</name>
+<number>12</number>
+<picker>0</picker>
+<prettyName>defaultuser</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</defaultuser>
+<description>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>description</name>
+<number>3</number>
+<picker>0</picker>
+<prettyName>description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
+<name>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<picker>0</picker>
+<prettyName>name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<password>
+<algorithm></algorithm>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>password</name>
+<number>8</number>
+<picker>0</picker>
+<prettyName>password</prettyName>
+<size>30</size>
+<storageType>Clear</storageType>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.PasswordClass</classType>
+</password>
+<repository_name>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>repository_name</name>
+<number>5</number>
+<picker>0</picker>
+<prettyName>repository name</prettyName>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</repository_name>
+<repository_path>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>repository_path</name>
+<number>6</number>
+<picker>0</picker>
+<prettyName>repository path</prettyName>
+<size>80</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</repository_path>
+<repository_user>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>repository_user</name>
+<number>4</number>
+<picker>0</picker>
+<prettyName>repository user</prettyName>
+<size>80</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</repository_user>
+<savedlist>
+<cache>0</cache>
+<classname>XWiki.SavedListClass</classname>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>input</displayType>
+<idField>doc.fullName</idField>
+<multiSelect>0</multiSelect>
+<name>savedlist</name>
+<number>10</number>
+<picker>0</picker>
+<prettyName>savedlist</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>40</size>
+<sort>value</sort>
+<sql></sql>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<valueField>doc.title</valueField>
+<classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
+</savedlist>
+<status>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>status</name>
+<number>13</number>
+<picker>0</picker>
+<prettyName>status</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </status>
-    </property>
-    <property>
-      <version>2.0</version>
-    </property>
-  </object>
-  <content>{{include document="GitHubCode.GitHubConfigSheet" /}}</content>
-</xwikidoc>
+<username>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>username</name>
+<number>7</number>
+<picker>0</picker>
+<prettyName>username</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</username>
+<version>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>version</name>
+<number>2</number>
+<picker>0</picker>
+<prettyName>version</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</version>
+</class>
+<name>ForumCode.ForumGitHubDescriptor</name>
+<number>0</number>
+<className>GitHubCode.GitHubConfigClass</className>
+<guid>a7ade3e4-a71a-4b70-9fce-c7dee85405db</guid>
+<property>
+<defaultdate>2013-08-01 00:00:00.0</defaultdate>
+</property>
+<property>
+<defaultspace>ForumCode,Forums</defaultspace>
+</property>
+<property>
+<defaultuser>xwiki:XWiki.Admin</defaultuser>
+</property>
+<property>
+<description>New Forum Application</description>
+</property>
+<property>
+<name>application-forum2</name>
+</property>
+<property>
+<repository_name>application-forum2</repository_name>
+</property>
+<property>
+<repository_path></repository_path>
+</property>
+<property>
+<repository_user>xwiki-contrib</repository_user>
+</property>
+<property>
+<savedlist></savedlist>
+</property>
+<property>
+<status>ForumCode/AnswerSheet;1.1;-627959222;0
+ForumCode/ForumSheet;1.1;1889894838;0
+ForumCode/MostActiveTopicsPanel;1.1;-1533311040;0
+ForumCode/FlagClass;1.1;-1579844606;0
+ForumCode/ForumTemplate;1.1;-289573063;0
+ForumCode/ForumsHomePage;1.1;-900265881;0
+ForumCode/JavascriptExtension;1.1;-39258475;0
+ForumCode/NewFlagSheet;1.1;-260135816;0
+ForumCode/ValidateForum;1.1;-2092303860;0
+ForumCode/FlagSheet;1.1;-2024143184;0
+ForumCode/Macros;1.1;-484413864;0
+ForumCode/FlagTemplate;1.1;-1687839443;0
+ForumCode/StyleSheetExtension;2.1;1306786113;0
+ForumCode/ApplicationsPanelEntry;1.1;-1120805823;0
+ForumCode/MostActiveTopics;1.1;1211724593;0
+ForumCode/EditTitleMacro;1.2;;
+ForumCode/Translations.fr;1.1;1206935626;0
+ForumCode/TopicClass;1.1;-697574640;0
+Forums/WebHome;1.1;1618775096;0
+ForumCode/MailTemplateFlag;1.1;262600525;0
+ForumCode/ForumClass;1.1;1992750291;0
+ForumCode/Translations;1.1;-1059493016;0
+ForumCode/TopicTemplate;1.1;1319895347;0
+ForumCode/FlagsHome;1.1;1244743309;0
+ForumCode/Actions;1.1;2081022537;0
+ForumCode/Styles;2.1;-1939652676;0
+ForumCode/TopicSheet;1.1;-106773584;0
+ForumCode/AnswerTemplate;1.1;-332383882;0
+ForumCode/Variables;1.1;262893922;0
+ForumCode/AnswerClass;1.1;-443258265;0
+ForumCode/ForumGitHubDescriptor;4.1;;
+</status></property><property><version>2.0</version>
+</property>
+</object>
+<content>{{include document="GitHubCode.GitHubConfigSheet" /}}</content></xwikidoc>
