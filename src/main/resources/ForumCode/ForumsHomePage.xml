@@ -22,7 +22,8 @@
 <syntaxId>xwiki/2.1</syntaxId>
 <hidden>true</hidden>
 <content>{{velocity}}
-#if("$!request.forumName" != '')
+## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
+#if("$!request.forumName" != '' &amp;&amp; $hasEdit)
   #set($newForumDocName = "Forums_${request.forumName}.WebHome")
   #if($newForumDocName.length &gt; 230)
     #set($newForumDocName = $newForumDocName.substring(0, 230))
@@ -36,15 +37,18 @@
 
 #else
 
-  {{html clean="false"}}
-    &lt;div class="forum-create-metadata"&gt;
-      $msg.get('conversations.forum.create') ## should be used as tip for forumName input
-      &lt;form action="" method="post"&gt;        
-        &lt;input type="text" name="forumName"  value="" /&gt;
-        &lt;input type="submit" class="button" value="$msg.get('conversations.forum.create.submit')" /&gt;
-      &lt;/form&gt;
-    &lt;/div&gt;
-  {{/html}}
+  ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
+  #if ($hasEdit)
+    {{html clean="false"}}
+      &lt;div class="forum-create-metadata"&gt;
+        $msg.get('conversations.forum.create') ## should be used as tip for forumName input
+        &lt;form action="" method="post"&gt;        
+          &lt;input type="text" name="forumName"  value="" /&gt;
+          &lt;input type="submit" class="button" value="$msg.get('conversations.forum.create.submit')" /&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    {{/html}}
+  #end
 
   #set($columns = ['doc.title', 'doc.date', 'doc.creator'])
   #set($columnsProperties = {
