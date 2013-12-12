@@ -1455,9 +1455,8 @@ Discussion Topics
   text-align: center;
   color: #AAA;
   font-size: 10px;
-  border: 1px solid #DDDDDD;
-  border-radius: 4px;
   font-weight: bold;
+  padding-top: 5px;
 }
 #discussionTopics h3 {
   background: #DDDDDD;
@@ -1473,7 +1472,7 @@ Discussion Topics
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-#discussionTopics &gt; a { padding: 10px 4px !important; }
+#discussionTopics &gt; a { padding: 3px !important; }
 .tableScroll {}
 #discussionTopicsTable {
   text-transform: none;
@@ -1499,7 +1498,7 @@ Discussion Topics
 #discussionTopicsTable th { text-align: center !important; background: white; }
 #discussionTopicsTable th.topics { 
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -895px -46px !important;
-  width: 70%; 
+  width: 65%; 
   text-align: left !important;
   padding-left: 30px !important;
   text-transform: uppercase;
@@ -1511,7 +1510,7 @@ Discussion Topics
 }
 #discussionTopicsTable th.comments { 
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -592px 4px !important;
-  width: 15%; 
+  width: 20%; 
   font-size: 0;
 }
 
@@ -1523,12 +1522,12 @@ Discussion Topics
 /* Custom Sorting */
 #discussionTopics &gt; a.desc {
   background: url("icons/black-arrow-ab.png") no-repeat scroll right center transparent;
-  padding: 10px 20px 10px 10px !important;
+  padding: 3px !important;
 }
 
 #discussionTopics &gt; a.asc { 
   background: url("img/black-arrow-ba.png") no-repeat scroll right center transparent; 
-  padding: 10px 20px 10px 10px !important;
+  padding: 3px !important;
 }
 
 /*
@@ -1806,6 +1805,11 @@ a.addconversation-activator:hover {
 .edit-xcomment input[type="button"] {
     display: none;
 }
+
+.MostActiveTopicsPanel .xwikipanelcontents {
+  padding: 1px;
+}
+
 </code></property><property><name>Forum</name>
 </property>
 <property>

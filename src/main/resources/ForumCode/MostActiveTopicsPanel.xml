@@ -103,7 +103,11 @@
 <category>Navigation</category>
 </property>
 <property>
-<content>{{include document="ForumCode.MostActiveTopics" context="new" /}}</content>
+<content>{{velocity}}
+#panelheader($msg.get("discussion.panel.title"))
+{{include document="ForumCode.MostActiveTopics" context="new" /}}
+#panelfooter()
+{{/velocity}}</content>
 </property>
 <property>
 <description></description>

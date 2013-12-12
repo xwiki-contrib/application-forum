@@ -792,7 +792,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($sparent = "doc.parent='${forumDocName}' and ")
     #set($params = [ $forumDocName ])
    #end
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $!sparent obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes' order by nbvotes.value $!{currentorder}", $nb, $start, $params))
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $!sparent doc.space&lt;&gt;'ForumCode' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes' order by nbvotes.value $!{currentorder}", $nb, $start, $params))
   #elseif($request.sortfield=="comments")
     #if($request.sortorder=="asc")
     #set($currentorder = "asc")    
@@ -802,7 +802,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($nextcommentsorder = "asc")
    #end
    ## sort by comments - requires programming rights
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where $!sparent obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by doc.fullName order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, $params))
+   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where $!sparent doc.space&lt;&gt;'ForumCode' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by doc.fullName order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, $params))
   #else
     #if($request.sortorder=="asc")
     #set($currentorder = "asc")    
@@ -812,7 +812,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($nextdatesorder = "asc")
    #end
    ## sort by last update date
-   #set($hql = ", BaseObject as obj where $!sparent obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass' order by doc.date $!{currentorder}")
+   #set($hql = ", BaseObject as obj where $!sparent doc.space&lt;&gt;'ForumCode' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass' order by doc.date $!{currentorder}")
    #set($topics = $xwiki.searchDocuments($hql, $nb, $start, $params))
   #end
   #set($commentsurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=comments&amp;sortorder=${nextcommentsorder}"))
@@ -822,8 +822,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   &lt;!-- Discussions Sidebar Block --&gt;
   &lt;div id="discussionTopics"&gt;
   #end
-	&lt;h3&gt;$msg.get("discussion.panel.title")&lt;/h3&gt;
-	$msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
+$msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
 	         &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
 	         &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
 	&lt;div class="tableScroll"&gt;
@@ -861,7 +860,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #end
   		    &lt;tr class="${topicodd}"&gt;
 				&lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$topicTitle&lt;/a&gt;&lt;/td&gt;
-				&lt;td class="votes"&gt;${rating}&lt;/td&gt;
+				&lt;td class="votes"&gt;$!{rating}&lt;/td&gt;
 				&lt;td class="comments"&gt;${nbCommentsAnswers}&lt;/td&gt;
 			&lt;/tr&gt;
   #end

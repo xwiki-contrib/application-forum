@@ -174,12 +174,12 @@ conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
 ## most active discussions
-discussion.panel.title=Discussion Topics
+discussion.panel.title=Most Active Topics
 discussion.panel.sortby=Sort By:
 discussion.panel.dates=Dates
 discussion.panel.votes=Votes
 discussion.panel.comments=Comments
-discussion.panel.topics=Topics##
+discussion.panel.topics=Topics
 
 ## rights
 conversation.groups.norights=You must be a member of this group to participate to this discussion. Please contact the group admin.
