@@ -57,7 +57,7 @@ $xwiki.ssx.use('ForumCode.StyleSheetExtension') ##
    #set($attach = $userdoc.getAttachment("${current_avatar}").attachment)
 
      #set($src=$userdoc.getAttachmentURL($current_avatar,"download"))##
-    &lt;a href="$userdoc.getURL("view")" title="$xwiki.curriki.escapeForJS($assetAuthorDisplayName)" class="photo"&gt;
+    &lt;a href="$userdoc.getURL("view")" title="$escapetool.xml($assetAuthorDisplayName)" class="photo"&gt;
       #if("$!width"=="" &amp;&amp; "$!height"=="")##
          &lt;img src="$src" class="photo"/&gt;##
       #elseif("$!width"=="")##
@@ -70,7 +70,7 @@ $xwiki.ssx.use('ForumCode.StyleSheetExtension') ##
     &lt;/a&gt;
 #else ## } {
   #set($src=$xwiki.getSkinFile("noavatar.png"))##
-  &lt;a href="/xwiki/bin/view/MyCurriki/Profile?user=$userdoc" title="$xwiki.curriki.escapeForJS($assetAuthorDisplayName)"&gt;
+  &lt;a href="/xwiki/bin/view/MyCurriki/Profile?user=$userdoc" title="$escapetool.xml($assetAuthorDisplayName)"&gt;
  #if("$!width"=="" &amp;&amp; "$!height"=="")##
      &lt;img src="$src" class="photo"/&gt;
  #elseif("$!width"=="")##
