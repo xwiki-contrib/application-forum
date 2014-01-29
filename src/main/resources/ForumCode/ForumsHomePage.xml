@@ -36,9 +36,9 @@
     #*
 	* Add encode uri to handle special chars in the title
 	*#
-    #set ($forumTitle = $util.encodeURI("${request.forumName}"))
+    #set ($forumTitle = $escapetool.url("${request.forumName}"))
     ##
-    $response.sendRedirect($newForumDoc.getURL('edit', "title=${request.forumName}&amp;parent=Forums.WebHome&amp;template=ForumCode.ForumTemplate"))
+    $response.sendRedirect($newForumDoc.getURL('edit', "title=${forumTitle}&amp;parent=Forums.WebHome&amp;template=ForumCode.ForumTemplate"))
   #end
 
 #else
