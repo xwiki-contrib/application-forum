@@ -56,10 +56,11 @@
     {{/html}}
   #end
 
-  #set($columns = ['doc.title', 'doc.date', 'doc.creator'])
+  #set($columns = ['doc.title', 'doc.date', 'doc.creator', '_actions'])
   #set($columnsProperties = {
      "doc.title" : { "type" : "text", "link" : "view"},
-     "doc.creator" : { "type" : "text", "link" : "view"}
+     "doc.creator" : { "type" : "text", "link" : "view"},
+     "_actions" : { "actions": ["edit","delete"]} 
   })
   #set($options = { 
     'className' : 'ForumCode.ForumClass',
