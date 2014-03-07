@@ -599,7 +599,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #if(($topicDoc.creator==$context.user)
          ||$doc.creator == $xcontext.user
          ||$hasAdmin)
-     #set($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($xredirect)}")
+     #set($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
+     #set($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
      &lt;a class="topic-delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$msg.get('conversation.forum.delete.title')"&gt;$msg.get('conversation.forum.delete')&lt;/a&gt;
     #end
     &lt;/div&gt;  

@@ -61,6 +61,11 @@
       <name>Opcalia</name>
       <organization>Opcalia</organization>
     </developer>
+    <developer>
+      <id>sbaloul</id>
+      <name>Sofiane Baloul</name>
+      <organization>XWiki SAS</organization>
+    </developer>
   </developers>
   <properties>
     <xwiki.extension.name>Forum Application</xwiki.extension.name>
