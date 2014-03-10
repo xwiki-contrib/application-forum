@@ -819,12 +819,12 @@ function conversationLikeHandler(event) {
         }
 
         console.log("Liking " + topicDocName);
-        var likeUrl = '$escapetool.javascript($xwiki.getURL("XWiki.Ratings"))';
+        var likeUrl = '$escapetool.javascript($xwiki.getURL("ForumCode.Ratings", "get"))';
         topicLikeBlock.votingInProgress = false;
 
         new Ajax.Request(likeUrl, {
           method : 'post',
-          parameters : {'xpage' : 'plain', 'doc' : topicDocName, 'vote' : '1'},
+          parameters : {'outputSyntax' : 'plain', 'doc' : topicDocName, 'vote' : '1'},
           onCreate : function () {
             topicLikeBlock.votingInProgress = true;
             topicLikeBlock._x_notification = new XWiki.widgets.Notification("$escapetool.javascript($msg.get('conversation.like.loading'))", "inprogress");
