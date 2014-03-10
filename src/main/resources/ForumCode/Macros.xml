@@ -561,6 +561,10 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #else
   #set($nbCommentsAnswers = 0)  
   #end
+  #set($voteAllowedClass = "")
+  #if(!$isGuest)
+    #set($voteAllowedClass = "allow-vote")
+  #end
   &lt;div class="topic"&gt;
     &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
     &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
@@ -570,7 +574,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
         &lt;span class="topic-author"&gt;$!xwiki.getUserName($topicDoc.creator)&lt;/span&gt;
         &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
         &lt;span class="topic-answers"&gt;$topicAnswers.size()&lt;/span&gt;
-        &lt;div class="topic-vote conversation-like"&gt;
+        &lt;div class="topic-vote $voteAllowedClass conversation-like"&gt;
             #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
             &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
             &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
@@ -584,7 +588,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       &lt;span class="left"&gt;
         #displayForumActions($topicDoc)
       &lt;/span&gt;
-      &lt;span class="topic-vote2 conversation-like center"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+      #if(!$isGuest)
+      &lt;span class="topic-vote2 $voteAllowedClass conversation-like center"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+      #end
       &lt;span class="right"&gt;
        #displayForumAddThis($topicDoc, $topicTitle)             
       &lt;/span&gt;

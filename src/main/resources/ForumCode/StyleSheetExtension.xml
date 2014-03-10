@@ -856,7 +856,7 @@ Topic Metadata
   width: 50px; height: 29px;
   text-align: center;
 }
-.topic-vote:hover {
+.topic-vote.allow-vote:hover {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -200px -50px !important;
   font-size: 0 !important;
 }
@@ -1797,7 +1797,7 @@ a.addconversation-activator:hover {
 .commentthread .reply { padding-left: 25px !important; }
 
 .reply { padding-left: 10px !important; }
-.topic-vote, .topic-vote2 { cursor: pointer; }
+.topic-vote.allow-vote, .topic-vote2.allow-vote { cursor: pointer; }
 .topic-addthis { float: right; margin-top: 10px; }
 #groups-discussions-main .addconversation-container { margin-right: 85px; }
 
@@ -1809,7 +1809,6 @@ a.addconversation-activator:hover {
 .MostActiveTopicsPanel .xwikipanelcontents {
   padding: 1px;
 }
-
 </code></property><property><name>Forum</name>
 </property>
 <property>
