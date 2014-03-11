@@ -35,6 +35,12 @@
         #if($topicDoc.hasAccessLevel('edit'))
           ## Add the TopicClass object
           #set($discard = $topicDoc.updateObjectFromRequest('ForumCode.TopicClass'))
+          ## We add a XWiki.AverageRatingsClass object to simplify sorting topics by votes
+          ## when some topics don't have any votes.
+          #set($averageObj = $topicDoc.newObject('XWiki.AverageRatingsClass'))
+          $averageObj.set('nbvotes', 0)
+          ##$averageObj.set('averagevote', 0.0)
+          $averageObj.set('method', 'average')
           $topicDoc.setTitle($topicTitle)
           $topicDoc.setParent("$!request.parent")
           #set($discard = $topicDoc.saveWithProgrammingRights())

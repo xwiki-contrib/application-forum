@@ -473,13 +473,55 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ##
 ##
 ##
+#*
+#set($option == {
+  'nonZeroQuery' : $nonZeroQuery,         
+  'coutNonZeroQuery' : $coutNonZeroQuery,
+  'zeroQuery' : $zeroQuery,
+  'countZeroQuery' : $countZeroQuery,
+})
+*#
+#macro(sortAsOutterjoin $option $start $nb $dir $result)
+  #if($dir == 'desc')
+	#set($query1 = $option.nonZeroQuery)
+	#set($countQuery1 = $option.coutNonZeroQuery)
+    #set($query2 = $option.zeroQuery)
+	#set($countQuery2 = $option.countZeroQuery)
+  #else
+    #set($query1 = $option.zeroQuery)
+	#set($countQuery1 = $option.countZeroQuery)
+	#set($query2 = $option.nonZeroQuery)
+	#set($countQuery2 = $option.coutNonZeroQuery)
+  #end
+
+  #set($end = $start + $nb)
+  #set($count1 = $countQuery1.execute().get(0))
+
+  #if($count1 &gt;= $end)
+    #set($result = $query1.setOffset($start).setLimit($nb).execute())
+  #elseif($count1 &lt;= $start)
+    #set($start2 = $start - $count1)
+	#set($result = $query2.setOffset($start2).setLimit($nb).execute())
+  #else
+    #set($nb1 = $count1 - $start)
+	#set($result = $query1.setOffset($start).setLimit($nb1).execute())
+	#set($nb2 = $nb - $nb1)
+	#set($result2 = $query2.setOffset(0).setLimit($nb2).execute())
+	#set($ok = $result.addAll($result2))
+  #end
+#end
+##
+##
 ##
 #macro(displayTopics)
   #set($step = 10)
   #set($count = 0)
-  #set($nb = $step + 1)
+  #set($nb = $step)
   #set($start = 0)
   #set($nextstart = $nb)
+  #if($currentorder != 'desc')
+    #set($currentorder = 'asc')
+  #end
   #if($request.start)
    #set($start = $util.parseInt($request.start))
    #set($nextstart = $start + $step)
@@ -488,8 +530,25 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
    ## sort by votes - requires programming rights
    #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}", $nb, $start, [ $doc.fullName ]))
   #elseif($request.sortfield=="comments")
-   ## sort by comments - requires programming rights
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by doc.fullName order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, [ $doc.fullName ]))
+    ## sort by comments - requires programming rights
+    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as topicDoc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where topicDoc.parent=:forum and answerDoc.parent=topicDoc.fullName and topicDoc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and cmtObj.className='XWiki.XWikiComments'")
+    #set($nonZeroQueryWithoutSort = "select topicDoc.fullName $nonZeroQueryWithoutSelectAndSort")
+    #set($nonZeroQuery = "$nonZeroQueryWithoutSort group by topicDoc.fullName order by count(cmtObj.id) $!{currentorder}")
+    #set($countNonZeroQuery = "select count(distinct topicDoc.fullName) $nonZeroQueryWithoutSelectAndSort")
+
+    #set($zeroQueryPart = ", BaseObject obj where doc.parent=:forum and doc.fullName=obj.name and obj.className='ForumCode.TopicClass' and doc.fullName not in ($nonZeroQueryWithoutSort)")
+    #set($zeroQuery = "$zeroQueryPart order by doc.name $!{currentorder}")
+    #set($countZeroQuery = "select count(distinct doc.fullName) from XWikiDocument doc $zeroQueryPart")
+  
+    #set($query = $services.query)
+    #set($option = {
+      'nonZeroQuery' : $query.hql($nonZeroQuery).bindValue('forum', $doc.fullName),         
+      'coutNonZeroQuery' : $query.hql($countNonZeroQuery).bindValue('forum', $doc.fullName),  
+      'zeroQuery' : $query.hql($zeroQuery).bindValue('forum', $doc.fullName),  
+      'countZeroQuery' : $query.hql($countZeroQuery).bindValue('forum', $doc.fullName)
+    })
+    #sortAsOutterjoin($option $start $nb $currentorder $result)
+    #set($topics = $result)
   #else
    ## sort by last update date
    #set($topics = $xwiki.searchDocuments(", BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ? order by doc.date $!{currentorder}", $nb, $start, [$doc.fullName, 'ForumCode.TopicClass']))
@@ -874,4 +933,4 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
    &lt;/div&gt;
   #end 
 #end
-</content></xwikidoc>
+{{/velocity}}</content></xwikidoc>
