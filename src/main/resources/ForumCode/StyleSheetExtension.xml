@@ -954,39 +954,6 @@ Permalink modal box
 /*
 Delete modal box
 */
-.xdialog-modal-container .xdialog-box {
-  overflow: hidden;
-  background-color: #DDDDDD;
-  padding: 20px;
-  filter: alpha(opacity=90); /* internet explorer */
-  -khtml-opacity: 0.9;      /* khtml, old safari */
-  -moz-opacity: 0.9;       /* mozilla, netscape */
-  opacity: 0.9;           /* fx, safari, opera */ 
-
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px; 
-}
-.xdialog-modal-container .xdialog-box input.full {
-  border: 1px solid #CCC;
-  padding: 4px;
-  width: 390px;
-}
-.xdialog-modal-container .xdialog-box .buttons input.button {
-  background: none !important;
-  background-color: #FCD116 !important;
-  border: 1px solid #F1C803 !important;
-  color: black !important;
-  display: inline !important;
-}
-.xdialog-modal-container .xdialog-box .buttons input.button:hover {
-  background: none !important;
-  background-color: #F96302 !important;
-  border: 1px solid #F1C803 !important;
-  color: white !important;
-  display: inline !important;
-}
-
 .topic-actions .center {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -400px 0px !important;
   display: inline-block;
