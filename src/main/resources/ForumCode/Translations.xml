@@ -95,6 +95,7 @@ conversation.permalink=Permalink
 conversations.doc.title=Title
 conversations.doc.date=Date
 conversations.doc.creator=Creator
+conversations._avatar=Avatar
 conversations._actions=Actions
 rating.saveexception=Error while saving vote.
 rating.votenotvalid=The vote is not valid.

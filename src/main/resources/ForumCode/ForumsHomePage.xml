@@ -55,21 +55,20 @@
       &lt;/div&gt;
     {{/html}}
   #end
-
-  #set($columns = ['doc.title', 'doc.date', 'doc.creator', '_actions'])
+  #set($columns = ['doc.title', 'doc.date', 'doc.creator', '_avatar', '_actions'])
   #set($columnsProperties = {
      "doc.title" : { "type" : "text", "link" : "view"},
-     "doc.creator" : { "type" : "text", "link" : "view"},
+     "doc.creator" : { "type" : "text", "html" : true},
+     "_avatar" : { "html" : true, "sortable" : false},
      "_actions" : { "actions": ["edit","delete"]} 
   })
   #set($options = { 
     'className' : 'ForumCode.ForumClass',
     'translationPrefix' : 'conversations.',
+    'resultPage' : 'ForumCode.GetForumsJson',
     'rowCount' : 10
   })
   #livetable('forums' $columns $columnsProperties $options)
-
 #end
 {{/velocity}}
-</content>
-</xwikidoc>
+</content></xwikidoc>

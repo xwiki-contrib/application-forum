@@ -61,6 +61,7 @@ conversations.doc.title=Titre
 conversations.doc.date=Date
 conversations.doc.creator=Créateur
 conversations._actions=Actions
+conversations._avatar=Avatar
 rating.saveexception=Une erreur est survenue pendant la sauvegarde de votre vote
 rating.votenotvalid=Le vote n'est pas valide
 rating.voteoutofbounds=Le vote n'est pas valide
