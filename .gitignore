@@ -1,0 +1,9 @@
+# Build
+/target-eclipse
+/target
+
+# Resources
+.*
+
+# Don't ignore .gitignore
+!.gitignore
