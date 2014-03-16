@@ -21,7 +21,159 @@
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>true</hidden>
+  <hidden>false</hidden>
+  <object>
+    <class>
+      <name>XWiki.JavaScriptExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <name>ForumCode.ForumsHomePage</name>
+    <number>0</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>f42cc719-d106-48ca-8c55-00a2141bf3bc</guid>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>(function(){
+  var forums = {
+    tableId : 'forums',
+    /* Refreshs the livetable livetable_forums */
+    refreshLiveTable : function(){
+      if(livetable_forums){
+        var lt = livetable_forums;
+        lt.totalRows = -1;
+        lt.showRows(1, lt.limit);
+	  }
+    },
+    /* Deletes the forum, the space of the forum is set in the elem as attribute (space) */
+    deleteForum : function(elem){
+      var $elem = $(elem)
+      if($elem.clickDesibled){
+        return;
+      }
+      var space = $elem.readAttribute('space');
+      new XWiki.widgets.ConfirmedAjaxRequest(
+        /* Ajax request URL */
+        "$xwiki.getURL('ForumCode.Actions','get', 'outputSyntax=plain')",
+        {
+          /* Ajax request parameters */
+	  	  parameters  : { 
+		    space :  space,
+			form_token : "$services.csrf.token",
+			action : 'deleteforum'
+	      },
+          onCreate : function(){
+            $elem.clickDesibled = true;
+          },
+          onSuccess : function() {
+            /* Refressh the livetable */
+            forums.refreshLiveTable();
+          },
+          onComplete : function() {
+            $elem.clickDesibled = false;
+          }
+        },
+        {
+          confirmationText: "$msg.get('forum.admin.action.delete.confiramtion_text')",
+          progressMessageText : "$msg.get('forum.admin.action.delete.inprogress')",
+          successMessageText : "$msg.get('forum.admin.action.delete.success')",
+          failureMessageText : "$msg.get('forum.admin.action.delete.failed')"
+        }
+      );
+    }
+  }
+  /* Observes the displayComplete of the livetable in ordert to attach 
+     click event on delete forum links */
+  document.observe("xwiki:livetable:displayComplete", function(event){
+    /* We need to check if the displayComplete is fired for the right table */
+    if(event.memo.tableId == forums.tableId){
+      $$('#' + forums.tableId + ' a.deleteforum').each(function(item){
+        item.observe('click', function(){
+	      forums.deleteForum(item);
+        });
+      });
+	}
+  });
+})();</code>
+    </property>
+    <property>
+      <name/>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>currentPage</use>
+    </property>
+  </object>
   <content>{{velocity}}
 ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
 #if("$!request.forumName" != '' &amp;&amp; $hasEdit)
@@ -42,7 +194,7 @@
   #end
 
 #else
-
+  $xwiki.jsx.use('ForumCode.ForumsHomePage', {"language": $context.language, "derfer" : false})
   ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
   #if ($hasEdit)
     {{html clean="false"}}
@@ -55,12 +207,12 @@
       &lt;/div&gt;
     {{/html}}
   #end
-  #set($columns = ['doc.title', 'doc.date', 'doc.creator', '_avatar', '_actions'])
+  #set($columns = ['doc.title', 'doc.date', '_avatar', 'doc.creator', 'actions'])
   #set($columnsProperties = {
      "doc.title" : { "type" : "text", "link" : "view"},
      "doc.creator" : { "type" : "text", "html" : true},
      "_avatar" : { "html" : true, "sortable" : false},
-     "_actions" : { "actions": ["edit","delete"]} 
+     "actions" : { "html" : true, "sortable" : false}
   })
   #set($options = { 
     'className' : 'ForumCode.ForumClass',
@@ -71,4 +223,5 @@
   #livetable('forums' $columns $columnsProperties $options)
 #end
 {{/velocity}}
-</content></xwikidoc>
+</content>
+</xwikidoc>

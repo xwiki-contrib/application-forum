@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xwikidoc>
-<web>ForumCode</web>
-<name>Actions</name>
-<language></language>
-<defaultLanguage></defaultLanguage>
-<translation>0</translation>
-<parent>WebHome</parent>
-<creator>xwiki:XWiki.Admin</creator>
-<author>xwiki:XWiki.Admin</author>
-<customClass></customClass>
-<contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-<creationDate>1375308000000</creationDate>
-<date>1375308000000</date>
-<contentUpdateDate>1375308000000</contentUpdateDate>
-<version>1.1</version>
-<title></title>
-<defaultTemplate></defaultTemplate>
-<validationScript></validationScript>
-<comment></comment>
-<minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.1</syntaxId>
-<hidden>true</hidden>
-<content>{{velocity}}
+  <web>ForumCode</web>
+  <name>Actions</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <parent>WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1375308000000</creationDate>
+  <date>1375308000000</date>
+  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>{{velocity}}
 ## check token
 #if("$!request.action" != "" &amp;&amp; !$services.csrf.isTokenValid("$!request.form_token"))
   $response.sendRedirect($services.csrf.getResubmissionURL())
 #else
-  #if("$!request.action" == "addtopic")
+  ## We expect an ajax request for this deleteforum action
+  #if("$!request.action" == 'deleteforum')
+    ## We assume all paths are bad requests, so we have to change status code for other cases.
+    $response.setStatus(400)
+    #set($space = "$!{request.space}")
+    #set($webHomeDoc = $xwiki.getDocument("${space}.WebHome"))
+    ## Check if the space is a froum space
+    #if($space != '' &amp;&amp; $webHomeDoc.getObject('ForumCode.ForumClass') != $util.null)
+      ## Chck if the current user has delete right on the forum
+      #if($webHomeDoc.hasAccessLevel('delete'))
+        ## We need to delete all documents of the forum space
+        #set($result = $services.query.hql("where doc.space=:space").bindValue('space', $space).execute())
+        #foreach($fullName in $result)
+          #$xwiki.getDocument($fullName).delete()
+        #end
+        $response.setStatus(200) ok
+      #else
+        ## Forbidden action
+        $response.setStatus(403)
+      #end
+    #end
+  #elseif("$!request.action" == "addtopic")
     #if("$!request.title.trim()" != '')
       #if("$!request.space" != '')
         #set($newTopicName = $request.page)
@@ -169,4 +191,5 @@ ${spaceName}.${newAnswerName}
     {{warning}}No action specified.{{/warning}}
   #end##action switch
 #end##csrf token verification
-{{/velocity}}</content></xwikidoc>
+{{/velocity}}</content>
+</xwikidoc>
