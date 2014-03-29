@@ -585,6 +585,8 @@ viewers.Comments = Class.create({
 	  // Update number of current conversation comments
       this.conversation.down("[objtype=nbComments]").update($$("#" + this.conversation.id + " [objtype=comment]").size());
     }
+    // Update total number of answers
+	$$('.topic-answers').get(0).update($$('[objtype=answer]').size());
 	// Update global number of topic comments, actually it's number of comments + number of anwers answers
 	$$('.topic-comments').get(0).update($$('[objtype=comment]', '[objtype=answer]').size())
   },
