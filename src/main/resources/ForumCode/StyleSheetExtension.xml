@@ -998,10 +998,12 @@ Delete modal box
   width: 40% !important;
   text-align: right;
 }
+
 .topic-addthis {
   color : #CCCCCC;
   float: right;
   margin-top: 15px !important;
+  min-width : 140px;
 }
 
 #forum-more {}
@@ -1795,7 +1797,7 @@ a.addconversation-activator:hover {
 
 .reply { padding-left: 10px !important; }
 .topic-vote.allow-vote, .topic-vote2.allow-vote { cursor: pointer; }
-.topic-addthis { float: right; margin-top: 10px; }
+
 #groups-discussions-main .addconversation-container { margin-right: 85px; }
 
 /* removing preview button from edit comment */
