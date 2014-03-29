@@ -165,7 +165,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
   #else
    #set($commentodd = "even")
   #end 
-  &lt;div id="xwikicomment_${conversationId}_${comment.number}" class="comment $commentodd #if($comment.getProperty('author').value == $commentDoc.creator) commentByCreator#end"&gt;
+  &lt;div id="xwikicomment_${conversationId}_${comment.number}" objtype="comment" class="comment $commentodd #if($comment.getProperty('author').value == $commentDoc.creator) commentByCreator#end"&gt;
     &lt;div class="comment-layout"&gt;
     &lt;span class="user-avatar"&gt;
      #if("$!comment.replyto" == '')#smallUserAvater2($comment.author)#{else}#smallUserAvater2($comment.author)#end
@@ -690,7 +690,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       ## Compose a conversation id for the conversation from the document name only.
       ## We don't need clearname anymore and neither the date as we control the topic name
       #set($conversationId = $conversationDoc.name)
-      &lt;div class="answer" id="$conversationId"&gt;
+      &lt;div class="answer" objtype="answer" id="$conversationId"&gt;
         &lt;div class="answer-layout"&gt;
           &lt;span class="user-avatar"&gt;
           #smallUserAvater2($conversationDoc.creator)
@@ -706,7 +706,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
                      #set($rating = $services.ratings.getAverageRating($conversationDoc).nbVotes)
                      &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$rating&lt;/span&gt;
                     &lt;/span&gt;
-					&lt;span class="comments"&gt;$comments.size()&lt;/span&gt;
+					&lt;span class="comments" objtype="nbComments"&gt;$comments.size()&lt;/span&gt;
 				&lt;/span&gt;
 				&lt;div class="answer-content"&gt;
  				    #cleanHTMLMacro($conversationDoc.answer)
