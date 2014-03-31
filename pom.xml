@@ -33,7 +33,7 @@
   <artifactId>application-forum</artifactId>
   <packaging>xar</packaging>
   <name>Forum Application</name>
-  <version>1.2</version>
+  <version>1.3-SNAPSHOT</version>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <developers>
     <developer>
