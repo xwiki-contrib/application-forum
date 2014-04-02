@@ -95,14 +95,15 @@
     #set($text = $services.localization.render("platform.livetable._actions.edit"))
     #set($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt;${actionsLink}")
   #end
+  #set($creatorDoc = $xwiki.getDocument($document.creator))
+  #set($creatorView = "&lt;div class='display-avatar'&gt;#resizedUserAvatar($creatorDoc.creator 30)&lt;/div&gt;&lt;a href='$creatorDoc.uRL'&gt;$creatorDoc.name&lt;/a&gt; &lt;br /&gt;$xwiki.getUserName($creatorDoc.fullName, false)")
   #set($row = {
     'doc_viewable' : true,
     'doc_url' : $document.uRL,
     'doc_title'  : $document.title,
-    'doc_creator': $xwiki.getUserName($document.creator, true),
+    'doc_creator': $creatorView,
     'doc_creator_url': $xwiki.getURL($document.creator),
     'doc_date' : $xwiki.formatDate($document.date),
-    '_avatar' : "#resizedUserAvatar($document.creator 50)",
     'actions': $actionsLink
   })
   #set($ok = $rows.add($row))
