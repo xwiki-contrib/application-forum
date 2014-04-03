@@ -186,7 +186,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
         &lt;span class="commenttool commentreply"&gt;&lt;a class="commentreply" href="$escapetool.xml($xredirect.replaceAll('&amp;?replyto=\d++', ''))&amp;amp;replyto=${comment.number}&amp;amp;replytoconversation=${escapetool.url($commentDoc.fullName)}#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.reply')"#if("$!replyTo" == "${comment.number}" &amp;&amp; "$!replyToConversation" == "$!commentDoc.fullName") style="display: none;"#end&gt;$msg.get('core.viewers.comments.reply')&lt;/a&gt;&lt;/span&gt;
         #end
         #if ($context.user!="XWiki.XWikiGuest")
-          &lt;span class="flag"&gt;
+          &lt;span class="flag" title="$msg.get('conversation.flag.tooltip')"&gt;
            &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
           &lt;/span&gt;
         #end
@@ -595,10 +595,10 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #end
 ##
 #macro(displayForumActions $topicDoc) 
-&lt;span class="topic-actions-flag conversation-flag"&gt;
+&lt;span class="topic-actions-flag conversation-flag" title="$msg.get('conversation.flag.tooltip')"&gt;
  &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($topicDoc.fullName)}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
 &lt;/span&gt;
-&lt;span class="topic-actions-permalink"&gt;
+&lt;span class="topic-actions-permalink" title="$msg.get('conversation.permalink.tooltip')"&gt;
  &lt;a href="$topicDoc.getURL()"&gt;&lt;/a&gt;
 &lt;/span&gt;
 #end
@@ -712,7 +712,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
  				    #cleanHTMLMacro($conversationDoc.answer)
 					&lt;span class="actions"&gt;
 					 #if($context.user!="XWiki.XWikiUsers")
-                     &lt;span class="flag"&gt;
+                     &lt;span class="flag" title="$msg.get('conversation.flag.tooltip')"&gt;
                       &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
                      &lt;/span&gt;
                      #end
