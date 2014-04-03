@@ -514,46 +514,82 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ##
 ##
 ##
+##
+##
+#macro(getOrdredTopics $forum $start $nb $sortField $varName)
+  #set($currentorder = $request.sortorder)
+  #if($currentorder != 'desc')
+    #set($currentorder = 'asc')
+  #end
+  #set($allTopics = true)
+  #if("$!forum" != '')
+    #set($allTopics = false)
+    #set($condition = "doc.parent=:forum and ")
+  #else
+    #set($condition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
+  #end
+  #if($sortField=="votes")
+   ## sort by votes - requires programming rights
+   #set($query = $services.query.hql(", BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $condition obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}").setOffset($start).setLimit($nb))   
+   #if(!$allTopics)
+     #set($query = $query.bindValue('forum', $forum))
+   #end
+   #set($result = $query.execute())
+  #elseif($sortField=="comments")
+    ## sort by comments - requires programming rights
+    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as doc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where $condition answerDoc.parent=doc.fullName and doc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and (cmtObj.className='XWiki.XWikiComments' or cmtObj.className='ForumCode.AnswerClass')")
+    #set($nonZeroQueryWithoutSort = "select doc.fullName $nonZeroQueryWithoutSelectAndSort")
+    #set($nonZeroQuery = "$nonZeroQueryWithoutSort group by doc.fullName order by count(cmtObj.id) $!{currentorder}")
+    #set($countNonZeroQuery = "select count(distinct doc.fullName) $nonZeroQueryWithoutSelectAndSort")
+
+    #if(!$allTopics)
+      #set($forumInnerCodition = "doc.parent=:forum and")
+    #else
+      #set($forumInnerCodition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
+    #end
+	
+    #set($zeroQueryPart = ", BaseObject obj where $!forumInnerCodition doc.fullName=obj.name and obj.className='ForumCode.TopicClass' and doc.fullName not in ($nonZeroQueryWithoutSort)")
+    #set($zeroQuery = "$zeroQueryPart order by doc.name $!{currentorder}")
+    #set($countZeroQuery = "select count(distinct doc.fullName) from XWikiDocument doc $zeroQueryPart")
+  
+    #set($query = $services.query)
+    #set($option = {
+      'nonZeroQuery' : $query.hql($nonZeroQuery),         
+      'coutNonZeroQuery' : $query.hql($countNonZeroQuery),  
+      'zeroQuery' : $query.hql($zeroQuery),  
+      'countZeroQuery' : $query.hql($countZeroQuery)
+    })
+	#if(!$allTopics)
+	  #foreach($query in $option.values())
+	    #set($ok = $query.bindValue('forum', $forum))
+	  #end
+	#end
+    #sortAsOutterjoin($option $start $nb $currentorder $result)
+  #else
+    ## sort by last update date
+    #set($query = $services.query.hql(", BaseObject as obj where $condition obj.name = doc.fullName and obj.className='ForumCode.TopicClass' order by doc.date $!{currentorder}").setOffset($start).setLimit($nb))
+    #if(!$allTopics)
+      #set($query = $query.bindValue('forum', $forum))
+    #end
+    #set($result = $query.execute())
+  #end
+  #setVariable($varName, $result)
+#end
+
+##
+##
+##
 #macro(displayTopics)
   #set($step = 10)
   #set($count = 0)
   #set($nb = $step)
   #set($start = 0)
   #set($nextstart = $nb)
-  #if($currentorder != 'desc')
-    #set($currentorder = 'asc')
-  #end
   #if($request.start)
    #set($start = $util.parseInt($request.start))
    #set($nextstart = $start + $step)
   #end
-  #if($request.sortfield=="votes")
-   ## sort by votes - requires programming rights
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where doc.parent = ? and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}", $nb, $start, [ $doc.fullName ]))
-  #elseif($request.sortfield=="comments")
-    ## sort by comments - requires programming rights
-    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as topicDoc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where topicDoc.parent=:forum and answerDoc.parent=topicDoc.fullName and topicDoc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and (cmtObj.className='XWiki.XWikiComments' or cmtObj.className='ForumCode.AnswerClass')")
-    #set($nonZeroQueryWithoutSort = "select topicDoc.fullName $nonZeroQueryWithoutSelectAndSort")
-    #set($nonZeroQuery = "$nonZeroQueryWithoutSort group by topicDoc.fullName order by count(cmtObj.id) $!{currentorder}")
-    #set($countNonZeroQuery = "select count(distinct topicDoc.fullName) $nonZeroQueryWithoutSelectAndSort")
-
-    #set($zeroQueryPart = ", BaseObject obj where doc.parent=:forum and doc.fullName=obj.name and obj.className='ForumCode.TopicClass' and doc.fullName not in ($nonZeroQueryWithoutSort)")
-    #set($zeroQuery = "$zeroQueryPart order by doc.name $!{currentorder}")
-    #set($countZeroQuery = "select count(distinct doc.fullName) from XWikiDocument doc $zeroQueryPart")
-  
-    #set($query = $services.query)
-    #set($option = {
-      'nonZeroQuery' : $query.hql($nonZeroQuery).bindValue('forum', $doc.fullName),         
-      'coutNonZeroQuery' : $query.hql($countNonZeroQuery).bindValue('forum', $doc.fullName),  
-      'zeroQuery' : $query.hql($zeroQuery).bindValue('forum', $doc.fullName),  
-      'countZeroQuery' : $query.hql($countZeroQuery).bindValue('forum', $doc.fullName)
-    })
-    #sortAsOutterjoin($option $start $nb $currentorder $result)
-    #set($topics = $result)
-  #else
-   ## sort by last update date
-   #set($topics = $xwiki.searchDocuments(", BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ? order by doc.date $!{currentorder}", $nb, $start, [$doc.fullName, 'ForumCode.TopicClass']))
-  #end
+  #getOrdredTopics($doc.fullName $start $nb $request.sortfield 'topics')
   #foreach($topic in $topics)
     #if($count!=$step)
      #displayForumTopic($topic false)
@@ -834,58 +870,25 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   ## add js for ajax reload of most viewed topic
   #set($nb = 10)
   #set($start = 0)
-  #set($currentorder = "desc")
-  #set($datesorder = "")
-  #set($commentsorder = "")
-  #set($votesorder = "")
-  #set($nextdatesorder = "desc")
-  #set($nextcommentsorder = "desc")
-  #set($nextvotesorder = "desc")
-  #set($sparent = "")
-  #set($params = [])
-  #if($request.sortfield=="votes")
-   #if($request.sortorder=="asc")
-    #set($currentorder = "asc")    
-    #set($votesorder = "asc")
-   #else
-    #set($votesorder = "desc")
-    #set($nextvotesorder = "asc") 
-   #end
-   ## sort by votes - requires programming rights
-   #if($forumDocName &amp;&amp; $forumDocName!="")
-    #set($sparent = "doc.parent='${forumDocName}' and ")
-    #set($params = [ $forumDocName ])
-   #end
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $!sparent doc.space&lt;&gt;'ForumCode' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes' order by nbvotes.value $!{currentorder}", $nb, $start, $params))
-  #elseif($request.sortfield=="comments")
-    #if($request.sortorder=="asc")
-    #set($currentorder = "asc")    
-    #set($commentsorder = "asc")
-   #else
-    #set($commentsorder = "desc") 
-    #set($nextcommentsorder = "asc")
-   #end
-   ## sort by comments - requires programming rights
-   #set($topics = $xwiki.search("select doc.fullName from XWikiDocument as doc, BaseObject as obj, XWikiDocument as answerdoc, BaseObject as cobj where $!sparent doc.space&lt;&gt;'ForumCode' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and answerdoc.parent=doc.fullName and answerdoc.fullName=cobj.name and cobj.className='XWiki.XWikiComments' group by doc.fullName order by count(distinct cobj.number)+count(distinct answerdoc.fullName) $!{currentorder}", $nb, $start, $params))
+  #set($sortField = $request.sortfield)
+  #set($currentorder = $request.sortorder)
+  #if($currentorder != 'asc')
+    #set($currentorder = 'desc')
+    #set($nextOrder = 'asc')
   #else
-    #if($request.sortorder=="asc")
-    #set($currentorder = "asc")    
-    #set($datesorder = "asc")
-   #else
-    #set($datesorder = "desc")   
-    #set($nextdatesorder = "asc")
-   #end
-   ## sort by last update date
-   #set($hql = ", BaseObject as obj where $!sparent doc.space&lt;&gt;'ForumCode' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass' order by doc.date $!{currentorder}")
-   #set($topics = $xwiki.searchDocuments($hql, $nb, $start, $params))
+    #set($nextOrder = 'desc')
   #end
-  #set($commentsurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=comments&amp;sortorder=${nextcommentsorder}"))
-  #set($votesurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=votes&amp;sortorder=${nextvotesorder}"))
-  #set($datesurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=dates&amp;sortorder=${nextdatesorder}"))
+  
+  #set($commentsurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=comments&amp;sortorder=${nextOrder}"))
+  #set($votesurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=votes&amp;sortorder=${nextOrder}"))
+  #set($datesurl = $xwiki.getDocument($topicsPage).getURL("get", "xpage=plain&amp;sortfield=dates&amp;sortorder=${nextOrder}"))
   #if(!$request.xpage)
-  &lt;!-- Discussions Sidebar Block --&gt;
-  &lt;div id="discussionTopics"&gt;
+    #set($sortField = "date")
+    ## Discussions Sidebar Block 
+    &lt;div id="discussionTopics"&gt;    
   #end
+
+  #getOrdredTopics('', $start, $nb, $sortField, 'topics')
 $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
 	         &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
 	         &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
