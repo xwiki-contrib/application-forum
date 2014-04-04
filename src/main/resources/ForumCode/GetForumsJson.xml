@@ -96,7 +96,13 @@
     #set($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt;${actionsLink}")
   #end
   #set($creatorDoc = $xwiki.getDocument($document.creator))
-  #set($creatorView = "&lt;div class='display-avatar'&gt;#resizedUserAvatar($creatorDoc.creator 30)&lt;/div&gt;&lt;a href='$creatorDoc.uRL'&gt;$creatorDoc.name&lt;/a&gt; &lt;br /&gt;$xwiki.getUserName($creatorDoc.fullName, false)")
+  #set($creatorView = "&lt;ul class='users'&gt;
+    &lt;li class='user'&gt;
+      &lt;div class='user-avatar-wrapper'&gt;#resizedUserAvatar($creatorDoc.creator 30)&lt;/div&gt;
+      &lt;div class='user-name'&gt;&lt;span class='wikilink'&gt;&lt;a href='$creatorDoc.uRL'&gt;$creatorDoc.name&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;span class='user-alias'&gt;$xwiki.getUserName($creatorDoc.fullName, false)&lt;/span&gt;&lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;")
   #set($row = {
     'doc_viewable' : true,
     'doc_url' : $document.uRL,
