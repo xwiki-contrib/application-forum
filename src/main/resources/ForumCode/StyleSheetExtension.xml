@@ -769,6 +769,7 @@ a:visited {color: #777DBB;}
   border-bottom: 1px solid #DDDDDD;
   padding: 0 !important;
 }
+#forum-buttons .xRichTextEditor { text-transform: none; }
 #forum-buttons label { color: #AAAAAA; }
 .forum-sort-button-inactive { padding: 10px 20px !important; display: inline-block; }
 .addconversation-activator {
