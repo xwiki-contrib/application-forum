@@ -644,7 +644,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 ## TO DO : display all metadata, as specified in requirements
 #macro(displayForumTopic $topic $withdetails)
   #set($topicDoc = $xwiki.getDocument($topic))  
-  #set($topicTitle = $topicDoc.displayTitle)
+  #set($topicTitle = $topicDoc.title)
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
   #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
@@ -907,7 +907,7 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
 			&lt;/tr&gt;
   #foreach($topic in $topics)
     #set($topicDoc = $xwiki.getDocument($topic))  
-    #set($topicTitle = $topicDoc.displayTitle)
+    #set($topicTitle = $topicDoc.title)
     #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
     #set($topicComments = 0)
     #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
