@@ -1092,10 +1092,6 @@ Comment Level
   border-bottom: 1px solid white !important;
   margin-left: 60px;
 }
-.commentavatar {
-  margin: 0 !important; 
-  padding: 10px !important;
-}
 .commentavatar img.photo {
   width: 30px;
   height: 30px;
@@ -1786,7 +1782,6 @@ a.addconversation-activator:hover {
 }
 
 .commentthread .commentavatar { margin-left: 0px !important; width: auto !important; }
-.commentavatar { margin-left: 5px !important; }
 .commentthread .commentavatar { margin-left: 5px !important; }
 .commentcontent, 
 .commentheader { margin-left: 50px !important; }
