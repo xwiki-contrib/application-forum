@@ -111,7 +111,7 @@
       <parse/>
     </property>
     <property>
-      <use>onDemand</use>
+      <use>always</use>
     </property>
   </object>
   <content/>
