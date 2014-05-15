@@ -423,10 +423,10 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
         &lt;input type="hidden" name="ForumCode.TopicClass_${fakeTopic.number}_status" value="inprogress" /&gt;      
       &lt;/div&gt;
       
-      &lt;div class="buttons"&gt;
-        &lt;input class="button" type="submit" class="button" value="$msg.get('save')" /&gt;
-        &lt;a class="button cancel" href="$doc.getURL('view')" class="cancel"&gt;$msg.get('cancel')&lt;/a&gt;
-      &lt;/div&gt;
+      &lt;p class="buttons"&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" class="button" value="$msg.get('save')" /&gt;&lt;/span&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$msg.get('cancel')&lt;/a&gt;&lt;/span&gt;
+      &lt;/p&gt;
     &lt;/form&gt;
    &lt;/div&gt;
   &lt;/div&gt;

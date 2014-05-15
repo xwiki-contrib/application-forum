@@ -1534,7 +1534,6 @@ New Topic
 .addconversation-container-button { overflow: hidden; display: inline-block; float: right; margin-right: 65px; }
 .addconversation-container { display: inline !important;}
 .addconversation-container dt { line-height: 1.5em; margin: 10px 0 5px 0; }
-.addconversation-container .buttons { text-align: right; }
 .addconversation-container input[type="text"],
 .addconversation-container textarea {
   font-size: 14px;
