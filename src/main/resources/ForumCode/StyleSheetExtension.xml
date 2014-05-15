@@ -1538,12 +1538,7 @@ New Topic
 .addconversation-container input[type="text"],
 .addconversation-container textarea {
   font-size: 14px;
-  font-weight: bold;
-  padding: 10px;
-  box-shadow: inset 0 0 10px #DDDDDD;
-  border: 1px solid white;
   width: 100%;
-  margin-bottom: 20px;
 }
 .addtopic-container-form {
   display: block;
@@ -1559,9 +1554,6 @@ New Topic
   border-radius: 8px; 
   clear: both;
   margin-bottom: 20px;
-}
-form.addconversation input[type="text"] {
-  width: 97%;
 }
 /*
 New Answer
