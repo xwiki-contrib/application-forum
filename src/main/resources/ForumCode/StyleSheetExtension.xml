@@ -617,7 +617,8 @@ AP/aAAgBAgMBPxACy2F//9oACAEDAwE/EH7hUVQL/9k=
       <cache>long</cache>
     </property>
     <property>
-      <code>#set($imageDoc = $xwiki.getDocument("ForumCode.StyleSheetExtension"))
+      <code>#template('colorThemeInit.vm')
+#set($imageDoc = $xwiki.getDocument("ForumCode.StyleSheetExtension"))
 /*
 **************************************************
                 XWiki Forum Application
