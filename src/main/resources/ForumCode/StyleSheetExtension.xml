@@ -771,7 +771,6 @@ a:visited {color: #777DBB;}
   padding: 0 !important;
 }
 #forum-buttons .xRichTextEditor { text-transform: none; }
-#forum-buttons label { color: #AAAAAA; }
 .forum-sort-button-inactive { padding: 10px 20px !important; display: inline-block; }
 .addconversation-activator {
   padding: 10px 20px 10px 40px !important;
@@ -1534,7 +1533,6 @@ New Topic
 */
 .addconversation-container-button { overflow: hidden; display: inline-block; float: right; margin-right: 65px; }
 .addconversation-container { display: inline !important;}
-.addconversation-container dt { line-height: 1.5em; margin: 10px 0 5px 0; }
 .addconversation-container input[type="text"],
 .addconversation-container textarea {
   font-size: 14px;
