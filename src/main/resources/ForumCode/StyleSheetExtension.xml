@@ -1545,7 +1545,8 @@ New Topic
   width: 100%;
   clear: both;
 }
-.addtopic-container-form .addconversation {
+.addtopic-container-form .addconversation, 
+.addanswer-container-form .addconversation {
   padding: 20px;
   background-color: $theme.backgroundSecondaryColor;
   border: 1px solid $theme.borderColor;
@@ -1569,15 +1570,9 @@ New Answer
   font-size: 2em;
   line-height: 2em;
 }
-.addanswer-container-form form.addconversation {
-  padding: 0px 20px 20px;
-  border: 1px solid #DDDDDD;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px; 
-  margin-bottom: 20px;
+.addanswer-container-form .addconversation {
+  padding-top: 0;
   margin-right: 65px;
-  border-radius: 10px;
 }
 
 /*
