@@ -444,7 +444,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     &lt;/div&gt;
     &lt;div class="addconversation-container-form addanswer-container-form"&gt;
       ## Create a fake conversation object to be able to display the status and the type selectors
-     &lt;form class="#if("$!request.action" != "addconversation")hidden#end addconversation" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
+     &lt;form class="#if("$!request.action" != "addconversation")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
       &lt;div&gt;
         &lt;input type="hidden" name="action" value="addconversation" /&gt;
         &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
@@ -455,15 +455,15 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
       &lt;/div&gt;
       &lt;dl&gt;
         #set($fakeConversation = $newAnswerDoc.newObject('ForumCode.AnswerClass'))
-        &lt;dt&gt;$msg.get('ForumCode.AnswerClass_answer')&lt;/dt&gt;
+        &lt;dt&gt;&lt;label&gt;$msg.get('ForumCode.AnswerClass_answer')&lt;/label&gt;&lt;/dt&gt;
         &lt;dd&gt;#cleanHTMLMacro($newAnswerDoc.display('answer', 'edit', $fakeConversation))&lt;/dd&gt;  
         ## adding wysiwyg
         #addEditor("ForumCode.AnswerClass_0_answer", $newAnswerDoc)
       &lt;/dl&gt;
       
       &lt;div class="buttons"&gt;
-        &lt;input class="button" type="submit" class="button" value="$msg.get('save')" /&gt;
-        &lt;a class="button cancel" href="$doc.getURL('view')" class="cancel"&gt;$msg.get('cancel')&lt;/a&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" class="button" value="$msg.get('save')" /&gt;&lt;/span&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$msg.get('cancel')&lt;/a&gt;&lt;/span&gt;
       &lt;/div&gt;
     &lt;/form&gt;
    &lt;/div&gt;

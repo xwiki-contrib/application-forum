@@ -1547,7 +1547,7 @@ New Topic
 }
 .addtopic-container-form .addconversation, 
 .addanswer-container-form .addconversation {
-  padding: 20px;
+  padding: 10px 20px;
   background-color: $theme.backgroundSecondaryColor;
   border: 1px solid $theme.borderColor;
   -webkit-border-radius: 4px;
@@ -1566,12 +1566,7 @@ New Answer
   width: 90%;
   overflow: hidden;
 }
-.addanswer-container dl dt {
-  font-size: 2em;
-  line-height: 2em;
-}
 .addanswer-container-form .addconversation {
-  padding-top: 0;
   margin-right: 65px;
 }
 
