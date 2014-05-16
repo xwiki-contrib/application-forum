@@ -1545,13 +1545,13 @@ New Topic
   width: 100%;
   clear: both;
 }
-.addtopic-container-form form.addconversation {
-  display: block;
+.addtopic-container-form .addconversation {
   padding: 20px;
-  border: 1px solid #DDDDDD;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px; 
+  background-color: $theme.backgroundSecondaryColor;
+  border: 1px solid $theme.borderColor;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; 
   clear: both;
   margin-bottom: 20px;
 }
