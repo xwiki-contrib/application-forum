@@ -1328,6 +1328,7 @@ Moderator / Admin
 .comment .user-avatar {width: 30px; height: 30px;}
 .comment .user-avatar img {width: 28px; height: 28px;}
 .comment-meta {
+  color: $theme.textSecondaryColor; 
   padding: 7px 10px; 
   display: inline-block; 
   text-transform: uppercase; 
