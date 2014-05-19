@@ -1118,23 +1118,9 @@ Answers and Comments for a Topic
 -------------------------------------------------------------------------------------------------- 
 */
 .answer { 
-  margin: 20px 0 !important; 
-  padding: 20px 0 !important;
-  display: block; 
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px; 
-  border-bottom: 5px solid #EEE;
-  border-top: 1px solid #EEE;
+  padding: 20px 0;
 }
-.answer:hover {}
-.answer-layout { 
-  position: relative;
-  z-index: 100;
-  display: block !important;
-  overflow: hidden;
-  clear: both !important;
-}
+
 .answer-layout .user-avatar,
 .comment .user-avatar { overflow: hidden; width: 50px; height: 50px; float: left; clear: left; }
 .user-avatar img { 
@@ -1147,47 +1133,50 @@ Answers and Comments for a Topic
 .answer-layout .user-avatar {
   margin-left: 17px;
 }
+
 .answer-reply { 
-  border: 1px solid #DDDDDD; 
-  border-radius: 8px; 
-  margin: 0 65px 0 102px !important; 
+  background: $theme.pageContentBackgroundColor;
+  border: 1px solid $theme.borderColor;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0 65px 0 102px; 
   min-width: 460px; 
-  position: relative; z-index: 202;
-  background: white;
+  position: relative; 
+  z-index: 202;
 }
+
 .answer-meta {
-  background: #F7F7F7;
+  background-color: $theme.backgroundSecondaryColor;
   font-size: 10px;
-  font-weight: bold;
   text-transform: uppercase;
   padding: 10px;
   display: block;
-  color: #C9C9C9 !important;
-
-  -webkit-border-top-left-radius: 8px;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topleft: 8px;
-  -moz-border-radius-topright: 8px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  color: $theme.textSecondaryColor;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
-.answer-meta:hover {background: #FFF;}
-
-.answer-meta a {color: #868686 !important ;}
 
 .answer-meta .time {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px 0px !important;
-  padding: 0 0 0 20px; margin-left: 20px !important;
-}
-.answer-meta .comments {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -600px -50px !important;
-  padding: 0 0 0 20px !important; margin-left: 20px !important;
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px 0px;
 }
 
+.answer-meta .comments {
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -600px -50px;
+}
+
+.answer-meta .time, .answer-meta .comments {
+  padding: 0 0 0 20px; 
+  margin-left: 20px;
+}
 
 .answer-content { 
-  padding: 10px 10px 20px 10px !important; 
-  overflow: hidden !important;
+  padding: 10px 10px 20px 10px; 
+  overflow: hidden;
   font-family: Open Sans, sans-serif;
 }
 
@@ -1271,7 +1260,6 @@ Moderator / Admin
 .answer-moderation .edit:hover { position: absolute; right: -20px; background-color: green !important; }
 .answer-moderation .delete:hover { position: absolute; right: -20px; background-color: red !important; }
 
-.comments { border-bottom: none !important; }
 .answer &gt; .comments {
   margin: 7px 4px 0 90px !important;
   padding: 0 2px 2px 2px !important;
