@@ -1124,7 +1124,7 @@ Answers and Comments for a Topic
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  margin: 0 65px 0 102px; 
+  margin: 0 65px; 
   min-width: 460px; 
   position: relative; 
   z-index: 202;
@@ -1245,21 +1245,16 @@ Moderator / Admin
 .answer-moderation .delete:hover { position: absolute; right: -20px; background-color: red !important; }
 
 .answer &gt; .comments {
-  margin: 7px 4px 0 90px !important;
-  padding: 0 2px 2px 2px !important;
-  border: none !important;
-  margin-top: 7px !important;
-  clear: both !important;
-  display: block;
-  overflow: hidden;
+  margin: 10px 5px 0 95px;
 }
+
 .comment,
 .comment.user .answer-layout {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   position: relative;
-  margin: 0 0 .5em;
+  margin: 0 0 10px;
 }
 
 .comment.odd .comment-layout {
