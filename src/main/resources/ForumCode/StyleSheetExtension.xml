@@ -1116,9 +1116,6 @@ Comment Level
 New Comment
 --------------------------------------------------------------------------------------------------
 */
-form.AddComment {
-  border: none !important;
-}
 .commentform {
   border: none !important;
   padding: 10px !important;
@@ -1294,38 +1291,29 @@ Moderator / Admin
 }
 .comment,
 .comment.user .answer-layout {
-  overflow: hidden;
-  border-top: 1px solid white;
-  position: relative;
-  z-index: 100;
-  
-  -webkit-border-bottom-right-radius: 8px;
-  -webkit-border-bottom-left-radius: 8px;
-  -moz-border-radius-bottomright: 8px;
-  -moz-border-radius-bottomleft: 8px;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 .comment.odd .comment-layout {background: #F7F7F7;}
 .comment.even .comment-layout {background: #DDDDDD;}
 
-.comments p.noitems {
+.comments .noitems {
+  background-color: $theme.backgroundSecondaryColor;
+  border: 1px solid $theme.borderColor;
   padding: 10px;
-  color: white;
-  font-weight: bold;
-  background: #CCC;
   margin-left: 10px;
   margin-right: 60px;
-
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px; 
 }
 
 .comment.user {
-  background: #C9C9C9; margin: 0 60px 0 10px;
-  position: inherit !important;
-  z-index: none !important;}
+  background: $theme.backgroundSecondaryColor;
+  border: 1px solid $theme.borderColor; 
+  margin: 0 60px 0 10px;
+}
 
 .comment-layout,
 .comment.user .answer-layout {
@@ -1336,14 +1324,15 @@ Moderator / Admin
 }
 .comment.user .comment-layout {
   margin-right: 0;
-  position: inherit !important;
-  z-index: none !important;
 }
 .comment .user-avatar {width: 30px; height: 30px;}
 .comment .user-avatar img {width: 28px; height: 28px;}
-.comment-reply {}
-.comment-meta {padding: 7px 10px; display: inline-block; text-transform: uppercase; color: #777; font-size: 10px; margin-left:10px;}
-.comment-meta:hover {background: #FFF;}
+.comment-meta {
+  padding: 7px 10px; 
+  display: inline-block; 
+  text-transform: uppercase; 
+  font-size: 10px;
+}
 .comment-layout {
   clear: both; 
   padding-left: 40px;
@@ -1725,7 +1714,6 @@ a.addconversation-activator:hover {
 */
 
 /* Form */
-.AddComment { border-top: 1px solid black; }
 .AddComment fieldset { padding-left: 60px; }
 .commentthread .AddComment fieldset { padding-left: 35px; }
 .AddComment label { font-size: .9em; font-weight: 400; }
