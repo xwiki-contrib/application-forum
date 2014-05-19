@@ -779,26 +779,12 @@ body#body { background: #DDDDDD !important; }
   z-index: 100;
   min-width: 630px;
 }
-.topic .user-avatar img.photo {  
-  background: #FFFFFF;
-  float: left; display: inline-block;
-  width: 80px !important;
-  height: 80px !important;
-  margin-right: 10px;
 
-  -moz-box-shadow: inset 0px 0px 5px #DDDDDD;
-  -webkit-box-shadow: inset 0px 0px 5px #DDDDDD;
-  box-shadow: inset 0px 0px 5px #DDDDDD; 
-
-  -webkit-border-radius: 48px;
-  -moz-border-radius: 48px;
-  border-radius: 48px;
-
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(1);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
+.topic .user-avatar .photo {
+  width: 80px;
+  height: 80px;
 }
+
 h3.topic-title {
   float: right; clear: right; display: inline-block !important;
   padding: 10px !important;
@@ -1122,16 +1108,14 @@ Answers and Comments for a Topic
 }
 
 .answer-layout .user-avatar,
-.comment .user-avatar { overflow: hidden; width: 50px; height: 50px; float: left; clear: left; }
-.user-avatar img { 
-  border-radius: 50px; 
-  margin-right: 20px; 
-  width: 48px; 
-  height: 48px; 
-  behavior: url(ie/PIE.htc);
+.comment .user-avatar {
+  float: left;
 }
-.answer-layout .user-avatar {
-  margin-left: 17px;
+
+.user-avatar img { 
+  border-radius: 5px;
+  height: 50px;
+  width: 50px;
 }
 
 .answer-reply { 
@@ -1305,8 +1289,12 @@ Moderator / Admin
 .comment.user .comment-layout {
   margin-right: 0;
 }
-.comment .user-avatar {width: 30px; height: 30px;}
-.comment .user-avatar img {width: 28px; height: 28px;}
+
+.comment .user-avatar img {
+  height: 30px;
+  width: 30px; 
+}
+
 .comment-meta {
   color: $theme.textSecondaryColor; 
   padding: 7px 10px; 
