@@ -200,12 +200,12 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
           ## Although this will fail if the javascript is not working, we assume it's always working
           ## so edit comment will redirect to the conversations view of the article for which we edited comment, so that we have a correct reloading after save
           #set($commentEditRedirect = $commentDoc.getURL('get', 'xpage=xpart&amp;vm=conversations.vm'))
-          &lt;span class="commenttool commentedit"&gt;&lt;a class="edit" href="$commentDoc.getURL('view', "number=${comment.number}&amp;amp;xredirect=$escapetool.url($commentEditRedirect)&amp;amp;xpage=xpart&amp;amp;vm=commentsinline.vm")" title="$msg.get('core.viewers.comments.edit')"&gt;$msg.get('core.viewers.comments.edit')&lt;/a&gt;&lt;/span&gt;
+          &lt;a class="edit" href="$commentDoc.getURL('view', "number=${comment.number}&amp;amp;xredirect=$escapetool.url($commentEditRedirect)&amp;amp;xpage=xpart&amp;amp;vm=commentsinline.vm")" title="$msg.get('core.viewers.comments.edit')"&gt;$msg.get('core.viewers.comments.edit')&lt;/a&gt;
         #end
         #if(($comment.author == $xcontext.user)
              ||$doc.creator == $xcontext.user
              ||$hasAdmin)
-          &lt;span class="commenttool commentdelete"&gt;&lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deletecomment&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;amp;commentnumber=${comment.number}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('core.viewers.comments.delete')"&gt;$msg.get('core.viewers.comments.delete')&lt;/a&gt;&lt;/span&gt;
+          &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deletecomment&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;amp;commentnumber=${comment.number}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('core.viewers.comments.delete')"&gt;$msg.get('core.viewers.comments.delete')&lt;/a&gt;
         #end
      &lt;/div&gt;
 #end
@@ -696,14 +696,14 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #if(($topicDoc.creator==$context.user)
          ||$doc.creator == $xcontext.user
          ||$hasAdmin)
-    &lt;a class="topic-edit" href="$topicDoc.getURL("edit")" title="$msg.get("conversations.forum.edit")"&gt;$msg.get("conversations.forum.edit")&lt;/a&gt;
+    &lt;a class="edit" href="$topicDoc.getURL("edit")" title="$msg.get("conversations.forum.edit")"&gt;$msg.get("conversations.forum.edit")&lt;/a&gt;
     #end
     #if(($topicDoc.creator==$context.user)
          ||$doc.creator == $xcontext.user
          ||$hasAdmin)
      #set($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
      #set($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
-     &lt;a class="topic-delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$msg.get('conversation.forum.delete.title')"&gt;$msg.get('conversation.forum.delete')&lt;/a&gt;
+     &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$msg.get('conversation.forum.delete.title')"&gt;$msg.get('conversation.forum.delete')&lt;/a&gt;
     #end
     &lt;/div&gt;  
   #end

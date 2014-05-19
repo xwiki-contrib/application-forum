@@ -1022,16 +1022,27 @@ New Topic
 Moderator / Admin 
 --------------------------------------------------------------------------------------------------
 */
-.topic-moderation {
-  float: right;
-  clear: right;
-  position: absolute; top: 175px; right: 40px; z-index: 101; 
+
+.topic-moderation, 
+.answer-moderation,
+.comment-moderation {
+  position: absolute;
+  right: 40px;
+  top: 20px;
 }
-.topic-edit,
-.topic-delete {
-  background: #60A35C url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 40px -93px !important;
-  color: white !important;
-  padding: 15px 30px !important;
+
+.topic-moderation {
+  top: 175px; 
+}
+
+.comment-moderation {
+  right: 35px;
+}
+
+.topic-moderation .edit, .answer-moderation .edit, .comment-moderation .edit,
+.topic-moderation .delete, .answer-moderation .delete,  .comment-moderation .delete {
+  background: #60A35C url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 40px -93px;
+  padding: 15px 30px;
   display: block;
   font-size: 0;
   width: 100%;
@@ -1041,13 +1052,20 @@ Moderator / Admin
   -moz-border-radius: 50px;
   border-radius: 50px;
 }
-.topic-delete {
-  background: #A25E5E url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -60px -93px !important;
+
+.topic-moderation .delete, .answer-moderation .delete,  .comment-moderation .delete {
+  background: #A25E5E url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -60px -93px;
   margin-top: 10px;
   top: 20px; right: 0;
 }
-.topic-edit:hover { position: absolute; right: -20px; background-color: green !important; }
-.topic-delete:hover { position: absolute; right: -20px; background-color: red !important; }
+
+.topic-moderation .edit:hover, .answer-moderation .edit:hover, .comment-moderation .edit:hover { 
+  position: absolute; right: -20px; background-color: green; 
+}
+
+.topic-moderation .delete:hover, .answer-moderation .delete:hover,  .comment-moderation .delete:hover {
+  position: absolute; right: -20px; background-color: red;
+}
 
 /*
 Topic View
@@ -1105,6 +1123,10 @@ Answers and Comments for a Topic
 */
 .answer { 
   padding: 20px 0;
+}
+
+.answer-layout {
+  position: relative;
 }
 
 .answer-layout .user-avatar,
@@ -1206,43 +1228,6 @@ Limit content / make it responsive
 .answer-content .actions .conversation-permalink a:hover {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -150px !important;
 }
-
-.answer-moderation { 
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  z-index: 201;
-  float: right; clear: right; 
-}
-
-/*
-Moderator / Admin 
---------------------------------------------------------------------------------------------------
-*/
-
-.answer-moderation { float: right; clear: right; position: relative; margin: -70px 39px 0 0;}
-.answer-moderation .edit,
-.answer-moderation .delete {
-  background: #60A35C url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 40px -93px !important;
-  color: white !important;
-  display: block;
-  font-size: 0;
-  width: 100%;
-  padding: 15px 30px !important;
-  position: absolute; top: 0; right: 0;
-
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-}
-.answer-moderation .delete {
-  background: #A25E5E url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -60px -93px !important;
-  margin-top: 10px;
-  top: 20px; 
-  right: 0;
-}
-.answer-moderation .edit:hover { position: absolute; right: -20px; background-color: green !important; }
-.answer-moderation .delete:hover { position: absolute; right: -20px; background-color: red !important; }
 
 .answer &gt; .comments {
   margin: 10px 5px 0 95px;
@@ -1352,44 +1337,6 @@ Moderator / Admin
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -150px !important;
 }
 
-/*
-Moderator / Admin 
---------------------------------------------------------------------------------------------------
-*/
-.comment-moderation {
-  float: right;
-  clear: right;
-  position: absolute; top: 0px; right: 33px; z-index: 101; 
-}
-.comment-moderation .edit,
-.comment-moderation .delete {
-  background: #60A35C url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 40px -93px !important;
-  color: white !important;
-  padding: 7px 30px !important;
-  display: block;
-  font-size: 0;
-  width: 100%;
-  position: absolute; top: 0; right: 0;
-
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-}
-.comment-moderation .delete {
-  background: #A25E5E url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -60px -93px !important;
-  margin-top: 10px;
-  top: 20px; right: 0;
-}
-.comment-moderation .edit:hover { position: absolute; right: -20px; background-color: green !important; }
-.comment-moderation .delete:hover { position: absolute; right: -20px; background-color: red !important; }
-
-
-
-
-/*
-Panels
---------------------------------------------------------------------------------------------------
-*/
 /* 
 Discussion Topics
 --------------------------------------------------------------------------------------------------
