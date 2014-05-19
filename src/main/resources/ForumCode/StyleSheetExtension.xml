@@ -1286,9 +1286,17 @@ Moderator / Admin
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  position: relative;
+  margin: 0 0 .5em;
 }
-.comment.odd .comment-layout {background: #F7F7F7;}
-.comment.even .comment-layout {background: #DDDDDD;}
+
+.comment.odd .comment-layout {
+  background: $theme.backgroundSecondaryColor;
+}
+
+.comment.even .comment-layout {
+  background: $theme.pageContentBackgroundColor;
+}
 
 .comments .noitems {
   background-color: $theme.backgroundSecondaryColor;
@@ -1303,17 +1311,9 @@ Moderator / Admin
 
 .comment.user {
   background: $theme.backgroundSecondaryColor;
-  border: 1px solid $theme.borderColor; 
   margin: 0 60px 0 10px;
 }
 
-.comment-layout,
-.comment.user .answer-layout {
-  border-top: none !important; 
-  position: relative; 
-  z-index: 102;
-
-}
 .comment.user .comment-layout {
   margin-right: 0;
 }
@@ -1327,20 +1327,16 @@ Moderator / Admin
   font-size: 10px;
 }
 .comment-layout {
+  border: 1px solid $theme.borderColor; 
   clear: both; 
-  padding-left: 40px;
   margin: 0 60px 0 0;
   position: relative;
   z-index: 102;
-  padding: 10px !important;
+  padding: 10px;
   overflow: hidden;
-  
-  -webkit-border-bottom-right-radius: 8px;
-  -webkit-border-bottom-left-radius: 8px;
-  -moz-border-radius-bottomright: 8px;
-  -moz-border-radius-bottomleft: 8px;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; 
 }
 .comment.user .comment-content { padding: 0  !important; }
 .comment-content .actions {
