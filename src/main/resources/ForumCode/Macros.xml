@@ -256,9 +256,9 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
          #if($xcontext.user == 'XWiki.XWikiGuest' &amp;&amp; $offerGuestsCaptcha)
           #displayCaptcha()
          #end
-         &lt;div&gt;
-          &lt;input class="button" type="submit" value="$msg.get('core.viewers.comments.add.submit')"/&gt;
-          &lt;a class="cancel secondary button" href="$doc.getURL('view')"&gt;$msg.get('core.viewers.comments.add.cancel')&lt;/a&gt;
+         &lt;div class="buttons"&gt;
+          &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" value="$msg.get('core.viewers.comments.add.submit')"/&gt;&lt;/span&gt;
+          &lt;span class="buttonwrapper"&gt;&lt;a class="cancel secondary button" href="$doc.getURL('view')"&gt;$msg.get('core.viewers.comments.add.cancel')&lt;/a&gt;&lt;/span&gt;
          &lt;/div&gt;
         &lt;/div&gt;&lt;!-- answer-content --&gt; 
        &lt;/div&gt;&lt;!-- answer-reply --&gt; 
