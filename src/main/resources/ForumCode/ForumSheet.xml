@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400589696000</date>
-  <contentUpdateDate>1400589696000</contentUpdateDate>
+  <date>1400595266000</date>
+  <contentUpdateDate>1400595266000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -36,27 +36,31 @@
     #end
   #end
 {{html clean=false wiki=true}}
-{{html clean=false}}
-  &lt;div id="forum-header" class="forum-header-nongroups"&gt;
-    &lt;span id="forum-title" class="forum-title"&gt;
-      &lt;h1&gt;$doc.displayTitle&lt;/h1&gt;
-    &lt;/span&gt;
+&lt;div class="forum"&gt;
+  &lt;div class="forum-container"&gt;
+    &lt;span class="forum-topics-nb" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt; 
+    &lt;div class="forum-description"&gt;
+      $doc.display('description')
+    &lt;/div&gt;
+    &lt;div class="forum-metadata"&gt;
+      &lt;span class="forum-metas"&gt;
+        &lt;span class="forum-author"&gt;&lt;span class="user-avatar"&gt;#smallUserAvater2($doc.creator)&lt;/span&gt;$!xwiki.getUserName($doc.creator)&lt;/span&gt;
+        &lt;span class="forum-date"&gt;$xwiki.formatDate($doc.date)&lt;/span&gt;
+        &lt;span class="forum-topics" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-{{/html}}
-  &lt;div id="forum-description"&gt;$doc.display('description')
-   &lt;span id="forum-topic-nb" class="conversation-topic" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt; 
-  &lt;/div&gt;
- {{html clean=false}}
+&lt;/div&gt;
   &lt;div id="forum-buttons"&gt;
   &lt;label&gt;$msg.get("conversations.forum.sorttopicsby")&lt;/label&gt;
    #displayTopicSortButton("date")
    #displayTopicSortButton("votes")
    #displayTopicSortButton("comments")
-   #displayTopicAddForm($space)   
-  &lt;/div&gt;  
+   #displayTopicAddForm($space)
+  &lt;/div&gt;
   ## Display topic list
   &lt;div class="topics"&gt;
-   #displayTopics()
+    #displayTopics()
   &lt;/div&gt;
   #displayEditors()
 {{/html}}
