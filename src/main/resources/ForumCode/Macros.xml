@@ -640,8 +640,6 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #end
 ##
 
-
-## TO DO : display all metadata, as specified in requirements
 #macro(displayForumTopic $topic $withdetails)
   #set($topicDoc = $xwiki.getDocument($topic))  
   #set($topicTitle = $topicDoc.title)
@@ -662,35 +660,37 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($voteAllowedClass = "allow-vote")
   #end
   &lt;div class="topic"&gt;
-    &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
-    &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
-    &lt;span class="topic-comments" title="$msg.get('conversations.topic.tooltip.totalcommentsandanswers')"&gt;$nbCommentsAnswers&lt;/span&gt;
-    &lt;div class="topic-metadata"&gt;      
-      &lt;span class="topic-metas"&gt;
-        &lt;span class="topic-author"&gt;$!xwiki.getUserName($topicDoc.creator)&lt;/span&gt;
-        &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
-        &lt;span class="topic-answers" title="$msg.get('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size()&lt;/span&gt;
-        &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null) title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end&gt;
-            #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
-            &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
-            &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/span&gt;
-    &lt;/div&gt;
-    #if($withdetails)
-    &lt;div class="topic-description"&gt;
-    #cleanHTMLMacro($!topicDescription)
-     &lt;div class="topic-actions"&gt;
-      &lt;span class="left"&gt;
-        #displayForumActions($topicDoc)
-      &lt;/span&gt;
-      #if(!$isGuest)
-      &lt;span class="topic-vote2 $voteAllowedClass conversation-like center" title="$msg.get('conversation.like.button.tooltip')"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
-      #end
-      &lt;span class="right"&gt;
-       #displayForumAddThis($topicDoc, $topicTitle)             
-      &lt;/span&gt;
-     &lt;/div&gt;
+    &lt;div class="topic-container"&gt;
+      &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
+      &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+      &lt;span class="topic-comments" title="$msg.get('conversations.topic.tooltip.totalcommentsandanswers')"&gt;$nbCommentsAnswers&lt;/span&gt;
+      #if($withdetails)
+      &lt;div class="topic-description"&gt;
+      #cleanHTMLMacro($!topicDescription)
+       &lt;div class="topic-actions"&gt;
+        &lt;span class="left"&gt;
+          #displayForumActions($topicDoc)
+        &lt;/span&gt;
+        #if(!$isGuest)
+        &lt;span class="topic-vote2 $voteAllowedClass conversation-like center" title="$msg.get('conversation.like.button.tooltip')"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+        #end
+        &lt;span class="right"&gt;
+         #displayForumAddThis($topicDoc, $topicTitle)             
+        &lt;/span&gt;
+       &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="topic-metadata"&gt;      
+        &lt;span class="topic-metas"&gt;
+          &lt;span class="topic-author"&gt;$!xwiki.getUserName($topicDoc.creator)&lt;/span&gt;
+          &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
+          &lt;span class="topic-answers" title="$msg.get('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size()&lt;/span&gt;
+          &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null) title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end&gt;
+              #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
+              &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
+              &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="topic-moderation"&gt;
     #if(($topicDoc.creator==$context.user)

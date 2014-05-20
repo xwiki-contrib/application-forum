@@ -785,6 +785,14 @@ body#body { background: #DDDDDD !important; }
   height: 80px;
 }
 
+.topic-container {
+  border: 1px solid $theme.borderColor;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0 65px 0 0;
+}
+
 h3.topic-title {
   float: right; clear: right; display: inline-block !important;
   padding: 10px !important;
@@ -815,54 +823,63 @@ h3.topic-title a {color: #164891 !important; text-shadow: 1px 1px 1px #EEEEEE;}
 Topic Metadata
 --------------------------------------------------------------------------------------------------
 */
-.topic-metadata { clear: both; padding: 20px 0 !important; width: 100% !important; display: block !important; }
 .topic-authortype,
 .topic-metas {
-  background: #F7F7F7;
-  padding: 5px 10px 4px;
-  color: #AAA;
-  font-size: 10px; font-weight: bold !important;
+  background-color: $theme.backgroundSecondaryColor;
+  color: $theme.textSecondaryColor;
+  padding: 5px 10px;
+  font-size: 10px;
   text-transform: uppercase;
   display: inline-block;
   position: relative;
-  width: 90%;
-  border: 1px solid white;
-
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  width: 100%;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
-.topic-metas:hover {background: #FFF; border: 1px solid #F7F7F7;}
+
 .topic-authortype {
   width: 60px;
   margin-right: 20px;
   overflow: hidden;
-  padding: 5px 10px;
+  padding: 9px 10px;
   text-align: center;
   width: 60px;
   float: left;
   text-overflow: ellipsis;
   white-space: nowrap; 
 }
+
+.topic-date, .topic-answers {
+  padding: 0 0 0 20px;
+  margin-left: 20px;
+}
+
 .topic-date {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px 0px !important;
-  padding: 0 0 0 20px; margin-left: 20px !important;
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px 0px;
 }
+
 .topic-answers {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -600px -50px !important;
-  padding: 0 0 0 20px; margin-left: 20px !important;
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -600px -50px;
 }
-.topic-metas a { color: #AAA !important; }
+
 .topic-vote {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -200px 0px !important;
-  position: absolute; top: -20px !important; right: -25px !important;
-  background: #DDDDDD;
-  color:#C9C9C9;
-  font-size: 14px !important; font-weight: bold;
-  padding: 21px 0 0 0;
-  width: 50px; height: 29px;
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -200px 0px;
+  position: absolute; 
+  top: -15px; 
+  right: -25px;
+  color: $theme.textSecondaryColor;
+  font-size: 14px; 
+  font-weight: bold;
+  padding: 20px 0 0 0;
+  width: 50px; 
+  height: 30px;
   text-align: center;
 }
+
 .topic-vote.allow-vote:hover {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -200px -50px !important;
   font-size: 0 !important;
@@ -873,16 +890,7 @@ Topic Content / Description
 --------------------------------------------------------------------------------------------------
 */
 .topic-description {
-  padding: 20px !important;
-  border: 1px solid #DDDDDD;
-  margin-right: 65px !important;
-  position: relative;
-  z-index: 102;
-  background: white;
-
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  padding: 10px 10px 20px 10px;
 }
 /*
 Topic Actions
@@ -1032,7 +1040,7 @@ Moderator / Admin
 }
 
 .topic-moderation {
-  top: 175px; 
+  top: 35px; 
 }
 
 .comment-moderation {
