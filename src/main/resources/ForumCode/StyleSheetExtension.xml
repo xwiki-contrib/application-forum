@@ -794,13 +794,14 @@ body#body { background: #DDDDDD !important; }
   -moz-border-radius: 4px;
   border-radius: 4px;
   margin: 0 65px 0 0;
+  padding: 10px 0 0 0;
   z-index: 102;
   position: relative;
 }
 
 .topic-title {
-  padding: 10px;
-  margin: 0;
+  padding: 0 10px;
+  margin: 10px 0;
   border: 0;
 }
 
@@ -888,12 +889,13 @@ Topic Metadata
 }
 
 .topics .topic-description {
-  max-height: 3em;
+  max-height: 3.2em;
   overflow: hidden;
 }
 
 .topic-description {
-  padding: 10px 10px 20px 10px;
+  padding: 0 10px;
+  margin-bottom: 20px;
 }
 /*
 Topic Actions

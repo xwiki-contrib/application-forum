@@ -58,7 +58,9 @@
    #displayTopicAddForm($space)   
   &lt;/div&gt;  
   ## Display topic list
+  &lt;div class="topics"&gt;
   #displayTopics()
+  &lt;/div&gt;  
   #displayEditors()
 {{/html}}
   #end
