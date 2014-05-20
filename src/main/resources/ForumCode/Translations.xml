@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400599645000</date>
-  <contentUpdateDate>1400599645000</contentUpdateDate>
+  <date>1400599730000</date>
+  <contentUpdateDate>1400599730000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -29,19 +29,19 @@ ForumCode.TopicClass_status=Status
 ForumCode.TopicClass_status_inprogress=In progress
 ForumCode.TopicClass_status_closed=Closed
 ForumCode.TopicClass_status_integrated=Integrated
-conversations.title=Conversation
-conversation.add.activator=Answer
+conversations.title=Answer
+conversation.add.activator=New answer
 conversation.delete.confirm=Delete topic?
-conversation.delete.confirm.withReplies=Delete this topic and its comments ?
-conversation.delete.done=Conversation deleted
-conversation.delete.success=Conversation deleted
-conversation.delete.failed=The conversation could not be deleted
+conversation.delete.confirm.withReplies=Delete this answer and its comments ?
+conversation.delete.done=Answer deleted
+conversation.delete.success=Answer deleted
+conversation.delete.failed=The answer could not be deleted
 conversation.delete.inProgress=Delete in progress ...
-conversation.edit=Edit
-conversation.edit.failed=The form used for creating conversation could no be displayed
-conversation.delete=Delete
-conversation.delete.title=Delete this conversation
-conversation.edit.title=Modify the parameters of this conversation
+conversation.edit=Edit answer
+conversation.edit.failed=The form used for creating answer could no be displayed
+conversation.delete=Delete answer
+conversation.delete.title=Delete answer
+conversation.edit.title=Edit answer
 conversation.empty=No comment
 conversation.forum.delete.title=Delete Topic
 conversation.updatedate={0}
@@ -49,7 +49,7 @@ conversation.creationdate={1}
 conversation.like.button=Votes
 conversation.like.button.tooltip=Vote topic
 conversation.like.button.alreadyliked.tooltip=You already voted
-conversation.like.score.tooltip={0} users found this conversation as being interesting.
+conversation.like.score.tooltip={0} users found this answer as being interesting.
 conversation.like.failed=The vote could not be saved: 
 conversation.like.done=Your vote has been saved.
 conversation.like.loading=Saving the vote...
@@ -88,16 +88,16 @@ conversations.create.error.topic.norights=You don't have the rights to create a 
 conversations.create.error.answer.norights=You don't have the rights to create a new answer.
 conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata.
 conversations.create.error.missingtitle=Missing title.
-conversations.deleteconversation.changecomment=Deleted conversation
+conversations.deleteconversation.changecomment=Deleted answer
 conversations.deletecomment.changecomment=Deleted comment
-conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the conversation.
+conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the comment.
 conversations.deletecomment.success=The mail to notify about comment deletion has been sent.
 conversations.deletecomment.error.norights=You don't have the rights to delete the comment.
 conversations.deletecomment.error.notfound=Comment not found.
-conversations.deleteconversation.error.nomailsent=Could not send mail to notify about deleting the answer.
+conversations.deleteconversation.error.nomailsent=Could not send mail to notify about deleting the topic.
 conversations.deleteconversation.success=The mail to notify about answer deletion has been sent.
 conversations.deleteconversation.error.norights=You don't have the rights to delete the answer.
-conversations.deleteconversation.error.notfound=Answer not found.
+conversations.deleteconversation.error.notfound=Topic not found.
 core.viewers.comments.delete.failed=The comment could not be deleted.
 ForumCode.AnswerClass_answer=Answer
 ForumCode.TopicClass_description=Description
