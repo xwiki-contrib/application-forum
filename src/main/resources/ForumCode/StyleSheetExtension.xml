@@ -1043,11 +1043,9 @@ Moderator / Admin
 .topic-moderation .delete, .answer-moderation .delete,  .comment-moderation .delete {
   background: #60A35C url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 40px -93px;
   padding: 15px 30px;
-  display: block;
   font-size: 0;
-  width: 100%;
-  position: absolute; top: 0; right: 0;
-
+  position: absolute;
+  right: 0;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
@@ -1055,16 +1053,17 @@ Moderator / Admin
 
 .topic-moderation .delete, .answer-moderation .delete,  .comment-moderation .delete {
   background: #A25E5E url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -60px -93px;
-  margin-top: 10px;
-  top: 20px; right: 0;
+  top: 30px;
 }
 
 .topic-moderation .edit:hover, .answer-moderation .edit:hover, .comment-moderation .edit:hover { 
-  position: absolute; right: -20px; background-color: green; 
+  right: -20px; 
+  background-color: green; 
 }
 
 .topic-moderation .delete:hover, .answer-moderation .delete:hover,  .comment-moderation .delete:hover {
-  position: absolute; right: -20px; background-color: red;
+  right: -20px; 
+  background-color: red;
 }
 
 /*
