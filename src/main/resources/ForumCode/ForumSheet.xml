@@ -65,6 +65,6 @@
   #displayEditors()
 {{/html}}
   #end
-#set($showcomments = false)
+#set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>

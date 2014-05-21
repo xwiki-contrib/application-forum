@@ -222,6 +222,7 @@
   })
   #livetable('forums' $columns $columnsProperties $options)
 #end
+#set($docextras = [])
 {{/velocity}}
 </content>
 </xwikidoc>
