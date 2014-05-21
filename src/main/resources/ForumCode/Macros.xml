@@ -660,54 +660,64 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($voteAllowedClass = "allow-vote")
   #end
   &lt;div class="topic"&gt;
-    &lt;div class="topic-container"&gt;
-      &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
-      &lt;span class="topic-comments" title="$msg.get('conversations.topic.tooltip.totalcommentsandanswers')"&gt;$nbCommentsAnswers&lt;/span&gt;
-      &lt;div class="topic-description"&gt;
-        #cleanHTMLMacro($!topicDescription)
-        #if($withdetails)
-        &lt;div class="topic-actions"&gt;
-          &lt;span class="left"&gt;
-            #displayForumActions($topicDoc)
-          &lt;/span&gt;
-          #if(!$isGuest)
-          &lt;span class="topic-vote2 $voteAllowedClass conversation-like center" title="$msg.get('conversation.like.button.tooltip')"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+    &lt;div class="topic-layout"&gt;
+      #if($withdetails)
+        &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
+      #end
+      &lt;div class="topic-container"&gt;
+        &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+        &lt;span class="topic-comments" title="$msg.get('conversations.topic.tooltip.totalcommentsandanswers')"&gt;$nbCommentsAnswers&lt;/span&gt;
+        &lt;div class="topic-description"&gt;
+          #cleanHTMLMacro($!topicDescription)
+          #if($withdetails)
+          &lt;div class="topic-actions"&gt;
+            &lt;span class="left"&gt;
+              #displayForumActions($topicDoc)
+            &lt;/span&gt;
+            #if(!$isGuest)
+            &lt;span class="topic-vote2 $voteAllowedClass conversation-like center" title="$msg.get('conversation.like.button.tooltip')"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+            #end
+            &lt;span class="right"&gt;
+             #displayForumAddThis($topicDoc, $topicTitle)
+            &lt;/span&gt;
+          &lt;/div&gt;
           #end
-          &lt;span class="right"&gt;
-           #displayForumAddThis($topicDoc, $topicTitle)
+        &lt;/div&gt;
+        &lt;div class="topic-metadata"&gt;
+          &lt;span class="topic-metas"&gt;
+            &lt;span class="topic-author"&gt;
+              #if($withdetails)
+                &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
+              #end
+              $!xwiki.getUserName($topicDoc.creator)
+            &lt;/span&gt;
+            &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
+            &lt;span class="topic-answers" title="$msg.get('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size()&lt;/span&gt;
+            &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null) title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end&gt;
+                #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
+                &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
+                &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
+            &lt;/div&gt;
           &lt;/span&gt;
         &lt;/div&gt;
+      &lt;/div&gt;
+      #if($withdetails)
+      &lt;div class="topic-moderation"&gt;
+        #if(($topicDoc.creator==$context.user)
+           ||$doc.creator == $xcontext.user
+           ||$hasAdmin)
+          &lt;a class="edit" href="$topicDoc.getURL("edit")" title="$msg.get("conversations.forum.edit")"&gt;$msg.get("conversations.forum.edit")&lt;/a&gt;
         #end
+        #if(($topicDoc.creator==$context.user)
+           ||$doc.creator == $xcontext.user
+           ||$hasAdmin)
+          #set($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
+          #set($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
+          &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$msg.get('conversation.forum.delete.title')"&gt;$msg.get('conversation.forum.delete')&lt;/a&gt;
+          #end
       &lt;/div&gt;
-      &lt;div class="topic-metadata"&gt;
-        &lt;span class="topic-metas"&gt;
-          &lt;span class="topic-author"&gt;&lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;$!xwiki.getUserName($topicDoc.creator)&lt;/span&gt;
-          &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
-          &lt;span class="topic-answers" title="$msg.get('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size()&lt;/span&gt;
-          &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null) title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end&gt;
-              #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
-              &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
-              &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
-          &lt;/div&gt;
-        &lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    #if($withdetails)
-    &lt;div class="topic-moderation"&gt;
-      #if(($topicDoc.creator==$context.user)
-         ||$doc.creator == $xcontext.user
-         ||$hasAdmin)
-        &lt;a class="edit" href="$topicDoc.getURL("edit")" title="$msg.get("conversations.forum.edit")"&gt;$msg.get("conversations.forum.edit")&lt;/a&gt;
       #end
-      #if(($topicDoc.creator==$context.user)
-         ||$doc.creator == $xcontext.user
-         ||$hasAdmin)
-        #set($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
-        #set($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
-        &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$msg.get('conversation.forum.delete.title')"&gt;$msg.get('conversation.forum.delete')&lt;/a&gt;
-        #end
     &lt;/div&gt;
-    #end
   &lt;/div&gt;
 #end
 ##

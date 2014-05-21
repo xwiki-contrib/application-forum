@@ -787,7 +787,7 @@ body#body { background: #DDDDDD !important; }
   min-width: 630px;
 }
 
-.forum .user-avatar .photo, .topic .user-avatar .photo {
+.forum .user-avatar .photo, .topic-container .user-avatar .photo {
   width: 20px;
   height: 20px;
   margin-right: 5px;
@@ -804,6 +804,10 @@ body#body { background: #DDDDDD !important; }
   padding: 10px 0 0 0;
   z-index: 102;
   position: relative;
+}
+
+.topics .topic-container {
+  margin: 0 65px;
 }
 
 .topic-title {
@@ -1148,8 +1152,7 @@ Answers and Comments for a Topic
   position: relative;
 }
 
-.answer-layout .user-avatar,
-.comment .user-avatar {
+.topic-layout .user-avatar, .answer-layout .user-avatar, .comment .user-avatar {
   float: left;
 }
 
