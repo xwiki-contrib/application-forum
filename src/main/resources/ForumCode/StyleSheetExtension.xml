@@ -779,12 +779,14 @@ body#body { background: #DDDDDD !important; }
 }
 
 .topic {
-  margin: 50px 0 20px 0 !important;
+  margin: 21px 0 20px 0;
   position: relative;
   font-family: 'Open Sans', sans-serif;
-  clear:both !important; /* temp setting, remove once markup is fixed: topic inside topic atm */
-  z-index: 100;
   min-width: 630px;
+}
+
+.topics .topic {
+  margin-top: 50px;
 }
 
 .forum .user-avatar .photo, .topic-container .user-avatar .photo {
