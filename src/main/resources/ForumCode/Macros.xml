@@ -658,7 +658,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #end
   &lt;div class="topic"&gt;
     &lt;div class="topic-layout"&gt;
-      #if($withdetails)
+      #if(!$withdetails)
         &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
       #end
       &lt;div class="topic-container"&gt;
