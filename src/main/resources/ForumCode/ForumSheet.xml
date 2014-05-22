@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400742621000</date>
-  <contentUpdateDate>1400742621000</contentUpdateDate>
+  <date>1400760154000</date>
+  <contentUpdateDate>1400760126000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -46,7 +46,7 @@
       &lt;span class="forum-metas"&gt;
         &lt;span class="forum-author"&gt;&lt;span class="user-avatar"&gt;#smallUserAvater2($doc.creator)&lt;/span&gt;$!xwiki.getUserName($doc.creator)&lt;/span&gt;
         &lt;span class="forum-date"&gt;$xwiki.formatDate($doc.date)&lt;/span&gt;
-        &lt;span class="forum-topics" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt;
+        &lt;span class="forum-topics" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size() $services.localization.render('conversations.topic.count')&lt;/span&gt;
       &lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;

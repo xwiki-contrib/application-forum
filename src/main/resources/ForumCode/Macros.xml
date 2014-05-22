@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400747861000</date>
-  <contentUpdateDate>1400747861000</contentUpdateDate>
+  <date>1400760256000</date>
+  <contentUpdateDate>1400760256000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -695,7 +695,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
               $!xwiki.getUserName($topicDoc.creator)
             &lt;/span&gt;
             &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
-            &lt;span class="topic-answers" title="$msg.get('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size()&lt;/span&gt;
+            &lt;span class="topic-answers" title="$msg.get('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size() $services.localization.render('conversations.answer.count')&lt;/span&gt;
             &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null) title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end&gt;
                 #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
                 &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
@@ -757,7 +757,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
                 #set($rating = $services.ratings.getAverageRating($conversationDoc).nbVotes)
                 &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$rating&lt;/span&gt;
               &lt;/span&gt;
-              &lt;span class="comments" objtype="nbComments" title="$msg.get('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size()&lt;/span&gt;
+              &lt;span class="comments" objtype="nbComments" title="$msg.get('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size() $services.localization.render('conversations.comment.count')&lt;/span&gt;
             &lt;/span&gt;
             &lt;div class="answer-content"&gt;
                 #cleanHTMLMacro($conversationDoc.answer)
