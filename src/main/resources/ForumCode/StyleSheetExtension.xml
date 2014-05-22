@@ -11,7 +11,7 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400744170000</date>
+  <date>1400746485000</date>
   <contentUpdateDate>1400491651000</contentUpdateDate>
   <version>1.1</version>
   <title/>
@@ -844,15 +844,22 @@ Limit content / make it responsive
   background: $theme.pageContentBackgroundColor;
 }
 
-.comments .noitems {
+.answers .noitems, .comments .noitems {
   background-color: $theme.backgroundSecondaryColor;
   border: 1px solid $theme.borderColor;
   padding: 10px;
-  margin-left: 10px;
-  margin-right: 60px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px; 
+}
+
+.answers .noitems {
+  margin-right: 65px;
+}
+
+.comments .noitems {
+  margin-left: 10px;
+  margin-right: 60px;
 }
 
 .comment.user {
