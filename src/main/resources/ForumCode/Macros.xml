@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400745311000</date>
-  <contentUpdateDate>1400745311000</contentUpdateDate>
+  <date>1400745857000</date>
+  <contentUpdateDate>1400745857000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -729,6 +729,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #set($conversationsSqlParams = [$doc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate'])
   #set($conversationDocs = $xwiki.searchDocuments($conversationsSql, $conversationsSqlParams))
   &lt;div class="answers"&gt;
+    #if($conversationDocs.size() &gt; 0)
     #foreach($conversationDocName in $conversationDocs)
       #set($conversationDoc = $xwiki.getDocument($conversationDocName))
       #set($conversationObject = $conversationDoc.getObject('ForumCode.AnswerClass'))
@@ -805,6 +806,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
           #end
         &lt;/div&gt;&lt;!-- / .comments --&gt;
       &lt;/div&gt;&lt;!-- / .answer --&gt;
+    #end
+    #else
+      &lt;p class="noitems"&gt;$services.localization.render('conversations.answer.empty')&lt;/p&gt;
     #end
   &lt;/div&gt;&lt;!-- / .answers --&gt;
 #end
