@@ -7,19 +7,19 @@
   <defaultLanguage/>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
-  <creationDate>1400680735000</creationDate>
+  <creationDate>1400156985000</creationDate>
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1375308000000</date>
-  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <date>1400745311000</date>
+  <contentUpdateDate>1400745311000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{velocity output=false}}
+  <content>{{velocity output="false"}}
 ## make sure we have all these extensions
 $xwiki.jsx.use('XWiki.Ratings', { 'minify' : false }) ##
 $xwiki.ssx.use('XWiki.Ratings') ##
@@ -168,14 +168,14 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
      #if("$!comment.replyto" == '')#smallUserAvater2($comment.author)#{else}#smallUserAvater2($comment.author)#end
     &lt;/span&gt; 
     &lt;span class="comment-meta"&gt;
-		&lt;span class="user"&gt;$!xwiki.getUserName($doc.display('author', 'view', $comment))&lt;/span&gt;
-		#set($date = $comment.getProperty('date').value)
-		&lt;span class="time"&gt;$!xwiki.formatDate($date)&lt;/span&gt;
+  &lt;span class="user"&gt;$!xwiki.getUserName($doc.display('author', 'view', $comment))&lt;/span&gt;
+  #set($date = $comment.getProperty('date').value)
+  &lt;span class="time"&gt;$!xwiki.formatDate($date)&lt;/span&gt;
     &lt;/span&gt;
     &lt;div class="comment-content"&gt;
       $commentDoc.getRenderedContent($comment.getProperty('comment').getValue(), $doc.getSyntax().toIdString())
-	  &lt;span class="actions"&gt;
-	   ## compose the comment permalink in conversation carefully, taking care of making it point to the article's conversation view and not to the conversation itself
+   &lt;span class="actions"&gt;
+    ## compose the comment permalink in conversation carefully, taking care of making it point to the article's conversation view and not to the conversation itself
        #set($commentPermalinkInConversation = $doc.getURL('view'))
        #set($parentArticle = $doc.parent)
         &lt;span class="permalink"&gt;&lt;a class="permalink" href="$escapetool.xml($commentPermalinkInConversation)#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.permalink')"&gt;$msg.get('core.viewers.comments.permalink')&lt;/a&gt;&lt;/span&gt;
@@ -187,7 +187,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
            &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
           &lt;/span&gt;
         #end
-       &lt;/span&gt;	   
+       &lt;/span&gt;    
     &lt;/div&gt;&lt;!-- /.comment-content --&gt;
   &lt;/div&gt; &lt;!-- /.comment-layout --&gt;
     &lt;div class="comment-moderation"&gt;
@@ -230,7 +230,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
        #mediumUserAvatar2($context.user)
        &lt;/span&gt;
        &lt;div class="comment-reply"&gt;
-		&lt;span class="comment-meta"&gt;
+  &lt;span class="comment-meta"&gt;
         #if($xcontext.user != 'XWiki.XWikiGuest')
           $msg.get('core.viewers.comments.add.guestName.prompt') $xwiki.getUserName($xcontext.user)
           &lt;input type="hidden" name="${xCommentClass}_author" value="$xcontext.user"/&gt;
@@ -239,8 +239,8 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
           &lt;a href='$escapetool.xml($xwiki.getURL('XWiki.XWikiLogin', 'login', "xredirect=$escapetool.url($xwiki.getRequestURL())"))'&gt;$msg.get('login')&lt;/a&gt;
         #end
         &lt;/span&gt;
-		&lt;div class="comment-content"&gt;
-		 ## CSRF prevention
+  &lt;div class="comment-content"&gt;
+   ## CSRF prevention
          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
          &lt;input type="hidden" name="${xCommentClass}_date" value=""/&gt;
          &lt;input type="hidden" name="${xCommentClass}_replyto" value="$!replyTo"/&gt;
@@ -481,15 +481,15 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 *#
 #macro(sortAsOutterjoin $option $start $nb $dir $result)
   #if($dir == 'desc')
-	#set($query1 = $option.nonZeroQuery)
-	#set($countQuery1 = $option.coutNonZeroQuery)
+ #set($query1 = $option.nonZeroQuery)
+ #set($countQuery1 = $option.coutNonZeroQuery)
     #set($query2 = $option.zeroQuery)
-	#set($countQuery2 = $option.countZeroQuery)
+ #set($countQuery2 = $option.countZeroQuery)
   #else
     #set($query1 = $option.zeroQuery)
-	#set($countQuery1 = $option.countZeroQuery)
-	#set($query2 = $option.nonZeroQuery)
-	#set($countQuery2 = $option.coutNonZeroQuery)
+ #set($countQuery1 = $option.countZeroQuery)
+ #set($query2 = $option.nonZeroQuery)
+ #set($countQuery2 = $option.coutNonZeroQuery)
   #end
 
   #set($end = $start + $nb)
@@ -499,13 +499,13 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #set($result = $query1.setOffset($start).setLimit($nb).execute())
   #elseif($count1 &lt;= $start)
     #set($start2 = $start - $count1)
-	#set($result = $query2.setOffset($start2).setLimit($nb).execute())
+ #set($result = $query2.setOffset($start2).setLimit($nb).execute())
   #else
     #set($nb1 = $count1 - $start)
-	#set($result = $query1.setOffset($start).setLimit($nb1).execute())
-	#set($nb2 = $nb - $nb1)
-	#set($result2 = $query2.setOffset(0).setLimit($nb2).execute())
-	#set($ok = $result.addAll($result2))
+ #set($result = $query1.setOffset($start).setLimit($nb1).execute())
+ #set($nb2 = $nb - $nb1)
+ #set($result2 = $query2.setOffset(0).setLimit($nb2).execute())
+ #set($ok = $result.addAll($result2))
   #end
 #end
 ##
@@ -544,7 +544,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #else
       #set($forumInnerCodition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
     #end
-	
+ 
     #set($zeroQueryPart = ", BaseObject obj where $!forumInnerCodition doc.fullName=obj.name and obj.className='ForumCode.TopicClass' and doc.fullName not in ($nonZeroQueryWithoutSort)")
     #set($zeroQuery = "$zeroQueryPart order by doc.name $!{currentorder}")
     #set($countZeroQuery = "select count(distinct doc.fullName) from XWikiDocument doc $zeroQueryPart")
@@ -556,11 +556,11 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
       'zeroQuery' : $query.hql($zeroQuery),  
       'countZeroQuery' : $query.hql($countZeroQuery)
     })
-	#if(!$allTopics)
-	  #foreach($query in $option.values())
-	    #set($ok = $query.bindValue('forum', $forum))
-	  #end
-	#end
+ #if(!$allTopics)
+   #foreach($query in $option.values())
+     #set($ok = $query.bindValue('forum', $forum))
+   #end
+ #end
     #sortAsOutterjoin($option $start $nb $currentorder $result)
   #else
     ## sort by last update date
@@ -742,45 +742,45 @@ addthis:description="${escapetool.xml($addThisDesc)}"
           #smallUserAvater2($conversationDoc.creator)
           &lt;/span&gt;
           &lt;div class="answer-reply"&gt;
-				&lt;span class="answer-meta"&gt;
-					&lt;span class="user"&gt;$xwiki.getUserName($conversationDoc.creator)&lt;/span&gt;
-					&lt;span class="time"&gt;$msg.get('conversation.updatedate', [$xwiki.formatDate($conversationDoc.date)])&lt;/span&gt;
-					&lt;span class="votes conversation-ratings"&gt;
-                     &lt;span class="conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null)class="canVote" title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end &gt;
-                      &lt;input type="hidden" name="documenttolike" value="$conversationDoc.fullName" /&gt;
-                     &lt;/span&gt;
-                     #set($rating = $services.ratings.getAverageRating($conversationDoc).nbVotes)
-                     &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$rating&lt;/span&gt;
-                    &lt;/span&gt;
-					&lt;span class="comments" objtype="nbComments" title="$msg.get('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size()&lt;/span&gt;
-				&lt;/span&gt;
-				&lt;div class="answer-content"&gt;
- 				    #cleanHTMLMacro($conversationDoc.answer)
-					&lt;span class="actions"&gt;
-					 #if($context.user!="XWiki.XWikiUsers")
-                     &lt;span class="flag" title="$msg.get('conversation.flag.tooltip')"&gt;
+            &lt;span class="answer-meta"&gt;
+              &lt;span class="user"&gt;$xwiki.getUserName($conversationDoc.creator)&lt;/span&gt;
+              &lt;span class="time"&gt;$msg.get('conversation.updatedate', [$xwiki.formatDate($conversationDoc.date)])&lt;/span&gt;
+              &lt;span class="votes conversation-ratings"&gt;
+                &lt;span class="conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null)class="canVote" title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end &gt;
+                  &lt;input type="hidden" name="documenttolike" value="$conversationDoc.fullName" /&gt;
+                &lt;/span&gt;
+                #set($rating = $services.ratings.getAverageRating($conversationDoc).nbVotes)
+                &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$rating&lt;/span&gt;
+              &lt;/span&gt;
+              &lt;span class="comments" objtype="nbComments" title="$msg.get('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size()&lt;/span&gt;
+            &lt;/span&gt;
+            &lt;div class="answer-content"&gt;
+                #cleanHTMLMacro($conversationDoc.answer)
+                &lt;span class="actions"&gt;
+                  #if($context.user!="XWiki.XWikiUsers")
+                    &lt;span class="flag" title="$msg.get('conversation.flag.tooltip')"&gt;
                       &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
-                     &lt;/span&gt;
-                     #end
-					 &lt;span class="conversation-permalink"&gt;
-                          &lt;a class="permalink" href="$escapetool.xml($doc.getURL('view'))#${conversationId}" title="$msg.get('conversation.permalink.tooltip')"&gt;
-                          ## We need to put image here since we cannot do background + indented text + fixed width as we do for comment tools, because overflow: hidden is messing up the display of the other icons.
-                          &lt;/a&gt;
-                     &lt;/span&gt;
-					&lt;/span&gt;
-				&lt;/div&gt;
-		 &lt;/div&gt;&lt;!-- / .answer-reply --&gt;
-         &lt;div class="answer-moderation"&gt;
-            #if(($conversationDoc.creator==$context.user)
-                 ||$hasAdmin)
-              &lt;a class="edit" href="$conversationDoc.getURL('edit')" title="$msg.get('conversation.edit.title')"&gt;$msg.get('conversation.edit')&lt;/a&gt;
-            #end
-            #if(($conversationDoc.creator==$context.user)
-                 ||$hasAdmin)
-              &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('conversation.delete.title')"&gt;$msg.get('conversation.delete')&lt;/a&gt;
-            #end
-         &lt;/div&gt;&lt;!-- / .answer-moderation --&gt;
-	    &lt;/div&gt;&lt;!-- / .answer-layout --&gt;
+                    &lt;/span&gt;
+                  #end
+                  &lt;span class="conversation-permalink"&gt;
+                    &lt;a class="permalink" href="$escapetool.xml($doc.getURL('view'))#${conversationId}" title="$msg.get('conversation.permalink.tooltip')"&gt;
+                    ## We need to put image here since we cannot do background + indented text + fixed width as we do for comment tools, because overflow: hidden is messing up the display of the other icons.
+                    &lt;/a&gt;
+                  &lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;&lt;!-- / .answer-reply --&gt;
+          &lt;div class="answer-moderation"&gt;
+              #if(($conversationDoc.creator==$context.user)
+                   ||$hasAdmin)
+                &lt;a class="edit" href="$conversationDoc.getURL('edit')" title="$msg.get('conversation.edit.title')"&gt;$msg.get('conversation.edit')&lt;/a&gt;
+              #end
+              #if(($conversationDoc.creator==$context.user)
+                   ||$hasAdmin)
+                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('conversation.delete.title')"&gt;$msg.get('conversation.delete')&lt;/a&gt;
+              #end
+          &lt;/div&gt;&lt;!-- / .answer-moderation --&gt;
+        &lt;/div&gt;&lt;!-- / .answer-layout --&gt;
         &lt;div class="comments"&gt;
           #if($comments.size() &gt; 0)
             #set($rootKey = "-1")
@@ -900,21 +900,21 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 
   #getOrdredTopics('', $start, $nb, $sortField, 'topics')
 $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
-	         &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
-	         &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
-	&lt;div class="tableScroll"&gt;
-		&lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
-			&lt;caption&gt;$msg.get("discussion.panel.title")&lt;/caption&gt;
-			&lt;colgroup&gt;
-				&lt;col class="date" /&gt;
-				&lt;col class="votes" /&gt;
-				&lt;col class="comments" /&gt;
-			&lt;/colgroup&gt;
-			&lt;tr&gt;
-				&lt;th class="topics"&gt;$msg.get("discussion.panel.topics")&lt;/th&gt;
-				&lt;th class="votes"&gt;$msg.get("discussion.panel.votes")&lt;/th&gt;
-				&lt;th class="comments"&gt;$msg.get("discussion.panel.comments")&lt;/th&gt;
-			&lt;/tr&gt;
+          &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
+          &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
+ &lt;div class="tableScroll"&gt;
+  &lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
+   &lt;caption&gt;$msg.get("discussion.panel.title")&lt;/caption&gt;
+   &lt;colgroup&gt;
+    &lt;col class="date" /&gt;
+    &lt;col class="votes" /&gt;
+    &lt;col class="comments" /&gt;
+   &lt;/colgroup&gt;
+   &lt;tr&gt;
+    &lt;th class="topics"&gt;$msg.get("discussion.panel.topics")&lt;/th&gt;
+    &lt;th class="votes"&gt;$msg.get("discussion.panel.votes")&lt;/th&gt;
+    &lt;th class="comments"&gt;$msg.get("discussion.panel.comments")&lt;/th&gt;
+   &lt;/tr&gt;
   #foreach($topic in $topics)
     #set($topicDoc = $xwiki.getDocument($topic))  
     #set($topicTitle = $topicDoc.title)
@@ -935,14 +935,14 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
     #else
      #set($topicodd = "even")
     #end
-  		    &lt;tr class="${topicodd}"&gt;
-				&lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$topicTitle&lt;/a&gt;&lt;/td&gt;
-				&lt;td class="votes"&gt;$!{rating}&lt;/td&gt;
-				&lt;td class="comments"&gt;${nbCommentsAnswers}&lt;/td&gt;
-			&lt;/tr&gt;
+        &lt;tr class="${topicodd}"&gt;
+    &lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$topicTitle&lt;/a&gt;&lt;/td&gt;
+    &lt;td class="votes"&gt;$!{rating}&lt;/td&gt;
+    &lt;td class="comments"&gt;${nbCommentsAnswers}&lt;/td&gt;
+   &lt;/tr&gt;
   #end
-  		&lt;/table&gt;
-	&lt;/div&gt;
+    &lt;/table&gt;
+ &lt;/div&gt;
   #if(!$request.xpage)
    &lt;/div&gt;
   #end 

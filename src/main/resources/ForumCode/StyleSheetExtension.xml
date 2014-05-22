@@ -11,7 +11,7 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400743177000</date>
+  <date>1400744170000</date>
   <contentUpdateDate>1400491651000</contentUpdateDate>
   <version>1.1</version>
   <title/>
@@ -710,7 +710,7 @@ New Comment
 Answers and Comments for a Topic
 -------------------------------------------------------------------------------------------------- 
 */
-.topics-title, .answers-title {
+.forums-title, .topics-title, .answers-title {
   border: 0;
   float: left;
   margin: 5px 0;
