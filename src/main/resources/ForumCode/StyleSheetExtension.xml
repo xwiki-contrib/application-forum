@@ -11,7 +11,7 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400740842000</date>
+  <date>1400743177000</date>
   <contentUpdateDate>1400491651000</contentUpdateDate>
   <version>1.1</version>
   <title/>
@@ -710,7 +710,7 @@ New Comment
 Answers and Comments for a Topic
 -------------------------------------------------------------------------------------------------- 
 */
-.answers-title {
+.topics-title, .answers-title {
   border: 0;
   float: left;
   margin: 5px 0;
@@ -1018,11 +1018,21 @@ Discussion Topics
 New Topic
 --------------------------------------------------------------
 */
-/*
-.addconversation-container { overflow: hidden; display: inline-block; float: right; }
-*/
-.addconversation-container-button { overflow: hidden; display: inline-block; float: right; margin-right: 65px; }
-.addconversation-container { display: inline !important;}
+.addconversation-container-button {
+  float: right; 
+}
+
+.addtopic-container-button {
+  margin-right: 30px;
+}
+
+.addanswer-container-button {
+  margin-right: 65px;
+}
+
+.addconversation-container {
+  display: inline;
+}
 .addconversation-container input[type="text"],
 .addconversation-container textarea {
   font-size: 14px;
@@ -1048,7 +1058,6 @@ New Topic
 New Answer
 */
 .addanswer-container {
-  display: block;
   border-bottom: 1px solid #DDDDDD;
   margin: 20px 65px 40px 0;
   width: 90%;

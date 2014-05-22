@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400661528000</date>
-  <contentUpdateDate>1400661455000</contentUpdateDate>
+  <date>1400742621000</date>
+  <contentUpdateDate>1400742621000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -51,12 +51,13 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+  &lt;h3 class="topics-title"&gt;$services.localization.render('conversations.topic.all')&lt;/h3&gt;
+   #displayTopicAddForm($space)
   &lt;div id="forum-buttons"&gt;
   &lt;label&gt;$msg.get("conversations.forum.sorttopicsby")&lt;/label&gt;
    #displayTopicSortButton("date")
    #displayTopicSortButton("votes")
    #displayTopicSortButton("comments")
-   #displayTopicAddForm($space)
   &lt;/div&gt;
   ## Display topic list
   &lt;div class="topics"&gt;
