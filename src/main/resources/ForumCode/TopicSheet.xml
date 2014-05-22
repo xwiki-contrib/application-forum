@@ -7,12 +7,12 @@
   <defaultLanguage/>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
-  <creationDate>1400680735000</creationDate>
+  <creationDate>1400156985000</creationDate>
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1375308000000</date>
-  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <date>1400740624000</date>
+  <contentUpdateDate>1400740624000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -28,7 +28,7 @@ $xwiki.ssx.use('ForumCode.HidingRatingStarsCSS') ##
     : $msg.get('conversations.forum.description')
     ; $doc.display('description')
   #else
-{{html clean=false}}
+{{html clean='false'}}
   #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName != ? order by doc.date desc', 0, 0, [$doc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
   #set($comments = $topicAnswers.size())
   #foreach($topicAnswer in $topicAnswers)
@@ -38,6 +38,7 @@ $xwiki.ssx.use('ForumCode.HidingRatingStarsCSS') ##
   #end
   ## Display topic header
   #displayForumTopic($doc.fullName true)
+  &lt;h3 class="answers-title"&gt;$services.localization.render('conversations.answer.all')&lt;/h3&gt;
   ## Display answer (conversation) add form
   #displayConversationAddForm()
   #displayAnswers()
