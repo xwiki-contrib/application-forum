@@ -662,7 +662,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
         &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
       #end
       &lt;div class="topic-container"&gt;
-        &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+        #if(!$withdetails)
+          &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+        #end
         &lt;span class="topic-comments" title="$msg.get('conversations.topic.tooltip.totalcommentsandanswers')"&gt;$nbCommentsAnswers&lt;/span&gt;
         &lt;div class="topic-description"&gt;
           #cleanHTMLMacro($!topicDescription)
