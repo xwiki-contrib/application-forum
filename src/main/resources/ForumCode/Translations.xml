@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400744451000</date>
-  <contentUpdateDate>1400744451000</contentUpdateDate>
+  <date>1400745719000</date>
+  <contentUpdateDate>1400745719000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -86,6 +86,7 @@ conversation.norights=You do not have rights to participate in this discussion.
 conversations.answer.edit=Answer to topic {0}
 conversations.answer=Answer
 conversations.answer.all=All answers
+conversations.answer.empty=No answer
 
 ## Votes
 conversation.like.button=Votes
