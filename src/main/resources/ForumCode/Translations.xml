@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400745719000</date>
-  <contentUpdateDate>1400745719000</contentUpdateDate>
+  <date>1400747081000</date>
+  <contentUpdateDate>1400747081000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -62,6 +62,7 @@ conversations.topic.create=New topic
 conversations.topic.create.submit=Create
 conversations.topic.add.activator=New topic
 conversations.topic.all=All topics
+conversations.topic.empty=No topic
 
 ## Answers
 conversations.title=Answer
