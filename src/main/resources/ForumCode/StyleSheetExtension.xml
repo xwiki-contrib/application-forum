@@ -11,7 +11,7 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400747162000</date>
+  <date>1400826698000</date>
   <contentUpdateDate>1400491651000</contentUpdateDate>
   <version>1.1</version>
   <title/>
@@ -784,43 +784,33 @@ Answers and Comments for a Topic
 Limit content / make it responsive
 --------------------------------------------------------------------------------------------------
 */
-.answer-content img,
-.answer-content object,
-.answer-content p {
-  max-width: 100% !important;
-}
-.answer-content p {
-  line-height: 1.6em !important;
-
-}
-
-.answer-content .actions {
-  float: left; display: inline-block;
-  width: 50% !important;
-}
-.answer-content .actions .flag,
-.answer-content .actions .conversation-permalink {
+.answer-content .actions .flag, .answer-content .actions .conversation-permalink, 
+.comment-content .actions .flag, .comment-content .actions .commentreply, .comment-content .actions .conversation-permalink {
   float: left; 
   display: inline-block;    
   height: 1em;
   line-height: 1em;
   margin-right: 10px;
 }
-.answer-content .actions .flag a {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -300px 0px !important;
+
+.answer-content .actions .flag a, .comment-content .actions .flag a {
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -300px 0px;
   font-size: 0;
   padding: 10px;
 }
-.answer-content .actions .flag a:hover {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -300px -100px !important;
+
+.answer-content .actions .flag a:hover, .comment-content .actions .flag a:hover {
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -300px -100px;
 }
-.answer-content .actions .conversation-permalink a {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -100px !important;
+
+.answer-content .actions .conversation-permalink a, .comment-content .actions .conversation-permalink a {
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -100px;
   font-size: 0;
   padding: 10px;
 }
-.answer-content .actions .conversation-permalink a:hover {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -150px !important;
+
+.answer-content .actions .conversation-permalink a:hover, .comment-content .actions .conversation-permalink a:hover {
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -150px;
 }
 
 .answer &gt; .comments {
@@ -887,60 +877,32 @@ Limit content / make it responsive
   text-transform: uppercase; 
   font-size: 10px;
 }
+
 .comment-layout {
   border: 1px solid $theme.borderColor; 
   clear: both; 
   margin: 0 60px 0 0;
   position: relative;
   z-index: 102;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   overflow: hidden;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px; 
 }
-.comment.user .comment-content { padding: 0  !important; }
-.comment-content .actions {
-  float: left; display: block;
-  width: auto !important;
-  overflow: hidden;
-}
-.comment-content .actions .flag,
-.comment-content .actions .commentreply,
-.comment-content .actions .permalink {
-  float: left; 
-  display: inline-block;    
-  height: 1.5em;
-  line-height: 1.5em;
-  margin-right: 10px;
-}
-.comment-content .actions .flag a {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -300px 0px !important;
-  font-size: 0;
-  padding: 10px;
-}
-.comment-content .actions .flag a:hover {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -300px -100px !important;
-}
+
 .comment-content .actions .commentreply {display: none;}
+
 /*
 .comment-content .actions .commentreply a {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -800px -100px !important;
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -800px -100px;
   font-size: 0;
   padding: 10px;
 }
 .comment-content .actions .commentreply a:hover {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -800px -150px !important;
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -800px -150px;
 }
 */
-.comment-content .actions .permalink a {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -100px !important;
-  font-size: 0;
-  padding: 10px;
-}
-.comment-content .actions .permalink a:hover {
-  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -150px !important;
-}
 
 /* 
 Discussion Topics

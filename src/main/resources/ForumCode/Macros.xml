@@ -11,8 +11,8 @@
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1400761127000</date>
-  <contentUpdateDate>1400761127000</contentUpdateDate>
+  <date>1400826701000</date>
+  <contentUpdateDate>1400826581000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -183,7 +183,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
           ## compose the comment permalink in conversation carefully, taking care of making it point to the article's conversation view and not to the conversation itself
           #set($commentPermalinkInConversation = $doc.getURL('view'))
           #set($parentArticle = $doc.parent)
-          &lt;span class="permalink"&gt;&lt;a class="permalink" href="$escapetool.xml($commentPermalinkInConversation)#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.permalink')"&gt;$msg.get('core.viewers.comments.permalink')&lt;/a&gt;&lt;/span&gt;
+          &lt;span class="conversation-permalink"&gt;&lt;a class="permalink" href="$escapetool.xml($commentPermalinkInConversation)#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.permalink')"&gt;$msg.get('core.viewers.comments.permalink')&lt;/a&gt;&lt;/span&gt;
           #if($commentDoc.hasAccessLevel('comment'))
             &lt;span class="commenttool commentreply"&gt;&lt;a class="commentreply" href="$escapetool.xml($xredirect.replaceAll('&amp;?replyto=\d++', ''))&amp;amp;replyto=${comment.number}&amp;amp;replytoconversation=${escapetool.url($commentDoc.fullName)}#xwikicomment_${conversationId}_${comment.number}" title="$msg.get('core.viewers.comments.reply')"#if("$!replyTo" == "${comment.number}" &amp;&amp; "$!replyToConversation" == "$!commentDoc.fullName") style="display: none;"#end&gt;$msg.get('core.viewers.comments.reply')&lt;/a&gt;&lt;/span&gt;
           #end
