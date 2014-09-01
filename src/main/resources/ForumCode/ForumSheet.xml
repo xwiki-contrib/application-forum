@@ -35,7 +35,7 @@
       #set($comments = $comments + $answerDoc.getComments().size())
     #end
   #end
-{{html clean=false wiki=true}}
+{{html clean='false' wiki='true'}}
 &lt;div class="forum"&gt;
   &lt;div class="forum-container"&gt;
     &lt;span class="forum-topics-nb" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt; 
@@ -63,6 +63,9 @@
   &lt;div class="topics"&gt;
     #displayTopics()
   &lt;/div&gt;
+{{/html}}
+{{html clean='false'}}
+  ## Enable WYSIWYG editors loading when adding comments
   #displayEditors()
 {{/html}}
   #end
