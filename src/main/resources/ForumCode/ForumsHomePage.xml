@@ -24,7 +24,7 @@
 ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
 #if("$!request.forumName" != '' &amp;&amp; $hasEdit)
   #set($newForumDocName = "Forums_${request.forumName}.WebHome")
-  #if($newForumDocName.length &gt; 230)
+  #if($newForumDocName.length > 230)
     #set($newForumDocName = $newForumDocName.substring(0, 230))
   #end
   #set($newForumDoc = $xwiki.getDocument($newForumDocName))
@@ -38,32 +38,37 @@
     ##
     $response.sendRedirect($newForumDoc.getURL('edit', "title=${forumTitle}&amp;parent=Forums.WebHome&amp;template=ForumCode.ForumTemplate"))
   #end
-
 #else
-  $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css') 
+  $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css')
   $xwiki.jsx.use('ForumCode.ForumsHomePage', {"language": $context.language, "derfer" : false})
-  ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
-  #if ($hasEdit)
-    {{html clean="false"}}
-      &lt;div class="forum-create-metadata"&gt;
-        $msg.get('conversations.forum.create') ## should be used as tip for forumName input
-        &lt;form action="" method="post"&gt;        
-          &lt;input type="text" name="forumName"  value="" /&gt;
-          &lt;input type="submit" class="button" value="$msg.get('conversations.forum.create.submit')" /&gt;
-        &lt;/form&gt;
-      &lt;/div&gt;
-    {{/html}}
-  #end
   {{html clean='false'}}
-  &lt;h3 class="forums-title"&gt;$services.localization.render('conversations.forum.all')&lt;/h3&gt;
+  &lt;div class="row all-forums-home-title">
+  	&lt;div class="document-info col-xs-12 col-md-7">
+    		&lt;h3 class="forums-title">$services.localization.render('conversations.forum.all')&lt;/h3>
+  	&lt;/div>
+    ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
+    #if ($hasEdit)
+      #set($discard = $xwiki.ssx.use('ForumCode.ForumsHomePage'))
+    	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox">
+    		&lt;div class="pull-right">
+            &lt;a class="btn btn-success hasIcon add" id="addForum" href="#AddNewEntry">
+              &lt;span class="glyphicon glyphicon-plus">&lt;/span> $services.localization.render('conversations.forum.add')
+            &lt;/a>
+    		&lt;/div>
+        #set($entryDoc = $services.model.createDocumentReference($doc.wiki, $doc.space, 'Forums___entryName__'))
+        &lt;input type="hidden" value="$xwiki.getURL($entryDoc, 'edit', "editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=WebHome")" />
+    	&lt;/div>
+    #end
+  &lt;/div>
   {{/html}}
+  ##
   #set($columns = ['doc.title', 'doc.date', 'doc.creator', 'actions'])
   #set($columnsProperties = {
      "doc.title" : { "type" : "text", "link" : "view"},
      "doc.creator" : { "type" : "text", "html" : true},
      "actions" : { "html" : true, "sortable" : false}
   })
-  #set($options = { 
+  #set($options = {
     'className' : 'ForumCode.ForumClass',
     'translationPrefix' : 'conversations.',
     'resultPage' : 'ForumCode.GetForumsJson',
@@ -154,7 +159,8 @@
       <cache>long</cache>
     </property>
     <property>
-      <code>(function(){
+      <code>
+(function(){
   var forums = {
     tableId : 'forums',
     /* Refreshs the livetable livetable_forums */
@@ -177,7 +183,7 @@
         "$xwiki.getURL('ForumCode.Actions','get', 'outputSyntax=plain')",
         {
           /* Ajax request parameters */
-	  	  parameters  : { 
+	  	  parameters  : {
 		    space :  space,
 			form_token : "$services.csrf.token",
 			action : 'deleteforum'
@@ -202,7 +208,7 @@
       );
     }
   }
-  /* Observes the displayComplete of the livetable in ordert to attach 
+  /* Observes the displayComplete of the livetable in ordert to attach
      click event on delete forum links */
   document.observe("xwiki:livetable:displayComplete", function(event){
     /* We need to check if the displayComplete is fired for the right table */
@@ -214,7 +220,8 @@
       });
 	}
   });
-})();</code>
+})();
+      </code>
     </property>
     <property>
       <name/>
@@ -224,6 +231,258 @@
     </property>
     <property>
       <use>currentPage</use>
+    </property>
+  </object>
+  <object>
+    <name>ForumCode.ForumsHomePage</name>
+    <number>1</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>2675e5fc-3897-468a-b550-93fd107ffa87</guid>
+    <class>
+      <name>XWiki.JavaScriptExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage|onDemand|always</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>
+var XWiki = (function (XWiki) {
+XWiki.EntryNamePopup = Class.create(XWiki.widgets.ModalPopup, {
+  initialize : function($super, trigger) {
+    trigger.observe('click', this.showDialog.bindAsEventListener(this));
+    this.urlTemplate = trigger.up().next('input[type=hidden]').value;
+
+    this.input = new Element('input', {type: 'text'});
+    this.addButton = new Element('input', {type: 'image', src: '$xwiki.getSkinFile('icons/silk/add.png')', alt: '$escapetool.javascript($services.localization.render('platform.appwithinminutes.appHomePageAddEntryLabel'))'});
+
+    var container = new Element('div', {id: 'entryNamePopup'});
+    container.insert(this.input);
+    container.insert(this.addButton);
+
+    $super(container, {
+      show: {method: this.showDialog, keys: []},
+      add: {method: this._onAdd, keys: ['Enter']}
+    }, {
+      title: '$escapetool.javascript($services.localization.render('platform.appwithinminutes.appHomePageEntryNameLabel'))',
+      verticalPosition: 'top'
+    });
+  },
+  createDialog : function($super, event) {
+    this.addButton.observe('click', this._onAdd.bind(this));
+    $super(event);
+  },
+  showDialog : function($super, event) {
+    $super(event);
+    this.input.clear().focus();
+  },
+  _onAdd : function() {
+    if (this.input.value != '') {
+      window.self.location = this.urlTemplate.replace('__entryName__', encodeURIComponent(this.input.value)).replace('__entryName__', encodeURIComponent(this.input.value));
+    } else {
+      this.input.focus();
+    }
+  }
+});
+
+function init() {
+  var actionBox = $('actionBox');
+  if(actionBox) {
+    new XWiki.EntryNamePopup(actionBox.down('.add'));
+    return true;
+  }
+  return false;
+}
+(XWiki.domIsLoaded &amp;&amp; init()) || document.observe('xwiki:dom:loaded', init);
+
+return XWiki;
+}(XWiki || {}));
+      </code>
+    </property>
+    <property>
+      <name>Code</name>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
+  <object>
+    <name>ForumCode.ForumsHomePage</name>
+    <number>0</number>
+    <className>XWiki.StyleSheetExtension</className>
+    <guid>19c28f86-e360-4444-8d63-05466ca6530a</guid>
+    <class>
+      <name>XWiki.StyleSheetExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage|onDemand|always</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>
+    #actionBox{
+      float: right;
+    }
+    #entryNamePopup {
+      margin-right: 20px;
+    }
+
+    #entryNamePopup input[type=text] {
+      width: 99%;
+    }
+
+    #entryNamePopup input[type=image] {
+      margin: .3em .5em;
+      padding: 0;
+      position: absolute;
+    }
+      </code>
+    </property>
+    <property>
+      <name>Style</name>
+    </property>
+    <property>
+      <parse>1</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
     </property>
   </object>
 </xwikidoc>

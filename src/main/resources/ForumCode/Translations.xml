@@ -53,6 +53,8 @@ forum.admin.action.delete.inprogress=Delete in progress ...
 forum.admin.action.delete.success=Forum deleted 
 forum.admin.action.delete.failed=The forum could not be deleted
 conversations.forum.all=All forums
+conversations.forum.add=Add forum
+
 
 ## Topics
 conversations.topic.tooltip.totalcommentsandanswers=Total answers and comments

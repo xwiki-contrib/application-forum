@@ -1255,6 +1255,9 @@ a.addconversation-activator:hover {
 .MostActiveTopicsPanel .xwikipanelcontents {
   padding: 1px;
 }
+.all-forums-home-title{
+  padding-bottom: 20px;
+}
 </code>
     </property>
     <property>
