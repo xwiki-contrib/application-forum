@@ -24,7 +24,7 @@
 ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
 #if("$!request.forumName" != '' &amp;&amp; $hasEdit)
   #set($newForumDocName = "Forums_${request.forumName}.WebHome")
-  #if($newForumDocName.length > 230)
+  #if($newForumDocName.length &gt; 230)
     #set($newForumDocName = $newForumDocName.substring(0, 230))
   #end
   #set($newForumDoc = $xwiki.getDocument($newForumDocName))
@@ -42,24 +42,24 @@
   $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css')
   $xwiki.jsx.use('ForumCode.ForumsHomePage', {"language": $context.language, "derfer" : false})
   {{html clean='false'}}
-  &lt;div class="row all-forums-home-title">
-  	&lt;div class="document-info col-xs-12 col-md-7">
-    		&lt;h3 class="forums-title">$services.localization.render('conversations.forum.all')&lt;/h3>
-  	&lt;/div>
+  &lt;div class="row all-forums-home-title"&gt;
+  	&lt;div class="document-info col-xs-12 col-md-7"&gt;
+    		&lt;h3 class="forums-title"&gt;$services.localization.render('conversations.forum.all')&lt;/h3&gt;
+  	&lt;/div&gt;
     ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
     #if ($hasEdit)
       #set($discard = $xwiki.ssx.use('ForumCode.ForumsHomePage'))
-    	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox">
-    		&lt;div class="pull-right">
-            &lt;a class="btn btn-success hasIcon add" id="addForum" href="#AddNewEntry">
-              &lt;span class="glyphicon glyphicon-plus">&lt;/span> $services.localization.render('conversations.forum.add')
-            &lt;/a>
-    		&lt;/div>
+    	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox"&gt;
+    		&lt;div class="pull-right"&gt;
+            &lt;a class="btn btn-success hasIcon add" id="addForum" href="#AddNewEntry"&gt;
+              &lt;span class="glyphicon glyphicon-plus"&gt;&lt;/span&gt; $services.localization.render('conversations.forum.add')
+            &lt;/a&gt;
+    		&lt;/div&gt;
         #set($entryDoc = $services.model.createDocumentReference($doc.wiki, $doc.space, 'Forums___entryName__'))
-        &lt;input type="hidden" value="$xwiki.getURL($entryDoc, 'edit', "editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=WebHome")" />
-    	&lt;/div>
+        &lt;input type="hidden" value="$xwiki.getURL($entryDoc, 'edit', "editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=WebHome")" /&gt;
+    	&lt;/div&gt;
     #end
-  &lt;/div>
+  &lt;/div&gt;
   {{/html}}
   ##
   #set($columns = ['doc.title', 'doc.date', 'doc.creator', 'actions'])
