@@ -474,6 +474,10 @@ Topic Metadata
   padding: 0 10px;
   margin-bottom: 20px;
 }
+
+.forum-topics-nb, .topic-comments, .topic-vote {
+  box-sizing: content-box;
+}
 /*
 Topic Actions
 --------------------------------------------------------------------------------------------------
