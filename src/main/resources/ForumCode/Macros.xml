@@ -67,7 +67,7 @@ $xwiki.ssx.use('ForumCode.StyleSheetExtension') ##
       #end##
     &lt;/a&gt;
 #else ## } {
-  #set($src=$xwiki.getSkinFile("noavatar.png"))##
+  #set($src=$xwiki.getSkinFile("icons/xwiki/noavatar.png"))##
   &lt;a href="$userdoc.uRL" title="$escapetool.xml($assetAuthorDisplayName)"&gt;
  #if("$!width"=="" &amp;&amp; "$!height"=="")##
      &lt;img src="$src" class="photo"/&gt;
