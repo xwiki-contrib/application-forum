@@ -51,9 +51,9 @@
       #set($discard = $xwiki.ssx.use('ForumCode.ForumsHomePage'))
     	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox"&gt;
     		&lt;div class="pull-right"&gt;
-            &lt;a class="btn btn-success hasIcon add" id="addForum" href="#AddNewEntry"&gt;
-              &lt;span class="glyphicon glyphicon-plus"&gt;&lt;/span&gt; $services.localization.render('conversations.forum.add')
-            &lt;/a&gt;
+	            &lt;a class="btn btn-success hasIcon add" id="addForum" href="#AddNewEntry"&gt;
+	              &lt;span class="glyphicon glyphicon-plus"&gt;&lt;/span&gt; $services.localization.render('conversations.forum.add')
+	            &lt;/a&gt;
     		&lt;/div&gt;
         #set($entryDoc = $services.model.createDocumentReference($doc.wiki, $doc.space, 'Forums___entryName__'))
         &lt;input type="hidden" value="$xwiki.getURL($entryDoc, 'edit', "editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=WebHome")" /&gt;
