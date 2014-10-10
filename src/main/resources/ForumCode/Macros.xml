@@ -960,13 +960,14 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
  * Display ForumCode.MostActiveTopicsPanel
  *#
 #macro(displayForumPanel $forumSpaceName)
-	#if(!$xwiki.exists("$!{forumSpaceName}.WebPreferences"))
-	  #set($spacePreferencesDoc = $xwiki.getDocument("$!{forumSpaceName}.WebPreferences"))
+	#set($entryRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebPreferences'))
+	#if(!$xwiki.exists($entryRef))
+	  #set($spacePreferencesDoc = $xwiki.getDocument($entryRef))
 	  #set($spacePreferencesObject = $spacePreferencesDoc.newObject("XWiki.XWikiPreferences"))
 	  #set($discard = $spacePreferencesObject.set("showRightPanels", 1))
 	  #set($discard = $spacePreferencesObject.set("rightPanels", "ForumCode.MostActiveTopicsPanel"))
 	  #set($discard = $spacePreferencesDoc.setHidden(true))
-	  #set($discard = $spacePreferencesDoc.save("Display most active topics panel"))
+	  #set($discard = $spacePreferencesDoc.save("Display most active topics panel", true))
 	#end
 #end
 {{/velocity}}</content>
