@@ -271,6 +271,8 @@ body#body { background: #DDDDDD !important; }
 .table-results { border-top: 2px solid #0038A8 !important; }
 .titleheader-red { background-color: #0038A8 !important; }
 .titleheader-red .titleheader-right { background-color: #777DBB !important; }
+#forums { float:left; }
+
 /* profile sections */
 .blue, .members .headerbar, .groups .headerbar, .form-wrp fieldset h3 { background: #164891 !important; }
 
