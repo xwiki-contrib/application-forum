@@ -536,7 +536,7 @@ Permalink modal box
 .permalinkBox .xdialog-box input.full {
   border: 1px solid #CCC;
   padding: 4px;
-  width: 390px;
+  width: 100%;
 }
 .permalinkBox .xdialog-box .buttons input.button {
   background: none !important;
