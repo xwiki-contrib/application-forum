@@ -251,7 +251,6 @@
 XWIKI STYLES
 --------------------------------------------------------------------------------------------------
 */
-body#body { background: #DDDDDD !important; }
 /* logo */
 #header #header-logo img { max-height: 65px !important; }
 /* search box */
@@ -913,7 +912,6 @@ Discussion Topics
 --------------------------------------------------------------------------------------------------
 */
 #discussionTopics {
-  text-align: center;
   color: #AAA;
   font-size: 10px;
   font-weight: bold;
@@ -942,7 +940,7 @@ Discussion Topics
   font-weight: normal;
 }
 #discussionTopicsTable caption { font-size: 0; }
-#discussionTopicsTable tr { border: 1px solid white; border-top: none; }
+#discussionTopicsTable tr { border-top: none; }
 #discussionTopicsTable tr.odd { background: #FCFCFC ;}
 #discussionTopicsTable tr.even { background: #FAFAFA; }
 #discussionTopicsTable tr:hover { background: #FFFFD3 !important; }
@@ -955,7 +953,7 @@ Discussion Topics
   border-bottom-left-radius: 4px;
 }
 #discussionTopicsTable th,
-#discussionTopicsTable td { padding: 5px !important; font-size: 10px; text-shadow: 0 0 1px white; }
+#discussionTopicsTable td { padding: 5px !important; font-size: 10px; text-shadow: 0 0 1px white; border-top-width: 0; }
 #discussionTopicsTable th { text-align: center !important; background: white; }
 #discussionTopicsTable th.topics { 
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -895px -46px !important;
@@ -1256,9 +1254,6 @@ a.addconversation-activator:hover {
     display: none;
 }
 
-.MostActiveTopicsPanel .xwikipanelcontents {
-  padding: 1px;
-}
 .all-forums-home-title{
   padding-bottom: 20px;
 }
