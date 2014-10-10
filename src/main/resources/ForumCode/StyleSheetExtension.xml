@@ -887,7 +887,7 @@ Limit content / make it responsive
   clear: both; 
   margin: 0 60px 0 0;
   position: relative;
-  z-index: 102;
+  z-index: 1;
   padding: 10px 10px 20px 10px;
   overflow: hidden;
   -webkit-border-radius: 4px;
