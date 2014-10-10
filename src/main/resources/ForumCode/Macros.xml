@@ -754,8 +754,6 @@ addthis:description="${escapetool.xml($addThisDesc)}"
                 &lt;span class="conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null)class="canVote" title="$msg.get('conversation.like.button.tooltip')"#else title="$msg.get('conversation.like.button.alreadyliked.tooltip')"#end &gt;
                   &lt;input type="hidden" name="documenttolike" value="$conversationDoc.fullName" /&gt;
                 &lt;/span&gt;
-                #set($rating = $services.ratings.getAverageRating($conversationDoc).nbVotes)
-                &lt;span class="conversation-score" title="$msg.get('conversation.like.score.tooltip', [$rating])"&gt;$rating&lt;/span&gt;
               &lt;/span&gt;
               &lt;span class="comments" objtype="nbComments" title="$msg.get('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size() $services.localization.render('conversations.comment.count')&lt;/span&gt;
             &lt;/span&gt;
