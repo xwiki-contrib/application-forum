@@ -26,7 +26,7 @@
 = $msg.get("conversations.flag.dialog.header")  =
 
 #set($flagDocName = $xwiki.getUniquePageName("Flags", "Flag"))
-#set($flagDoc = $xwiki.getDocument("FlagsTemp.${flagDocName}"))
+#set($flagDoc = $xwiki.getDocument("Flags.${flagDocName}"))
 #set($ok = $flagDoc.setContent($xwiki.getDocument("ForumCode.FlagTemplate").content))
 #set($ok = $flagDoc.setParent("Flags.WebHome"))
 #if(!$flagDoc.getObject("ForumCode.FlagClass"))
