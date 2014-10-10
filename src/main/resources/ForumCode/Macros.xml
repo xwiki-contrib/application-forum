@@ -177,7 +177,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
         &lt;span class="actions"&gt;
           #if ($context.user!="XWiki.XWikiGuest")
             &lt;span class="flag" title="$msg.get('conversation.flag.tooltip')"&gt;
-             &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
+             &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
             &lt;/span&gt;
           #end
           ## compose the comment permalink in conversation carefully, taking care of making it point to the article's conversation view and not to the conversation itself
@@ -633,7 +633,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 ##
 #macro(displayForumActions $topicDoc) 
 &lt;span class="topic-actions-flag conversation-flag" title="$msg.get('conversation.flag.tooltip')"&gt;
- &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($topicDoc.fullName)}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
+ &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($topicDoc.fullName)}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
 &lt;/span&gt;
 &lt;span class="topic-actions-permalink" title="$msg.get('conversation.permalink.tooltip')"&gt;
  &lt;a href="$topicDoc.getURL()"&gt;&lt;/a&gt;
@@ -764,7 +764,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
                 &lt;span class="actions"&gt;
                   #if($context.user!="XWiki.XWikiUsers")
                     &lt;span class="flag" title="$msg.get('conversation.flag.tooltip')"&gt;
-                      &lt;a href="$xwiki.getURL("${spaceName}.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
+                      &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$msg.get("conversations.flag.button")&lt;/a&gt;
                     &lt;/span&gt;
                   #end
                   &lt;span class="conversation-permalink"&gt;

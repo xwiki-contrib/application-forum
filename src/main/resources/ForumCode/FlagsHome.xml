@@ -30,10 +30,10 @@ $msg.get("conversations.flag.list.instructions")
   #set($columns = ['reason', 'user', 'doc.creationDate', 'moderator', 'status'])
   #set($columnsProperties = {
      "reason" : { "type" : "list", "link" : "view"},
-     "user" : { "type" : "text", "link" : "none"},
+     "user" : { "type" : "text", "link" : "none", "html" : "true"},
      "doc.creationDate" : { "type" : "text", "link" : "none"},
      "message" : { "type" : "text", "link" : "none", "html" : "true"},
-     "moderator" : { "type" : "text", "link" : "none"},
+     "moderator" : { "type" : "text", "link" : "none", "html" : "true"},
      "status" : { "type" : "list", "link" : "none"}
   })
   #set($options = { 
