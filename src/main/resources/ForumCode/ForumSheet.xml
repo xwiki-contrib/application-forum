@@ -25,6 +25,7 @@
     ; $msg.get('conversations.forum.description')
     : $doc.display('description')
   #elseif($context.action == 'view')
+    #displayForumPanel($spaceName)
 #set($topics = $xwiki.searchDocuments(', BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ?', 0, 0, [$doc.fullName, 'ForumCode.TopicClass']))
   ## Count comments
   #set($comments = 0)
