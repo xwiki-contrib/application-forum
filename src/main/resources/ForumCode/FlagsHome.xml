@@ -41,7 +41,8 @@ $msg.get("conversations.flag.list.instructions")
     'translationPrefix' : 'conversations.flag.',
     'rowCount' : 10,
     'selectedColumn' : 'doc.creationDate',
-    'defaultOrder' : 'desc'
+    'defaultOrder' : 'desc',
+    'queryFilters' : 'currentlanguage'
   })
   #livetable('flags' $columns $columnsProperties $options)
 {{/velocity}}
