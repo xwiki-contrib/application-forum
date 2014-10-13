@@ -103,9 +103,9 @@
     </plugins>
   </build>
   <scm>
-    <connection>scm:git:git://github.com/xwiki-contrib/application-forum2.git</connection>
-    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-forum2.git</developerConnection>
-    <url>https://github.com/xwiki-contrib/application-forum2</url>
+    <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
+    <developerConnection>scm:git:git@github.com:xwiki-contrib/application-forum.git</developerConnection>
+    <url>https://github.com/xwiki-contrib/application-forum</url>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
