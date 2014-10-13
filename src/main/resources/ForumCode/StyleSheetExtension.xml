@@ -472,6 +472,7 @@ Topic Metadata
 .topic-description {
   padding: 0 10px;
   margin-bottom: 20px;
+  min-height: 80px;
 }
 
 .forum-topics-nb, .topic-comments, .topic-vote {
