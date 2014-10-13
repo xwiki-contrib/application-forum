@@ -1003,6 +1003,7 @@ New Topic
 
 .addanswer-container-button {
   margin-right: 65px;
+  padding-bottom: 10px;
 }
 
 .addconversation-container {
