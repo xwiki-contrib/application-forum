@@ -51,5 +51,6 @@
 &lt;a href="$doc.getURL("inline")" class="button button"&gt;$msg.get("conversations.flag.edit")&lt;/a&gt;
 {{/html}}
 #end
+#set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>

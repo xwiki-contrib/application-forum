@@ -112,5 +112,6 @@ $flagDoc.display("message", "edit")
 ## conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 {{/html}}
 #end
+#set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>
