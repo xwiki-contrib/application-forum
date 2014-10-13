@@ -193,5 +193,6 @@ ${spaceName}.${newAnswerName}
     {{warning}}No action specified.{{/warning}}
   #end##action switch
 #end##csrf token verification
+#set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>

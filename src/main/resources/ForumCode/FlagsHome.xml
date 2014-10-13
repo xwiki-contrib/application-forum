@@ -45,6 +45,7 @@ $msg.get("conversations.flag.list.instructions")
     'queryFilters' : 'currentlanguage'
   })
   #livetable('flags' $columns $columnsProperties $options)
+  #set($docextras = [])
 {{/velocity}}
 </content>
 </xwikidoc>
