@@ -329,7 +329,6 @@ XWIKI STYLES
 #forum-buttons {
   clear: both; overflow: hidden;
   text-transform: uppercase;
-  border-bottom: 1px solid #DDDDDD;
   padding: 0 !important;
 }
 #forum-buttons .xRichTextEditor { text-transform: none; }
