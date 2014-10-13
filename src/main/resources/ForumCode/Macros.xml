@@ -955,18 +955,31 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
 #end
 
 #**
+ * Init Froum after creation
+ *#
+#macro(initForum $forumSpaceName)
+  #set($spacePreferencesRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebPreferences'))
+  #if(!$xwiki.exists($spacePreferencesRef))
+    ## Hide WebHome of current forum
+    #set($webHomeRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebHome'))
+    #set($webHomeDoc = $xwiki.getDocument($webHomeRef))
+    #set($discard = $webHomeDoc.setHidden(true))
+    #set($discard = $webHomeDoc.save("Hide WebHome", true))
+    ## Display ForumCode.MostActiveTopicsPanel
+    #displayForumPanel($spacePreferencesRef)
+  #end
+#end
+
+#**
  * Display ForumCode.MostActiveTopicsPanel
  *#
-#macro(displayForumPanel $forumSpaceName)
-	#set($entryRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebPreferences'))
-	#if(!$xwiki.exists($entryRef))
-	  #set($spacePreferencesDoc = $xwiki.getDocument($entryRef))
-	  #set($spacePreferencesObject = $spacePreferencesDoc.newObject("XWiki.XWikiPreferences"))
-	  #set($discard = $spacePreferencesObject.set("showRightPanels", 1))
-	  #set($discard = $spacePreferencesObject.set("rightPanels", "ForumCode.MostActiveTopicsPanel"))
-	  #set($discard = $spacePreferencesDoc.setHidden(true))
-	  #set($discard = $spacePreferencesDoc.save("Display most active topics panel", true))
-	#end
+#macro(displayForumPanel $spacePreferencesRef)
+  #set($spacePreferencesDoc = $xwiki.getDocument($spacePreferencesRef))
+  #set($spacePreferencesObject = $spacePreferencesDoc.newObject("XWiki.XWikiPreferences"))
+  #set($discard = $spacePreferencesObject.set("showRightPanels", 1))
+  #set($discard = $spacePreferencesObject.set("rightPanels", "ForumCode.MostActiveTopicsPanel"))
+  #set($discard = $spacePreferencesDoc.setHidden(true))
+  #set($discard = $spacePreferencesDoc.save("Display most active topics panel", true))
 #end
 {{/velocity}}</content>
 </xwikidoc>
