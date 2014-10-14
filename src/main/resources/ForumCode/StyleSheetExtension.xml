@@ -1258,6 +1258,11 @@ a.addconversation-activator:hover {
 .all-forums-home-title{
   padding-bottom: 20px;
 }
+
+/* remove scroll bar from the livetable on homepage */
+#xwikicontent {
+  overflow: hidden;
+}
 </code>
     </property>
     <property>
