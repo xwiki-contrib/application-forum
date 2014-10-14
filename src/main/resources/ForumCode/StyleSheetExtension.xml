@@ -300,6 +300,10 @@ XWIKI STYLES
   padding: 10px;
 }
 
+.forum, .topic, .answers {
+  font-family: 'Open Sans', sans-serif;
+}
+
 /* Sorting of topics
 --------------------------------------------------------------------------------------------------
  */
@@ -344,7 +348,6 @@ XWIKI STYLES
 .topic {
   margin: 21px 0 20px 0;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
   min-width: 630px;
 }
 
