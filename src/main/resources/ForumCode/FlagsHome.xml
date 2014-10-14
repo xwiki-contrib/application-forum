@@ -23,6 +23,7 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity}}
+$xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
 = $msg.get("conversations.flag.list.title") =
 
 $msg.get("conversations.flag.list.instructions")
