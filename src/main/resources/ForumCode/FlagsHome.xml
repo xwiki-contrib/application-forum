@@ -26,8 +26,7 @@
 $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
 = $msg.get("conversations.flag.list.title") =
 
-$msg.get("conversations.flag.list.instructions")
-
+$msg.get("conversations.flag.list.instructions")##
   #set($columns = ['reason', 'user', 'doc.creationDate', 'moderator', 'status'])
   #set($columnsProperties = {
      "reason" : { "type" : "list", "link" : "view"},
