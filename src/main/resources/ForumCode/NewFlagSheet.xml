@@ -52,12 +52,10 @@
 #set($url = $flagDoc.getExternalURL())
 #set($res = $xwiki.mailsender.sendMessageFromTemplate($mailFrom, $mailTo, $util.null, $util.null, "en", "ForumCode.MailTemplateFlag", $context.vcontext))
 ## sending notification email
-
 == $msg.get("conversations.flag.success.dialog.header") ==
 
-$msg.get("conversations.flag.success.dialog.message") 
+$msg.get("conversations.flag.success.dialog.message")
 
-(% class="button button" %)
 [[$msg.get("conversations.flag.success.dialog.goback") &gt;&gt;$request.targetDocName]]
 #else
 #set($ok = $flagDoc.set("user", $context.user))
@@ -74,41 +72,46 @@ $msg.get("conversations.flag.success.dialog.message")
 #else
  #set($targetDocName = $request.targetDocName)
 #end
-{{html clean=false wiki=true}}
-&lt;form action="" method="post"&gt;
+{{html clean='false' wiki='true'}}
+&lt;form action="" method="post" class="xform"&gt;
 &lt;input type="hidden" name="targetDocName" value="${escapetool.xml($targetDocName)}" /&gt;
 $flagDoc.display("target", "hidden")
 $flagDoc.display("user", "hidden")
 $flagDoc.display("moderator", "hidden")
 == $msg.get("conversations.flag.dialog.guidingquestion1.txt") ==
-&lt;br /&gt;
 $msg.get("conversations.flag.dialog.instruction1.txt")
-&lt;br /&gt;&lt;br /&gt;
 == $msg.get("conversations.flag.dialog.guidingquestion2.txt") ==
-&lt;br /&gt;
-$msg.get("conversations.flag.dialog.instruction2.txt")
-&lt;br /&gt;
-#if($request.get("ForumCode.FlagClass_0_reason") &amp;&amp; $request.get("ForumCode.FlagClass_0_reason")=="")
-(% color="red" %)
-$msg.get("conversations.flag.dialog.mandatory.reason")
-&lt;br /&gt;
-#end
-$flagDoc.display("reason", "edit")
-&lt;br /&gt;&lt;br /&gt;
-$msg.get("conversations.flag.dialog.instruction3.txt")
-&lt;br /&gt;
-#if($request.get("ForumCode.FlagClass_0_message") &amp;&amp; $request.get("ForumCode.FlagClass_0_message").trim()=="")
-(% color="red" %)
-$msg.get("conversations.flag.dialog.mandatory.message")
-&lt;br /&gt;
-#end
-$flagDoc.display("message", "edit")
-&lt;br /&gt;&lt;br /&gt;
-&lt;input class="button button" type="button" value="$msg.get("conversations.flag.dialog.cancel.btt")" onclick="history.go(-1);" /&gt;
-&lt;input class="button button" type="submit" value="$msg.get("conversations.flag.dialog.submit.btt")" /&gt;
+&lt;dl&gt;
+  &lt;dt&gt;
+    &lt;label&gt;$msg.get("conversations.flag.dialog.reason.label")&lt;/label&gt;
+    &lt;span class="xHint"&gt;$msg.get("conversations.flag.dialog.instruction2.txt")&lt;/span&gt;
+    #if($request.get("ForumCode.FlagClass_0_reason") &amp;&amp; $request.get("ForumCode.FlagClass_0_reason")=="")
+      (% class="xErrorMsg" %)$msg.get("conversations.flag.dialog.mandatory")
+    #end
+  &lt;/dt&gt;
+  &lt;dd&gt;
+    $flagDoc.display("reason", "edit")
+  &lt;/dd&gt;
+  &lt;dt&gt;
+    &lt;label&gt;$msg.get("conversations.flag.dialog.message.label")&lt;/label&gt;
+    &lt;span class="xHint"&gt;$msg.get("conversations.flag.dialog.instruction3.txt")&lt;/span&gt;
+    #if($request.get("ForumCode.FlagClass_0_message") &amp;&amp; $request.get("ForumCode.FlagClass_0_message").trim()=="")
+      (% class="xErrorMsg" %)$msg.get("conversations.flag.dialog.mandatory")
+    #end
+  &lt;/dt&gt;
+  &lt;dd&gt;
+    $flagDoc.display("message", "edit")
+  &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div class="buttons"&gt;
+  &lt;span class="buttonwrapper"&gt;
+    &lt;input class="button btn btn-primary" type="submit" value="$msg.get("conversations.flag.dialog.submit.btt")" /&gt;
+  &lt;/span&gt;
+  &lt;span class="buttonwrapper"&gt;
+    &lt;input class="button secondary btn btn-default" type="button" value="$msg.get("conversations.flag.dialog.cancel.btt")" onclick="history.go(-1);" /&gt;
+  &lt;/span&gt;
+&lt;/div&gt;
 &lt;/form&gt;
-
-## conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 {{/html}}
 #end
 {{/velocity}}</content>

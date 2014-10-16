@@ -148,6 +148,9 @@ conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discuss
 conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
 conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
+conversations.flag.dialog.reason.label=Reason
+conversations.flag.dialog.message.label=Description
+conversations.flag.dialog.mandatory=This field is mandatory
 conversations.flag.dialog.cancel.btt=Cancel
 conversations.flag.dialog.submit.btt=Submit
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
