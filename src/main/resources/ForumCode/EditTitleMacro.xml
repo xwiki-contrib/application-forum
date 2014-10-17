@@ -138,22 +138,25 @@
       <code>{{velocity}}
   #if($context.action != 'view')
     #set($titleErrorKey = "$!xcontext.macro.params.errorkey")
-{{html clean="false"}}
+    {{html clean="false"}}
       &lt;!-- Validate form with Groovy --&gt;
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
       &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateForum" /&gt; 
-{{/html}}
+    {{/html}}
     #set ($titleIsValid = !$context.validationStatus.errors.contains($titleErrorKey))
     ##
-    (%class="field-mandatory"%)
-      ; $msg.get('conversations.forum.title')
-      : (((
-      #if (!$titleIsValid)
-        {{error}}$msg.get($titleErrorKey){{/error}}
-      #end
 
-      {{html}}&lt;input name='title' type="text" value="#if(!$titleIsValid || "$!request.title" != '')$!{escapetool.xml($request.title)}#else$!{escapetool.xml($doc.title)}#end" style="width: 100%" id="forum-title" /&gt;{{/html}}
-    )))
+    {{html wiki="true"}}
+      &lt;dt class="field-mandatory"&gt;
+        &lt;label&gt;$msg.get('conversations.forum.title')&lt;/label&gt;
+        #if (!$titleIsValid)
+          &lt;span class="xErrorMsg"&gt;$msg.get($titleErrorKey)&lt;/span&gt;
+        #end
+      &lt;/dt&gt;
+      &lt;dd&gt;
+        &lt;input name='title' type="text" value="#if(!$titleIsValid || "$!request.title" != '')$!{escapetool.xml($request.title)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
+      &lt;/dd&gt;
+    {{/html}}
   #end
 {{/velocity}}</code>
     </property>

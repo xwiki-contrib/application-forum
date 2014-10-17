@@ -21,9 +21,17 @@
   <hidden>true</hidden>
   <content>{{include document="ForumCode.Macros" /}}{{include document="ForumCode.Variables" /}}{{velocity}}
   #if($context.action != 'view')
-    {{edittitle errorkey="conversations.forum.titleError" /}}
-    ; $msg.get('conversations.forum.description')
-    : $doc.display('description')
+
+  {{html wiki='true' clean='false'}}
+    &lt;div class="xform"&gt;
+      &lt;dl&gt;
+        {{edittitle errorkey="conversations.forum.titleError" /}}
+        &lt;dt&gt;&lt;label&gt;$msg.get('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
+        &lt;dd&gt;$doc.display('description')&lt;/dd&gt;
+      &lt;/dl&gt;
+    &lt;/div&gt;
+  {{/html}}
+
   #elseif($context.action == 'view')
     #initForum($spaceName)
 #set($topics = $xwiki.searchDocuments(', BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ?', 0, 0, [$doc.fullName, 'ForumCode.TopicClass']))
