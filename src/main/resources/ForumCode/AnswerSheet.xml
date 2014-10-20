@@ -22,12 +22,16 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{include document="ForumCode.Macros" /}}
-{{include document="ForumCode.Variables" /}}
+  <content>{{include document="ForumCode.Macros" /}}{{include document="ForumCode.Variables" /}}
+
 {{velocity}}
   #if($context.action != 'view')
-    : $msg.get('conversations.answer')
-    ; $doc.display('answer')
+    {{html wiki='true'}}
+      (% class="xform"%)(((
+        ; &lt;label&gt;$msg.get('conversations.answer')&lt;/label&gt;
+        : $doc.display('answer')
+      )))
+  {{/html}}
   #elseif($context.action == 'view')
     $response.sendRedirect($xwiki.getDocument($doc.parent).getURL('view'))
   #end
