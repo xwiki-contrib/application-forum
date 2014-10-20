@@ -169,14 +169,13 @@ ${spaceName}.${newAnswerName}
           #end
          #set ($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', ${util.null}))
           #if ($result != 0)
-            #set($discard = $request.getSession().setAttribute("forum.app.${context.user}.warning", $msg.get("conversations.${request.action}.error.nomailsent")) )
+            #set($nomailsentParam = "&amp;mailsent=0")
           #end
         #else
-          #set($discard = $request.getSession().setAttribute("forum.app.${context.user}.warning", $msg.get("conversations.${request.action}.error.nomailsent")) )
+          #set($nomailsentParam = "&amp;mailsent=0")
         #end
-        #set($discard = $request.getSession().setAttribute("forum.app.${context.user}.success", $msg.get("conversations.${request.action}.success")) )
         #if("$!request.xredirect" != "")
-          $response.sendRedirect("$!request.xredirect")
+          $response.sendRedirect("$!request.xredirect?success=${request.action}$!{nomailsentParam}")
         #end
       #else
         ## set the status and print a message

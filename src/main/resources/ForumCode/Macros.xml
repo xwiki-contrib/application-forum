@@ -661,7 +661,6 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($voteAllowedClass = "allow-vote")
   #end
   &lt;div class="topic"&gt;
-    #displayAlertsMessages()
     &lt;div class="topic-layout"&gt;
       #if(!$withdetails)
         &lt;span class="user-avatar"&gt;#smallUserAvater2($topicDoc.creator)&lt;/span&gt;
@@ -987,14 +986,15 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
  * Displays different kinds of messages (info ,success ,warning ,error)
  *#
 #macro(displayAlertsMessages)
-  #set( $msgTypes = ["info", "success", "warning", "error"] )
-  #foreach( $msgType in $msgTypes )
-    #set($messageContent = $request.getSession().getAttribute("forum.app.${context.user}.$!{msgType}"))
-    #if("$!{messageContent}" != "")
-      {{$!{msgType}}}{{html}}$messageContent{{/html}}{{/$!{msgType}}}
-      #set($discard = $request.getSession().removeAttribute("forum.app.${context.user}.$!{msgType}"))
-    #end
+
+  #if("$!{request.success}" != "")
+    {{success}}$msg.get("conversations.$!{request.success}.success"){{/success}}
   #end
+
+  #if($request.mailsent == "0")
+    {{warning}}$msg.get("conversations.deleteconversation.error.nomailsent"){{/warning}}
+  #end
+
 #end
 {{/velocity}}</content>
 </xwikidoc>
