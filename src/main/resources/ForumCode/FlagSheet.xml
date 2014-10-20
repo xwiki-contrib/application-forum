@@ -25,31 +25,38 @@
   <content>{{velocity}}
 ## Change class name to your class name 
 #set($class = $doc.getObject("ForumCode.FlagClass").xWikiClass)
-
-#foreach($prop in $class.properties)
-; **${prop.prettyName}**
-#if($prop.getName()=="target" &amp;&amp; $context.action=="view")
-; 
-#set($target = $doc.getValue("target"))
-#set($pos = $target.indexOf(":"))
-#if($pos==-1)
- #set($targetDocName = $target)
- #set($anchor = "")
-#else
- #set($targetDocName = $target.substring(0, $pos))
- #set($pos = $pos + 1)
- #set($anchor = $target.substring($pos))
-#end
-[[$msg.get("conversations.flag.viewsource")&gt;&gt;${targetDocName}||target="_blank" anchor="${anchor}"]]
-#else
-: $doc.display($prop.getName())
-#end
-#end
+{{html wiki='true'}}
+  (% class="xform" %)(((
+    #foreach($prop in $class.properties)
+      #if($context.action=="view")
+        ; &lt;label&gt;${prop.prettyName}&lt;/label&gt;
+        #if($prop.getName()=="target")
+          #set($target = $doc.getValue("target"))
+          #set($pos = $target.indexOf(":"))
+          #if($pos==-1)
+            #set($targetDocName = $target)
+            #set($anchor = "")
+          #else
+            #set($targetDocName = $target.substring(0, $pos))
+            #set($pos = $pos + 1)
+            #set($anchor = $target.substring($pos))
+          #end
+          : &lt;label&gt;[[$msg.get("conversations.flag.viewsource")&gt;&gt;${targetDocName}||target="_blank" anchor="${anchor}"]]&lt;/label&gt;
+        #else
+          : $doc.display($prop.getName())
+        #end
+      #else
+        ; &lt;label&gt;${prop.prettyName}&lt;/label&gt;
+        : $doc.display($prop.getName())
+      #end
+    #end
+  )))
+{{/html}}
 
 #if($context.action=="view")
-{{html clean=false}}
-&lt;a href="$doc.getURL("inline")" class="button button"&gt;$msg.get("conversations.flag.edit")&lt;/a&gt;
-{{/html}}
+  {{html wiki='true'}}
+    (% class="buttonwrapper" %)&lt;a href="$doc.getURL("inline")" class="button"&gt;$msg.get("conversations.flag.edit")&lt;/a&gt;
+  {{/html}}
 #end
 #set($docextras = [])
 {{/velocity}}</content>
