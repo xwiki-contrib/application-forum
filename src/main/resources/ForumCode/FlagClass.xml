@@ -71,7 +71,7 @@
 {{html clean=false}}
 &lt;input type="hidden" name="${prefix}${name}" value="$!xwiki.getFormEncoded($value)" /&gt;
 {{/html}}
-#elseif($type=="view")
+#elseif($type=="view" || $type=="edit")
 #if($value)
 {{html clean=false}}
 $xwiki.getUserName($value)
@@ -155,7 +155,7 @@ $xwiki.getUserName($value)
 {{html clean=false}}
 &lt;input type="hidden" name="${prefix}${name}" value="$!xwiki.getFormEncoded($value)" /&gt;
 {{/html}}
-#elseif($type=="view")
+#elseif($type=="view" || $type=="edit")
 #if($value)
 {{html clean=false}}
 $xwiki.getUserName($value)
