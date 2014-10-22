@@ -867,7 +867,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
        var Wysiwyg = Wysiwyg || {};
        window.WysiwygConfig = window.WysiwygConfig || {};
          WysiwygConfig['${parameters.hookId}'] = $jsVarName; 
-         ## $('${parameters.hookId}').wysiwyg = new WysiwygEditor($jsVarName);
+         #if($parameters.hookId.startsWith("XWiki.XWikiComments_"))
+           WysiwygConfig['${parameters.hookId}'].inputURL = undefined; 
+         #end
          $jsVarName = undefined;
          $('${parameters.hookId}').observe('focus', function(event){
              if ($('${parameters.hookId}').wysiwyg == undefined) {
