@@ -214,7 +214,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
  #if ("$!conversationId" == "")
     #set($conversationId = $commentDoc.name)
  #end
- #if($commentDoc.hasAccessLevel('edit'))
+ #if($commentDoc.hasAccessLevel('comment'))
     ## prepare a nice redirect URL: for the reply form, redirect to the comemnt to which we replied, 
     ## for the new comment form, redirect to the conversation itself
     #if ("$!replyTo" != "")
@@ -867,7 +867,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
        var Wysiwyg = Wysiwyg || {};
        window.WysiwygConfig = window.WysiwygConfig || {};
          WysiwygConfig['${parameters.hookId}'] = $jsVarName; 
-         ## $('${parameters.hookId}').wysiwyg = new WysiwygEditor($jsVarName);
+         #if($parameters.hookId.startsWith("XWiki.XWikiComments_"))
+           WysiwygConfig['${parameters.hookId}'].inputURL = undefined; 
+         #end
          $jsVarName = undefined;
          $('${parameters.hookId}').observe('focus', function(event){
              if ($('${parameters.hookId}').wysiwyg == undefined) {
