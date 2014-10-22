@@ -24,9 +24,15 @@ $xwiki.ssx.use('ForumCode.HidingRatingStarsCSS') ##
 ## do not show the comments tab
 #set($showcomments = "no")
   #if($context.action != 'view')
-    {{edittitle errorkey="conversations.topic.titleError" /}}
-    : $msg.get('conversations.forum.description')
-    ; $doc.display('description')
+    {{html wiki='true' clean='false'}}
+      &lt;div class="xform"&gt;
+        &lt;dl&gt;
+          {{edittitle errorkey="conversations.topic.titleError" /}}
+          &lt;dt&gt;&lt;label&gt;$msg.get('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
+          &lt;dd&gt;$doc.display('description')&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/div&gt;
+    {{/html}}
   #else
 {{html clean='false'}}
   #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName != ? order by doc.date desc', 0, 0, [$doc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
