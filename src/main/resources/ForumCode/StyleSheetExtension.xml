@@ -786,6 +786,10 @@ Answers and Comments for a Topic
   font-family: Open Sans, sans-serif;
 }
 
+.answer-content img {
+  max-width: 100%;
+}
+
 /* 
 Limit content / make it responsive
 --------------------------------------------------------------------------------------------------
@@ -897,6 +901,8 @@ Limit content / make it responsive
   -moz-border-radius: 4px;
   border-radius: 4px; 
 }
+
+.comment-content img {max-width: 100%;}
 
 .comment-content .actions .commentreply {display: none;}
 
