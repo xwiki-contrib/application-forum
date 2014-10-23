@@ -680,9 +680,10 @@ Comment Level
 .reply .comments {display: none !important; }
 .xwikicomment {
   background: #F8F8F8 !important;
-  padding: 0 !important;
+  padding: 10px 10px 20px 10px !important;
   border-bottom: 1px solid white !important;
-  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 10px;
 }
 .commentavatar img.photo {
   width: 30px;
@@ -701,7 +702,9 @@ Comment Level
 .commentheader a {
   color: #9A9A9A !important;
 }
-.commentcontent {}
+.commentcontent {
+  margin-bottom: 10px;
+}
 
 /*
 New Comment
@@ -1241,8 +1244,6 @@ a.addconversation-activator:hover {
 
 .commentthread .commentavatar { margin-left: 0px !important; width: auto !important; }
 .commentthread .commentavatar { margin-left: 5px !important; }
-.commentcontent, 
-.commentheader { margin-left: 50px !important; }
 .commentavatar img, 
 .commentthread .commentavatar img { max-height: 50px !important; max-width: 50px !important; }
 .commentavatar img { width: 30px !important; }
