@@ -819,6 +819,10 @@ Limit content / make it responsive
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -700px -150px;
 }
 
+.answer-content img, .comment-content img {
+  max-width: 100%;
+}
+
 .answer &gt; .comments {
   margin: 10px 5px 0 95px;
 }
