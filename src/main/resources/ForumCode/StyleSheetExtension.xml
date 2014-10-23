@@ -900,6 +900,10 @@ Limit content / make it responsive
 
 .comment-content .actions .commentreply {display: none;}
 
+.forum-description img, .topic-description img, .answer-content img, .comment-content img {
+  max-width: 100%;
+}
+
 /*
 .comment-content .actions .commentreply a {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -800px -100px;
