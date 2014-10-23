@@ -300,6 +300,10 @@ XWIKI STYLES
   padding: 10px;
 }
 
+.forum-description img {
+  max-width: 100%;
+}
+
 .forum, .topic, .answers {
   font-family: 'Open Sans', sans-serif;
 }
@@ -475,6 +479,10 @@ Topic Metadata
   padding: 0 10px;
   margin-bottom: 20px;
   min-height: 80px;
+}
+
+.topic-description img {
+  max-width: 100%;
 }
 
 .forum-topics-nb, .topic-comments, .topic-vote {
