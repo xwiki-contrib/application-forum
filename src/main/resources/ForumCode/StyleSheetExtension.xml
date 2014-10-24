@@ -780,6 +780,11 @@ Answers and Comments for a Topic
   overflow: hidden;
 }
 
+.forum-date, .forum-topics, .topic-date, .topic-answers, .answer-meta .time, .answer-meta .comments {
+  height: 16px;
+  display: inline-block;
+}
+
 /* 
 Limit content / make it responsive
 --------------------------------------------------------------------------------------------------
