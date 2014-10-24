@@ -435,7 +435,7 @@ Topic Metadata
 }
 
 .forum-date, .forum-topics, .topic-date, .topic-answers {
-  padding: 0 0 0 20px;
+  padding: 0 0 20px 20px;
   margin-left: 20px;
 }
 
@@ -776,7 +776,7 @@ Answers and Comments for a Topic
 }
 
 .answer-meta .time, .answer-meta .comments {
-  padding: 0 0 0 20px; 
+  padding: 0 0 20px 20px;
   margin-left: 20px;
 }
 
