@@ -244,10 +244,6 @@
 ==================================================================================================
   0200 | GENERAL STYLES
 ================================================================================================== 
-*/
-/* Use Open Sans font family from Google Fonts */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,700italic);
-/*
 XWIKI STYLES
 --------------------------------------------------------------------------------------------------
 */
@@ -298,10 +294,6 @@ XWIKI STYLES
 
 .forum-description {
   padding: 10px;
-}
-
-.forum, .topic, .answers {
-  font-family: 'Open Sans', sans-serif;
 }
 
 /* Sorting of topics
@@ -786,7 +778,6 @@ Answers and Comments for a Topic
 .answer-content { 
   padding: 10px 10px 20px 10px; 
   overflow: hidden;
-  font-family: Open Sans, sans-serif;
 }
 
 /* 
@@ -1170,10 +1161,6 @@ Various Fixes
 }
 
 .conversation-info { margin-bottom: 20px; }
-
-.conversation-creationdate { font-family: 'liberation_sansbold'; }
-
-.conversation-status { font-family: 'liberation_sansbold'; color: #000000; }
 
 .conversation-actions a {
   background: none no-repeat scroll left top transparent;
