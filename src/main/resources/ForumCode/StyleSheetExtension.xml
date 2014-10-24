@@ -786,6 +786,11 @@ Answers and Comments for a Topic
   font-family: Open Sans, sans-serif;
 }
 
+.forum-date, .forum-topics, .topic-date, .topic-answers, .answer-meta .time, .answer-meta .comments {
+  height: 16px;
+  display: inline-block;
+}
+
 /* 
 Limit content / make it responsive
 --------------------------------------------------------------------------------------------------
