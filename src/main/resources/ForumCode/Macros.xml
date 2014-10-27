@@ -992,7 +992,7 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
   #end
 
   #if($request.mailsent == "0")
-    {{warning}}$msg.get("conversations.deleteconversation.error.nomailsent"){{/warning}}
+    {{warning}}$msg.get("conversations.$!{request.success}.error.nomailsent"){{/warning}}
   #end
 
 #end
