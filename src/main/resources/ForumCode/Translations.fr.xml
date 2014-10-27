@@ -98,7 +98,7 @@ conversations.deletecomment.success=L'email informant la suppression d'un commen
 conversations.deletecomment.error.norights=Vous n'avez pas les droits de supprimer ce commentaire
 conversations.deletecomment.error.notfound=Commentaire non trouvé
 conversations.deleteconversation.error.nomailsent=L''email informant la suppression de la réponse n''a pas pu être envoyé. &lt;a href="{0}"&gt;Retour vers le topic.&lt;/a&gt;
-conversations.deleteconversation.success=L''email informant que la suppression de la réponse a été envoyé.
+conversations.deleteconversation.success=Topic supprimé.
 conversations.deleteconversation.error.norights=Vous n'avez pas les droits de supprimer la réponse. &lt;a href="{0}"&gt;Retour vers le topic.&lt;/a&gt;
 conversations.deleteconversation.error.notfound=Réponse non trouvée. &lt;a href="{0}"&gt;Retour vers le topic.&lt;/a&gt;
 core.viewers.comments.delete.failed=Le commentaire n'a pas pu être supprimé

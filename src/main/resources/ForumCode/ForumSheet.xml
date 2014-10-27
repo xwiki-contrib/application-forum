@@ -46,6 +46,7 @@
   #end
 {{html clean='false' wiki='true'}}
 &lt;div class="forum"&gt;
+  #displayAlertsMessages()
   &lt;div class="forum-container"&gt;
     &lt;span class="forum-topics-nb" title="$msg.get('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt; 
     &lt;div class="forum-description"&gt;

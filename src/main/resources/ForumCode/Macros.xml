@@ -987,5 +987,20 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
   #set($discard = $spacePreferencesDoc.setHidden(true))
   #set($discard = $spacePreferencesDoc.save("Display most active topics panel", true))
 #end
+
+#**
+ * Displays different kinds of messages (info ,success ,warning ,error)
+ *#
+#macro(displayAlertsMessages)
+
+  #if("$!{request.success}" != "")
+    {{success}}$msg.get("conversations.$!{request.success}.success"){{/success}}
+  #end
+
+  #if($request.mailsent == "0")
+    {{warning}}$msg.get("conversations.$!{request.success}.error.nomailsent"){{/warning}}
+  #end
+
+#end
 {{/velocity}}</content>
 </xwikidoc>

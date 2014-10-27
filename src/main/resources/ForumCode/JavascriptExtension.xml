@@ -950,7 +950,7 @@ function init() {
     });
     
    // add delete for topic
-   $$(".topic-moderation a.topic-delete").each(function(topicDeletelink) {
+   $$(".topic-moderation a.delete").each(function(topicDeletelink) {
     if (topicDeletelink) {
      topicDeletelink.observe('click', function(event) {
 	   event.stop();
