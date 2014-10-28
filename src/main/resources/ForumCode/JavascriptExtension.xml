@@ -202,7 +202,7 @@ viewers.Comments = Class.create({
                   this.resetForm();
                 }
                 // Replace the comment with a "deleted comment" placeholder
-                comment.replace(this.createNotification("$msg.get('core.viewers.comments.commentDeleted')"));
+                comment.replace(this.createNotification("$msg.get('core.viewers.comments.commentDeleted')", "success"));
                 this.updateCount();
               }.bind(this),
               onComplete : function() {
@@ -606,10 +606,15 @@ viewers.Comments = Class.create({
   /**
    * Just a simple message box that is displayed at various events: comment deleted, sending comment...
    */
-  createNotification : function(message) {
-    var msg = new Element('div', {"class" : "notification" });
+  createNotification : function(message, typeMsg) {
+    if(typeMsg == "success"){
+      var classCSS = "box successmessage";
+    }else if(typeMsg == "warning"){
+      var classCSS = "box warningmessage";
+    }
+    var msg = new Element('div', {"class" : classCSS });
     msg.update(message);
-    return msg;
+    return msg.outerHTML;
   },
 
   /**
@@ -630,18 +635,22 @@ viewers.Comments = Class.create({
       } else {
         new XWiki.widgets.ConfirmedAjaxRequest(
           /* Ajax request URL */
-          conversationDelete.readAttribute('href') + (Prototype.Browser.Opera ? "" : "&amp;ajax=1"),
+          conversationDelete.readAttribute('href') + (Prototype.Browser.Opera ? "" : "&amp;ajax=1&amp;outputSyntax=plain"),
           /* Ajax request parameters */
           {
             onCreate : function() {
               // Disable the button, to avoid a cascade of clicks from impatient users
               conversationDelete.disabled = true;
             },
-            onSuccess : function() {
+            onSuccess : function(data) {
               // Remove the corresponding HTML element from the UI
               var conversation = conversationDelete.up('.answer');
               // Replace the comment with a "deleted conversation" placeholder
-              conversation.replace(this.createNotification("$msg.get('conversation.delete.success')"));
+              var mailsentMsg = ""
+              if(data.responseJSON.mailsent == "0"){
+                mailsentMsg = this.createNotification("$msg.get('conversations.deleteanswer.error.nomailsent')", "warning");
+              }
+              conversation.replace(this.createNotification("$msg.get('conversation.delete.success')", "success") + mailsentMsg);
 			  this.updateCount();
             }.bind(this),
             onComplete : function() {

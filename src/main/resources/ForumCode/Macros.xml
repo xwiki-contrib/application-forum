@@ -784,7 +784,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
               #end
               #if(($conversationDoc.creator==$context.user)
                    ||$hasAdmin)
-                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$msg.get('conversation.delete.title')"&gt;$msg.get('conversation.delete')&lt;/a&gt;
+                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}")" title="$msg.get('conversation.delete.title')"&gt;$msg.get('conversation.delete')&lt;/a&gt;
               #end
           &lt;/div&gt;&lt;!-- / .answer-moderation --&gt;
         &lt;/div&gt;&lt;!-- / .answer-layout --&gt;
