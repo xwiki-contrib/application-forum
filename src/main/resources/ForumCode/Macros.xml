@@ -970,7 +970,7 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
     #set($webHomeRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebHome'))
     #set($webHomeDoc = $xwiki.getDocument($webHomeRef))
     #set($discard = $webHomeDoc.setHidden(true))
-    #set($discard = $webHomeDoc.save("Hide WebHome", true))
+    #set($discard = $webHomeDoc.saveWithProgrammingRights("Hide WebHome", true))
     ## Display ForumCode.MostActiveTopicsPanel
     #displayForumPanel($spacePreferencesRef)
   #end
@@ -985,7 +985,7 @@ $msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javas
   #set($discard = $spacePreferencesObject.set("showRightPanels", 1))
   #set($discard = $spacePreferencesObject.set("rightPanels", "ForumCode.MostActiveTopicsPanel"))
   #set($discard = $spacePreferencesDoc.setHidden(true))
-  #set($discard = $spacePreferencesDoc.save("Display most active topics panel", true))
+  #set($discard = $spacePreferencesDoc.saveWithProgrammingRights("Display most active topics panel", true))
 #end
 
 #**
