@@ -135,6 +135,7 @@ conversations.deleteconversation.success=Topic deleted.
 conversations.deleteconversation.error.norights=You don't have the rights to delete the answer.
 conversations.deleteconversation.error.notfound=Topic not found.
 core.viewers.comments.delete.failed=The comment could not be deleted.
+conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
 
 ## FLAG DIALOG
 conversation.flag.tooltip=Flag

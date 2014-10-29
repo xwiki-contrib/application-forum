@@ -114,6 +114,8 @@ ${spaceName}.${newAnswerName}
     #set($isDeleteComment = "$!request.action" == "deletecomment")
     #set($conversationDoc = $xwiki.getDocument("$!request.conversationdoc"))
     #set($conversationObj = $conversationDoc.getObject('ForumCode.AnswerClass'))
+    #set($isAnswer = false)
+    #if($conversationObj) #set($isAnswer = true) #end
     #set($topicObj = $conversationDoc.getObject('ForumCode.TopicClass'))
     #if ($isDeleteComment)
       #set($commentNumber = $util.parseInt("$!request.commentnumber"))
@@ -160,6 +162,7 @@ ${spaceName}.${newAnswerName}
         ## get the email of the dude to send the mail to
         #set($itemAuthorUser = $xwiki.getUser($itemAuthor))
         #set($itemAuthorEmail = $itemAuthorUser.email)
+        #set($mailsent = "1")
         #if ("$!itemAuthorEmail" != '')
           #set ($sender = $xwiki.getUserName($context.user, false))
           #if ("$!{xwiki.getXWikiPreference('admin_email')}" != '')
@@ -169,13 +172,18 @@ ${spaceName}.${newAnswerName}
           #end
          #set ($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', ${util.null}))
           #if ($result != 0)
-            #set($nomailsentParam = "&amp;mailsent=0")
+            #set($mailsent = "0")
           #end
         #else
-          #set($nomailsentParam = "&amp;mailsent=0")
+          #set($mailsent = "0")
         #end
-        #if("$!request.xredirect" != "")
-          $response.sendRedirect("$!request.xredirect?success=${request.action}$!{nomailsentParam}")
+        #if($isAnswer)
+          $response.setContentType('application/json')
+          {"success" : "${request.action}", "mailsent" : "$!{mailsent}"  }
+        #else
+          #if("$!request.xredirect" != "")
+            $response.sendRedirect("$!request.xredirect?success=${request.action}&amp;mailsent=$!{mailsent}")
+          #end
         #end
       #else
         ## set the status and print a message
