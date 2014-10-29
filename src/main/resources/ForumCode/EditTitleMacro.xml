@@ -154,7 +154,12 @@
         #end
       &lt;/dt&gt;
       &lt;dd&gt;
-        &lt;input name='title' type="text" value="#if(!$titleIsValid || "$!request.title" != '')$!{escapetool.xml($request.title)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
+        #if("$!request.docTitle" != '')
+          #set($docTitle = $request.docTitle)
+        #else
+          #set($docTitle = $request.docTitle)
+        #end
+        &lt;input name='title' type="text" value="#if(!$titleIsValid || "$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
       &lt;/dd&gt;
     {{/html}}
   #end
