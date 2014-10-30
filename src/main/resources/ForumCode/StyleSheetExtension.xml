@@ -256,10 +256,6 @@ XWIKI STYLES
 #navigation-inner .titles { background-color: #164891 !important; }
 #navigation-inner ul { background-color: #DDE9FB !important; }
 #navigation-inner ul a { color: #164891 !important; }
-/* buttons
-.button { background-color: #FCD116 !important; border: 1px solid #F1C803 !important; color: black !important; }
-.button:hover { background-color: #F96302 !important; border: 1px solid #F1C803 !important; color: white !important; }
-*/
 
 /* tables */
 .table-header { background-color: #0038A8 !important; }
@@ -330,10 +326,7 @@ XWIKI STYLES
 #forum-buttons .xRichTextEditor { text-transform: none; }
 .forum-sort-button-inactive { padding: 10px 20px !important; display: inline-block; }
 .addconversation-activator {
-  padding: 10px 20px 10px 40px !important;
-  background: #FFD801;
-  border: none !important;
-  font-weight: bold;
+  padding: 10px 20px 10px 15px !important;
 }
 
 .topic {
@@ -532,20 +525,6 @@ Permalink modal box
   padding: 4px;
   width: 100%;
 }
-.permalinkBox .xdialog-box .buttons input.button {
-  background: none !important;
-  background-color: #FCD116 !important;
-  border: 1px solid #F1C803 !important;
-  color: black !important;
-  display: inline !important;
-}
-.permalinkBox .xdialog-box .buttons input.button:hover {
-  background: none !important;
-  background-color: #F96302 !important;
-  border: 1px solid #F1C803 !important;
-  color: white !important;
-  display: inline !important;
-}
 /*
 Delete modal box
 */
@@ -600,12 +579,6 @@ Delete modal box
 New Topic
 --------------------------------------------------------------------------------------------------
 */
-.addconversation-activator {
-  background: #F2D42E url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 10px -140px !important;
-}
-.addconversation-activator:hover {
-  background: orange url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 10px -140px !important;
-}
 /*
 Moderator / Admin 
 --------------------------------------------------------------------------------------------------
@@ -1181,17 +1154,8 @@ Various Fixes
 .conversation-editformcontainer { min-height: 16px; }
 .conversation-actions .conversation-delete a { background-image: url('$xwiki.getSkinFile("icons/silk/delete.png")'); }
 
-/* Put the add activator to the right */
-a.addconversation-activator {
-  float: right;
-  border: 1px solid #ccc;
-  color: #000000;
-  padding: 2px 6px;
-  border-radius: 2px;
-}
-
-a.addconversation-activator:hover {
-  text-decoration: none;
+.addconversation-container.addtopic-container .glyphicon-pencil, .addconversation-container.addanswer-container .glyphicon-pencil {
+  padding-right: 5px;
 }
 
 /* If there are long links in the comments, force wrap them so that we see them entirely. */

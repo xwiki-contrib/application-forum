@@ -390,8 +390,8 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #set($newTopicDoc = $xwiki.getDocument($newTopicName))
     #if($newTopicDoc.hasAccessLevel("edit"))
     &lt;div class="addconversation-container addtopic-container"&gt;
-     &lt;div class="addconversation-container-button addtopic-container-button"&gt;
-      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator"&gt;$msg.get('conversations.topic.add.activator')&lt;/a&gt;
+     &lt;div class="addconversation-container-button addtopic-container-button buttonwrapper"&gt;
+      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator btn"&gt;&lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;$msg.get('conversations.topic.add.activator')&lt;/a&gt;
      &lt;/div&gt;
      &lt;div class="addconversation-container-form addtopic-container-form"&gt;
      ## Create a fake topic object to be able to display the status and the type selectors
@@ -436,8 +436,8 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
   #set($newAnswerDoc = $xwiki.getDocument($newAnswerName))
   #if($newAnswerDoc.hasAccessLevel("edit"))
   &lt;div class="addconversation-container addanswer-container"&gt;
-    &lt;div class="addconversation-container-button addanswer-container-button"&gt;
-     &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator"&gt;$msg.get('conversation.add.activator')&lt;/a&gt;
+    &lt;div class="addconversation-container-button addanswer-container-button buttonwrapper"&gt;
+     &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator btn"&gt;&lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;$msg.get('conversation.add.activator')&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class="addconversation-container-form addanswer-container-form"&gt;
       ## Create a fake conversation object to be able to display the status and the type selectors
