@@ -872,11 +872,12 @@ addthis:description="${escapetool.xml($addThisDesc)}"
        window.WysiwygConfig = window.WysiwygConfig || {};
          WysiwygConfig['${parameters.hookId}'] = $jsVarName; 
          #if($parameters.hookId.startsWith("XWiki.XWikiComments_"))
-           WysiwygConfig['${parameters.hookId}'].inputURL = undefined; 
+           WysiwygConfig['${parameters.hookId}'].inputURL = '$xwiki.getURL('ForumCode.CommentTemplate', 'edit', "xpage=wysiwyginput&amp;token=$services.csrf.getToken()")';
          #end
          $jsVarName = undefined;
          $('${parameters.hookId}').observe('focus', function(event){
              if ($('${parameters.hookId}').wysiwyg == undefined) {
+              WysiwygConfig['${parameters.hookId}'].hookId = "${parameters.hookId}";
               $('${parameters.hookId}').wysiwyg = new WysiwygEditor(WysiwygConfig['${parameters.hookId}']);
              }
          });
