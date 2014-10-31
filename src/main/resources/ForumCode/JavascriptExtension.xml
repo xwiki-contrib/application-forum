@@ -322,6 +322,7 @@ viewers.Comments = Class.create({
     comment.show();
     this.cancelPreview(editActivator._x_editForm);
     this.editing = false;
+    editActivator._x_editForm = undefined;
   },
   /**
    * Inline reply: Move the form under the replied comment and update the hidden "replyto" field.
