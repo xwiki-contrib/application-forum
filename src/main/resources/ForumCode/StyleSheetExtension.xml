@@ -530,20 +530,6 @@ Permalink modal box
   padding: 4px;
   width: 100%;
 }
-.permalinkBox .xdialog-box .buttons input.button {
-  background: none !important;
-  background-color: #FCD116 !important;
-  border: 1px solid #F1C803 !important;
-  color: black !important;
-  display: inline !important;
-}
-.permalinkBox .xdialog-box .buttons input.button:hover {
-  background: none !important;
-  background-color: #F96302 !important;
-  border: 1px solid #F1C803 !important;
-  color: white !important;
-  display: inline !important;
-}
 /*
 Delete modal box
 */
