@@ -57,7 +57,7 @@
 	            &lt;/a&gt;
     		&lt;/div&gt;
         #set($entryDoc = $services.model.createDocumentReference($doc.wiki, 'Forums___entryName__', 'WebHome'))
-        &lt;input type="hidden" value="$xwiki.getURL($entryDoc, 'edit', "editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=Forums.WebHome")" /&gt;
+        &lt;input type="hidden" value="$xwiki.getURL($entryDoc, 'edit', "editor=inline&amp;docTitle=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=Forums.WebHome")" /&gt;
     	&lt;/div&gt;
     #end
   &lt;/div&gt;
