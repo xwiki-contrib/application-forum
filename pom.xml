@@ -66,6 +66,11 @@
       <name>Sofiane Baloul</name>
       <organization>XWiki SAS</organization>
     </developer>
+    <developer>
+      <id>gabrielasmeria</id>
+      <name>Gabriela Smeria</name>
+      <organization>XWiki SAS</organization>
+    </developer>
   </developers>
   <properties>
     <xwiki.extension.name>Forum Application</xwiki.extension.name>
