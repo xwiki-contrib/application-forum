@@ -120,13 +120,14 @@ conversations.flag.dialog.cancel.btt=Cancel
 conversations.flag.dialog.submit.btt=Submit
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Selectionnez
-ForumCode.FlagClass_reason_1=Promotes hate or violence
-ForumCode.FlagClass_reason_2=Displays pornography
-ForumCode.FlagClass_reason_3=Is empty or blank
-ForumCode.FlagClass_reason_4=Is obviously commercial in nature, without clear educational relevance
-ForumCode.FlagClass_reason_5=Is broken or has a virus
-ForumCode.FlagClass_reason_6=Appears to be nonsensical
-ForumCode.FlagClass_reason_7=Is objectionable for another reason
+ForumCode.FlagClass_reason_0=Promotes hate or violence
+ForumCode.FlagClass_reason_1=Displays pornography
+ForumCode.FlagClass_reason_2=Is empty or blank
+ForumCode.FlagClass_reason_3=Is obviously commercial in nature, without clear educational relevance
+ForumCode.FlagClass_reason_4=Is broken or has a virus
+ForumCode.FlagClass_reason_5=Appears to be nonsensical
+ForumCode.FlagClass_reason_6=Is objectionable for another reason
+ForumCode.FlagClass_reason_7=Autre raison
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Discussion Flagged
 conversations.flag.success.dialog.message=You have successfully flagged this comment.

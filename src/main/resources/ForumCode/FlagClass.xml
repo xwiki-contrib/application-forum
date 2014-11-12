@@ -110,7 +110,7 @@ $xwiki.getUserName($value)
       <unmodifiable>0</unmodifiable>
       <validationMessage/>
       <validationRegExp/>
-      <values>1|2|3|4|5|6|alt</values>
+      <values>0|1|2|3|4|5|6|7</values>
       <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
     </reason>
     <status>

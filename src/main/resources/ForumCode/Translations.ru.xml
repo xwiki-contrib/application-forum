@@ -145,13 +145,14 @@ conversations.flag.dialog.cancel.btt=Отмена
 conversations.flag.dialog.submit.btt=Отправить
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Выберите
-ForumCode.FlagClass_reason_1=Пpопаганда ненависти или насилия
-ForumCode.FlagClass_reason_2=Порнография
-ForumCode.FlagClass_reason_3=Пустое сообщение
-ForumCode.FlagClass_reason_4=Kоммерческое сообщение, которое не соответсвует теме
-ForumCode.FlagClass_reason_5=Hечитаемое сообщение
-ForumCode.FlagClass_reason_6=Hонсенс
-ForumCode.FlagClass_reason_7=Hекорректно по другим причинам
+ForumCode.FlagClass_reason_0=Пpопаганда ненависти или насилия
+ForumCode.FlagClass_reason_1=Порнография
+ForumCode.FlagClass_reason_2=Пустое сообщение
+ForumCode.FlagClass_reason_3=Kоммерческое сообщение, которое не соответсвует теме
+ForumCode.FlagClass_reason_4=Hечитаемое сообщение
+ForumCode.FlagClass_reason_5=Hонсенс
+ForumCode.FlagClass_reason_6=Hекорректно по другим причинам
+ForumCode.FlagClass_reason_7=Другой причина
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Обсуждение отмечено
 conversations.flag.success.dialog.message=Вы успешно отметили это сообщение.
