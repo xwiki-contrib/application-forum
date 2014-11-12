@@ -128,6 +128,11 @@ ForumCode.FlagClass_reason_4=Is broken or has a virus
 ForumCode.FlagClass_reason_5=Appears to be nonsensical
 ForumCode.FlagClass_reason_6=Is objectionable for another reason
 ForumCode.FlagClass_reason_7=Autre raison
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=Statut
+ForumCode.FlagClass_status_open=Ouvert
+ForumCode.FlagClass_status_inprogress=En cours
+ForumCode.FlagClass_status_resolved=Résolu
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Discussion Flagged
 conversations.flag.success.dialog.message=You have successfully flagged this comment.

@@ -153,6 +153,11 @@ ForumCode.FlagClass_reason_4=Hечитаемое сообщение
 ForumCode.FlagClass_reason_5=Hонсенс
 ForumCode.FlagClass_reason_6=Hекорректно по другим причинам
 ForumCode.FlagClass_reason_7=Другой причина
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=Статус
+ForumCode.FlagClass_status_open=Oткрытый
+ForumCode.FlagClass_status_inprogress=В процессе
+ForumCode.FlagClass_status_resolved=Pешены
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Обсуждение отмечено
 conversations.flag.success.dialog.message=Вы успешно отметили это сообщение.
