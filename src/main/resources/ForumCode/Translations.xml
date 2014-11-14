@@ -154,6 +154,7 @@ conversations.flag.dialog.message.label=Description
 conversations.flag.dialog.mandatory=This field is mandatory
 conversations.flag.dialog.cancel.btt=Cancel
 conversations.flag.dialog.submit.btt=Submit
+conversations.flag.error.nomailsent=Could not send mail to notify about flagged comment.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Select
 ForumCode.FlagClass_reason_1=promotes hate or violence
