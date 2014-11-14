@@ -134,6 +134,8 @@ ${spaceName}.${newAnswerName}
         #set($itemRepresentation = "")
         #if ($isDeleteComment)
           #set($itemRepresentation = $commentObj.getProperty('comment').value)
+        #elseif($isAnswer)
+          #set($itemRepresentation = $conversationObj.getProperty('answer').value)
         #else
           #set($itemRepresentation = $conversationDoc.displayTitle)
         #end
@@ -170,7 +172,14 @@ ${spaceName}.${newAnswerName}
           #else
             #set ($sender = "$!{escapetool.q($sender)} &lt;noreply@$!{request.serverName}&gt;")
           #end
-         #set ($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', ${util.null}))
+          #set($deleteAction = "topic")
+          #if($isDeleteComment)
+            #set($deleteAction = "comment")
+          #elseif($isAnswer)
+            #set($deleteAction = "answer")
+          #end
+          #set($map = { "action" : "$deleteAction" , "deleted_content": "$!{itemRepresentation}"})
+         #set ($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', $map))
           #if ($result != 0)
             #set($mailsent = "0")
           #end
@@ -201,4 +210,78 @@ ${spaceName}.${newAnswerName}
 #end##csrf token verification
 #set($docextras = [])
 {{/velocity}}</content>
+  <object>
+    <name>ForumCode.Actions</name>
+    <number>0</number>
+    <className>XWiki.Mail</className>
+    <guid>653bd014-09b0-47dc-9e8a-84a6882db59b</guid>
+    <class>
+      <name>XWiki.Mail</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <html>
+        <disabled>0</disabled>
+        <name>html</name>
+        <number>4</number>
+        <prettyName>HTML</prettyName>
+        <rows>15</rows>
+        <size>80</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </html>
+      <language>
+        <disabled>0</disabled>
+        <name>language</name>
+        <number>2</number>
+        <prettyName>Language</prettyName>
+        <size>5</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </language>
+      <subject>
+        <disabled>0</disabled>
+        <name>subject</name>
+        <number>1</number>
+        <prettyName>Subject</prettyName>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </subject>
+      <text>
+        <disabled>0</disabled>
+        <name>text</name>
+        <number>3</number>
+        <prettyName>Text</prettyName>
+        <rows>15</rows>
+        <size>80</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </text>
+    </class>
+    <property>
+      <html>$msg.get("forum.mail.notif.${action}.delete.message")
+&lt;br /&gt;&lt;br /&gt;
+$deleted_content
+&lt;br /&gt;&lt;br /&gt;
+$msg.get("forum.mail.notif.delete.thanks")</html>
+    </property>
+    <property>
+      <language>en</language>
+    </property>
+    <property>
+      <subject>$msg.get("forum.mail.notif.${action}.delete.title")</subject>
+    </property>
+    <property>
+      <text>$msg.get("forum.mail.notif.${action}.delete.message")
+
+$deleted_content
+
+$msg.get("forum.mail.notif.delete.thanks")</text>
+    </property>
+  </object>
 </xwikidoc>

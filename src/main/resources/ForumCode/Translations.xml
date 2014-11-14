@@ -192,6 +192,14 @@ discussion.panel.topics=Topics
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Forums
+## mail notif
+forum.mail.notif.topic.delete.title=Deleted topic
+forum.mail.notif.topic.delete.message=The following topic has been deleted:
+forum.mail.notif.answer.delete.title=Deleted answer
+forum.mail.notif.answer.delete.message=The following answer has been deleted:
+forum.mail.notif.comment.delete.title=Deleted comment
+forum.mail.notif.comment.delete.message=The following comment has been deleted:
+forum.mail.notif.delete.thanks=Thank you
 </content>
   <object>
     <name>ForumCode.Translations</name>
