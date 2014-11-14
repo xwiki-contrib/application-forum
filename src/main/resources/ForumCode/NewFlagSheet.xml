@@ -62,10 +62,10 @@ $msg.get("conversations.flag.success.dialog.message")
   #set($url = $flagDoc.getExternalURL())
   #set($res = $xwiki.mailsender.sendMessageFromTemplate($adminEmail, $mailTo, $util.null, $util.null, "en", "ForumCode.MailTemplateFlag", $context.vcontext))
   #if ($res != 0)
-    {{warning}}$msg.get("conversations.flag.error.nomailsent"){{/warning}}
+    {{warning}}$services.localization.render("conversations.flag.error.nomailsent"){{/warning}}
   #end
 #else
-  {{warning}}$msg.get("conversations.flag.error.nomailsent"){{/warning}}
+  {{warning}}$services.localization.render("conversations.flag.error.nomailsent"){{/warning}}
 #end
 ## sending notification email
 
