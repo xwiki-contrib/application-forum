@@ -295,16 +295,47 @@ XWIKI STYLES
 /* Sorting of topics
 --------------------------------------------------------------------------------------------------
  */
- .forum-buttons {}
- .forum-buttons label {margin-right: 20px;}
 .forum-sort-button-active,
 .forum-sort-button-inactive {
-  padding: 0 20px 0 10px;
+  padding: 0 20px 0 0;
 }
-.forum-sort-button-desc { background: url("icons/black-arrow-ab.png") no-repeat scroll right center transparent; }
-.forum-sort-button-asc { background: url("img/black-arrow-ba.png") no-repeat scroll right center transparent; }
-.forum-sort-button-inactive.forum-sort-button-desc,
-.forum-sort-button-inactive.forum-sort-button-asc {background: none;}
+
+.forum-sort-button-active a,
+.forum-sort-button-inactive a {
+  margin-right: 5px;
+}
+
+#discussionTopics a:after {
+  margin-left: 2px;
+}
+
+.forum-sort-button-desc:after, 
+.forum-sort-button-asc:after, 
+#discussionTopics a.asc:after, 
+#discussionTopics a.desc:after {
+  display: inline-block;
+  content: '';
+  height: 0;
+  width: 0;
+  vertical-align: middle;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.forum-sort-button-desc:after,
+#discussionTopics a.desc:after {
+  border-top: 4px solid;
+}
+
+.forum-sort-button-asc:after, 
+#discussionTopics a.asc:after {
+  border-bottom: 4px solid;
+}
+
+.forum-sort-button-inactive.forum-sort-button-desc:after,
+.forum-sort-button-inactive.forum-sort-button-asc:after {
+  border: 0;
+}
 
 .forum-topics-nb {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat 0 0;
@@ -321,10 +352,14 @@ XWIKI STYLES
 #forum-buttons {
   clear: both; overflow: hidden;
   text-transform: uppercase;
-  padding: 0 !important;
 }
+
+#forum-buttons label {
+  font-weight: 400;
+  margin-right: 1em;
+}
+
 #forum-buttons .xRichTextEditor { text-transform: none; }
-.forum-sort-button-inactive { padding: 10px 20px !important; display: inline-block; }
 
 .topic {
   margin: 21px 0 20px 0;
@@ -918,16 +953,6 @@ Discussion Topics
 #discussionTopicsTable td.votes { min-width: 0 !important; text-align: center; }
 #discussionTopicsTable td.comments { min-width: 0 !important; text-align: center; }
 #discussionTopicsTable td a { display: block; }
-/* Custom Sorting */
-#discussionTopics &gt; a.desc {
-  background: url("icons/black-arrow-ab.png") no-repeat scroll right center transparent;
-  padding: 3px !important;
-}
-
-#discussionTopics &gt; a.asc { 
-  background: url("img/black-arrow-ba.png") no-repeat scroll right center transparent; 
-  padding: 3px !important;
-}
 
 /*
 New Topic
