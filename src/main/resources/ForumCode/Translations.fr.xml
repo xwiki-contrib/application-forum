@@ -108,6 +108,11 @@ ForumCode.TopicClass_description=Description
 conversations.flag.edit=Éditer
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Selectionnez
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=Statut
+ForumCode.FlagClass_status_open=Ouvert
+ForumCode.FlagClass_status_inprogress=En cours
+ForumCode.FlagClass_status_resolved=Résolu
 ## FLAG SUCCESS MESSAGE
 ## FLAG livetable
 conversations.flag.emptyvalue=-
