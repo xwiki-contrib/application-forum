@@ -831,6 +831,11 @@ Limit content / make it responsive
   max-width: 100%;
 }
 
+.answer:target .answer-reply,
+.comment:target .comment-layout {
+  border: 1px solid $theme.notificationWarningColor;
+}
+
 /*
 .comment-content .actions .commentreply a {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -800px -100px;
