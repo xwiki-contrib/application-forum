@@ -358,7 +358,8 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
   $picturelist.get("${username}--${size}")##
 #end
 ###
-#macro(displayTopicSortButton $field) 
+#macro(displayTopicSortButton $field)
+  #set($style = "") 
   #set($sortclass = "forum-sort-button-inactive")
   #if($request.sortfield)
    #set($currentfield = $request.sortfield)
