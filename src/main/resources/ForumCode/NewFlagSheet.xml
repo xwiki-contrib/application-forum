@@ -40,22 +40,34 @@
  #set($ok = $flagDoc.setSpace("Flags"))
  #set($ok = $flagDoc.saveWithProgrammingRights())
 ## sending email
-#set($mailFrom = $xwiki.getXWikiPreference("admin_email"))
-#set($mailTo = $xwiki.getXWikiPreference("admin_email"))
+#set($emailRegex = "[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}")
+#set($adminEmail = $xwiki.getXWikiPreference('admin_email'))
+#if (!$adminEmail.matches($emailRegex))
+  #set($adminEmail = "")
+#end
 #set($moderator = $flagDoc.getValue("moderator"))
-#if($moderator &amp;&amp; $moderator!="")
-#set($moderatorDoc = $xwiki.getDocument($moderator))
-#set($moderatorEmail = $moderatorDoc.getValue("email"))
-#if($moderatorEmail &amp;&amp; $moderatorEmail!="")
- #set($mailTo = "${mailTo},${moderatorEmail}")
+#if("$!{moderator}" != "")
+  #set($moderatorEmail = $xwiki.getUserName($moderator, "$email", false))
+  #if(!$moderatorEmail.matches($emailRegex))
+    #set($moderatorEmail = "")
+  #end
 #end
-#end
-#set($url = $flagDoc.getExternalURL())
-#set($res = $xwiki.mailsender.sendMessageFromTemplate($mailFrom, $mailTo, $util.null, $util.null, "en", "ForumCode.MailTemplateFlag", $context.vcontext))
-## sending notification email
+
 == $msg.get("conversations.flag.success.dialog.header") ==
 
 $msg.get("conversations.flag.success.dialog.message")
+
+#if("$!{adminEmail}" != "" &amp;&amp; "$!{moderatorEmail}" != "")
+  #set($mailTo = "${adminEmail},${moderatorEmail}")
+  #set($url = $flagDoc.getExternalURL())
+  #set($res = $xwiki.mailsender.sendMessageFromTemplate($adminEmail, $mailTo, $util.null, $util.null, "en", "ForumCode.MailTemplateFlag", $context.vcontext))
+  #if ($res != 0)
+    {{warning}}$services.localization.render("conversations.flag.error.nomailsent"){{/warning}}
+  #end
+#else
+  {{warning}}$services.localization.render("conversations.flag.error.nomailsent"){{/warning}}
+#end
+## sending notification email
 
 [[$msg.get("conversations.flag.success.dialog.goback") &gt;&gt;$request.targetDocName]]
 #else
