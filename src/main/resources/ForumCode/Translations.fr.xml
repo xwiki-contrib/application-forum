@@ -62,7 +62,6 @@ conversation.permalink=Lien permanent
 conversations.doc.title=Titre
 conversations.doc.date=Date
 conversations.doc.creator=Créateur
-conversations.actions=Actions
 conversations._avatar=Avatar
 rating.saveexception=Une erreur est survenue pendant la sauvegarde de votre vote
 rating.votenotvalid=Le vote n'est pas valide
@@ -107,42 +106,11 @@ ForumCode.TopicClass_description=Description
 
 ## FLAG DIALOG
 conversations.flag.edit=Éditer
-conversations.flag.button=Flag
-conversations.flag.viewsource=View Flag Source
-conversations.flag.dialog.header=Flag a Comment
-conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
-conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
-conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
-conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
-conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
-conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
-conversations.flag.dialog.cancel.btt=Cancel
-conversations.flag.dialog.submit.btt=Submit
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Selectionnez
-ForumCode.FlagClass_reason_1=promotes hate or violence
-ForumCode.FlagClass_reason_2=displays pornography
-ForumCode.FlagClass_reason_3=is empty or blank
-ForumCode.FlagClass_reason_4=is obviously commercial in nature, without clear educational relevance
-ForumCode.FlagClass_reason_5=is broken or has a virus
-ForumCode.FlagClass_reason_6=appears to be nonsensical
-ForumCode.FlagClass_reason_7=is objectionable for another reason
 ## FLAG SUCCESS MESSAGE
-conversations.flag.success.dialog.header=Discussion Flagged
-conversations.flag.success.dialog.message=You have successfully flagged this comment.
-conversations.flag.success.dialog.button=Close
 ## FLAG livetable
-conversations.flag.reason=Reason
-conversations.flag.user=User
-conversations.flag.doc.creationDate=Date
-conversations.flag.message=Message
-conversations.flag.moderator=Moderator
-conversations.flag.status=Status
-conversations.flag.target=Target
 conversations.flag.emptyvalue=-
-conversations.flag.list.title=Flag List
-conversations.flag.list.instructions=This is the list of flagged items
-conversations.flag.success.dialog.goback=Return to discussion
 conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
