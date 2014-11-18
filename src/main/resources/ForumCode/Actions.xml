@@ -72,14 +72,14 @@
           #end
         #else
           $response.setStatus(403)
-          {{warning}}$msg.get("conversations.create.error.topic.norights"){{/warning}}
+          {{warning}}$services.localization.render("conversations.create.error.topic.norights"){{/warning}}
         #end
       #else
-        {{warning}}$msg.get('conversations.create.error.missingmetadata'){{/warning}}
+        {{warning}}$services.localization.render('conversations.create.error.missingmetadata'){{/warning}}
       #end
     #else
       $response.setStatus(403)
-      {{warning}}$msg.get('conversations.create.error.missingtitle'){{/warning}}
+      {{warning}}$services.localization.render('conversations.create.error.missingtitle'){{/warning}}
     #end  
   #elseif("$!request.action" == "addconversation")
     #set($spaceName = "$!request.space")
@@ -103,7 +103,7 @@
           #end
       #else
         $response.setStatus(403)
-        {{warning}}$msg.get('conversations.create.error.answer.norights')
+        {{warning}}$services.localization.render('conversations.create.error.answer.norights')
 ${spaceName}.${newAnswerName}
 {{/warning}}
       #end    
@@ -149,7 +149,7 @@ ${spaceName}.${newAnswerName}
         ## 1. do the action
         #if($isDeleteComment)
           #set($discard = $conversationDoc.removeObject($commentObj))
-          #set($discard = $conversationDoc.save($msg.get("conversations.${request.action}.changecomment")))
+          #set($discard = $conversationDoc.save($services.localization.render("conversations.${request.action}.changecomment")))
         #else
           #set($discard = $conversationDoc.delete())
           ## if we are a topic delete the answers
@@ -197,12 +197,12 @@ ${spaceName}.${newAnswerName}
       #else
         ## set the status and print a message
         $response.setStatus(403)
-        {{warning}}{{html}}$msg.get("conversations.${request.action}.error.norights", [$request.xredirect]){{/html}}{{/warning}}  
+        {{warning}}{{html}}$services.localization.render("conversations.${request.action}.error.norights", [$request.xredirect]){{/html}}{{/warning}}
       #end
     #else
       ## set the status and print a message
       $response.setStatus(404)
-      {{warning}}{{html}}$msg.get("conversations.${request.action}.error.notfound",  [ $!request.xredirect ] ){{/html}}{{/warning}}
+      {{warning}}{{html}}$services.localization.render("conversations.${request.action}.error.notfound",  [ $!request.xredirect ] ){{/html}}{{/warning}}
     #end
   #else
     {{warning}}No action specified.{{/warning}}
@@ -264,24 +264,24 @@ ${spaceName}.${newAnswerName}
       </text>
     </class>
     <property>
-      <html>$msg.get("forum.mail.notif.${action}.delete.message")
+      <html>$services.localization.render("forum.mail.notif.${action}.delete.message")
 &lt;br /&gt;&lt;br /&gt;
 $deleted_content
 &lt;br /&gt;&lt;br /&gt;
-$msg.get("forum.mail.notif.delete.thanks")</html>
+$services.localization.render("forum.mail.notif.delete.thanks")</html>
     </property>
     <property>
       <language>en</language>
     </property>
     <property>
-      <subject>$msg.get("forum.mail.notif.${action}.delete.title")</subject>
+      <subject>$services.localization.render("forum.mail.notif.${action}.delete.title")</subject>
     </property>
     <property>
-      <text>$msg.get("forum.mail.notif.${action}.delete.message")
+      <text>$services.localization.render("forum.mail.notif.${action}.delete.message")
 
 $deleted_content
 
-$msg.get("forum.mail.notif.delete.thanks")</text>
+$services.localization.render("forum.mail.notif.delete.thanks")</text>
     </property>
   </object>
 </xwikidoc>

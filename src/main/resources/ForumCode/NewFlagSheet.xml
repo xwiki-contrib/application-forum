@@ -15,7 +15,7 @@
   <date>1375308000000</date>
   <contentUpdateDate>1375308000000</contentUpdateDate>
   <version>1.1</version>
-  <title>$msg.get("conversations.flag.dialog.header") </title>
+  <title>$services.localization.render("conversations.flag.dialog.header") </title>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -23,7 +23,7 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity}}
-= $msg.get("conversations.flag.dialog.header")  =
+= $services.localization.render("conversations.flag.dialog.header")  =
 
 #set($flagDocName = $xwiki.getUniquePageName("Flags", "Flag"))
 #set($flagDoc = $xwiki.getDocument("Flags.${flagDocName}"))
@@ -53,9 +53,9 @@
   #end
 #end
 
-== $msg.get("conversations.flag.success.dialog.header") ==
+== $services.localization.render("conversations.flag.success.dialog.header") ==
 
-$msg.get("conversations.flag.success.dialog.message")
+$services.localization.render("conversations.flag.success.dialog.message")
 
 #if("$!{adminEmail}" != "" &amp;&amp; "$!{moderatorEmail}" != "")
   #set($mailTo = "${adminEmail},${moderatorEmail}")
@@ -69,7 +69,7 @@ $msg.get("conversations.flag.success.dialog.message")
 #end
 ## sending notification email
 
-[[$msg.get("conversations.flag.success.dialog.goback") &gt;&gt;$request.targetDocName]]
+[[$services.localization.render("conversations.flag.success.dialog.goback") &gt;&gt;$request.targetDocName]]
 #else
 #set($ok = $flagDoc.set("user", $context.user))
 #if($request.target)
@@ -91,25 +91,25 @@ $msg.get("conversations.flag.success.dialog.message")
 $flagDoc.display("target", "hidden")
 $flagDoc.display("user", "hidden")
 $flagDoc.display("moderator", "hidden")
-== $msg.get("conversations.flag.dialog.guidingquestion1.txt") ==
-$msg.get("conversations.flag.dialog.instruction1.txt")
-== $msg.get("conversations.flag.dialog.guidingquestion2.txt") ==
+== $services.localization.render("conversations.flag.dialog.guidingquestion1.txt") ==
+$services.localization.render("conversations.flag.dialog.instruction1.txt")
+== $services.localization.render("conversations.flag.dialog.guidingquestion2.txt") ==
 &lt;dl&gt;
   &lt;dt&gt;
-    &lt;label&gt;$msg.get("conversations.flag.dialog.reason.label")&lt;/label&gt;
-    &lt;span class="xHint"&gt;$msg.get("conversations.flag.dialog.instruction2.txt")&lt;/span&gt;
+    &lt;label&gt;$services.localization.render("conversations.flag.dialog.reason.label")&lt;/label&gt;
+    &lt;span class="xHint"&gt;$services.localization.render("conversations.flag.dialog.instruction2.txt")&lt;/span&gt;
     #if($request.get("ForumCode.FlagClass_0_reason") &amp;&amp; $request.get("ForumCode.FlagClass_0_reason")=="")
-      (% class="xErrorMsg" %)$msg.get("conversations.flag.dialog.mandatory")
+      (% class="xErrorMsg" %)$services.localization.render("conversations.flag.dialog.mandatory")
     #end
   &lt;/dt&gt;
   &lt;dd&gt;
     $flagDoc.display("reason", "edit")
   &lt;/dd&gt;
   &lt;dt&gt;
-    &lt;label&gt;$msg.get("conversations.flag.dialog.message.label")&lt;/label&gt;
-    &lt;span class="xHint"&gt;$msg.get("conversations.flag.dialog.instruction3.txt")&lt;/span&gt;
+    &lt;label&gt;$services.localization.render("conversations.flag.dialog.message.label")&lt;/label&gt;
+    &lt;span class="xHint"&gt;$services.localization.render("conversations.flag.dialog.instruction3.txt")&lt;/span&gt;
     #if($request.get("ForumCode.FlagClass_0_message") &amp;&amp; $request.get("ForumCode.FlagClass_0_message").trim()=="")
-      (% class="xErrorMsg" %)$msg.get("conversations.flag.dialog.mandatory")
+      (% class="xErrorMsg" %)$services.localization.render("conversations.flag.dialog.mandatory")
     #end
   &lt;/dt&gt;
   &lt;dd&gt;
@@ -118,10 +118,10 @@ $msg.get("conversations.flag.dialog.instruction1.txt")
 &lt;/dl&gt;
 &lt;div class="buttons"&gt;
   &lt;span class="buttonwrapper"&gt;
-    &lt;input class="button btn btn-primary" type="submit" value="$msg.get("conversations.flag.dialog.submit.btt")" /&gt;
+    &lt;input class="button btn btn-primary" type="submit" value="$services.localization.render("conversations.flag.dialog.submit.btt")" /&gt;
   &lt;/span&gt;
   &lt;span class="buttonwrapper"&gt;
-    &lt;input class="button secondary btn btn-default" type="button" value="$msg.get("conversations.flag.dialog.cancel.btt")" onclick="history.go(-1);" /&gt;
+    &lt;input class="button secondary btn btn-default" type="button" value="$services.localization.render("conversations.flag.dialog.cancel.btt")" onclick="history.go(-1);" /&gt;
   &lt;/span&gt;
 &lt;/div&gt;
 &lt;/form&gt;

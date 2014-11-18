@@ -15,7 +15,7 @@
   <date>1375308000000</date>
   <contentUpdateDate>1375308000000</contentUpdateDate>
   <version>1.1</version>
-  <title>$msg.get("conversations.flag.list.title")</title>
+  <title>$services.localization.render("conversations.flag.list.title")</title>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -24,9 +24,9 @@
   <hidden>true</hidden>
   <content>{{velocity}}
 $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
-= $msg.get("conversations.flag.list.title") =
+= $services.localization.render("conversations.flag.list.title") =
 
-$msg.get("conversations.flag.list.instructions")##
+$services.localization.render("conversations.flag.list.instructions")##
   #set($columns = ['reason', 'user', 'doc.creationDate', 'moderator', 'status'])
   #set($columnsProperties = {
      "reason" : { "type" : "list", "link" : "view"},

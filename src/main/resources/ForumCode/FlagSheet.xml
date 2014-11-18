@@ -41,7 +41,7 @@
             #set($pos = $pos + 1)
             #set($anchor = $target.substring($pos))
           #end
-          : &lt;label&gt;[[$msg.get("conversations.flag.viewsource")&gt;&gt;${targetDocName}||target="_blank" anchor="${anchor}"]]&lt;/label&gt;
+          : &lt;label&gt;[[$services.localization.render("conversations.flag.viewsource")&gt;&gt;${targetDocName}||target="_blank" anchor="${anchor}"]]&lt;/label&gt;
         #else
           : $doc.display($prop.getName())
         #end
@@ -55,7 +55,7 @@
 
 #if($context.action=="view")
   {{html wiki='true'}}
-    (% class="buttonwrapper" %)&lt;a href="$doc.getURL("inline")" class="button"&gt;$msg.get("conversations.flag.edit")&lt;/a&gt;
+    (% class="buttonwrapper" %)&lt;a href="$doc.getURL("inline")" class="button"&gt;$services.localization.render("conversations.flag.edit")&lt;/a&gt;
   {{/html}}
 #end
 #set($docextras = [])
