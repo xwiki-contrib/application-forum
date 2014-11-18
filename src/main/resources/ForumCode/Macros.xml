@@ -392,7 +392,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #if($newTopicDoc.hasAccessLevel("edit"))
     &lt;div class="addconversation-container addtopic-container"&gt;
      &lt;div class="addconversation-container-button addtopic-container-button buttonwrapper"&gt;
-      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;$services.icon.render('add') $services.localization.render('conversations.topic.add.activator')&lt;/a&gt;
+      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if($services.icon)$services.icon.render('add') #end$services.localization.render('conversations.topic.add.activator')&lt;/a&gt;
      &lt;/div&gt;
      &lt;div class="addconversation-container-form addtopic-container-form"&gt;
      ## Create a fake topic object to be able to display the status and the type selectors
@@ -438,7 +438,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
   #if($newAnswerDoc.hasAccessLevel("edit"))
   &lt;div class="addconversation-container addanswer-container"&gt;
     &lt;div class="addconversation-container-button addanswer-container-button buttonwrapper"&gt;
-     &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;$services.icon.renderHTML('add') $services.localization.render('conversation.add.activator')&lt;/a&gt;
+     &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if($services.icon)$services.icon.renderHTML('add') #end$services.localization.render('conversation.add.activator')&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class="addconversation-container-form addanswer-container-form"&gt;
       ## Create a fake conversation object to be able to display the status and the type selectors
