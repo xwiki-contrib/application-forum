@@ -912,10 +912,20 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     &lt;div id="discussionTopics"&gt;    
   #end
 
+  #if($sortField == "dates")
+    #set($datesorder = $currentorder)
+  #elseif($sortField == "votes")
+    #set($votesorder = $currentorder)
+  #elseif($sortField == "comments")
+    #set($commentsorder = $currentorder)
+  #else
+    #set($datesorder = $currentorder)  
+  #end
+
   #getOrdredTopics('', $start, $nb, $sortField, 'topics')
-$msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
-          &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
-          &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
+$msg.get("discussion.panel.sortby") &lt;a class="date $!{datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
+          &lt;a class="votes $!{votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
+          &lt;a class="comments $!{commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
  &lt;div class="tableScroll"&gt;
   &lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
    &lt;caption&gt;$msg.get("discussion.panel.title")&lt;/caption&gt;
