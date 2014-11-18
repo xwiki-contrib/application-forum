@@ -358,8 +358,8 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
   $picturelist.get("${username}--${size}")##
 #end
 ###
-#macro(displayTopicSortButton $field)
-  #set($style = "") 
+#macro(displayTopicSortButton $field $format $url $translation) 
+  #set($style = "")
   #set($sortclass = "forum-sort-button-inactive")
   #if($request.sortfield)
    #set($currentfield = $request.sortfield)
@@ -382,7 +382,11 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #set($nextorder = "desc")    
    #end
   #end
-  &lt;span class="${sortclass} ${style}"&gt;&lt;a href="$doc.getURL("view", "sortfield=${field}&amp;sortorder=${nextorder}")" onclick=""&gt;$msg.get("conversations.forum.sorttopicsby.${field}")&lt;/a&gt;&lt;/span&gt;   
+  #if("$!format" != '')
+   &lt;a class="${field} ${sortclass} ${style}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${url}');"&gt;$msg.get("${translation}")&lt;/a&gt;
+  #else
+    &lt;span class="${sortclass} ${style}"&gt;&lt;a href="$doc.getURL("view", "sortfield=${field}&amp;sortorder=${nextorder}")" onclick=""&gt;$msg.get("conversations.forum.sorttopicsby.${field}")&lt;/a&gt;&lt;/span&gt;   
+  #end
 #end
 ###
 ###
@@ -913,9 +917,10 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #end
 
   #getOrdredTopics('', $start, $nb, $sortField, 'topics')
-$msg.get("discussion.panel.sortby") &lt;a class="date ${datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$msg.get("discussion.panel.dates")&lt;/a&gt; 
-          &lt;a class="votes ${votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$msg.get("discussion.panel.votes")&lt;/a&gt;
-          &lt;a class="comments ${commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
+  $msg.get("discussion.panel.sortby")
+  #displayTopicSortButton('date', 'panel', "${datesurl}", 'discussion.panel.dates')
+  #displayTopicSortButton('votes', 'panel', "${votesurl}", 'discussion.panel.votes')
+  #displayTopicSortButton('comments', 'panel', "${commentsurl}", 'discussion.panel.comments')
  &lt;div class="tableScroll"&gt;
   &lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
    &lt;caption&gt;$msg.get("discussion.panel.title")&lt;/caption&gt;
