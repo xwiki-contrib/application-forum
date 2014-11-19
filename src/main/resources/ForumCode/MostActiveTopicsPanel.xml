@@ -105,7 +105,7 @@
     </property>
     <property>
       <content>{{velocity}}
-#panelheader($msg.get("discussion.panel.title"))
+#panelheader($services.localization.render("discussion.panel.title"))
 {{include document="ForumCode.MostActiveTopics" context="new" /}}
 #panelfooter()
 {{/velocity}}</content>
