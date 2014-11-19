@@ -925,7 +925,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #getOrdredTopics('', $start, $nb, $sortField, 'topics')
   $services.localization.render("discussion.panel.sortby") &lt;a class="date $!{datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$services.localization.render("discussion.panel.dates")&lt;/a&gt;
   &lt;a class="votes $!{votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$services.localization.render("discussion.panel.votes")&lt;/a&gt;
-  &lt;a class="comments $!{commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}'
+  &lt;a class="comments $!{commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$msg.get("discussion.panel.comments")&lt;/a&gt;
  &lt;div class="tableScroll"&gt;
   &lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
    &lt;caption&gt;$services.localization.render("discussion.panel.title")&lt;/caption&gt;
