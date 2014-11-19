@@ -60,7 +60,6 @@ conversations.topic.tooltip.totalanswers=Всего ответов
 conversations.topic.answer.tooltip.totalcomments=Всего комментариев к ответу
 conversations.topic.create=Новая тема
 conversations.topic.create.submit=Создать
-conversations.topic.add.activator=Новая тема
 conversations.topic.count=темы
 
 ## Answers

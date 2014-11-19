@@ -392,7 +392,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #if($newTopicDoc.hasAccessLevel("edit"))
     &lt;div class="addconversation-container addtopic-container"&gt;
      &lt;div class="addconversation-container-button addtopic-container-button buttonwrapper"&gt;
-      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if($services.icon)$services.icon.render('add') #end$services.localization.render('conversations.topic.add.activator')&lt;/a&gt;
+      &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if($services.icon)$services.icon.render('add') #end$services.localization.render('conversations.topic.create')&lt;/a&gt;
      &lt;/div&gt;
      &lt;div class="addconversation-container-form addtopic-container-form"&gt;
      ## Create a fake topic object to be able to display the status and the type selectors
@@ -422,7 +422,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
       &lt;/div&gt;
       
       &lt;div class="buttons"&gt;
-        &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" class="button" value="$services.localization.render('save')" /&gt;&lt;/span&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" class="button" value="$services.localization.render('conversations.topic.create')" /&gt;&lt;/span&gt;
         &lt;span class="buttonwrapper"&gt;&lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$services.localization.render('cancel')&lt;/a&gt;&lt;/span&gt;
       &lt;/div&gt;
     &lt;/form&gt;
@@ -460,7 +460,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
       &lt;/dl&gt;
       
       &lt;div class="buttons"&gt;
-        &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" class="button" value="$services.localization.render('save')" /&gt;&lt;/span&gt;
+        &lt;span class="buttonwrapper"&gt;&lt;input class="button" type="submit" class="button" value="$services.localization.render('conversation.add.activator')" /&gt;&lt;/span&gt;
         &lt;span class="buttonwrapper"&gt;&lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$services.localization.render('cancel')&lt;/a&gt;&lt;/span&gt;
       &lt;/div&gt;
     &lt;/form&gt;
