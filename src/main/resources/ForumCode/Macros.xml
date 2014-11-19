@@ -633,9 +633,11 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #end
 ##
 #macro(displayForumActions $topicDoc) 
-&lt;span class="topic-actions-flag conversation-flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
- &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($topicDoc.fullName)}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
-&lt;/span&gt;
+#if($isGuest=='false')
+  &lt;span class="topic-actions-flag conversation-flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
+    &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($topicDoc.fullName)}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
+  &lt;/span&gt;
+#end
 &lt;span class="topic-actions-permalink" title="$services.localization.render('conversation.permalink.tooltip')"&gt;
  &lt;a href="$topicDoc.getURL()"&gt;&lt;/a&gt;
 &lt;/span&gt;
@@ -766,9 +768,11 @@ addthis:description="${escapetool.xml($addThisDesc)}"
                 #cleanHTMLMacro($conversationDoc.answer)
                 &lt;span class="actions"&gt;
                   #if($context.user!="XWiki.XWikiUsers")
-                    &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
-                      &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
-                    &lt;/span&gt;
+                    #if($isGuest=='false')
+                      &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
+                        &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
+                      &lt;/span&gt;
+                    #end
                   #end
                   &lt;span class="conversation-permalink"&gt;
                     &lt;a class="permalink" href="$escapetool.xml($doc.getURL('view'))#${conversationId}" title="$services.localization.render('conversation.permalink.tooltip')"&gt;
