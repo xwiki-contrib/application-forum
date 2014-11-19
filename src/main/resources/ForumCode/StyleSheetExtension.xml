@@ -906,7 +906,7 @@ Discussion Topics
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-#discussionTopics &gt; a { padding: 2px !important; }
+#discussionTopics &gt; a { padding: 2px; }
 .tableScroll {}
 #discussionTopicsTable {
   text-transform: none;
