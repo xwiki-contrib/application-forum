@@ -65,7 +65,7 @@
 #end
 ##
 #if("$!author" == '')
-  #set($author = $msg.get('core.viewers.comments.add.guestName.default'))
+  #set($author = $services.localization.render('core.viewers.comments.add.guestName.default'))
 #end
 ##
 #set($xredirect = $request.get("xredirect"))

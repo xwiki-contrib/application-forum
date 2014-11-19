@@ -246,9 +246,9 @@
 
     {{html wiki="true"}}
       &lt;dt class="field-mandatory"&gt;
-        &lt;label&gt;$msg.get('conversations.forum.title')&lt;/label&gt;
+        &lt;label&gt;$services.localization.render('conversations.forum.title')&lt;/label&gt;
         #if (!$titleIsValid)
-          &lt;span class="xErrorMsg"&gt;$msg.get($titleErrorKey)&lt;/span&gt;
+          &lt;span class="xErrorMsg"&gt;$services.localization.render($titleErrorKey)&lt;/span&gt;
         #end
       &lt;/dt&gt;
       &lt;dd&gt;

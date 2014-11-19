@@ -29,7 +29,7 @@
   #end
   #set($newForumDoc = $xwiki.getDocument($newForumDocName))
   #if(!$newForumDoc.isNew())
-    {{warning}}$msg.get('forum.create.alreadyexists', ["$!request.forumName", $newForumDocName])
+    {{warning}}$services.localization.render('forum.create.alreadyexists', ["$!request.forumName", $newForumDocName])
   #else
     #*
 	* Add encode uri to handle special chars in the title
@@ -202,10 +202,10 @@
           }
         },
         {
-          confirmationText: "$msg.get('forum.admin.action.delete.confiramtion_text')",
-          progressMessageText : "$msg.get('forum.admin.action.delete.inprogress')",
-          successMessageText : "$msg.get('forum.admin.action.delete.success')",
-          failureMessageText : "$msg.get('forum.admin.action.delete.failed')"
+          confirmationText: "$services.localization.render('forum.admin.action.delete.confiramtion_text')",
+          progressMessageText : "$services.localization.render('forum.admin.action.delete.inprogress')",
+          successMessageText : "$services.localization.render('forum.admin.action.delete.success')",
+          failureMessageText : "$services.localization.render('forum.admin.action.delete.failed')"
         }
       );
     }

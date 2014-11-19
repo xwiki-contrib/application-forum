@@ -15,7 +15,7 @@
   <date>1375308000000</date>
   <contentUpdateDate>1375308000000</contentUpdateDate>
   <version>1.1</version>
-  <title>$msg.get('conversations.answer.edit', [$!xwiki.getDocument($!doc.parent).displayTitle])</title>
+  <title>$services.localization.render('conversations.answer.edit', [$!xwiki.getDocument($!doc.parent).displayTitle])</title>
   <defaultTemplate/>
   <validationScript/>
   <comment/>
@@ -28,7 +28,7 @@
   #if($context.action != 'view')
     {{html wiki='true'}}
       (% class="xform"%)(((
-        ; &lt;label&gt;$msg.get('conversations.answer')&lt;/label&gt;
+        ; &lt;label&gt;$services.localization.render('conversations.answer')&lt;/label&gt;
         : $doc.display('answer')
       )))
     {{/html}}
