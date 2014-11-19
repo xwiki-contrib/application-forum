@@ -85,7 +85,6 @@ conversations.topic.tooltip.totalanswers=Nombre de réponses
 conversations.topic.answer.tooltip.totalcomments=Nombre de commentaires pour la réponse
 conversations.topic.create=Nouveau topic
 conversations.topic.create.submit=Créer
-conversations.topic.add.activator=Nouveau topic
 conversations.create.error.topic.norights=Vous n'avez pas les droits de créer un nouveau topic
 conversations.create.error.answer.norights=Vous n'avez pas les droits de créer une nouvelle réponse
 conversations.create.error.missingmetadata=Une raison technique a empêché la création

@@ -60,16 +60,15 @@ conversations.forum.add=Add forum
 conversations.topic.tooltip.totalcommentsandanswers=Total answers and comments
 conversations.topic.tooltip.totalanswers=Total answers
 conversations.topic.answer.tooltip.totalcomments=Total comments for the answer
-conversations.topic.create=New topic
+conversations.topic.create=Add topic
 conversations.topic.create.submit=Create
-conversations.topic.add.activator=New topic
 conversations.topic.all=All topics
 conversations.topic.empty=No topic
 conversations.topic.count=topics
 
 ## Answers
 conversations.title=Answer
-conversation.add.activator=New answer
+conversation.add.activator=Add answer
 conversation.delete.confirm=Delete topic?
 conversation.delete.confirm.withReplies=Delete this answer and its comments ?
 conversation.delete.done=Answer deleted
