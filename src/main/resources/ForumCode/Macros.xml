@@ -896,8 +896,13 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   ## add js for ajax reload of most viewed topic
   #set($nb = 10)
   #set($start = 0)
-  #set($sortField = $request.sortfield)
-  #set($currentorder = $request.sortorder)
+  #if("$!{request.xpage}" == "plain")
+	  #set($sortField = $request.sortfield)
+	  #set($currentorder = $request.sortorder)
+  #else
+	  #set($sortField = "date")
+	  #set($currentorder = "desc")
+  #end
   #if($currentorder != 'asc')
     #set($currentorder = 'desc')
     #set($nextOrder = 'asc')
