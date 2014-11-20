@@ -515,7 +515,9 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ##
 ##
 #macro(getOrdredTopics $forum $start $nb $sortField $varName)
-  #set($currentorder = $request.sortorder)
+  #if($isPanelSort != 1)
+    #set($currentorder = $request.sortorder)
+  #end
   #if($currentorder != 'desc')
     #set($currentorder = 'asc')
   #end
@@ -897,11 +899,11 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #set($nb = 10)
   #set($start = 0)
   #if("$!{request.xpage}" == "plain")
-	  #set($sortField = $request.sortfield)
-	  #set($currentorder = $request.sortorder)
+    #set($sortField = $request.sortfield)
+    #set($currentorder = $request.sortorder)
   #else
-	  #set($sortField = "date")
-	  #set($currentorder = "desc")
+    #set($sortField = "date")
+    #set($currentorder = "desc")
   #end
   #if($currentorder != 'asc')
     #set($currentorder = 'desc')
@@ -929,6 +931,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set($datesorder = $currentorder)  
   #end
 
+  #set($isPanelSort = 1)
   #getOrdredTopics('', $start, $nb, $sortField, 'topics')
   $services.localization.render("discussion.panel.sortby") &lt;a class="date $!{datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$services.localization.render("discussion.panel.dates")&lt;/a&gt;
   &lt;a class="votes $!{votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$services.localization.render("discussion.panel.votes")&lt;/a&gt;
