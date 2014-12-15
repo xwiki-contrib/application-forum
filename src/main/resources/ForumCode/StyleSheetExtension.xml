@@ -364,7 +364,6 @@ XWIKI STYLES
 .topic {
   margin: 21px 0 20px 0;
   position: relative;
-  min-width: 630px;
 }
 
 .topics .topic {
@@ -704,8 +703,7 @@ Answers and Comments for a Topic
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  margin: 0 65px; 
-  min-width: 460px; 
+  margin: 0 65px;
   position: relative; 
   z-index: 202;
 }
