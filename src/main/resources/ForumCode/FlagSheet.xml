@@ -53,7 +53,7 @@
   )))
 {{/html}}
 
-#if($context.action=="view")
+#if($context.action=="view" &amp;&amp; $isGuest=='false')
   {{html wiki='true'}}
     (% class="buttonwrapper" %)&lt;a href="$doc.getURL("inline")" class="button"&gt;$services.localization.render("conversations.flag.edit")&lt;/a&gt;
   {{/html}}
