@@ -652,6 +652,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
   #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+  #set($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
   #if($topicAnswers)
     #foreach($topicAnswer in $topicAnswers)
       #set($answerDoc = $xwiki.getDocument($topicAnswer))
@@ -687,7 +688,12 @@ addthis:description="${escapetool.xml($addThisDesc)}"
               #displayForumActions($topicDoc)
             &lt;/span&gt;
             #if(!$isGuest)
-            &lt;span class="topic-vote2 $voteAllowedClass conversation-like center" title="$services.localization.render('conversation.like.button.tooltip')"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
+              #if($notAllowed)
+                #set($voteAllowedClass = "")
+              #else
+                #set($voteAllowedClass = "allow-vote")
+              #end
+              &lt;span class="topic-vote2 $voteAllowedClass conversation-like center" title="$services.localization.render('conversation.like.button.tooltip')"&gt;&lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;&lt;/span&gt;
             #end
             &lt;span class="right"&gt;
              #displayForumAddThis($topicDoc, $topicTitle)
@@ -705,7 +711,12 @@ addthis:description="${escapetool.xml($addThisDesc)}"
             &lt;/span&gt;
             &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
             &lt;span class="topic-answers" title="$services.localization.render('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size() $services.localization.render('conversations.answer.count')&lt;/span&gt;
-            &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null) title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end&gt;
+            #if($notAllowed)
+              #set($voteAllowedClass = "")
+            #else
+              #set($voteAllowedClass = "allow-vote")
+            #end
+            &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($topicDoc, $xcontext.user) == $util.null) title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end&gt;
                 #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
                 &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
                 &lt;span class="conversation-score" title="$services.localization.render('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
