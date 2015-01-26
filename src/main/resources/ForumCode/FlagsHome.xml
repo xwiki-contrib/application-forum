@@ -24,6 +24,7 @@
   <hidden>true</hidden>
   <content>{{velocity}}
 $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
+$xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css', true)
 = $services.localization.render("conversations.flag.list.title") =
 
 $services.localization.render("conversations.flag.list.instructions")##
