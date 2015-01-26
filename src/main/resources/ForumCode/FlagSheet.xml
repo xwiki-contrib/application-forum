@@ -52,12 +52,6 @@
     #end
   )))
 {{/html}}
-
-#if($context.action=="view")
-  {{html wiki='true'}}
-    (% class="buttonwrapper" %)&lt;a href="$doc.getURL("inline")" class="button"&gt;$services.localization.render("conversations.flag.edit")&lt;/a&gt;
-  {{/html}}
-#end
 #set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>
