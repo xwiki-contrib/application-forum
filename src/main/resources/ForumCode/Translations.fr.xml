@@ -22,7 +22,8 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>ForumCode.TopicClass_title=Titre
+  <content>## Classes
+ForumCode.TopicClass_title=Titre
 ForumCode.TopicClass_type=Type
 ForumCode.TopicClass_type_question=Question
 ForumCode.TopicClass_type_suggestion=Suggestion
@@ -32,6 +33,43 @@ ForumCode.TopicClass_status=Statut
 ForumCode.TopicClass_status_inprogress=En cours
 ForumCode.TopicClass_status_closed=Fermé
 ForumCode.TopicClass_status_integrated=Intégré
+ForumCode.TopicClass_description=Description
+ForumCode.AnswerClass_answer=Réponse
+
+## Forums
+conversations.forum.tooltip.totaltopics=Total topics
+conversations.forum.create=Nouveau forum
+conversations.forum.create.alreadyexists=Le forum suivant existe déjà : [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Créer
+conversations.forum.sorttopicsby=Trier les topics par
+conversations.forum.sorttopicsby.date=Date
+conversations.forum.sorttopicsby.votes=Votes
+conversations.forum.sorttopicsby.comments=Commentaires
+conversations.forum.titleError=Le titre ne doit pas dépasser 250 caractères
+conversations.forum.title=Titre
+conversations.forum.description=Description
+conversations.forum.edit=Modifier le topic
+conversations.forum.delete=Supprimer le topic
+conversations.forum.more=Voir {0} plus
+forum.admin.action.delete.confiramtion_text=Supprimer ce forum ?
+forum.admin.action.delete.inprogress=Suppression en cours...
+forum.admin.action.delete.success=Forum supprimé
+forum.admin.action.delete.failed=Le forum n'a pas pu être supprimer
+conversations.forum.all=Tous les forums
+conversations.forum.add=Ajouter un forum
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=Nombre de réponses et commentaires
+conversations.topic.tooltip.totalanswers=Nombre de réponses
+conversations.topic.answer.tooltip.totalcomments=Nombre de commentaires pour la réponse
+conversations.topic.create=Nouveau topic
+conversations.topic.create.submit=Créer
+conversations.topic.all=Tous les sujets
+conversations.topic.empty=Aucun sujet
+conversations.topic.count=sujets
+
+## Answers
 conversations.title=Conversation
 conversation.add.activator=Répondre
 conversation.delete.confirm=Supprimer ce sujet?
@@ -49,6 +87,18 @@ conversation.empty=Pas de commentaire
 conversation.forum.delete.title=Effacer le topic
 conversation.updatedate={0}
 conversation.creationdate={1}
+conversation.groups.norights=Vous devez être membre de ce groupe pour participer à la discussion. Merci de contacter votre administrateur.
+conversation.norights=Vous n'avez pas les droits de participer à cette discussion
+conversations.answer.edit=Réponse au topic {0}
+conversations.answer=Répondre
+conversations.answer.all=Toutes les réponses
+conversations.answer.empty=Pas de réponse
+conversations.answer.count=réponses
+
+## Comments
+conversations.comment.count=commentaires
+
+## Votes
 conversation.like.button=Votes
 conversation.like.button.tooltip=Voter pour ce topic
 conversation.like.button.alreadyliked.tooltip=Vous avez déjà voté
@@ -56,35 +106,22 @@ conversation.like.score.tooltip={0} utilisateur(s) ont trouvé cette conversatio
 conversation.like.failed=Le vote n'a pas pu être pris en compte :
 conversation.like.done=Votre vote a été pris en compte.
 conversation.like.loading=Sauvegarde du vote...
-conversation.flag.tooltip=Signaler un abus
-conversation.permalink.tooltip=Lien permanent
-conversation.permalink=Lien permanent
-conversations.doc.title=Titre
-conversations.doc.date=Date
-conversations.doc.creator=Créateur
-conversations._avatar=Avatar
 rating.saveexception=Une erreur est survenue pendant la sauvegarde de votre vote
 rating.votenotvalid=Le vote n'est pas valide
 rating.voteoutofbounds=Le vote n'est pas valide
-conversations.forum.tooltip.totaltopics=Total topics
-conversations.forum.create=Nouveau forum
-conversations.forum.create.alreadyexists=Le forum suivant existe déjà : [[{0}&gt;&gt;ForumCode.{1}]]
-conversations.forum.create.submit=Créer
-conversations.forum.sorttopicsby=Trier les topics par
-conversations.forum.sorttopicsby.date=Date
-conversations.forum.sorttopicsby.votes=Votes
-conversations.forum.sorttopicsby.comments=Commentaires
-conversations.forum.titleError=Le titre ne doit pas dépasser 250 caractères
-conversations.forum.title=Titre
-conversations.forum.description=Description
-conversations.forum.edit=Modifier le topic
-conversations.forum.delete=Supprimer le topic
-conversations.forum.more=Voir {0} plus
-conversations.topic.tooltip.totalcommentsandanswers=Nombre de réponses et commentaires
-conversations.topic.tooltip.totalanswers=Nombre de réponses
-conversations.topic.answer.tooltip.totalcomments=Nombre de commentaires pour la réponse
-conversations.topic.create=Nouveau topic
-conversations.topic.create.submit=Créer
+
+## Permalink
+conversation.permalink.tooltip=Lien permanent
+conversation.permalink=Lien permanent
+
+## Livetable
+conversations.doc.title=Titre
+conversations.doc.date=Date
+conversations.doc.creator=Créateur
+conversations.actions=Actions
+conversations._avatar=Avatar
+
+## Messages
 conversations.create.error.topic.norights=Vous n'avez pas les droits de créer un nouveau topic
 conversations.create.error.answer.norights=Vous n'avez pas les droits de créer une nouvelle réponse
 conversations.create.error.missingmetadata=Une raison technique a empêché la création
@@ -100,21 +137,56 @@ conversations.deleteconversation.success=Topic supprimé.
 conversations.deleteconversation.error.norights=Vous n'avez pas les droits de supprimer la réponse. &lt;a href="{0}"&gt;Retour vers le topic.&lt;/a&gt;
 conversations.deleteconversation.error.notfound=Réponse non trouvée. &lt;a href="{0}"&gt;Retour vers le topic.&lt;/a&gt;
 core.viewers.comments.delete.failed=Le commentaire n'a pas pu être supprimé
-ForumCode.AnswerClass_answer=Réponse
-ForumCode.TopicClass_description=Description
+conversations.deleteanswer.error.nomailsent=Impossible d'envoyer un email pour informer de la suppression de la réponse
 
 ## FLAG DIALOG
+conversation.flag.tooltip=Signaler un abus
 conversations.flag.edit=Éditer
+conversations.flag.button=Marqueur
+conversations.flag.viewsource=Voir la source du marqueur
+conversations.flag.dialog.header=Marquer un commentaire
+conversations.flag.dialog.guidingquestion1.txt=Que se passe t’il lorsque vous marquez un commentaire ?
+conversations.flag.dialog.instruction1.txt=Vous soumettez le fil de commentaires pour évaluation immédiate par les administrateurs du forum.
+conversations.flag.dialog.guidingquestion2.txt=Pourquoi signalez-vous cette discussion ?
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=Je signale ce commentaire car il
+conversations.flag.dialog.instruction3.txt=Entrez une note (pas plus de 300 caractères) décrivant ce qui rend ce commentaire contestable:
+conversations.flag.dialog.reason.label=Raison
+conversations.flag.dialog.message.label=Description
+conversations.flag.dialog.mandatory=Ce champ est obligatoire
+conversations.flag.dialog.cancel.btt=Annuler
+conversations.flag.dialog.submit.btt=Créer
+conversations.flag.error.nomailsent=Impossible d'envoyer un email pour informer du commentaire signalé
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Selectionnez
+ForumCode.FlagClass_reason_1=Incite à la haine ou à la violence
+ForumCode.FlagClass_reason_2=Affiche de la pornographie
+ForumCode.FlagClass_reason_3=Est vide
+ForumCode.FlagClass_reason_4=Est de nature commerciale, sans information pertinence
+ForumCode.FlagClass_reason_5=Est cassé ou a un virus
+ForumCode.FlagClass_reason_6=Semble être un non-sens
+ForumCode.FlagClass_reason_alt=Autre raison
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Statut
 ForumCode.FlagClass_status_open=Ouvert
 ForumCode.FlagClass_status_inprogress=En cours
 ForumCode.FlagClass_status_resolved=Résolu
 ## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=Discussion marquée
+conversations.flag.success.dialog.message=Vous avez signalé avec succès ce commentaire.
+conversations.flag.success.dialog.button=Fermer
 ## FLAG livetable
+conversations.flag.reason=Raison
+conversations.flag.user=Utilisateur
+conversations.flag.doc.creationDate=Date
+conversations.flag.message=Message
+conversations.flag.moderator=Modérateur
+conversations.flag.status=Statut
+conversations.flag.target=Cible
 conversations.flag.emptyvalue=-
+conversations.flag.list.title=Liste des marqueurs
+conversations.flag.list.instructions=Ceci est la liste des éléments marqués
+conversations.flag.success.dialog.goback=Retour à la discussion
 conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
@@ -126,20 +198,15 @@ discussion.panel.votes=Votes
 discussion.panel.comments=Commentaires
 discussion.panel.topics=Topics
 
-## rights
-conversation.groups.norights=Vous devez être membre de ce groupe pour participer à la discussion. Merci de contacter votre administrateur.
-conversation.norights=Vous n'avez pas les droits de participer à cette discussion
-
-## answer edit sheet
-conversations.answer.edit=Réponse au topic {0}
-conversations.answer=Répondre
-
-## applications panel entry ##
+## applications panel entry
 forum.applicationsPanelEntryLabel=Forums
-
-## actions on forum ##
-forum.admin.action.delete.confiramtion_text=Supprimer ce forum ?
-forum.admin.action.delete.inprogress=Suppression en cours...
-forum.admin.action.delete.success=Forum supprimé 
-forum.admin.action.delete.failed=Le forum n'a pas pu être supprimer </content>
+## mail notif
+forum.mail.notif.topic.delete.title=Sujet supprimé
+forum.mail.notif.topic.delete.message=Le sujet suivant a été supprimé:
+forum.mail.notif.answer.delete.title=Réponse supprimée
+forum.mail.notif.answer.delete.message=La réponse suivante a été supprimée :
+forum.mail.notif.comment.delete.title=Commentaire supprimé
+forum.mail.notif.comment.delete.message=Le commentaire suivant a été supprimé :
+forum.mail.notif.delete.thanks=Merci
+</content>
 </xwikidoc>
