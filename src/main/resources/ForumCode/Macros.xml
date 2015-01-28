@@ -689,7 +689,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
             &lt;/span&gt;
             #if(!$isGuest)
               #if($notAllowed)
-                #set($voteAllowedClass = "")
+                #set($voteAllowedClass = "no-hover")
               #else
                 #set($voteAllowedClass = "allow-vote")
               #end
