@@ -971,7 +971,7 @@ function init() {
 		 }
 	   },
 	   {
-	     confirmationText : commentsCount &gt; 0 ? "$escapetool.javascript($services.localization.render('conversation.delete.confirm.withReplies', ['__number__']))".replace('__number__', commentsCount) : "$escapetool.javascript($services.localization.render('conversation.delete.confirm'))"
+	     confirmationText : commentsCount &gt; 0 ? "$escapetool.javascript($services.localization.render('conversations.topic.delete.confirm.withReplies', ['__number__']))".replace('__number__', commentsCount) : "$escapetool.javascript($services.localization.render('conversation.delete.confirm'))"
 	   });
      }.bindAsEventListener(this));
     }
