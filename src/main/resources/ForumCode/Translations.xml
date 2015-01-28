@@ -65,6 +65,7 @@ conversations.topic.create.submit=Create
 conversations.topic.all=All topics
 conversations.topic.empty=No topic
 conversations.topic.count=topics
+conversations.topic.delete.confirm.withReplies=Delete this topic and its answers?
 
 ## Answers
 conversations.title=Answer

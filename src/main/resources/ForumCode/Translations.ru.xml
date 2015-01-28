@@ -61,6 +61,7 @@ conversations.topic.answer.tooltip.totalcomments=Всего комментари
 conversations.topic.create=Новая тема
 conversations.topic.create.submit=Создать
 conversations.topic.count=темы
+conversations.topic.delete.confirm.withReplies=Удалить эту тему и свои ответы?
 
 ## Answers
 conversations.title=Обсуждение
