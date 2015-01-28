@@ -555,6 +555,9 @@ Delete modal box
 .topic-actions .center:hover {
   background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -400px -50px;  
 }
+.topic-actions .no-hover:hover {
+  background: transparent url('$imageDoc.getAttachmentURL("forums.png")') no-repeat -400px 0px;
+}
 .topic-actions .right {
   float: right; display: inline-block;
   width: 40%;
