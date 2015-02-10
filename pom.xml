@@ -33,7 +33,7 @@
   <artifactId>application-forum</artifactId>
   <packaging>xar</packaging>
   <name>Forum Application</name>
-  <version>1.9.2-SNAPSHOT</version>
+  <version>1.9.2</version>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <developers>
     <developer>
@@ -106,7 +106,7 @@
     <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-forum.git</developerConnection>
     <url>https://github.com/xwiki-contrib/application-forum</url>
-    <tag>HEAD</tag>
+    <tag>application-forum-1.9.2</tag>
   </scm>
   <distributionManagement>
     <repository>
