@@ -84,35 +84,37 @@
 #set($rows = [])
 #foreach($fullName in $result)
   #set($document = $xwiki.getDocument($fullName))
-  #set($actionsLink = "")
-  #if($xwiki.hasAccessLevel('delete', $context.user, $fullname))
-    #set($text = $services.localization.render("platform.livetable._actions.delete"))
-    #set($deleteURL = "javascript:void(0)")
-    #set($actionsLink = "&lt;a href='$deleteURL' class='action actiondelete deleteforum' space='$document.space'&gt;${text}&lt;/a&gt;")
+  #if($document)
+    #set($actionsLink = "")
+    #if($xwiki.hasAccessLevel('delete', $context.user, $fullname))
+      #set($text = $services.localization.render("platform.livetable._actions.delete"))
+      #set($deleteURL = "javascript:void(0)")
+      #set($actionsLink = "&lt;a href='$deleteURL' class='action actiondelete deleteforum' space='$document.space'&gt;${text}&lt;/a&gt;")
+    #end
+    #if($xwiki.hasAccessLevel('edit', $context.user, $fullname))
+      #set($editURL = $document.getURL('edit'))
+      #set($text = $services.localization.render("platform.livetable._actions.edit"))
+      #set($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt;${actionsLink}")
+    #end
+    #set($creatorDoc = $xwiki.getDocument($document.creator))
+    #set($creatorView = "&lt;ul class='users'&gt;
+      &lt;li class='user'&gt;
+        &lt;div class='user-avatar-wrapper'&gt;#resizedUserAvatar($creatorDoc.creator 30)&lt;/div&gt;
+        &lt;div class='user-name'&gt;&lt;span class='wikilink'&gt;&lt;a href='$creatorDoc.uRL'&gt;$creatorDoc.name&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;span class='user-alias'&gt;$xwiki.getUserName($creatorDoc.fullName, false)&lt;/span&gt;&lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;")
+    #set($row = {
+      'doc_viewable' : true,
+      'doc_url' : $document.uRL,
+      'doc_title'  : $document.title,
+      'doc_creator': $creatorView,
+      'doc_creator_url': $xwiki.getURL($document.creator),
+      'doc_date' : $xwiki.formatDate($document.date),
+      'actions': $actionsLink
+    })
+    #set($ok = $rows.add($row))
   #end
-  #if($xwiki.hasAccessLevel('edit', $context.user, $fullname))
-    #set($editURL = $document.getURL('edit'))
-    #set($text = $services.localization.render("platform.livetable._actions.edit"))
-    #set($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt;${actionsLink}")
-  #end
-  #set($creatorDoc = $xwiki.getDocument($document.creator))
-  #set($creatorView = "&lt;ul class='users'&gt;
-    &lt;li class='user'&gt;
-      &lt;div class='user-avatar-wrapper'&gt;#resizedUserAvatar($creatorDoc.creator 30)&lt;/div&gt;
-      &lt;div class='user-name'&gt;&lt;span class='wikilink'&gt;&lt;a href='$creatorDoc.uRL'&gt;$creatorDoc.name&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
-      &lt;div&gt;&lt;span class='user-alias'&gt;$xwiki.getUserName($creatorDoc.fullName, false)&lt;/span&gt;&lt;/div&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;")
-  #set($row = {
-    'doc_viewable' : true,
-    'doc_url' : $document.uRL,
-    'doc_title'  : $document.title,
-    'doc_creator': $creatorView,
-    'doc_creator_url': $xwiki.getURL($document.creator),
-    'doc_date' : $xwiki.formatDate($document.date),
-    'actions': $actionsLink
-  })
-  #set($ok = $rows.add($row))
 #end
 
 #set($jsonAsMap = {

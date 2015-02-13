@@ -962,29 +962,31 @@ addthis:description="${escapetool.xml($addThisDesc)}"
    &lt;/tr&gt;
   #foreach($topic in $topics)
     #set($topicDoc = $xwiki.getDocument($topic))  
-    #set($topicTitle = $topicDoc.title)
-    #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
-    #set($topicComments = 0)
-    #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
-    #if($topicAnswers)
-     #foreach($topicAnswer in $topicAnswers)
-      #set($answerDoc = $xwiki.getDocument($topicAnswer))
-      #set($topicComments = $topicComments + $answerDoc.getComments().size())
-     #end
-     #set($nbCommentsAnswers = $topicAnswers.size() + $topicComments)
-    #else
-     #set($nbCommentsAnswers = 0)  
+    #if($topicDoc)
+      #set($topicTitle = $topicDoc.title)
+      #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
+      #set($topicComments = 0)
+      #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+      #if($topicAnswers)
+       #foreach($topicAnswer in $topicAnswers)
+        #set($answerDoc = $xwiki.getDocument($topicAnswer))
+        #set($topicComments = $topicComments + $answerDoc.getComments().size())
+       #end
+       #set($nbCommentsAnswers = $topicAnswers.size() + $topicComments)
+      #else
+       #set($nbCommentsAnswers = 0)
+      #end
+      #if(!$topicodd || $topicodd=="even")
+       #set($topicodd = "odd")
+      #else
+       #set($topicodd = "even")
+      #end
+      &lt;tr class="${topicodd}"&gt;
+        &lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$topicTitle&lt;/a&gt;&lt;/td&gt;
+        &lt;td class="votes"&gt;$!{rating}&lt;/td&gt;
+        &lt;td class="comments"&gt;${nbCommentsAnswers}&lt;/td&gt;
+      &lt;/tr&gt;
     #end
-    #if(!$topicodd || $topicodd=="even")
-     #set($topicodd = "odd")
-    #else
-     #set($topicodd = "even")
-    #end
-        &lt;tr class="${topicodd}"&gt;
-    &lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$topicTitle&lt;/a&gt;&lt;/td&gt;
-    &lt;td class="votes"&gt;$!{rating}&lt;/td&gt;
-    &lt;td class="comments"&gt;${nbCommentsAnswers}&lt;/td&gt;
-   &lt;/tr&gt;
   #end
     &lt;/table&gt;
  &lt;/div&gt;
