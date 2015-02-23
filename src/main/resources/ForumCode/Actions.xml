@@ -38,7 +38,7 @@
       ## Chck if the current user has delete right on the forum
       #if($webHomeDoc.hasAccessLevel('delete'))
         ## We need to delete all documents of the forum space
-        #set($result = $services.query.hql("where doc.space=:space").bindValue('space', $space).execute())
+        #set($result = $services.query.hql("where doc.space='${space}'").execute())
         #foreach($fullName in $result)
           #$xwiki.getDocument($fullName).delete()
         #end
@@ -154,7 +154,7 @@ ${spaceName}.${newAnswerName}
           #set($discard = $conversationDoc.delete())
           ## if we are a topic delete the answers
           #if($topicObj)
-           #foreach($item in $xwiki.searchDocuments(", BaseObject as obj where doc.fullName=obj.name and obj.className='ForumCode.AnswerClass' and doc.parent='${conversationDoc.fullName}'"))
+           #foreach($item in $services.query.hql(", BaseObject as obj where doc.fullName=obj.name and obj.className='ForumCode.AnswerClass' and doc.parent='${conversationDoc.fullName}'").execute())
             #set($itemdoc = $xwiki.getDocument($item))
             #set($ok = $itemdoc.deleteWithProgrammingRights())
            #end           
@@ -166,7 +166,7 @@ ${spaceName}.${newAnswerName}
         #set($itemAuthorEmail = $itemAuthorUser.email)
         #set($mailsent = "1")
         #if ("$!itemAuthorEmail" != '')
-          #set ($sender = $xwiki.getUserName($context.user, false))
+          #set ($sender = $xwiki.getUserName($xcontext.user, false))
           #if ("$!{xwiki.getXWikiPreference('admin_email')}" != '')
             #set ($sender = "$sender &lt;$!{xwiki.getXWikiPreference('admin_email')}&gt;")
           #else

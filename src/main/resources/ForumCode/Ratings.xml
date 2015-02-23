@@ -25,7 +25,7 @@
   <content>{{velocity}}
 #set($rdoc = $xwiki.getDocument($request.doc))
 #if(!$isGuest &amp;&amp; "$!{request.vote}" == "1")
-  #set($ok = $services.ratings.setRating($rdoc, $context.user, 1))  
+  #set($ok = $services.ratings.setRating($rdoc, $xcontext.user, 1))
 #end  
 #set($ar = $services.ratings.getAverageRating($rdoc))
 #set($nbVotes = $ar.nbVotes)

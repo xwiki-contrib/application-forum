@@ -20,7 +20,7 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{include document="ForumCode.Macros" /}}{{include document="ForumCode.Variables" /}}{{velocity}}
-  #if($context.action != 'view')
+  #if($xcontext.action != 'view')
 
   {{html wiki='true' clean='false'}}
     &lt;div class="xform"&gt;
@@ -32,13 +32,13 @@
     &lt;/div&gt;
   {{/html}}
 
-  #elseif($context.action == 'view')
+  #elseif($xcontext.action == 'view')
     #initForum($spaceName)
-#set($topics = $xwiki.searchDocuments(', BaseObject as obj where doc.parent = ? and obj.name = doc.fullName and obj.className = ?', 0, 0, [$doc.fullName, 'ForumCode.TopicClass']))
+#set($topics = $services.query.hql(", BaseObject as obj where doc.parent = '${doc.fullName}' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'").execute())
   ## Count comments
   #set($comments = 0)
   #foreach($topic in $topics)
-    #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName != ? order by doc.date desc', 0, 0, [$topic, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+    #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${topic}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").execute())
     #foreach($topicAnswer in $topicAnswers)
       #set($answerDoc = $xwiki.getDocument($topicAnswer))
       #set($comments = $comments + $answerDoc.getComments().size())

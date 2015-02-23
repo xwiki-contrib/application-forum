@@ -44,7 +44,7 @@
         (% class="col-xs-12 col-sm-4 col-md-4" %)
         (((
           ; &lt;label&gt;$target&lt;/label&gt;
-          #if($context.action=="view")
+          #if($xcontext.action=="view")
             #set($target = $doc.getValue("target"))
             #set($pos = $target.indexOf(":"))
             #if($pos==-1)

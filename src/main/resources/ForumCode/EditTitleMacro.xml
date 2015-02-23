@@ -233,7 +233,7 @@
     </class>
     <property>
       <code>{{velocity}}
-  #if($context.action != 'view')
+  #if($xcontext.action != 'view')
     #set($discard = $xwiki.jsx.use("ForumCode.EditTitleMacro"))
     #set($titleErrorKey = "$!xcontext.macro.params.errorkey")
     {{html clean="false"}}
@@ -241,7 +241,7 @@
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
       &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateForum" /&gt; 
     {{/html}}
-    #set ($titleIsValid = !$context.validationStatus.errors.contains($titleErrorKey))
+    #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
     ##
 
     {{html wiki="true"}}

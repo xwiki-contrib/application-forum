@@ -175,7 +175,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
       &lt;div class="comment-content"&gt;
         $commentDoc.getRenderedContent($comment.getProperty('comment').getValue(), $doc.getSyntax().toIdString())
         &lt;span class="actions"&gt;
-          #if ($context.user!="XWiki.XWikiGuest")
+          #if ($xcontext.user!="XWiki.XWikiGuest")
             &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
              &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
             &lt;/span&gt;
@@ -227,7 +227,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
      &lt;form id="${conversationId}_addcommentform" action="$escapetool.xml($commentDoc.getURL('commentadd', "xredirect=$escapetool.url($redirectURL)"))" method="post" class="AddComment"&gt;
       &lt;div class="comment-layout"&gt;
        &lt;span class="user-avatar"&gt;
-       #mediumUserAvatar2($context.user)
+       #mediumUserAvatar2($xcontext.user)
        &lt;/span&gt;
        &lt;div class="comment-reply"&gt;
   &lt;span class="comment-meta"&gt;
@@ -317,7 +317,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ###
 #macro(resizedUserAvatar $username $size)
   #if(!$picturelist)
-    #set($picturelist = $util.hashMap)
+    #set($picturelist = $collectionstool.map)
   #end
   #if(!$picturelist.containsKey("${username}--${size}"))
     #set($picture = "&lt;img class='avatar avatar_${escapetool.xml(${size})}' src='")
@@ -651,7 +651,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #set($topicTitle = $topicDoc.title)
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
-  #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${topicDoc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerTemplate' order by doc.date desc").execute())
   #set($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
   #if($topicAnswers)
     #foreach($topicAnswer in $topicAnswers)
@@ -726,12 +726,12 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       &lt;/div&gt;
       #if($withdetails)
       &lt;div class="topic-moderation"&gt;
-        #if(($topicDoc.creator==$context.user)
+        #if(($topicDoc.creator==$xcontext.user)
            ||$doc.creator == $xcontext.user
            ||$hasAdmin)
           &lt;a class="edit" href="$topicDoc.getURL("edit")" title="$services.localization.render("conversations.forum.edit")"&gt;$services.localization.render("conversations.forum.edit")&lt;/a&gt;
         #end
-        #if(($topicDoc.creator==$context.user)
+        #if(($topicDoc.creator==$xcontext.user)
            ||$doc.creator == $xcontext.user
            ||$hasAdmin)
           #set($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
@@ -749,9 +749,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #macro(displayAnswers)
   ## The list of existing conversations with their comments
   ## Find all the documents which are the children of this document and have an object of type conversation inside
-  #set($conversationsSql = ', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName != ? order by doc.date desc')
-  #set($conversationsSqlParams = [$doc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate'])
-  #set($conversationDocs = $xwiki.searchDocuments($conversationsSql, $conversationsSqlParams))
+  #set($conversationsSql = ", BaseObject obj where doc.parent = '${doc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc")
+  #set($conversationDocs = $services.query.hql($conversationsSql).execute())
   &lt;div class="answers"&gt;
     #if($conversationDocs.size() &gt; 0)
     #foreach($conversationDocName in $conversationDocs)
@@ -794,11 +793,11 @@ addthis:description="${escapetool.xml($addThisDesc)}"
             &lt;/div&gt;
           &lt;/div&gt;&lt;!-- / .answer-reply --&gt;
           &lt;div class="answer-moderation"&gt;
-              #if(($conversationDoc.creator==$context.user)
+              #if(($conversationDoc.creator==$xcontext.user)
                    ||$hasAdmin)
                 &lt;a class="edit" href="$conversationDoc.getURL('edit')" title="$services.localization.render('conversation.edit.title')"&gt;$services.localization.render('conversation.edit')&lt;/a&gt;
               #end
-              #if(($conversationDoc.creator==$context.user)
+              #if(($conversationDoc.creator==$xcontext.user)
                    ||$hasAdmin)
                 &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}")" title="$services.localization.render('conversation.delete.title')"&gt;$services.localization.render('conversation.delete')&lt;/a&gt;
               #end
@@ -807,7 +806,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
         &lt;div class="comments"&gt;
           #if($comments.size() &gt; 0)
             #set($rootKey = "-1")
-            #set($commentThreads = $util.hashMap)
+            #set($commentThreads = $collectionstool.map)
             #set($discard = $commentThreads.put($rootKey, $util.arrayList))
             #foreach($comment in $comments)
               #set($discard = $commentThreads.put("${comment.number}", $util.arrayList))
@@ -838,11 +837,11 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 ##
 #macro(addEditor $fieldname $editorDoc)
  #if(!$myeditors)
-  #set($myeditors = $util.hashMap)
+  #set($myeditors = $collectionstool.map)
   #end
  #set($config = $myeditors.get($editorDoc.fullName))
  #if(!$config)
-  #set($config = $util.hashMap)
+  #set($config = $collectionstool.map)
   #set($ok = $config.put("doc", $editorDoc))
   #set($ok = $config.put("editors", $fieldname))
   #set($ok = $myeditors.put($editorDoc.fullName, $config))
@@ -858,7 +857,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       #foreach($myeditor in $myeditors.values())
        ## only prepare the editor but do not activate it
        #foreach($myeditor2 in $myeditor.get("editors").split(","))
-        #set($parameters = $util.hashMap)
+        #set($parameters = $collectionstool.map)
         #wysiwyg_storeConfig($parameters $myeditor.get("doc") $myeditor2 false)
         #wysiwyg_prepareEditor($parameters)
        #end
@@ -966,7 +965,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       #set($topicTitle = $topicDoc.title)
       #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
       #set($topicComments = 0)
-      #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName &lt;&gt; ? order by doc.date desc', 0, 0, [$topicDoc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+      #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${topicDoc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerClass' order by doc.date desc").execute())
       #if($topicAnswers)
        #foreach($topicAnswer in $topicAnswers)
         #set($answerDoc = $xwiki.getDocument($topicAnswer))

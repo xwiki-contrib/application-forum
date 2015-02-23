@@ -23,7 +23,7 @@
 $xwiki.ssx.use('ForumCode.HidingRatingStarsCSS') ##
 ## do not show the comments tab
 #set($showcomments = "no")
-  #if($context.action != 'view')
+  #if($xcontext.action != 'view')
     {{html wiki='true' clean='false'}}
       &lt;div class="xform"&gt;
         &lt;dl&gt;
@@ -35,7 +35,7 @@ $xwiki.ssx.use('ForumCode.HidingRatingStarsCSS') ##
     {{/html}}
   #else
 {{html clean='false'}}
-  #set($topicAnswers = $xwiki.searchDocuments(', BaseObject obj where doc.parent = ? and doc.fullName = obj.name and obj.className = ? and doc.fullName != ? order by doc.date desc', 0, 0, [$doc.fullName, 'ForumCode.AnswerClass', 'ForumCode.AnswerTemplate']))
+  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${doc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").execute())
   #set($comments = $topicAnswers.size())
   #foreach($topicAnswer in $topicAnswers)
     #set($answerDoc = $xwiki.getDocument($topicAnswer))

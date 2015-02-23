@@ -25,14 +25,14 @@
   <content>{{include document="ForumCode.Macros" /}}{{include document="ForumCode.Variables" /}}
 
 {{velocity}}
-  #if($context.action != 'view')
+  #if($xcontext.action != 'view')
     {{html wiki='true'}}
       (% class="xform"%)(((
         ; &lt;label&gt;$services.localization.render('conversations.answer')&lt;/label&gt;
         : $doc.display('answer')
       )))
     {{/html}}
-  #elseif($context.action == 'view')
+  #elseif($xcontext.action == 'view')
     $response.sendRedirect($xwiki.getDocument($doc.parent).getURL('view'))
   #end
 {{/velocity}}</content>

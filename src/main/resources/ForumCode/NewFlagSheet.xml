@@ -60,7 +60,7 @@ $services.localization.render("conversations.flag.success.dialog.message")
 #if("$!{adminEmail}" != "" &amp;&amp; "$!{moderatorEmail}" != "")
   #set($mailTo = "${adminEmail},${moderatorEmail}")
   #set($url = $flagDoc.getExternalURL())
-  #set($res = $xwiki.mailsender.sendMessageFromTemplate($adminEmail, $mailTo, $util.null, $util.null, "en", "ForumCode.MailTemplateFlag", $context.vcontext))
+  #set($res = $xwiki.mailsender.sendMessageFromTemplate($adminEmail, $mailTo, $util.null, $util.null, "en", "ForumCode.MailTemplateFlag", $xcontext.vcontext))
   #if ($res != 0)
     {{warning}}$services.localization.render("conversations.flag.error.nomailsent"){{/warning}}
   #end
@@ -71,7 +71,7 @@ $services.localization.render("conversations.flag.success.dialog.message")
 
 [[$services.localization.render("conversations.flag.success.dialog.goback") &gt;&gt;$request.targetDocName]]
 #else
-#set($ok = $flagDoc.set("user", $context.user))
+#set($ok = $flagDoc.set("user", $xcontext.user))
 #if($request.target)
  #set($target = $request.target)
  #set($ok = $flagDoc.set("target", $target))

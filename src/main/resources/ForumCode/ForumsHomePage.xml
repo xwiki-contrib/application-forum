@@ -41,7 +41,7 @@
 #else
   $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css')
   $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
-  $xwiki.jsx.use('ForumCode.ForumsHomePage', {"language": $context.language, "derfer" : false})
+  $xwiki.jsx.use('ForumCode.ForumsHomePage', {"language": $xcontext.language, "derfer" : false})
   {{html clean='false'}}
   &lt;div class="row all-forums-home-title"&gt;
   	&lt;div class="document-info col-xs-12 col-md-7"&gt;
