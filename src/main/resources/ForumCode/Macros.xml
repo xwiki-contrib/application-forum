@@ -1043,7 +1043,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #macro(edittitle $errorkey)
   #if($xcontext.action != 'view')
     #set($discard = $xwiki.jsx.use("ForumCode.Macros"))
-    #set($titleErrorKey = "$!xcontext.macro.params.errorkey")
+    #set($titleErrorKey = $errorkey)
     {{html clean="false"}}
       &lt;!-- Validate form with Groovy --&gt;
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
