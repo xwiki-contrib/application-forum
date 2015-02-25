@@ -1060,11 +1060,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
         #end
       &lt;/dt&gt;
       &lt;dd&gt;
-        #if("$!request.docTitle" != '')
-          #set($docTitle = $request.docTitle)
-        #else
-          #set($docTitle = $request.docTitle)
-        #end
+        #set($docTitle = $request.docTitle)
         &lt;input name='title' type="text" value="#if(!$titleIsValid || "$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
       &lt;/dd&gt;
     {{/html}}
