@@ -2,7 +2,7 @@
 
 <xwikidoc>
   <web>ForumCode</web>
-  <name>ValidateForum</name>
+  <name>ValidateTitle</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
@@ -53,7 +53,7 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </level>
     </class>
-    <name>ForumCode.ValidateForum</name>
+    <name>ForumCode.ValidateTitle</name>
     <number>0</number>
     <className>XWiki.RequiredRightClass</className>
     <guid>22f9fdfb-0029-45a0-a545-d394e8739eec</guid>
@@ -71,7 +71,7 @@ public class ValidateResource implements XWikiValidationInterface  {
 
     // Title
     if (doc.getTitle().trim().length() == 0 || doc.getTitle().trim().length() &gt; 250) {
-      XWikiValidationStatus.addErrorToContext("", "", "", "conversations.forum.titleError", context);
+      XWikiValidationStatus.addErrorToContext("", "", "", "conversations.titleError", context);
       res = false;
     }
 

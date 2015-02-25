@@ -1047,7 +1047,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     {{html clean="false"}}
       &lt;!-- Validate form with Groovy --&gt;
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
-      &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateForum" /&gt;
+      &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateTitle" /&gt;
     {{/html}}
     #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
     ##
