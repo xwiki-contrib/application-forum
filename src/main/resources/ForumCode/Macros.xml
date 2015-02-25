@@ -1036,5 +1036,132 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #end
 
 #end
+
+#**
+ * Edit document title
+ *#
+#macro(edittitle $errorkey)
+  #if($xcontext.action != 'view')
+    #set($discard = $xwiki.jsx.use("ForumCode.Macros"))
+    #set($titleErrorKey = $errorkey)
+    {{html clean="false"}}
+      &lt;!-- Validate form with Groovy --&gt;
+      &lt;input type="hidden" name="xvalidate" value="1" /&gt;
+      &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateForum" /&gt;
+    {{/html}}
+    #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
+    ##
+
+    {{html wiki="true"}}
+      &lt;dt class="field-mandatory"&gt;
+        &lt;label&gt;$services.localization.render('conversations.forum.title')&lt;/label&gt;
+        #if (!$titleIsValid)
+          &lt;span class="xErrorMsg"&gt;$services.localization.render($titleErrorKey)&lt;/span&gt;
+        #end
+      &lt;/dt&gt;
+      &lt;dd&gt;
+        #set($docTitle = $request.docTitle)
+        &lt;input name='title' type="text" value="#if(!$titleIsValid || "$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
+      &lt;/dd&gt;
+    {{/html}}
+  #end
+#end
 {{/velocity}}</content>
+  <object>
+    <name>ForumCode.Macros</name>
+    <number>0</number>
+    <className>XWiki.JavaScriptExtension</className>
+    <guid>8e0125d2-43e2-4757-bc1c-7716074015a6</guid>
+    <class>
+      <name>XWiki.JavaScriptExtension</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <cache>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>cache</name>
+        <number>5</number>
+        <prettyName>Caching policy</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>long|short|default|forbid</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </cache>
+      <code>
+        <disabled>0</disabled>
+        <name>code</name>
+        <number>2</number>
+        <prettyName>Code</prettyName>
+        <rows>20</rows>
+        <size>50</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </code>
+      <name>
+        <disabled>0</disabled>
+        <name>name</name>
+        <number>1</number>
+        <prettyName>Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </name>
+      <parse>
+        <disabled>0</disabled>
+        <displayFormType>select</displayFormType>
+        <displayType>yesno</displayType>
+        <name>parse</name>
+        <number>4</number>
+        <prettyName>Parse content</prettyName>
+        <unmodifiable>0</unmodifiable>
+        <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+      </parse>
+      <use>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>use</name>
+        <number>3</number>
+        <prettyName>Use this extension</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators> ,|</separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>currentPage|onDemand|always</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </use>
+    </class>
+    <property>
+      <cache>long</cache>
+    </property>
+    <property>
+      <code>document.observe("dom:loaded", function(){
+  $('forum-title').observe('change', function(){
+    var currValue = this.value;
+    $$('input[name="title"]:first')[0].value = currValue;
+  })
+});</code>
+    </property>
+    <property>
+      <name>Change the value of title hidden input</name>
+    </property>
+    <property>
+      <parse>0</parse>
+    </property>
+    <property>
+      <use>onDemand</use>
+    </property>
+  </object>
 </xwikidoc>
