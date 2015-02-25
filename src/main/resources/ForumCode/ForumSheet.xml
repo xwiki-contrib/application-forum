@@ -25,7 +25,7 @@
   {{html wiki='true' clean='false'}}
     &lt;div class="xform"&gt;
       &lt;dl&gt;
-        {{edittitle errorkey="conversations.forum.titleError" /}}
+        #edittitle("conversations.forum.titleError")
         &lt;dt&gt;&lt;label&gt;$services.localization.render('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
         &lt;dd&gt;$doc.display('description')&lt;/dd&gt;
       &lt;/dl&gt;
