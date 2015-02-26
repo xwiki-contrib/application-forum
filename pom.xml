@@ -71,6 +71,11 @@
       <name>Gabriela Smeria</name>
       <organization>XWiki SAS</organization>
     </developer>
+    <developer>
+      <id>vrachieru</id>
+      <name>Victor Rachieru</name>
+      <organization>XWiki SAS</organization>
+    </developer>
   </developers>
   <properties>
     <xwiki.extension.name>Forum Application</xwiki.extension.name>
