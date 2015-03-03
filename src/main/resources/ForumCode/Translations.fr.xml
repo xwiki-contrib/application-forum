@@ -183,6 +183,7 @@ conversations.flag.doc.creationDate=Date
 conversations.flag.message=Message
 conversations.flag.moderator=Modérateur
 conversations.flag.status=Statut
+conversations.flag._actions=Actions
 conversations.flag.target=Cible
 conversations.flag.emptyvalue=-
 conversations.flag.list.title=Liste des marqueurs

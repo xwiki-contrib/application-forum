@@ -180,6 +180,7 @@ conversations.flag.doc.creationDate=Date
 conversations.flag.message=Message
 conversations.flag.moderator=Moderator
 conversations.flag.status=Status
+conversations.flag._actions=Actions
 conversations.flag.target=Target
 conversations.flag.emptyvalue=-
 conversations.flag.list.title=Flag List

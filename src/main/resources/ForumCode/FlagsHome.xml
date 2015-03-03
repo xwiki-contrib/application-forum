@@ -28,14 +28,15 @@ $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css', true)
 = $services.localization.render("conversations.flag.list.title") =
 
 $services.localization.render("conversations.flag.list.instructions")##
-  #set($columns = ['reason', 'user', 'doc.creationDate', 'moderator', 'status'])
+  #set($columns = ['reason', 'user', 'doc.creationDate', 'moderator', 'status', '_actions'])
   #set($columnsProperties = {
      "reason" : { "type" : "list", "link" : "view"},
      "user" : { "type" : "text", "link" : "none", "html" : "true"},
      "doc.creationDate" : { "type" : "text", "link" : "none"},
      "message" : { "type" : "text", "link" : "none", "html" : "true"},
      "moderator" : { "type" : "text", "link" : "none", "html" : "true"},
-     "status" : { "type" : "list", "link" : "none"}
+     "status" : { "type" : "list", "link" : "none"},
+     '_actions': {"sortable":false,"filterable":false,"html":true,"actions":["edit","delete"]}
   })
   #set($options = { 
     'className' : 'ForumCode.FlagClass',
