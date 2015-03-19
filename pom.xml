@@ -25,15 +25,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-   <groupId>org.xwiki.commons</groupId>
-   <artifactId>xwiki-commons-pom</artifactId>
-   <version>4.3</version>
+    <groupId>org.xwiki.commons</groupId>
+    <artifactId>xwiki-commons-pom</artifactId>
+    <version>4.3</version>
   </parent>
   <groupId>org.xwiki.contrib.forum</groupId>
   <artifactId>application-forum</artifactId>
-  <packaging>xar</packaging>
-  <name>Forum Application</name>
   <version>1.9.4-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Forum Application - Parent POM</name>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <developers>
     <developer>
@@ -77,36 +77,6 @@
       <organization>XWiki SAS</organization>
     </developer>
   </developers>
-  <properties>
-    <xwiki.extension.name>Forum Application</xwiki.extension.name>
-  </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.xwiki.contrib.ratings</groupId>
-      <artifactId>application-ratings-ui</artifactId>
-      <type>xar</type>
-      <version>1.3.4</version>
-      <scope>runtime</scope>
-    </dependency>
-  </dependencies>
-  <build>
-    <!-- Needed to add support for the XAR packaging -->
-    <extensions>
-      <extension>
-        <groupId>org.xwiki.commons</groupId>
-        <artifactId>xwiki-commons-tool-xar-handlers</artifactId>
-        <version>${commons.version}</version>
-      </extension>
-    </extensions>
-    <plugins>
-      <!-- The XAR packaging uses the XAR plugin and thus we need to define what version to use -->
-      <plugin>
-        <groupId>org.xwiki.commons</groupId>
-        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
-        <version>${commons.version}</version>
-      </plugin>
-    </plugins>
-  </build>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-forum.git</developerConnection>
@@ -120,4 +90,7 @@
       <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+  <modules>
+    <module>application-forum-ui</module>
+  </modules>
 </project>
