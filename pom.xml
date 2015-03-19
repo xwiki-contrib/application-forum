@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.commons</groupId>
     <artifactId>xwiki-commons-pom</artifactId>
-    <version>4.3</version>
+    <version>6.4.3</version>
   </parent>
   <groupId>org.xwiki.contrib.forum</groupId>
   <artifactId>application-forum</artifactId>
@@ -35,6 +35,9 @@
   <packaging>pom</packaging>
   <name>Forum Application - Parent POM</name>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
+  <properties>
+    <platform.version>${commons.version}</platform.version>
+  </properties>
   <developers>
     <developer>
       <id>ldubost</id>
@@ -93,4 +96,12 @@
   <modules>
     <module>application-forum-ui</module>
   </modules>
+  <profiles>
+    <profile>
+      <id>integration-tests</id>
+      <modules>
+        <module>application-forum-test</module>
+      </modules>
+    </profile>
+  </profiles>
 </project>

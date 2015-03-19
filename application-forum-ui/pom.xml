@@ -47,6 +47,21 @@
       <type>xar</type>
       <version>1.3.4</version>
       <scope>runtime</scope>
+      <exclusions>
+        <!-- Excluding banned dependencies -->
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
   <build>
@@ -58,13 +73,5 @@
         <version>${commons.version}</version>
       </extension>
     </extensions>
-    <plugins>
-      <!-- The XAR packaging uses the XAR plugin and thus we need to define what version to use -->
-      <plugin>
-        <groupId>org.xwiki.commons</groupId>
-        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
-        <version>${commons.version}</version>
-      </plugin>
-    </plugins>
   </build>
 </project>
