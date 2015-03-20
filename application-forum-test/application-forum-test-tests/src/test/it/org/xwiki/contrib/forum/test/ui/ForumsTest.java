@@ -19,9 +19,12 @@
  */
 package org.xwiki.contrib.forum.test.ui;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.xwiki.contrib.forum.test.po.ForumsHomePage;
+import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
+import org.xwiki.test.ui.po.ViewPage;
 
 /**
  * UI tests for the Forum application.
@@ -32,8 +35,12 @@ import org.xwiki.test.ui.AbstractTest;
 public class ForumsTest extends AbstractTest
 {
     @Test
-    public void testViewCalendar()
+    public void testApplicationPanelLinksToForumsHomePage()
     {
-        ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
+        ApplicationsPanel applicationPanel = ApplicationsPanel.gotoPage();
+        ViewPage vp = applicationPanel.clickApplication(ForumsHomePage.getAppTitle());
+        
+        Assert.assertEquals(ForumsHomePage.getSpace(), vp.getMetaDataValue("space"));
+        Assert.assertEquals(ForumsHomePage.getPage(), vp.getMetaDataValue("page"));
     }
 }

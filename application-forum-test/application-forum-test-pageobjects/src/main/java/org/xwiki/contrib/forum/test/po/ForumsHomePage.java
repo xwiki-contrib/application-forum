@@ -47,4 +47,9 @@ public class ForumsHomePage extends ViewPage
     {
         return "WebHome";
     }
+    
+    public static String getAppTitle()
+    {
+        return "Forums";
+    }
 }

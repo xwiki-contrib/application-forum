@@ -42,6 +42,19 @@
       <artifactId>application-forum-ui</artifactId>
       <type>xar</type>
       <version>${project.version}</version>
+      <!-- Excluse commons-logging-api from ratings-api -->
+      <exclusions>
+        <exclusion>
+          <groupId>org.xwiki.commons</groupId>
+          <artifactId>xwiki-commons-logging-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-panels-ui</artifactId>
+      <type>xar</type>
+      <version>${platform.version}</version>
     </dependency>
     <!-- Test dependencies -->
     <dependency>
@@ -52,7 +65,7 @@
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-test</artifactId>
+      <artifactId>xwiki-platform-panels-test-pageobjects</artifactId>
       <version>${platform.version}</version>
       <scope>test</scope>
     </dependency>
@@ -82,6 +95,9 @@
         <groupId>org.xwiki.platform</groupId>
         <artifactId>xwiki-platform-tool-packager-plugin</artifactId>
         <version>${platform.version}</version>
+        <configuration>
+          <importUser>superadmin</importUser>
+        </configuration>
         <executions>
           <execution>
             <phase>generate-test-resources</phase>
