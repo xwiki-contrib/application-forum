@@ -20,10 +20,13 @@
 package org.xwiki.contrib.forum.test.ui;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.xwiki.contrib.forum.test.po.ForumEditPage;
 import org.xwiki.contrib.forum.test.po.ForumsHomePage;
 import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
+import org.xwiki.test.ui.SuperAdminAuthenticationRule;
 import org.xwiki.test.ui.po.ViewPage;
 
 /**
@@ -34,13 +37,29 @@ import org.xwiki.test.ui.po.ViewPage;
  */
 public class ForumsTest extends AbstractTest
 {
+    @Rule
+    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
+
+    private static final String FORUM_NAME = "Forum 01";
+    
     @Test
     public void testApplicationPanelLinksToForumsHomePage()
     {
         ApplicationsPanel applicationPanel = ApplicationsPanel.gotoPage();
         ViewPage vp = applicationPanel.clickApplication(ForumsHomePage.getAppTitle());
-        
+
         Assert.assertEquals(ForumsHomePage.getSpace(), vp.getMetaDataValue("space"));
         Assert.assertEquals(ForumsHomePage.getPage(), vp.getMetaDataValue("page"));
+    }
+
+    @Test
+    public void testCreateForumEntities()
+    {
+        // Create new forum
+        ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
+        forumsHomePage.clickAddForumButton();
+        forumsHomePage.setAddForumEntryInput(FORUM_NAME);
+        
+        ForumEditPage forumEntryEditPage = forumsHomePage.clickAddForumEntryButton();
     }
 }
