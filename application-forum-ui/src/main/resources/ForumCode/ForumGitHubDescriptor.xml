@@ -279,5 +279,5 @@
       <version>2.0</version>
     </property>
   </object>
-  <content>{{include document="GitHubCode.GitHubConfigSheet" /}}</content>
+  <content>{{include reference="GitHubCode.GitHubConfigSheet" /}}</content>
 </xwikidoc>

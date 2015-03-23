@@ -128,5 +128,5 @@ icon=icon:comments</parameters>
       <scope>wiki</scope>
     </property>
   </object>
-  <content>{{include document="XWiki.UIExtensionSheet" /}}</content>
+  <content>{{include reference="XWiki.UIExtensionSheet" /}}</content>
 </xwikidoc>

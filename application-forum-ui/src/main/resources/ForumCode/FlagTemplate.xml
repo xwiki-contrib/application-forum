@@ -216,6 +216,6 @@ $xwiki.getUserName($value)
       <target/>
     </property>
   </object>
-  <content>{{include document="ForumCode.FlagSheet" /}}
+  <content>{{include reference="ForumCode.FlagSheet" /}}
 </content>
 </xwikidoc>
