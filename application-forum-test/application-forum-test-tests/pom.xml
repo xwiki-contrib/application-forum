@@ -42,13 +42,6 @@
       <artifactId>application-forum-ui</artifactId>
       <type>xar</type>
       <version>${project.version}</version>
-      <!-- Excluse commons-logging-api from ratings-api -->
-      <exclusions>
-        <exclusion>
-          <groupId>org.xwiki.commons</groupId>
-          <artifactId>xwiki-commons-logging-api</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
