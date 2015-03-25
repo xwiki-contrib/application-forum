@@ -23,6 +23,7 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.xwiki.contrib.forum.test.po.ForumEditPage;
+import org.xwiki.contrib.forum.test.po.ForumViewPage;
 import org.xwiki.contrib.forum.test.po.ForumsHomePage;
 import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
@@ -41,7 +42,9 @@ public class ForumsTest extends AbstractTest
     public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
 
     private static final String FORUM_NAME = "Forum 01";
-    
+
+    private static final String FORUM_DESCRIPTION = "Forum 01 Description";
+
     @Test
     public void testApplicationPanelLinksToForumsHomePage()
     {
@@ -59,7 +62,14 @@ public class ForumsTest extends AbstractTest
         ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
         forumsHomePage.clickAddForumButton();
         forumsHomePage.setAddForumEntryInput(FORUM_NAME);
-        
-        ForumEditPage forumEntryEditPage = forumsHomePage.clickAddForumEntryButton();
+
+        ForumEditPage forumEditPage = forumsHomePage.clickAddForumEntryButton();
+        Assert.assertEquals(FORUM_NAME, forumEditPage.getTitle());
+        forumEditPage.setDescription(FORUM_DESCRIPTION);
+        forumEditPage.clickSaveAndView();
+
+        // Create new topic
+        ForumViewPage forumViewPage = new ForumViewPage();
+        forumViewPage.clickAddTopicActivator();
     }
 }

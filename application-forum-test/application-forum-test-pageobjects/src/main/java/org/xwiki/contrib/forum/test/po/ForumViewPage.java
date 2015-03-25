@@ -21,54 +21,24 @@ package org.xwiki.contrib.forum.test.po;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.xwiki.test.ui.po.InlinePage;
+import org.xwiki.test.ui.po.ViewPage;
 
 /**
- * Represents the Forum edit page.
+ * Represents the Forum view page.
  * 
  * @version $Id$
  * @since 1.9.4
  */
-public class ForumEditPage extends InlinePage
+public class ForumViewPage extends ViewPage
 {
-    @FindBy(id = "forum-title")
-    private WebElement title;
-
-    @FindBy(id = "ForumCode.ForumClass_0_description")
-    private WebElement description;
+    @FindBy(css = ".addconversation-activator")
+    private WebElement addTopicActivator;
 
     /**
-     * @return the forumTitle
+     * @return the form to enter new Topic
      */
-    public String getTitle()
+    public void clickAddTopicActivator()
     {
-        return title.getAttribute("Value");
+        addTopicActivator.click();
     }
-
-    /**
-     * @param title the forumTitle to set
-     */
-    public void setTitle(String givenTitle)
-    {
-        title.clear();
-        title.sendKeys(givenTitle);
-    }
-
-    /**
-     * @return the forumDescription
-     */
-    public WebElement getDescription()
-    {
-        return description;
-    }
-
-    /**
-     * @param description the forumDescription to set
-     */
-    public void setDescription(String givenDescription)
-    {
-        description.clear();
-        description.sendKeys(givenDescription);
-    }
-
 }

@@ -33,13 +33,13 @@ public class ForumsHomePage extends ViewPage
 {
     @FindBy(id = "addForum")
     private WebElement addForumButton;
-    
+
     @FindBy(xpath = "//div[@id = 'entryNamePopup']//input[@type = 'text']")
     private WebElement addForumEntryInput;
-    
+
     @FindBy(xpath = "//div[@id = 'entryNamePopup']//input[@type = 'image']")
     private WebElement addForumEntryButton;
-    
+
     /**
      * Opens the home page.
      */
@@ -50,7 +50,7 @@ public class ForumsHomePage extends ViewPage
     }
 
     /**
-     * Space name of the home page. 
+     * Space name of the home page.
      */
     public static String getSpace()
     {
@@ -58,15 +58,15 @@ public class ForumsHomePage extends ViewPage
     }
 
     /**
-     * Page name of the home page. 
+     * Page name of the home page.
      */
     public static String getPage()
     {
         return "WebHome";
     }
-    
+
     /**
-     * Title of the application displayed in the AppBar 
+     * Title of the application displayed in the AppBar
      */
     public static String getAppTitle()
     {
