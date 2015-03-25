@@ -21,37 +21,54 @@ package org.xwiki.contrib.forum.test.po;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.xwiki.test.ui.po.ViewPage;
+import org.xwiki.test.ui.po.BaseElement;
 
 /**
- * Represents the Forum view page.
+ * Represents the Topic edit elements. This po is shared by TopicAddElement and TopicEditPage
  * 
  * @version $Id$
  * @since 1.9.4
  */
-public class ForumViewPage extends ViewPage
+public class TopicEditElement extends BaseElement
 {
-    @FindBy(css = ".addconversation-activator")
-    private WebElement addTopicActivator;
+    @FindBy(xpath = "//input[@name = 'title']")
+    private WebElement title;
 
-    @FindBy(css = ".forum-description")
+    @FindBy(id = "ForumCode.TopicClass_0_description")
     private WebElement description;
 
     /**
-     * @return the form to enter new Topic
+     * @return the topicTitle
      */
-    public TopicAddElement clickAddTopicActivator()
+    public String getTitle()
     {
-        addTopicActivator.click();
-        TopicAddElement topicAddForm = new TopicAddElement();
-        return topicAddForm;
+        return title.getAttribute("Value");
     }
 
     /**
-     * @return the Forum description 
+     * @param title the topicTitle to set
      */
-    public String getDescription()
+    public void setTitle(String givenTitle)
     {
-        return description.getText();
+        title.clear();
+        title.sendKeys(givenTitle);
     }
+
+    /**
+     * @return the topicDescription
+     */
+    public WebElement getDescription()
+    {
+        return description;
+    }
+
+    /**
+     * @param description the topicDescription to set
+     */
+    public void setDescription(String givenDescription)
+    {
+        description.clear();
+        description.sendKeys(givenDescription);
+    }
+
 }

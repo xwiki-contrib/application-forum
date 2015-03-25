@@ -21,37 +21,37 @@ package org.xwiki.contrib.forum.test.po;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.xwiki.test.ui.po.ViewPage;
+import org.xwiki.test.ui.po.BaseElement;
 
 /**
- * Represents the Forum view page.
+ * Represents the Topic add elements.
  * 
  * @version $Id$
  * @since 1.9.4
  */
-public class ForumViewPage extends ViewPage
+public class TopicAddElement extends BaseElement
 {
-    @FindBy(css = ".addconversation-activator")
-    private WebElement addTopicActivator;
+    private TopicEditElement editForm = new TopicEditElement();
 
-    @FindBy(css = ".forum-description")
-    private WebElement description;
+    /**
+     * @return the edit form
+     */
+    public TopicEditElement getEditForm()
+    {
+        return editForm;
+    }
+
+    @FindBy(css = ".addconversation .button[type=submit]")
+    private WebElement addTopicButton;
 
     /**
      * @return the form to enter new Topic
      */
-    public TopicAddElement clickAddTopicActivator()
+    public ForumViewPage clickAddTopicButton()
     {
-        addTopicActivator.click();
-        TopicAddElement topicAddForm = new TopicAddElement();
-        return topicAddForm;
-    }
+        addTopicButton.click();
+        ForumViewPage forumViewPage = new ForumViewPage();
+        return forumViewPage;
 
-    /**
-     * @return the Forum description 
-     */
-    public String getDescription()
-    {
-        return description.getText();
     }
 }

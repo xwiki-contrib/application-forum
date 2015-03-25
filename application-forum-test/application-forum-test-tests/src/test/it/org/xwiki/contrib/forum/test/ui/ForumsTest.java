@@ -25,6 +25,7 @@ import org.junit.Test;
 import org.xwiki.contrib.forum.test.po.ForumEditPage;
 import org.xwiki.contrib.forum.test.po.ForumViewPage;
 import org.xwiki.contrib.forum.test.po.ForumsHomePage;
+import org.xwiki.contrib.forum.test.po.TopicAddElement;
 import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
 import org.xwiki.test.ui.SuperAdminAuthenticationRule;
@@ -41,9 +42,13 @@ public class ForumsTest extends AbstractTest
     @Rule
     public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
 
-    private static final String FORUM_NAME = "Forum 01";
+    private static final String FORUM_TITLE = "Forum 01";
 
     private static final String FORUM_DESCRIPTION = "Forum 01 Description";
+
+    private static final String TOPIC_TITLE = "Topic 01";
+
+    private static final String TOPIC_DESCRIPTION = "Topic 01 Description";
 
     @Test
     public void testApplicationPanelLinksToForumsHomePage()
@@ -61,15 +66,22 @@ public class ForumsTest extends AbstractTest
         // Create new forum
         ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
         forumsHomePage.clickAddForumButton();
-        forumsHomePage.setAddForumEntryInput(FORUM_NAME);
+        forumsHomePage.setAddForumEntryInput(FORUM_TITLE);
 
         ForumEditPage forumEditPage = forumsHomePage.clickAddForumEntryButton();
-        Assert.assertEquals(FORUM_NAME, forumEditPage.getTitle());
+        Assert.assertEquals(FORUM_TITLE, forumEditPage.getTitle());
         forumEditPage.setDescription(FORUM_DESCRIPTION);
         forumEditPage.clickSaveAndView();
 
-        // Create new topic
         ForumViewPage forumViewPage = new ForumViewPage();
-        forumViewPage.clickAddTopicActivator();
+        Assert.assertEquals(FORUM_TITLE, forumViewPage.getDocumentTitle());
+        Assert.assertEquals(FORUM_DESCRIPTION, forumViewPage.getDescription());
+
+        // Create new topic
+        TopicAddElement topicAddForm = forumViewPage.clickAddTopicActivator();
+        topicAddForm.getEditForm().setTitle(TOPIC_TITLE);
+        topicAddForm.getEditForm().setDescription(TOPIC_DESCRIPTION);
+        forumViewPage = topicAddForm.clickAddTopicButton();
+
     }
 }

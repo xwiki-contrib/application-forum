@@ -19,39 +19,23 @@
  */
 package org.xwiki.contrib.forum.test.po;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.xwiki.test.ui.po.ViewPage;
+import org.xwiki.test.ui.po.InlinePage;
 
 /**
- * Represents the Forum view page.
+ * Represents the Topic edit page.
  * 
  * @version $Id$
  * @since 1.9.4
  */
-public class ForumViewPage extends ViewPage
+public class TopicEditPage extends InlinePage
 {
-    @FindBy(css = ".addconversation-activator")
-    private WebElement addTopicActivator;
-
-    @FindBy(css = ".forum-description")
-    private WebElement description;
+    private TopicEditElement editForm = new TopicEditElement();
 
     /**
-     * @return the form to enter new Topic
+     * @return the edit form
      */
-    public TopicAddElement clickAddTopicActivator()
+    public TopicEditElement getEditForm()
     {
-        addTopicActivator.click();
-        TopicAddElement topicAddForm = new TopicAddElement();
-        return topicAddForm;
-    }
-
-    /**
-     * @return the Forum description 
-     */
-    public String getDescription()
-    {
-        return description.getText();
+        return editForm;
     }
 }
