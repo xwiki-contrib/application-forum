@@ -31,7 +31,7 @@
   </parent>
   <groupId>org.xwiki.contrib.forum</groupId>
   <artifactId>application-forum</artifactId>
-  <version>1.9.4</version>
+  <version>1.9.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Forum Application - Parent POM</name>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
@@ -89,7 +89,7 @@
     <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-forum.git</developerConnection>
     <url>https://github.com/xwiki-contrib/application-forum</url>
-    <tag>application-forum-1.9.4</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <repository>
