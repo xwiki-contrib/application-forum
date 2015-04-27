@@ -100,7 +100,6 @@
   </distributionManagement>
   <modules>
     <module>application-forum-ui</module>
-    <module>application-forum-test</module>
   </modules>
   <profiles>
     <profile>
