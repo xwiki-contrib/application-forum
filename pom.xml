@@ -79,6 +79,11 @@
       <name>Victor Rachieru</name>
       <organization>XWiki SAS</organization>
     </developer>
+    <developer>
+      <id>evalica</id>
+      <name>Ecaterina Moraru</name>
+      <organization>XWiki SAS</organization>
+    </developer>
   </developers>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
