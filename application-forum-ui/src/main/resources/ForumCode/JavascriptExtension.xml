@@ -920,17 +920,8 @@ function init() {
       topicDiv.observe('click', function(event) {
          conversationLikeHandler(event);
       }.bindAsEventListener(this));
-  });  
-  // add vote handler for topics in forum
-  $$(".topic-vote2.allow-vote").each(function(topicDiv) {
-    // add vote click handler for each topic
-      console.log("Adding vote click handler to div " + topicDiv);
-      // if we have an active like button, add a listener to it
-      topicDiv.observe('click', function(event) {
-         conversationLikeHandler(event);
-      }.bindAsEventListener(this));
-  });  
-   
+  });
+
   // add permalink for topic
   $$(".topic-actions-permalink a").each(function(topicPermalink) {
    if (topicPermalink) {

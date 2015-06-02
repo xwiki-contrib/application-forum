@@ -1212,7 +1212,7 @@ Various Fixes
 .commentthread .reply { padding-left: 25px; }
 
 .reply { padding-left: 10px; }
-.topic-vote.allow-vote, .topic-vote2.allow-vote { cursor: pointer; }
+.topic-vote.allow-vote { cursor: pointer; }
 
 #groups-discussions-main .addconversation-container { margin-right: 85px; }
 
