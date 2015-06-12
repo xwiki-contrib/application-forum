@@ -1288,7 +1288,7 @@
       <guest_comment_requires_captcha/>
     </property>
     <property>
-      <iconTheme>IconThemes.Silk</iconTheme>
+      <iconTheme/>
     </property>
     <property>
       <invitation_email_content/>
