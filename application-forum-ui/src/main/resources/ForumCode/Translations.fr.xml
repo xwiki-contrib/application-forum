@@ -219,6 +219,9 @@ discussion.panel.dates=Date
 discussion.panel.votes=Votes
 discussion.panel.comments=Commentaires
 discussion.panel.topics=Topics
+discussion.panel.subscribe=Souscrire
+discussion.panel.text1=Soyez informés des nouveaux messages en vous abonnant à:
+discussion.panel.text2=ou
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Forums

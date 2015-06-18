@@ -1000,6 +1000,13 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #end
   #end
     &lt;/table&gt;
+    &lt;h1 class="xwikipaneltitle subscribe"&gt;$services.localization.render('discussion.panel.subscribe')&lt;/h1&gt;
+    &lt;div class="subscribe-content"&gt;
+      &lt;p&gt;$services.localization.render('discussion.panel.text1')&lt;/p&gt;
+      &lt;p class="subscribe-text left"&gt;$services.icon.render('rss')&lt;a href="#"&gt; $services.localization.render('discussion.panel.topics')&lt;/a&gt;&lt;/p&gt;
+      &lt;p class="subscribe-text"&gt;$services.localization.render('discussion.panel.text2')&lt;/p&gt;
+      &lt;p class="subscribe-text right"&gt;$services.icon.render('rss')&lt;a href="#"&gt; $services.localization.render('discussion.panel.comments')&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
  &lt;/div&gt;
   #if(!$request.xpage)
    &lt;/div&gt;
