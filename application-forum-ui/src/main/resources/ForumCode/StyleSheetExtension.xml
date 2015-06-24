@@ -1058,6 +1058,27 @@ New Answer
 /* CURRIKI-6156 */
 .groups-home .head .frame-inset-logo img { max-width: 121px; }
 
+.xwikipaneltitle.subscribe {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.subscribe-content {
+  padding-top: 5px;
+}
+
+.subscribe-text {
+  display: inline;
+}
+
+.subscribe-text.left {
+  padding-right: 5px;
+}
+
+.subscribe-text.right {
+  padding-left: 6px;
+}
+
 /*
 ==================================================================================================
   9000 | QUICK FIXES 

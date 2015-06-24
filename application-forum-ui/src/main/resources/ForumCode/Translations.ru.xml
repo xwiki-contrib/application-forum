@@ -204,6 +204,9 @@ discussion.panel.dates=Датам
 discussion.panel.votes=Голосам
 discussion.panel.comments=Коммент.
 discussion.panel.topics=Темы
+discussion.panel.subscribe=Подписать
+discussion.panel.text1=В курсе последних записей которые были подписаны на:
+discussion.panel.text2=или
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Форумы
