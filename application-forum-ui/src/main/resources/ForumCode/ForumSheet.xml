@@ -54,11 +54,11 @@
 
   #elseif($xcontext.action == 'view')
     #initForum($spaceName)
-#set($topics = $services.query.hql(", BaseObject as obj where doc.parent = '${doc.fullName}' and obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'").execute())
+    #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where doc.parent = :forumDoc").bindValue('forumDoc', $doc.getFullName()).execute())
   ## Count comments
   #set($comments = 0)
   #foreach($topic in $topics)
-    #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${topic}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").execute())
+    #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").bindValues('topic', $topic).execute())
     #foreach($topicAnswer in $topicAnswers)
       #set($answerDoc = $xwiki.getDocument($topicAnswer))
       #set($comments = $comments + $answerDoc.getComments().size())

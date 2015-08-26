@@ -54,7 +54,7 @@
     {{/html}}
   #else
 {{html clean='false'}}
-  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${doc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").execute())
+  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").bindValue('topic', $doc.getFullName()).execute())
   #set($comments = $topicAnswers.size())
   #foreach($topicAnswer in $topicAnswers)
     #set($answerDoc = $xwiki.getDocument($topicAnswer))

@@ -671,7 +671,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #set($topicTitle = $topicDoc.title)
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
-  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${topicDoc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerTemplate' order by doc.date desc").execute())
+  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerTemplate' order by doc.date desc").bindValue('topic', $topicDoc.getFullName()).execute())
   #set($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
   #if($topicAnswers)
     #foreach($topicAnswer in $topicAnswers)
@@ -730,7 +730,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
             #end
             &lt;div class="topic-vote $voteAllowedClass conversation-like" #if($services.ratings.getRating($topicDoc, $xcontext.user) == $util.null) title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end&gt;
                 #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
-                &lt;input type="hidden" name="documenttolike" value="$topicDoc.fullName" /&gt;
+                &lt;input type="hidden" name="documenttolike" value="$escapetool.xml($topicDoc.getFullName())" /&gt;
                 &lt;span class="conversation-score" title="$services.localization.render('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
             &lt;/div&gt;
           &lt;/span&gt;
@@ -761,8 +761,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #macro(displayAnswers)
   ## The list of existing conversations with their comments
   ## Find all the documents which are the children of this document and have an object of type conversation inside
-  #set($conversationsSql = ", BaseObject obj where doc.parent = '${doc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc")
-  #set($conversationDocs = $services.query.hql($conversationsSql).execute())
+  #set($conversationsSql = ", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc")
+  #set($conversationDocs = $services.query.hql($conversationsSql).bindValue('topic', $doc.getFullName() ).execute())
   &lt;div class="answers"&gt;
     #if($conversationDocs.size() &gt; 0)
     #foreach($conversationDocName in $conversationDocs)
@@ -977,7 +977,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       #set($topicTitle = $topicDoc.title)
       #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
       #set($topicComments = 0)
-      #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = '${topicDoc.fullName}' and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerClass' order by doc.date desc").execute())
+      #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerClass' order by doc.date desc").bindValue('topic', ${topicDoc.getFullName()}).execute())
       #if($topicAnswers)
        #foreach($topicAnswer in $topicAnswers)
         #set($answerDoc = $xwiki.getDocument($topicAnswer))
