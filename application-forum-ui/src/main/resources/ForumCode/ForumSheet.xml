@@ -64,7 +64,7 @@
       #set($comments = $comments + $answerDoc.getComments().size())
     #end
   #end
-{{html clean='false' wiki='true'}}
+{{html clean='false'}}
 &lt;div class="forum"&gt;
   #displayAlertsMessages()
   &lt;div class="forum-container"&gt;
