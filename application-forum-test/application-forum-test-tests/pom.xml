@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.contrib.forum</groupId>
     <artifactId>application-forum-test</artifactId>
-    <version>1.9.4-SNAPSHOT</version>
+    <version>1.9.5-SNAPSHOT</version>
   </parent>
   <artifactId>application-forum-test-tests</artifactId>
   <packaging>jar</packaging>
