@@ -1067,7 +1067,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
     #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
     ##
 
-    {{html wiki="true"}}
+    {{html}}
       &lt;dt class="field-mandatory"&gt;
         &lt;label&gt;$services.localization.render('conversations.forum.title')&lt;/label&gt;
         #if (!$titleIsValid)
@@ -1076,7 +1076,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       &lt;/dt&gt;
       &lt;dd&gt;
         #set($docTitle = $request.docTitle)
-        &lt;input name='title' type="text" value="#if(!$titleIsValid || "$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
+        &lt;input name='title' type="text" value="#if("$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
       &lt;/dd&gt;
     {{/html}}
   #end
