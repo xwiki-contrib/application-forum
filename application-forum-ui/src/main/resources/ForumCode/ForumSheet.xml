@@ -64,7 +64,7 @@
       #set($comments = $comments + $answerDoc.getComments().size())
     #end
   #end
-{{html clean='false'}}
+{{html clean='false' wiki='true'}}
 &lt;div class="forum"&gt;
   #displayAlertsMessages()
   &lt;div class="forum-container"&gt;
@@ -72,6 +72,7 @@
     &lt;div class="forum-description"&gt;
       $doc.display('description')
     &lt;/div&gt;
+    {{html clean='false'}}
     &lt;div class="forum-metadata"&gt;
       &lt;span class="forum-metas"&gt;
         &lt;span class="forum-author"&gt;&lt;span class="user-avatar"&gt;#smallUserAvater2($doc.creator)&lt;/span&gt;$!xwiki.getUserName($doc.creator)&lt;/span&gt;
@@ -79,8 +80,11 @@
         &lt;span class="forum-topics" title="$services.localization.render('conversations.forum.tooltip.totaltopics')"&gt;$topics.size() $services.localization.render('conversations.topic.count')&lt;/span&gt;
       &lt;/span&gt;
     &lt;/div&gt;
+    {{/html}}
   &lt;/div&gt;
 &lt;/div&gt;
+{{/html}}
+{{html clean='false'}}
   &lt;h3 class="topics-title"&gt;$services.localization.render('conversations.topic.all')&lt;/h3&gt;
    #displayTopicAddForm($space)
   &lt;div id="forum-buttons"&gt;
@@ -93,8 +97,6 @@
   &lt;div class="topics"&gt;
     #displayTopics()
   &lt;/div&gt;
-{{/html}}
-{{html clean='false'}}
   ## Enable WYSIWYG editors loading when adding comments
   #displayEditors()
 {{/html}}
