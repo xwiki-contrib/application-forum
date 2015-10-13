@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.contrib.forum</groupId>
     <artifactId>application-forum</artifactId>
-    <version>1.9.5</version>
+    <version>1.9.6-SNAPSHOT</version>
   </parent>
   <artifactId>application-forum-ui</artifactId>
   <packaging>xar</packaging>
