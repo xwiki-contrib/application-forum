@@ -30,3 +30,6 @@ with the sponsorship of:
 - XWiki SAS
 
 License: LGPL v3
+
+## Status
+[![Build Status](http://ci.xwiki.org/buildStatus/icon?job=Contrib%20-%20Forum%20Application)](http://ci.xwiki.org/job/Contrib%20-%20Forum%20Application/)
