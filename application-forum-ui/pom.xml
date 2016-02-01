@@ -65,4 +65,9 @@
       </extension>
     </extensions>
   </build>
+  <!-- Put the project URL here so Extension Manager will not try to compute a wrong url by adding
+       "/application-forum-ui" to the parent module url... -->
+  <scm>
+    <url>https://github.com/xwiki-contrib/application-forum</url>
+  </scm>
 </project>
