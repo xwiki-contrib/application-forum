@@ -88,7 +88,7 @@
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-forum.git</developerConnection>
-    <url>https://github.com/xwiki-contrib/application-forum</url>
+    <url>https://github.com/xwiki-contrib/application-forum/tree/master</url>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
