@@ -230,6 +230,7 @@ forum.mail.notif.answer.delete.message=The following answer has been deleted:
 forum.mail.notif.comment.delete.title=Deleted comment
 forum.mail.notif.comment.delete.message=The following comment has been deleted:
 forum.mail.notif.delete.thanks=Thank you
+forum.mail.notif.delete.view=View deleted
 </content>
   <object>
     <name>ForumCode.Translations</name>

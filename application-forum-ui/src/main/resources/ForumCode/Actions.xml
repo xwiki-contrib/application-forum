@@ -195,7 +195,8 @@ ${spaceName}.${newAnswerName}
           #elseif($isAnswer)
             #set($deleteAction = "answer")
           #end
-          #set($map = { "action" : "$deleteAction" , "deleted_content": "$!{itemRepresentation}"})
+          #set($deletedDoc = $conversationDoc))
+          #set($map = { "action" : "$deleteAction" , "deleted_content": "$!{itemRepresentation}", "deletedDoc": "$!{deletedDoc}"})
          #set ($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', $map))
           #if ($result != 0)
             #set($mailsent = "0")
@@ -284,6 +285,9 @@ ${spaceName}.${newAnswerName}
       <html>$services.localization.render("forum.mail.notif.${action}.delete.message")
 &lt;br /&gt;&lt;br /&gt;
 $deleted_content
+#if ($action != 'comment')
+  &lt;a href="$xwiki.getURL($deletedDoc, 'view', 'viewer=recyclebin')"&gt;$services.localization.render("forum.mail.notif.delete.view")&lt;/a&gt;
+#end
 &lt;br /&gt;&lt;br /&gt;
 $services.localization.render("forum.mail.notif.delete.thanks")</html>
     </property>
@@ -297,6 +301,9 @@ $services.localization.render("forum.mail.notif.delete.thanks")</html>
       <text>$services.localization.render("forum.mail.notif.${action}.delete.message")
 
 $deleted_content
+#if ($action != 'comment')
+  $xwiki.getURL($deletedDoc, 'view', 'viewer=recyclebin')
+#end
 
 $services.localization.render("forum.mail.notif.delete.thanks")</text>
     </property>
