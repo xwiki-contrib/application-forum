@@ -76,8 +76,8 @@
 	             #if($services.icon)$services.icon.renderHTML('add') #end$services.localization.render('conversations.forum.add')
 	            &lt;/a&gt;
     		&lt;/div&gt;
-        #set($isNestedSpacesHandled = $services.model.serialize($services.model.createDocumentReference('wiki', ['A', 'B'], 'page'), 'default') == 'wiki:A.B.page')
-        #if ($isNestedSpacesHandled)
+        #set ($supportsNS = $services.extension.core.getCoreExtension('org.xwiki.platform:xwiki-platform-model').id.version.compareTo($services.extension.parseVersion('7.2')) >= 0)
+        #if ($supportsNS)
           #set($entryDoc = $services.model.createDocumentReference($doc.wiki, ['Forums', '__entryName__'], 'WebHome'))
         #else
           #set($entryDoc = $services.model.createDocumentReference($doc.wiki, 'Forums___entryName__', 'WebHome'))
