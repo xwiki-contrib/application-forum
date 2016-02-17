@@ -1,6 +1,4 @@
-
-New XWiki Forum Application
----------------------------
+# Forum Application
 
 This is a new forum application with powerful features:
 
@@ -15,6 +13,19 @@ This is a new forum application with powerful features:
 - Flagging innappropriate content with Flag queue for moderators
 - Slick UI
 
+* Project Lead: [Alexandru Cotiugă >](http://www.xwiki.org/xwiki/bin/view/XWiki/acotiuga)
+* Extension Page(s): http://extensions.xwiki.org/xwiki/bin/view/Extension/ForumApplication
+* Issue Tracker: http://jira.xwiki.org/browse/XAFORUM
+* License: LGPL v3
+* Development Practices: http://dev.xwiki.org
+* Minimal XWiki version supported: XWiki 6.4
+
+## Others
+* Translations: http://l10n.xwiki.org/xwiki/bin/view/Contrib/ForumApplication
+* Continuous Integration Status: [![Build Status](http://ci.xwiki.org/buildStatus/icon?job=Contrib%20-%20Forum%20Application)](http://ci.xwiki.org/job/Contrib%20-%20Forum%20Application/)
+* Sonar Dashboard: N/A
+
+
 This application has been build by the following developers:
 
 - XWiki Development Team
@@ -22,14 +33,10 @@ This application has been build by the following developers:
 - Ludovic Dubost, XWiki SAS
 - Maxim Ionut, XWiki SAS
 - Anca Luca, XWiki SAS
+- Alexandru Cotiugă, XWiki SAS
 
 with the sponsorship of:
 
 - Curriki.org
 - Opcalia
 - XWiki SAS
-
-License: LGPL v3
-
-## Status
-[![Build Status](http://ci.xwiki.org/buildStatus/icon?job=Contrib%20-%20Forum%20Application)](http://ci.xwiki.org/job/Contrib%20-%20Forum%20Application/)
