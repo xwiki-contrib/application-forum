@@ -535,6 +535,17 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ##
 ##
 #macro(getOrdredTopics $forum $start $nb $sortField $varName)
+  #set($forumReference = $services.model.resolveDocument($forum))
+  #set($forumSpace = $services.model.serialize($forumReference.parent))
+  #set ($supportsNS = $services.extension.core.getCoreExtension('org.xwiki.platform:xwiki-platform-model').id.version.compareTo($services.extension.parseVersion('7.2')) &gt;= 0)
+  #if ($supportsNS)
+  ## define some variables to be used with Nested Spaces
+    #set($hierarchyCondition = "doc.space=:forum and ")
+    #set($hierarchyBinding = $forumSpace)
+  #else
+    #set($hierarchyCondition = "doc.parent=:forum and ")
+    #set($hierarchyBinding = $forum)
+  #end
   #if($isPanelSort != 1)
     #set($currentorder = $request.sortorder)
   #end
@@ -544,7 +555,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
   #set($allTopics = true)
   #if("$!forum" != '')
     #set($allTopics = false)
-    #set($condition = "doc.parent=:forum and ")
+    #set($condition = $hierarchyCondition)
   #else
     #set($condition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
   #end
@@ -552,7 +563,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
    ## sort by votes - requires programming rights
    #set($query = $services.query.hql(", BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $condition obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}").setOffset($start).setLimit($nb))   
    #if(!$allTopics)
-     #set($query = $query.bindValue('forum', $forum))
+     #set($query = $query.bindValue('forum', $hierarchyBinding))
    #end
    #set($result = $query.execute())
   #elseif($sortField=="comments")
@@ -563,7 +574,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     #set($countNonZeroQuery = "select count(distinct doc.fullName) $nonZeroQueryWithoutSelectAndSort")
 
     #if(!$allTopics)
-      #set($forumInnerCodition = "doc.parent=:forum and")
+      #set($forumInnerCodition = $hierarchyCondition)
     #else
       #set($forumInnerCodition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
     #end
@@ -581,7 +592,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     })
  #if(!$allTopics)
    #foreach($query in $option.values())
-     #set($ok = $query.bindValue('forum', $forum))
+     #set($ok = $query.bindValue('forum', $hierarchyBinding))
    #end
  #end
     #sortAsOutterjoin($option $start $nb $currentorder $result)
@@ -589,7 +600,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
     ## sort by last update date
     #set($query = $services.query.hql(", BaseObject as obj where $condition obj.name = doc.fullName and obj.className='ForumCode.TopicClass' order by doc.date $!{currentorder}").setOffset($start).setLimit($nb))
     #if(!$allTopics)
-      #set($query = $query.bindValue('forum', $forum))
+      #set($query = $query.bindValue('forum', $hierarchyBinding))
     #end
     #set($result = $query.execute())
   #end
