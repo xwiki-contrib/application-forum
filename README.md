@@ -13,7 +13,7 @@ This is a new forum application with powerful features:
 - Flagging innappropriate content with Flag queue for moderators
 - Slick UI
 
-* Project Lead: [Alexandru Cotiugă >](http://www.xwiki.org/xwiki/bin/view/XWiki/acotiuga)
+* Project Lead: [Alexandru Cotiugă](http://www.xwiki.org/xwiki/bin/view/XWiki/acotiuga)
 * Extension Page(s): http://extensions.xwiki.org/xwiki/bin/view/Extension/ForumApplication
 * Issue Tracker: http://jira.xwiki.org/browse/XAFORUM
 * License: LGPL v3
