@@ -26,16 +26,7 @@ This is a new forum application with powerful features:
 * Sonar Dashboard: N/A
 
 
-This application has been build by the following developers:
-
-- XWiki Development Team
-- Curriki Development Team
-- Ludovic Dubost, XWiki SAS
-- Maxim Ionut, XWiki SAS
-- Anca Luca, XWiki SAS
-- Alexandru Cotiugă, XWiki SAS
-
-with the sponsorship of:
+This application has been build with the sponsorship of:
 
 - Curriki.org
 - Opcalia
