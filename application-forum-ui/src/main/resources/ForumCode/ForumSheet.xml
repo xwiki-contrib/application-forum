@@ -54,16 +54,9 @@
 
   #elseif($xcontext.action == 'view')
     #initForum($spaceName)
-    #set ($supportsNS = $services.extension.core.getCoreExtension('org.xwiki.platform:xwiki-platform-model').id.version.compareTo($services.extension.parseVersion('7.2')) &gt;= 0)
-    #if ($supportsNS)
-    ## define some variables to be used with Nested Spaces
-      #set($hierarchyCondition = "doc.space=:forumDoc")
-      #set($hierarchyBinding = $doc.space)
-    #else
-      #set($hierarchyCondition = "doc.parent=:forumDoc")
-      #set($hierarchyBinding = $doc.fullName)
-    #end
-    #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where $hierarchyCondition").bindValue('forumDoc', $hierarchyBinding).execute())
+    ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+    #set($hierarchyCondition = "doc.parent=:forumDoc or doc.space=:forumSpace")
+    #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where $hierarchyCondition").bindValue('forumDoc', $doc.fullName).bindValue('forumSpace', $doc.space).execute())
   ## Count comments
   #set($comments = 0)
   #foreach($topic in $topics)
