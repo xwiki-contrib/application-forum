@@ -100,5 +100,7 @@
 #if(!$spaceName)
  #set($spaceName = $doc.space)
 #end
+
+#set($supportsNS = $services.extension.core.getCoreExtension('org.xwiki.platform:xwiki-platform-model').id.version.compareTo($services.extension.parseVersion('7.2')) &gt;= 0)
 {{/velocity}}</content>
 </xwikidoc>
