@@ -54,6 +54,7 @@
 
   #elseif($xcontext.action == 'view')
     #initForum($spaceName)
+    ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
     #set($hierarchyCondition = "doc.parent=:forumDoc or doc.space=:forumSpace")
     #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where $hierarchyCondition").bindValue('forumDoc', $doc.fullName).bindValue('forumSpace', $doc.space).execute())
   ## Count comments
