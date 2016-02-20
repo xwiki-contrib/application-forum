@@ -55,14 +55,15 @@
   #elseif($xcontext.action == 'view')
     #initForum($spaceName)
     ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
-    #set($hierarchyCondition = "doc.parent=:forumDoc or doc.space=:forumSpace")
-    #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where $hierarchyCondition").bindValue('forumDoc', $doc.fullName).bindValue('forumSpace', $doc.space).execute())
+    #set($hierarchyCondition = 'doc.parent=:parent or doc.space=:space')
+    #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where $hierarchyCondition").bindValue('parent', $doc.fullName).bindValue('space', $doc.space).execute())
   ## Count comments
   #set($comments = 0)
   #foreach($topic in $topics)
-    #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").bindValues('topic', $topic).execute())
-    #foreach($topicAnswer in $topicAnswers)
-      #set($answerDoc = $xwiki.getDocument($topicAnswer))
+    #set($topicSpace = $services.model.serialize($services.model.resolveSpace($topic).parent))
+    #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date").bindValue('parent', $topic).bindValue('space', $topicSpace).execute())
+    #foreach($answer in $answers)
+      #set($answerDoc = $xwiki.getDocument($answer))
       #set($comments = $comments + $answerDoc.getComments().size())
     #end
   #end

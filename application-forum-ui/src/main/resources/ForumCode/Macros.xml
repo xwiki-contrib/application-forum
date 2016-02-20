@@ -407,8 +407,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ###
 ###
 #macro(displayTopicAddForm $space)
-    #set($newTopicName = $space + "." + $xwiki.getUniquePageName($space, 'Topic'))
-    #set($newTopicDoc = $xwiki.getDocument($newTopicName))
+    #set($newTopicDoc = $xwiki.getDocument($space, $xwiki.getUniquePageName($space, 'Topic')))
     #if($newTopicDoc.hasAccessLevel("edit"))
     &lt;div class="addconversation-container addtopic-container"&gt;
      &lt;div class="addconversation-container-button addtopic-container-button buttonwrapper"&gt;
@@ -419,7 +418,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
      &lt;form class="#if("$!request.action" != "addtopic")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
       &lt;div&gt;
         &lt;input type="hidden" name="action" value="addtopic" /&gt;
-        &lt;input type="hidden" name="page" value="$escapetool.xml($newTopicName)" /&gt;
+        &lt;input type="hidden" name="page" value="$escapetool.xml($newTopicDoc.name)" /&gt;
         &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
         &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
         &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
@@ -562,7 +561,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
    #set($result = $query.execute())
   #elseif($sortField=="comments")
     ## sort by comments - requires programming rights
-    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as doc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where $condition answerDoc.parent=doc.fullName and doc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and (cmtObj.className='XWiki.XWikiComments' or cmtObj.className='ForumCode.AnswerClass')")
+    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as doc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where $condition (answerDoc.parent=doc.fullName or answerDoc.space=doc.space)and doc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and (cmtObj.className='XWiki.XWikiComments' or cmtObj.className='ForumCode.AnswerClass')")
     #set($nonZeroQueryWithoutSort = "select doc.fullName $nonZeroQueryWithoutSelectAndSort")
     #set($nonZeroQuery = "$nonZeroQueryWithoutSort group by doc.fullName order by count(cmtObj.id) $!{currentorder}")
     #set($countNonZeroQuery = "select count(distinct doc.fullName) $nonZeroQueryWithoutSelectAndSort")
@@ -672,11 +671,15 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 ##
 
 #macro(displayForumTopic $topic $withdetails)
+  #set($topicReference = $services.model.resolveDocument($forum))
+  #set($topicSpace = $services.model.serialize($topicReference.parent))
   #set($topicDoc = $xwiki.getDocument($topic))
   #set($topicTitle = $topicDoc.title)
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
-  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerTemplate' order by doc.date desc").bindValue('topic', $topicDoc.getFullName()).execute())
+  ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+  #set($hierarchyCondition = 'doc.parent=:parent or doc.space=:space')
+  #set($topicAnswers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $topic).bindValue('space', $topicSpace).execute())
   #set($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
   #if($topicAnswers)
     #foreach($topicAnswer in $topicAnswers)
@@ -762,8 +765,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #macro(displayAnswers)
   ## The list of existing conversations with their comments
   ## Find all the documents which are the children of this document and have an object of type conversation inside
-  #set($conversationsSql = ", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc")
-  #set($conversationDocs = $services.query.hql($conversationsSql).bindValue('topic', $doc.getFullName() ).execute())
+  ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+  #set($hierarchyCondition = 'doc.parent=:parent or doc.space=:space')
+  #set($conversationDocs = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $doc.fullName).bindValue('space', $doc.space).execute())
   &lt;div class="answers"&gt;
     #if($conversationDocs.size() &gt; 0)
     #foreach($conversationDocName in $conversationDocs)
@@ -978,7 +982,9 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       #set($topicTitle = $topicDoc.title)
       #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
       #set($topicComments = 0)
-      #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerClass' order by doc.date desc").bindValue('topic', ${topicDoc.getFullName()}).execute())
+      ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+      #set($hierarchyCondition = 'doc.parent=:parent or doc.space=:space')
+      #set($topicAnswers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $topicDoc.fullName).bindValue('space', $topicDoc.space).execute())
       #if($topicAnswers)
        #foreach($topicAnswer in $topicAnswers)
         #set($answerDoc = $xwiki.getDocument($topicAnswer))
