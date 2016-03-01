@@ -1092,7 +1092,7 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #macro(getTopicAnswers $parent $space $topicAnswers)
   ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
   #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
-  #set($topicAnswers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $parent).bindValue('spacePrefix', "${space}.%").execute())
+  #set($discard = $topicAnswers.addAll($services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $parent).bindValue('spacePrefix', "${space}.%").execute()))
 #end
 {{/velocity}}</content>
   <object>
