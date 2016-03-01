@@ -74,9 +74,7 @@
         #set($topicTitle = "$!request.title.trim()")
         #set($forumSpace = "$!request.space")
         #set($forumSpaceReference = $services.model.resolveSpace($forumSpace))
-        ## check if the current forum was migrated (forum's parent space is called 'Forums')
-        #set($forumParent = $services.model.serialize($forumSpaceReference.parent))
-        #if($supportsNS &amp;&amp; $forumParent == 'Forums')
+        #if($supportsNS &amp;&amp; $forumSpaceReference.parent.type == 'SPACE' &amp;&amp; $forumSpaceReference.parent.name == 'Forums')
           #set($topicSpaceReference = $services.model.createSpaceReference($newTopicName, $forumSpaceReference))
           #set($newDocReference = $services.model.createDocumentReference('WebHome', $topicSpaceReference))
         #else

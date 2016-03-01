@@ -677,7 +677,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
   #set($topicTitle = $topicDoc.title)
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
-  #getTopicAnswers($topic $topicSpace)
+  #set($topicAnswers = [])
+  #getTopicAnswers($topic $topicSpace $topicAnswers)
   #set($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
   #if($topicAnswers)
     #foreach($topicAnswer in $topicAnswers)
@@ -763,7 +764,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 #macro(displayAnswers)
   ## The list of existing conversations with their comments
   ## Find all the documents which are the children of this document and have an object of type answer inside
-  #getTopicAnswers($doc.fullName $doc.space)
+  #set($topicAnswers = [])
+  #getTopicAnswers($doc.fullName $doc.space $topicAnswers)
   &lt;div class="answers"&gt;
     #if($topicAnswers.size() &gt; 0)
     #foreach($topicAnswer in $topicAnswers)
@@ -977,7 +979,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       #set($topicTitle = $topicDoc.title)
       #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
       #set($topicComments = 0)
-      #getTopicAnswers($topicDoc.fullName $topicDoc.space)
+      #set($topicAnswers = [])
+      #getTopicAnswers($topicDoc.fullName $topicDoc.space $topicAnswers)
       #if($topicAnswers)
        #foreach($topicAnswer in $topicAnswers)
         #set($answerDoc = $xwiki.getDocument($topicAnswer))
