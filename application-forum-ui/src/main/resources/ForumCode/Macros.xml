@@ -407,8 +407,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
 ###
 ###
 #macro(displayTopicAddForm $space)
-    #set($newTopicName = $space + "." + $xwiki.getUniquePageName($space, 'Topic'))
-    #set($newTopicDoc = $xwiki.getDocument($newTopicName))
+    #set($newTopicDoc = $xwiki.getDocument($space, $xwiki.getUniquePageName($space, 'Topic')))
     #if($newTopicDoc.hasAccessLevel("edit"))
     &lt;div class="addconversation-container addtopic-container"&gt;
      &lt;div class="addconversation-container-button addtopic-container-button buttonwrapper"&gt;
@@ -419,7 +418,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
      &lt;form class="#if("$!request.action" != "addtopic")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
       &lt;div&gt;
         &lt;input type="hidden" name="action" value="addtopic" /&gt;
-        &lt;input type="hidden" name="page" value="$escapetool.xml($newTopicName)" /&gt;
+        &lt;input type="hidden" name="page" value="$escapetool.xml($newTopicDoc.name)" /&gt;
         &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
         &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
         &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
@@ -562,7 +561,7 @@ $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '')
    #set($result = $query.execute())
   #elseif($sortField=="comments")
     ## sort by comments - requires programming rights
-    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as doc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where $condition answerDoc.parent=doc.fullName and doc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and (cmtObj.className='XWiki.XWikiComments' or cmtObj.className='ForumCode.AnswerClass')")
+    #set($nonZeroQueryWithoutSelectAndSort = "from XWikiDocument as doc, BaseObject as topicObj, XWikiDocument as answerDoc, BaseObject as cmtObj where $condition (answerDoc.parent=doc.fullName or answerDoc.space like concat(doc.space, '.%'))and doc.fullName=topicObj.name and topicObj.className='ForumCode.TopicClass' and answerDoc.fullName=cmtObj.name and (cmtObj.className='XWiki.XWikiComments' or cmtObj.className='ForumCode.AnswerClass')")
     #set($nonZeroQueryWithoutSort = "select doc.fullName $nonZeroQueryWithoutSelectAndSort")
     #set($nonZeroQuery = "$nonZeroQueryWithoutSort group by doc.fullName order by count(cmtObj.id) $!{currentorder}")
     #set($countNonZeroQuery = "select count(distinct doc.fullName) $nonZeroQueryWithoutSelectAndSort")
@@ -672,11 +671,14 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 ##
 
 #macro(displayForumTopic $topic $withdetails)
+  #set($topicReference = $services.model.resolveDocument($topic))
+  #set($topicSpace = $services.model.serialize($topicReference.parent))
   #set($topicDoc = $xwiki.getDocument($topic))
   #set($topicTitle = $topicDoc.title)
   #set($topicDescription = $topicDoc.display('description'))
   #set($topicComments = 0)
-  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerTemplate' order by doc.date desc").bindValue('topic', $topicDoc.getFullName()).execute())
+  #set($topicAnswers = [])
+  #getTopicAnswers($topic $topicSpace $topicAnswers)
   #set($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
   #if($topicAnswers)
     #foreach($topicAnswer in $topicAnswers)
@@ -761,44 +763,43 @@ addthis:description="${escapetool.xml($addThisDesc)}"
 ##
 #macro(displayAnswers)
   ## The list of existing conversations with their comments
-  ## Find all the documents which are the children of this document and have an object of type conversation inside
-  #set($conversationsSql = ", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc")
-  #set($conversationDocs = $services.query.hql($conversationsSql).bindValue('topic', $doc.getFullName() ).execute())
+  ## Find all the documents which are the children of this document and have an object of type answer inside
+  #set($topicAnswers = [])
+  #getTopicAnswers($doc.fullName $doc.space $topicAnswers)
   &lt;div class="answers"&gt;
-    #if($conversationDocs.size() &gt; 0)
-    #foreach($conversationDocName in $conversationDocs)
-      #set($conversationDoc = $xwiki.getDocument($conversationDocName))
-      #set($conversationObject = $conversationDoc.getObject('ForumCode.AnswerClass'))
-      #set($comments = $conversationDoc.getComments())
+    #if($topicAnswers.size() &gt; 0)
+    #foreach($topicAnswer in $topicAnswers)
+      #set($topicAnswerDoc = $xwiki.getDocument($topicAnswer))
+      #set($comments = $topicAnswerDoc.getComments())
       ## Compose a conversation id for the conversation from the document name only.
       ## We don't need clearname anymore and neither the date as we control the topic name
-      #set($conversationId = $conversationDoc.name)
-      &lt;div class="answer" objtype="answer" id="$conversationId"&gt;
+      #set($topicAnswerID = $topicAnswerDoc.name)
+      &lt;div class="answer" objtype="answer" id="$topicAnswerID"&gt;
         &lt;div class="answer-layout"&gt;
           &lt;span class="user-avatar"&gt;
-          #smallUserAvater2($conversationDoc.creator)
+          #smallUserAvater2($topicAnswerDoc.creator)
           &lt;/span&gt;
           &lt;div class="answer-reply"&gt;
             &lt;span class="answer-meta"&gt;
-              &lt;span class="user"&gt;$xwiki.getUserName($conversationDoc.creator)&lt;/span&gt;
-              &lt;span class="time"&gt;$services.localization.render('conversation.updatedate', [$xwiki.formatDate($conversationDoc.date)])&lt;/span&gt;
+              &lt;span class="user"&gt;$xwiki.getUserName($topicAnswerDoc.creator)&lt;/span&gt;
+              &lt;span class="time"&gt;$services.localization.render('conversation.updatedate', [$xwiki.formatDate($topicAnswerDoc.date)])&lt;/span&gt;
               &lt;span class="votes conversation-ratings"&gt;
-                &lt;span class="conversation-like" #if($services.ratings.getRating($conversationDoc, $xcontext.user) == $util.null)class="canVote" title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end &gt;
-                  &lt;input type="hidden" name="documenttolike" value="$conversationDoc.fullName" /&gt;
+                &lt;span class="conversation-like" #if($services.ratings.getRating($topicAnswerDoc, $xcontext.user) == $util.null)class="canVote" title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end &gt;
+                  &lt;input type="hidden" name="documenttolike" value="$topicAnswerDoc.fullName" /&gt;
                 &lt;/span&gt;
               &lt;/span&gt;
               &lt;span class="comments" objtype="nbComments" title="$services.localization.render('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size() $services.localization.render('conversations.comment.count')&lt;/span&gt;
             &lt;/span&gt;
             &lt;div class="answer-content"&gt;
-                #cleanHTMLMacro($conversationDoc.answer)
+                #cleanHTMLMacro($topicAnswerDoc.answer)
                 &lt;span class="actions"&gt;
                   #if(!$isGuest)
                     &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
-                      &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${conversationId}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
+                      &lt;a href="$xwiki.getURL("Forums.NewFlag", "view", "target=${escapetool.url($doc.fullName)}:${topicAnswerID}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
                     &lt;/span&gt;
                   #end
                   &lt;span class="conversation-permalink"&gt;
-                    &lt;a class="permalink" href="$escapetool.xml($doc.getURL('view'))#${conversationId}" title="$services.localization.render('conversation.permalink.tooltip')"&gt;
+                    &lt;a class="permalink" href="$escapetool.xml($doc.getURL('view'))#${topicAnswerID}" title="$services.localization.render('conversation.permalink.tooltip')"&gt;
                     ## We need to put image here since we cannot do background + indented text + fixed width as we do for comment tools, because overflow: hidden is messing up the display of the other icons.
                     &lt;/a&gt;
                   &lt;/span&gt;
@@ -806,13 +807,13 @@ addthis:description="${escapetool.xml($addThisDesc)}"
             &lt;/div&gt;
           &lt;/div&gt;&lt;!-- / .answer-reply --&gt;
           &lt;div class="answer-moderation"&gt;
-              #if(($conversationDoc.creator==$xcontext.user)
+              #if(($topicAnswerDoc.creator==$xcontext.user)
                    ||$hasAdmin)
-                &lt;a class="edit" href="$conversationDoc.getURL('edit')" title="$services.localization.render('conversation.edit.title')"&gt;$services.localization.render('conversation.edit')&lt;/a&gt;
+                &lt;a class="edit" href="$topicAnswerDoc.getURL('edit')" title="$services.localization.render('conversation.edit.title')"&gt;$services.localization.render('conversation.edit')&lt;/a&gt;
               #end
-              #if(($conversationDoc.creator==$xcontext.user)
+              #if(($topicAnswerDoc.creator==$xcontext.user)
                    ||$hasAdmin)
-                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($conversationDoc.fullName)}")" title="$services.localization.render('conversation.delete.title')"&gt;$services.localization.render('conversation.delete')&lt;/a&gt;
+                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicAnswerDoc.fullName)}")" title="$services.localization.render('conversation.delete.title')"&gt;$services.localization.render('conversation.delete')&lt;/a&gt;
               #end
           &lt;/div&gt;&lt;!-- / .answer-moderation --&gt;
         &lt;/div&gt;&lt;!-- / .answer-layout --&gt;
@@ -829,14 +830,14 @@ addthis:description="${escapetool.xml($addThisDesc)}"
             #end
             ##
             ## Comments will be rendered in the context of the conversation document.
-            #set($commentDoc = $conversationDoc)
+            #set($commentDoc = $topicAnswerDoc)
             ##
             #displayThread($rootKey, $commentThreads, $commentDoc)
           #else
             &lt;p class="noitems"&gt;$services.localization.render('conversation.empty')&lt;/p&gt;
           #end
           #if(!$replied)
-            #displayCommentForm($conversationDoc)
+            #displayCommentForm($topicAnswerDoc)
           #end
         &lt;/div&gt;&lt;!-- / .comments --&gt;
       &lt;/div&gt;&lt;!-- / .answer --&gt;
@@ -978,7 +979,8 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       #set($topicTitle = $topicDoc.title)
       #set($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
       #set($topicComments = 0)
-      #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName &lt;&gt; 'ForumCode.AnswerClass' order by doc.date desc").bindValue('topic', ${topicDoc.getFullName()}).execute())
+      #set($topicAnswers = [])
+      #getTopicAnswers($topicDoc.fullName $topicDoc.space $topicAnswers)
       #if($topicAnswers)
        #foreach($topicAnswer in $topicAnswers)
         #set($answerDoc = $xwiki.getDocument($topicAnswer))
@@ -1085,6 +1087,12 @@ addthis:description="${escapetool.xml($addThisDesc)}"
       &lt;/dd&gt;
     {{/html}}
   #end
+#end
+
+#macro(getTopicAnswers $parent $space $topicAnswers)
+  ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+  #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
+  #set($discard = $topicAnswers.addAll($services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $parent).bindValue('spacePrefix', "${space}.%").execute()))
 #end
 {{/velocity}}</content>
   <object>

@@ -54,7 +54,9 @@
     {{/html}}
   #else
 {{html clean='false'}}
-  #set($topicAnswers = $services.query.hql(", BaseObject obj where doc.parent = :topic and doc.fullName = obj.name and obj.className = 'ForumCode.AnswerClass' and doc.fullName != 'ForumCode.AnswerTemplate' order by doc.date desc").bindValue('topic', $doc.getFullName()).execute())
+  ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+  #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
+  #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date").bindValue('parent', $doc.fullName).bindValue('spacePrefix', "${doc.space}.%").execute())
   #set($comments = $topicAnswers.size())
   #foreach($topicAnswer in $topicAnswers)
     #set($answerDoc = $xwiki.getDocument($topicAnswer))
