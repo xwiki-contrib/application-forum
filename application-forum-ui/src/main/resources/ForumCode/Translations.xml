@@ -231,6 +231,15 @@ forum.mail.notif.comment.delete.title=Deleted comment
 forum.mail.notif.comment.delete.message=The following comment has been deleted:
 forum.mail.notif.delete.thanks=Thank you
 forum.mail.notif.delete.view=View deleted
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=Add discussion
+recent.forum.discussions.createdAnswerOnTopic=answered on topic
+recent.forum.discussions.createdTopic=created topic
+recent.forum.discussions.creationDate=on {0}
+recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
+recent.forum.discussions.seeAllDiscussions=See all discussions
+
 </content>
   <object>
     <name>ForumCode.Translations</name>
