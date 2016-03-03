@@ -284,7 +284,7 @@
   #set ($limit = 5)
 #end
 ## get from all the forums most recent N topics and topics' answers
-#set ($query = "select doc.fullName from XWikiDocument doc, BaseObject as topic, BaseObject as answer where doc.fullName in (topic.name, answer.name) and doc.fullName not in ('ForumCode.TopicTemplate', 'ForumCode.AnswerTemplate') and topic.className='ForumCode.TopicClass' and answer.className='ForumCode.AnswerClass' order by doc.date desc")
+#set ($query = ", BaseObject as topic, BaseObject as answer where doc.fullName in (topic.name, answer.name) and doc.fullName not in ('ForumCode.TopicTemplate', 'ForumCode.AnswerTemplate') and topic.className='ForumCode.TopicClass' and answer.className='ForumCode.AnswerClass' order by doc.date desc")
 #set ($results = $services.query.hql($query).addFilter('unique').setLimit($limit).execute())
 (% class='recentForumDiscussions' %)
 #foreach ($result in $results)
