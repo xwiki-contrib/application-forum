@@ -28,6 +28,7 @@
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1456837593000</creationDate>
+  <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <date>1456999372000</date>
@@ -283,8 +284,8 @@
   #set ($limit = 5)
 #end
 ## get from all the forums most recent N topics and topics' answers
-#set ($query = "select doc.fullName from XWikiDocument doc, BaseObject as topic, BaseObject as answer where doc.fullName in (topic.name, answer.name) and doc.fullName not in ('ForumCode.TopicTemplate', 'ForumCode.AnswerTemplate') and topic.className='ForumCode.TopicClass' and answer.className='ForumCode.AnswerClass' group by doc.fullName order by max(doc.date) desc")
-#set ($results = $services.query.hql($query).setLimit($limit).execute())
+#set ($query = "select doc.fullName from XWikiDocument doc, BaseObject as topic, BaseObject as answer where doc.fullName in (topic.name, answer.name) and doc.fullName not in ('ForumCode.TopicTemplate', 'ForumCode.AnswerTemplate') and topic.className='ForumCode.TopicClass' and answer.className='ForumCode.AnswerClass' order by doc.date desc")
+#set ($results = $services.query.hql($query).addFilter('unique').setLimit($limit).execute())
 (% class='recentForumDiscussions' %)
 #foreach ($result in $results)
   ## @action param is used at the end to build the translation key, which reflects the action performed by an user
