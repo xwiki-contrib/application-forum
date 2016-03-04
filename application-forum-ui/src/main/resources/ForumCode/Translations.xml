@@ -238,8 +238,11 @@ recent.forum.discussions.createdAnswerOnTopic=answered on topic
 recent.forum.discussions.createdTopic=created topic
 recent.forum.discussions.creationDate=on {0}
 recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
+recent.forum.discussions.editedTopic=edited topic
 recent.forum.discussions.seeAllDiscussions=See all discussions
 
+## rendering macro
+rendering.macro.forum.recentForumDiscussions=Recent Forum Discussions
 </content>
   <object>
     <name>ForumCode.Translations</name>
