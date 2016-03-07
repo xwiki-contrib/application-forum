@@ -39,7 +39,9 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{velocity output="false"}}
+  <content>{{include reference="ForumCode.Variables" /}}
+
+{{velocity output="false"}}
 ## make sure we have all these extensions
 $xwiki.jsx.use('XWiki.Ratings', { 'minify' : false }) ##
 $xwiki.ssx.use('XWiki.Ratings') ##
@@ -1020,10 +1022,16 @@ addthis:description="${escapetool.xml($addThisDesc)}"
  * Init Froum after creation
  *#
 #macro(initForum $forumSpaceName)
-  #set($spacePreferencesRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebPreferences'))
+  #if ($supportsNS)
+    #set($forumSpaceReference = $services.model.resolveSpace($forumSpaceName))
+    #set($spacePreferencesRef = $services.model.createDocumentReference('WebPreferences', $forumSpaceReference))
+    #set($webHomeRef = $services.model.createDocumentReference('WebHome', $forumSpaceReference))
+  #else
+    #set($spacePreferencesRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebPreferences'))
+    #set($webHomeRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebHome'))
+  #end
   #if(!$xwiki.exists($spacePreferencesRef))
     ## Hide WebHome of current forum
-    #set($webHomeRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebHome'))
     #set($webHomeDoc = $xwiki.getDocument($webHomeRef))
     #set($discard = $webHomeDoc.setHidden(true))
     #set($discard = $webHomeDoc.saveWithProgrammingRights("Hide WebHome", true))
