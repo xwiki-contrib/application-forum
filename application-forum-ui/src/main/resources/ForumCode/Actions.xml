@@ -57,8 +57,8 @@
       ## Chck if the current user has delete right on the forum
       #if($webHomeDoc.hasAccessLevel('delete'))
         ## We need to delete all documents of the forum space
-        #set($result = $services.query.hql("where doc.space= :forum").bindValue('forum', $space).execute())
-        #foreach($fullName in $result)
+        #set($results = $services.query.xwql('where doc.space like :forum').bindValue('forum', "${space}%").execute())
+        #foreach($fullName in $results)
           #$xwiki.getDocument($fullName).delete()
         #end
         $response.setStatus(200) ok
