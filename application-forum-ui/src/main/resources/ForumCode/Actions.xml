@@ -75,6 +75,7 @@
         #set($forumSpace = "$!request.space")
         #set($forumSpaceReference = $services.model.resolveSpace($forumSpace))
         #if($supportsNS &amp;&amp; $forumSpaceReference.parent.type == 'SPACE' &amp;&amp; $forumSpaceReference.parent.name == 'Forums')
+          #set ($newTopicName = "${newTopicName}_${util.date.time}_${mathtool.random(1, 99)}")
           #set($topicSpaceReference = $services.model.createSpaceReference($newTopicName, $forumSpaceReference))
           #set($newDocReference = $services.model.createDocumentReference('WebHome', $topicSpaceReference))
         #else
