@@ -277,15 +277,17 @@
       </visibility>
     </class>
     <property>
-      <code>{{velocity}}
+      <code>{{include reference="ForumCode.Variables" /}}
+
+{{velocity}}
 #set ($discard = $xwiki.ssx.use('ForumCode.RecentForumDiscussionsMacro'))
 #set ($limit = $xcontext.macro.params.limit)
 #if (!$limit)
   #set ($limit = 5)
 #end
 ## get from all the forums most recent N topics and topics' answers
-#set ($query = ", BaseObject as topic, BaseObject as answer where doc.fullName in (topic.name, answer.name) and doc.fullName not in ('ForumCode.TopicTemplate', 'ForumCode.AnswerTemplate') and topic.className='ForumCode.TopicClass' and answer.className='ForumCode.AnswerClass' order by doc.date desc")
-#set ($results = $services.query.hql($query).addFilter('unique').setLimit($limit).execute())
+#set ($query = ", BaseObject as topicOrAnswer where doc.fullName=topicOrAnswer.name and topicOrAnswer.className in ('ForumCode.TopicClass', 'ForumCode.AnswerClass') and doc.space &lt;&gt; 'ForumCode' order by doc.date desc")
+#set ($results = $services.query.hql($query).setLimit($limit).execute())
 (% class='recentForumDiscussions' %)
 #foreach ($result in $results)
   ## @action param is used at the end to build the translation key, which reflects the action performed by an user
@@ -300,8 +302,13 @@
       #set ($action = 'editedTopic')
     #end
   #else
-    ## Answers 
-    #set ($topicTitle = $xwiki.getDocument($document.parent).title)
+    ## Answers
+    #if ($supportsNS)
+      #set ($topic = $document.documentReference.parent)
+    #else
+      #set ($topic = $document.parent)
+    #end
+    #set ($topicTitle = $xwiki.getDocument($topic).title)
     #if ($document.version == '1.1')
       #set ($action = 'createdAnswerOnTopic')
     #else
