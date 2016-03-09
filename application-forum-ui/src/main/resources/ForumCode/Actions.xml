@@ -96,26 +96,19 @@
       {{warning}}$services.localization.render('conversations.create.error.missingtitle'){{/warning}}
     #end  
   #elseif("$!request.action" == 'addconversation')
-    #set($spaceName = "$!request.space")
-    #set($topicName = "$!request.page")
-    #if($spaceName != '' &amp;&amp; $topicName != '')
-      #set($newAnswerName = $topicName)
-      #set($newAnswerDocName = $topicName)
-      #set($newAnswerDoc = $xwiki.getDocument($newAnswerDocName))
-      #if($newAnswerDoc.hasAccessLevel('edit')) 
-        #set($discard = $newAnswerDoc.setParent("${request.parent}"))
-        #set($discard = $newAnswerDoc.setHidden(true))
-        #set($discard = $newAnswerDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
-        #set($discard = $newAnswerDoc.saveWithProgrammingRights())
+    #if("$!request.space" != '' &amp;&amp; "$!request.page" != '')
+      #set($answerDoc = $xwiki.getDocument("$!request.page"))
+      #if($answerDoc.hasAccessLevel('edit'))
+        #set($discard = $answerDoc.setParent("${request.parent}"))
+        #set($discard = $answerDoc.setHidden(true))
+        #set($discard = $answerDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
+        #set($discard = $answerDoc.saveWithProgrammingRights())
         #if("$!request.xredirect" != '')
           #set($discard = $response.sendRedirect("$!request.xredirect"))
         #end
       #else
         #set($discard = $response.setStatus(403))
-        {{warning}}
-          $services.localization.render('conversations.create.error.answer.norights')
-          ${spaceName}.${newAnswerName}
-        {{/warning}}
+        {{warning}}$services.localization.render('conversations.create.error.answer.norights'){{/warning}}
       #end    
     #else
       {{warning}}Not enough parameters.{{/warning}}
