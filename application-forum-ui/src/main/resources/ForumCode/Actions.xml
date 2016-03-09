@@ -39,7 +39,7 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{include reference="ForumCode.Variables" /}}
+  <content>{{include reference='ForumCode.Macros' /}}
 
 {{velocity}}
 ## check token
@@ -69,19 +69,8 @@
     #end
   #elseif("$!request.action" == 'addtopic')
     #if("$!request.title.trim()" != '')
-      #if("$!request.space" != '')
-        #set($newTopicName = "$!request.page")
-        #set($topicTitle = "$!request.title.trim()")
-        #set($forumSpace = "$!request.space")
-        #set($forumSpaceReference = $services.model.resolveSpace($forumSpace))
-        #if($supportsNS &amp;&amp; $forumSpaceReference.parent.type == 'SPACE' &amp;&amp; $forumSpaceReference.parent.name == 'Forums')
-          #set ($newTopicName = "${newTopicName}_${util.date.time}_${mathtool.random(1, 99)}")
-          #set($topicSpaceReference = $services.model.createSpaceReference($newTopicName, $forumSpaceReference))
-          #set($newDocReference = $services.model.createDocumentReference('WebHome', $topicSpaceReference))
-        #else
-          #set($newDocReference = $services.model.createDocumentReference($doc.wiki, $forumSpace, $newTopicName))
-        #end
-        #set($topicDoc = $xwiki.getDocument($newDocReference))
+      #if("$!request.space" != '' &amp;&amp; "$!request.page" != '')
+        #set($topicDoc = $xwiki.getDocument("$!request.page"))
         #if($topicDoc.hasAccessLevel('edit'))
           ## Add the TopicClass object
           #set($discard = $topicDoc.updateObjectFromRequest('ForumCode.TopicClass'))
@@ -90,7 +79,7 @@
           #set($averageObj = $topicDoc.newObject('XWiki.AverageRatingsClass'))
           #set($discard = $averageObj.set('nbvotes', 0))
           #set($discard = $averageObj.set('method', 'average'))
-          #set($discard = $topicDoc.setTitle($topicTitle))
+          #set($discard = $topicDoc.setTitle("$!request.title.trim()"))
           #set($discard = $topicDoc.setParent("$!request.parent"))
           #set($discard = $topicDoc.setHidden(true))
           #set($discard = $topicDoc.saveWithProgrammingRights())
