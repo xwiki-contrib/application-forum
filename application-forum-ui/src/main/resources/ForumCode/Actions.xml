@@ -41,22 +41,22 @@
   <hidden>true</hidden>
   <content>{{velocity}}
 ## check token
-#if("$!request.action" != '' &amp;&amp; !$services.csrf.isTokenValid("$!request.form_token"))
+#if ("$!request.action" != '' &amp;&amp; !$services.csrf.isTokenValid("$!request.form_token"))
   #set($discard = $response.sendRedirect($services.csrf.getResubmissionURL()))
 #else
   ## We expect an ajax request for this deleteforum action
-  #if("$!request.action" == 'deleteforum')
+  #if ("$!request.action" == 'deleteforum')
     ## We assume all paths are bad requests, so we have to change status code for other cases.
     #set($discard = $response.setStatus(400))
     #set($space = "$!{request.space}")
     #set($webHomeDoc = $xwiki.getDocument("${space}.WebHome"))
     ## Check if the space is a froum space
-    #if($space != '' &amp;&amp; $webHomeDoc.getObject('ForumCode.ForumClass') != $util.null)
+    #if ($space != '' &amp;&amp; $webHomeDoc.getObject('ForumCode.ForumClass') != $util.null)
       ## Chck if the current user has delete right on the forum
-      #if($webHomeDoc.hasAccessLevel('delete'))
+      #if ($webHomeDoc.hasAccessLevel('delete'))
         ## We need to delete all documents of the forum space
         #set($results = $services.query.xwql('WHERE doc.space=:forumSpace OR doc.space LIKE :forum').bindValue('forumSpace', $space).bindValue('forum', "${space}.%").execute())
-        #foreach($fullName in $results)
+        #foreach ($fullName in $results)
           #set($discard = $xwiki.getDocument($fullName).delete())
         #end
         #set($discard = $response.setStatus(200)) ok
@@ -65,11 +65,11 @@
         #set($discard = $response.setStatus(403))
       #end
     #end
-  #elseif("$!request.action" == 'addtopic')
-    #if("$!request.title.trim()" != '')
-      #if("$!request.space" != '' &amp;&amp; "$!request.page" != '')
+  #elseif ("$!request.action" == 'addtopic')
+    #if ("$!request.title.trim()" != '')
+      #if ("$!request.space" != '' &amp;&amp; "$!request.page" != '')
         #set($topicDoc = $xwiki.getDocument("$!request.page"))
-        #if($topicDoc.hasAccessLevel('edit'))
+        #if ($topicDoc.hasAccessLevel('edit'))
           ## Add the TopicClass object
           #set($discard = $topicDoc.updateObjectFromRequest('ForumCode.TopicClass'))
           ## We add a XWiki.AverageRatingsClass object to simplify sorting topics by votes
@@ -81,12 +81,12 @@
           #set($discard = $topicDoc.setParent("$!request.parent"))
           #set($discard = $topicDoc.setHidden(true))
           #set($discard = $topicDoc.saveWithProgrammingRights())
-          #if("$!request.xredirect" != '')
+          #if ("$!request.xredirect" != '')
             #set($discard = $response.sendRedirect("$!request.xredirect"))
           #end
         #else
           #set($discard = $response.setStatus(403))
-          {{warning}}$services.localization.render("conversations.create.error.topic.norights"){{/warning}}
+          {{warning}}$services.localization.render('conversations.create.error.topic.norights'){{/warning}}
         #end
       #else
         {{warning}}$services.localization.render('conversations.create.error.missingmetadata'){{/warning}}
@@ -95,15 +95,15 @@
       #set($discard = $response.setStatus(403))
       {{warning}}$services.localization.render('conversations.create.error.missingtitle'){{/warning}}
     #end  
-  #elseif("$!request.action" == 'addconversation')
-    #if("$!request.space" != '' &amp;&amp; "$!request.page" != '')
+  #elseif ("$!request.action" == 'addconversation')
+    #if ("$!request.space" != '' &amp;&amp; "$!request.page" != '')
       #set($answerDoc = $xwiki.getDocument("$!request.page"))
-      #if($answerDoc.hasAccessLevel('edit'))
+      #if ($answerDoc.hasAccessLevel('edit')) 
         #set($discard = $answerDoc.setParent("${request.parent}"))
         #set($discard = $answerDoc.setHidden(true))
         #set($discard = $answerDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
         #set($discard = $answerDoc.saveWithProgrammingRights())
-        #if("$!request.xredirect" != '')
+        #if ("$!request.xredirect" != '')
           #set($discard = $response.sendRedirect("$!request.xredirect"))
         #end
       #else
@@ -113,56 +113,56 @@
     #else
       {{warning}}Not enough parameters.{{/warning}}
     #end
-  #elseif("$!request.action" == 'deleteconversation' || "$!request.action" == 'deletecomment')
+  #elseif ("$!request.action" == 'deleteconversation' || "$!request.action" == 'deletecomment')
     #set($isDeleteComment = "$!request.action" == 'deletecomment')
     #set($conversationDoc = $xwiki.getDocument("$!request.conversationdoc"))
     #set($conversationObj = $conversationDoc.getObject('ForumCode.AnswerClass'))
     #set($isAnswer = false)
-    #if($conversationObj)
+    #if ($conversationObj)
       #set($isAnswer = true)
     #end
     #set($topicObj = $conversationDoc.getObject('ForumCode.TopicClass'))
-    #if($isDeleteComment)
+    #if ($isDeleteComment)
       #set($commentNumber = $util.parseInt("$!request.commentnumber"))
       #set($commentObj = $conversationDoc.getObject('XWiki.XWikiComments', $commentNumber))
     #end
-    #if(!$conversationDoc.isNew() &amp;&amp; ($conversationObj||$topicObj) &amp;&amp; (!$isDeleteComment || $commentObj))
+    #if (!$conversationDoc.isNew() &amp;&amp; ($conversationObj||$topicObj) &amp;&amp; (!$isDeleteComment || $commentObj))
       ## check rights
       #set($requiredRight = 'edit')
-      #if(!$isDeleteComment)
+      #if (!$isDeleteComment)
         #set($requiredRight = 'delete')
       #end
-      #if($conversationDoc.hasAccessLevel($requiredRight))
+      #if ($conversationDoc.hasAccessLevel($requiredRight))
         ## do the action then send a mail
         ## 0. collect some data we need after
         ## get a representation of the deleted item
         #set($itemRepresentation = '')
-        #if($isDeleteComment)
+        #if ($isDeleteComment)
           #set($itemRepresentation = $commentObj.getProperty('comment').value)
-        #elseif($isAnswer)
+        #elseif ($isAnswer)
           #set($itemRepresentation = $conversationObj.getProperty('answer').value)
         #else
           #set($itemRepresentation = $conversationDoc.displayTitle)
         #end
         ## get the item author to send mail after
         #set($itemAuthor = '')
-        #if($isDeleteComment)
+        #if ($isDeleteComment)
           #set($itemAuthor = $commentObj.getProperty('author').value)
         #else
           #set($itemAuthor = $conversationDoc.creator)
         #end
         ## 1. do the action
-        #if($isDeleteComment)
+        #if ($isDeleteComment)
           #set($discard = $conversationDoc.removeObject($commentObj))
           #set($discard = $conversationDoc.save($services.localization.render("conversations.${request.action}.changecomment")))
         #else
           #set($discard = $conversationDoc.delete())
           ## if we are a topic delete the answers
-          #if($topicObj)
+          #if ($topicObj)
             ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
             #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
             #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition").bindValue('parent', $conversationDoc.fullName).bindValue('spacePrefix', "${doc.space}.%").execute())
-            #foreach($answer in $answers)
+            #foreach ($answer in $answers)
               #set($answerDoc = $xwiki.getDocument($answer))
               #set($discard = $answerDoc.deleteWithProgrammingRights())
             #end
@@ -173,17 +173,17 @@
         #set($itemAuthorUser = $xwiki.getUser($itemAuthor))
         #set($itemAuthorEmail = $itemAuthorUser.email)
         #set($mailsent = '1')
-        #if("$!itemAuthorEmail" != '')
+        #if ("$!itemAuthorEmail" != '')
           #set ($sender = $xwiki.getUserName($xcontext.user, false))
-          #if("$!{xwiki.getXWikiPreference('admin_email')}" != '')
+          #if ("$!{xwiki.getXWikiPreference('admin_email')}" != '')
             #set ($sender = "$sender &lt;$!{xwiki.getXWikiPreference('admin_email')}&gt;")
           #else
             #set($sender = "$!{escapetool.q($sender)} &lt;noreply@$!{request.serverName}&gt;")
           #end
           #set($deleteAction = 'topic')
-          #if($isDeleteComment)
+          #if ($isDeleteComment)
             #set($deleteAction = 'comment')
-          #elseif($isAnswer)
+          #elseif ($isAnswer)
             #set($deleteAction = 'answer')
           #end
           #set($deletedDoc = $conversationDoc))
@@ -195,11 +195,11 @@
         #else
           #set($mailsent = '0')
         #end
-        #if($isAnswer)
+        #if ($isAnswer)
           #set($discard = $response.setContentType('application/json'))
           {'success' : "${request.action}", 'mailsent' : "$!{mailsent}"}
         #else
-          #if("$!request.xredirect" != '')
+          #if ("$!request.xredirect" != '')
             #set($discard = $response.sendRedirect("$!request.xredirect?success=${request.action}&amp;mailsent=$!{mailsent}"))
           #end
         #end
