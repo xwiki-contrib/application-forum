@@ -112,7 +112,7 @@
 #end
 ##
 #macro(cleanHTMLMacro $value)
-  #set ($discard = $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '').replaceFirst("$regextool.quote('{{/html}}')$", ''))
+  $value.replaceFirst($regextool.quote('{{html clean="false" wiki="false"}}'), '').replaceFirst("$regextool.quote('{{/html}}')$", '')
 #end
 ##---------------------------------------------------------------------
 ## Macros
@@ -866,7 +866,7 @@
         ## only prepare the editor but do not activate it
         #foreach ($myeditor2 in $myeditor.get('editors').split(','))
           #set ($parameters = $collectionstool.map)
-          #wysiwyg_storeConfig($parameters $myeditor.get("doc") $myeditor2 false)
+          #wysiwyg_storeConfig($parameters $myeditor.get('doc') $myeditor2 false)
           #wysiwyg_prepareEditor($parameters)
         #end
       #end
@@ -898,7 +898,7 @@
         $("${parameters.hookId}").observe('focus', function(event){
           if ($("${parameters.hookId}").wysiwyg == undefined) {
             WysiwygConfig["${parameters.hookId}"].hookId = "${parameters.hookId}";
-            $('${parameters.hookId}').wysiwyg = new WysiwygEditor(WysiwygConfig["${parameters.hookId}"]);
+            $("${parameters.hookId}").wysiwyg = new WysiwygEditor(WysiwygConfig["${parameters.hookId}"]);
           }
         });
       });
