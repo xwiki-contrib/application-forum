@@ -1054,14 +1054,11 @@
   #if ($xcontext.action != 'view')
     #set ($discard = $xwiki.jsx.use('ForumCode.Macros'))
     #set ($titleErrorKey = $errorkey)
-    {{html clean='false'}}
       &lt;!-- Validate form with Groovy --&gt;
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
       &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateTitle" /&gt;
-    {{/html}}
     #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
     ##
-    {{html}}
       &lt;dt class="field-mandatory"&gt;
         &lt;label&gt;$services.localization.render('conversations.forum.title')&lt;/label&gt;
         #if (!$titleIsValid)
@@ -1072,7 +1069,6 @@
         #set ($docTitle = $request.docTitle)
         &lt;input name='title' type="text" value="#if ("$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
       &lt;/dd&gt;
-    {{/html}}
   #end
 #end
 ## 
