@@ -187,7 +187,7 @@
         &lt;span class="time"&gt;$!xwiki.formatDate($date)&lt;/span&gt;
       &lt;/span&gt;
       &lt;div class="comment-content"&gt;
-        #set ($discard = $commentDoc.getRenderedContent($comment.getProperty('comment').getValue(), $doc.getSyntax().toIdString()))
+        $commentDoc.getRenderedContent($comment.getProperty('comment').getValue(), $doc.getSyntax().toIdString())
         &lt;span class="actions"&gt;
           #if ($xcontext.user != 'XWiki.XWikiGuest')
             &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
