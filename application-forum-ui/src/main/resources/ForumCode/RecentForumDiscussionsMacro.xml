@@ -315,7 +315,7 @@
       #set ($action = 'editedAnswerOnTopic')
     #end
   #end
-  * (% class='fa fa-comment' %) [[$xwiki.getUserName($document.author, false)&gt;&gt;$document.author]] $services.localization.render("recent.forum.discussions.${action}") [[$topicTitle&gt;&gt;$document]] $services.localization.render('recent.forum.discussions.creationDate', [$xwiki.formatDate($document.date)])
+  * $services.icon.render('comment') [[$xwiki.getUserName($document.author, false)&gt;&gt;$document.author]] $services.localization.render("recent.forum.discussions.${action}") [[$topicTitle&gt;&gt;$document]] $services.localization.render('recent.forum.discussions.creationDate', [$xwiki.formatDate($document.date)])
 #end
 
 #if ($results.size() &gt; 0)
