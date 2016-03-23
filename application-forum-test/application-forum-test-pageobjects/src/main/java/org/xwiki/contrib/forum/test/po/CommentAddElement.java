@@ -24,50 +24,33 @@ import org.openqa.selenium.support.FindBy;
 import org.xwiki.test.ui.po.BaseElement;
 
 /**
- * Represents the Topic edit elements. This po is shared by TopicAddElement and TopicEditPage
+ * Represents the Comment add elements.
  * 
  * @version $Id$
- * @since 1.9.4
+ * @since 2.1
  */
-public class TopicEditElement extends BaseElement
+public class CommentAddElement extends BaseElement
 {
-    @FindBy(xpath = "//input[@name = 'title']")
-    private WebElement title;
-
-    @FindBy(id = "ForumCode.TopicClass_0_description")
-    private WebElement description;
+    private CommentEditElement editForm = new CommentEditElement();
 
     /**
-     * @return the topicTitle
+     * @return the edit form
      */
-    public String getTitle()
+    public CommentEditElement getEditForm()
     {
-        return title.getAttribute("Value");
+        return editForm;
     }
 
-    /**
-     * @param title the topicTitle to set
-     */
-    public void setTitle(String givenTitle)
-    {
-        title.clear();
-        title.sendKeys(givenTitle);
-    }
+    @FindBy(css = ".AddComment .button[type=submit]")
+    private WebElement addCommentButton;
 
     /**
-     * @return the topicDescription
+     * @return the form to enter new Answer
      */
-    public WebElement getDescription()
+    public TopicViewPage clickAddCommentButton()
     {
-        return description;
-    }
-
-    /**
-     * @param description the topicDescription to set
-     */
-    public void setDescription(String givenDescription)
-    {
-        description.clear();
-        description.sendKeys(givenDescription);
+        addCommentButton.click();
+        TopicViewPage topicViewPage = new TopicViewPage();
+        return topicViewPage;
     }
 }

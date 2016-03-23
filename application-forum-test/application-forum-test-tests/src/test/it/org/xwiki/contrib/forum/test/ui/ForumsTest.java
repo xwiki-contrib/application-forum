@@ -22,10 +22,7 @@ package org.xwiki.contrib.forum.test.ui;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.xwiki.contrib.forum.test.po.ForumEditPage;
-import org.xwiki.contrib.forum.test.po.ForumViewPage;
-import org.xwiki.contrib.forum.test.po.ForumsHomePage;
-import org.xwiki.contrib.forum.test.po.TopicAddElement;
+import org.xwiki.contrib.forum.test.po.*;
 import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
 import org.xwiki.test.ui.SuperAdminAuthenticationRule;
@@ -42,13 +39,17 @@ public class ForumsTest extends AbstractTest
     @Rule
     public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
 
-    private static final String FORUM_TITLE = "Forum 01";
+    private static final String FORUM_TITLE = "MyForum";
 
-    private static final String FORUM_DESCRIPTION = "Forum 01 Description";
+    private static final String FORUM_DESCRIPTION = "MyForum Description";
 
-    private static final String TOPIC_TITLE = "Topic 01";
+    private static final String TOPIC_TITLE = "MyTopic";
 
-    private static final String TOPIC_DESCRIPTION = "Topic 01 Description";
+    private static final String TOPIC_DESCRIPTION = "MyTopic Description";
+
+    private static final String TOPIC_ANSWER = "MyAnswer";
+
+    private static final String TOPIC_COMMENT = "MyComment";
 
     @Test
     public void testApplicationPanelLinksToForumsHomePage()
@@ -83,5 +84,18 @@ public class ForumsTest extends AbstractTest
         topicAddForm.getEditForm().setDescription(TOPIC_DESCRIPTION);
         forumViewPage = topicAddForm.clickAddTopicButton();
 
+        TopicViewPage topicViewPage = TopicViewPage.gotoPage();
+        Assert.assertEquals(TOPIC_TITLE, topicViewPage.getDocumentTitle());
+        Assert.assertEquals(TOPIC_DESCRIPTION, topicViewPage.getDescription());
+
+        // Create new answer
+        AnswerAddElement answerAddForm = topicViewPage.clickAddAnswerActivator();
+        answerAddForm.getEditForm().setAnswer(TOPIC_ANSWER);
+        topicViewPage = answerAddForm.clickAddAnswerButton();
+
+        // Create new comment
+        CommentAddElement commentAddForm = topicViewPage.clickAddCommentActivator();
+        commentAddForm.getEditForm().setComment(TOPIC_COMMENT);
+        topicViewPage = commentAddForm.clickAddCommentButton();
     }
 }

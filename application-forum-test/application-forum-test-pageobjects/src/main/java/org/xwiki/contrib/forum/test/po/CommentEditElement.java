@@ -24,50 +24,30 @@ import org.openqa.selenium.support.FindBy;
 import org.xwiki.test.ui.po.BaseElement;
 
 /**
- * Represents the Topic edit elements. This po is shared by TopicAddElement and TopicEditPage
+ * Represents the Answer edit elements. This po is shared by AnswerAddElement and AnswerEditPage
  * 
  * @version $Id$
- * @since 1.9.4
+ * @since 2.1
  */
-public class TopicEditElement extends BaseElement
+public class CommentEditElement extends BaseElement
 {
-    @FindBy(xpath = "//input[@name = 'title']")
-    private WebElement title;
-
-    @FindBy(id = "ForumCode.TopicClass_0_description")
-    private WebElement description;
+    @FindBy(id = "XWiki.XWikiComments_comment_TopicAnswer")
+    private WebElement comment;
 
     /**
-     * @return the topicTitle
+     * @return the comment
      */
-    public String getTitle()
+    public WebElement getComment()
     {
-        return title.getAttribute("Value");
+        return comment;
     }
 
     /**
-     * @param title the topicTitle to set
+     * @param comment to set
      */
-    public void setTitle(String givenTitle)
+    public void setComment(String givenComment)
     {
-        title.clear();
-        title.sendKeys(givenTitle);
-    }
-
-    /**
-     * @return the topicDescription
-     */
-    public WebElement getDescription()
-    {
-        return description;
-    }
-
-    /**
-     * @param description the topicDescription to set
-     */
-    public void setDescription(String givenDescription)
-    {
-        description.clear();
-        description.sendKeys(givenDescription);
+        comment.clear();
+        comment.sendKeys(givenComment);
     }
 }
