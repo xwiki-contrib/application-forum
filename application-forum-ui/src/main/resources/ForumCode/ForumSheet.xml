@@ -52,13 +52,13 @@
     &lt;/div&gt;
   {{/html}}
 #else
-  #initForum($$doc.space)
+  #initForum($doc.space)
   ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
   #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :prefixSpace')
   #set($topics = $services.query.xwql("from doc.object(ForumCode.TopicClass) as topic where $hierarchyCondition").bindValue('parent', $doc.fullName).bindValue('prefixSpace', "${doc.space}.%").execute())
+  #displayAlertsMessages()
   {{html clean='false'}}
     &lt;div class="forum"&gt;
-      #displayAlertsMessages()
       &lt;div class="forum-container"&gt;
         &lt;span class="forum-topics-nb" title="$services.localization.render('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt;
         &lt;div class="forum-description"&gt;
