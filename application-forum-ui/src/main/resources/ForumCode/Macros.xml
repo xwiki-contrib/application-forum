@@ -683,7 +683,7 @@
   #set ($topicComments = 0)
   #set ($topicAnswers = [])
   #getTopicAnswers($topic $topicSpace $topicAnswers)
-  #set ($notAllowed = ($services.ratings.getRating($topicDoc, $xcontext.user) != $util.null))
+  #set ($notAllowed = ($services.ratings.getRating($topicReference, $xcontext.user) != $util.null))
   #if ($topicAnswers)
     #foreach ($topicAnswer in $topicAnswers)
       #set ($answerDoc = $xwiki.getDocument($topicAnswer))
@@ -735,9 +735,9 @@
             #else
               #set ($voteAllowedClass = 'allow-vote')
             #end
-            &lt;div class="topic-vote $voteAllowedClass conversation-like" #if ($services.ratings.getRating($topicDoc, $xcontext.user) == $util.null) title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end&gt;
-              #set ($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
-              &lt;input type="hidden" name="documenttolike" value="$escapetool.xml($topicDoc.getFullName())" /&gt;
+            &lt;div class="topic-vote $voteAllowedClass conversation-like" #if ($services.ratings.getRating($topicReference, $xcontext.user) == $util.null) title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end&gt;
+              #set ($rating = $services.ratings.getAverageRating($topicReference).nbVotes)
+              &lt;input type="hidden" name="documenttolike" value="$escapetool.xml($topicReference)" /&gt;
               &lt;span class="conversation-score" title="$services.localization.render('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
             &lt;/div&gt;
           &lt;/span&gt;
@@ -767,6 +767,7 @@
   &lt;div class="answers"&gt;
     #if ($topicAnswers.size() &gt; 0)
       #foreach ($topicAnswer in $topicAnswers)
+        #set ($answerReference = $services.model.resolveDocument($topicAnswer))
         #set ($topicAnswerDoc = $xwiki.getDocument($topicAnswer))
         #set ($comments = $topicAnswerDoc.getComments())
         ## Compose a conversation id for the conversation from the document name only.
@@ -782,8 +783,8 @@
                 &lt;span class="user"&gt;$xwiki.getUserName($topicAnswerDoc.creator)&lt;/span&gt;
                 &lt;span class="time"&gt;$services.localization.render('conversation.updatedate', [$xwiki.formatDate($topicAnswerDoc.date)])&lt;/span&gt;
                 &lt;span class="votes conversation-ratings"&gt;
-                  &lt;span class="conversation-like" #if ($services.ratings.getRating($topicAnswerDoc, $xcontext.user) == $util.null)class="canVote" title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end &gt;
-                    &lt;input type="hidden" name="documenttolike" value="$topicAnswerDoc.fullName" /&gt;
+                  &lt;span class="conversation-like" #if ($services.ratings.getRating($answerReference, $xcontext.user) == $util.null)class="canVote" title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end &gt;
+                    &lt;input type="hidden" name="documenttolike" value="$escapetool.xml($answerReference)" /&gt;
                   &lt;/span&gt;
                 &lt;/span&gt;
                 &lt;span class="comments" objtype="nbComments" title="$services.localization.render('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size() $services.localization.render('conversations.comment.count')&lt;/span&gt;
@@ -963,10 +964,11 @@
         &lt;th class="comments"&gt;$services.localization.render('discussion.panel.comments')&lt;/th&gt;
       &lt;/tr&gt;
       #foreach ($topic in $topics)
+        #set ($topicReference = $services.model.resolveDocument($topic))
         #set ($topicDoc = $xwiki.getDocument($topic))  
         #if ($topicDoc)
           #set ($topicTitle = $topicDoc.title)
-          #set ($rating = $services.ratings.getAverageRating($topicDoc).nbVotes)
+          #set ($rating = $services.ratings.getAverageRating($topicReference).nbVotes)
           #set ($topicComments = 0)
           #set ($topicAnswers = [])
           #getTopicAnswers($topicDoc.fullName $topicDoc.space $topicAnswers)

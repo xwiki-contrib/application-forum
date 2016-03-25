@@ -29,27 +29,24 @@
   <parent>WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <author>xwiki:XWiki.Admin</author>
-  <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1394441508000</creationDate>
   <date>1394443814000</date>
   <contentUpdateDate>1394443814000</contentUpdateDate>
   <version>1.1</version>
   <title>Ratings</title>
-  <defaultTemplate/>
-  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity}}
-#set($rdoc = $xwiki.getDocument($request.doc))
-#if(!$isGuest &amp;&amp; "$!{request.vote}" == "1")
-  #set($ok = $services.ratings.setRating($rdoc, $xcontext.user, 1))
-#end  
-#set($ar = $services.ratings.getAverageRating($rdoc))
-#set($nbVotes = $ar.nbVotes)
+#set($docRef = $request.docRef)
+#if(!$isGuest &amp;&amp; "$!{request.vote}" == '1')
+  #set($discard = $services.ratings.setRating($docRef, $xcontext.user, 1))
+#end
+#set($avgRating = $services.ratings.getAverageRating($docRef))
+#set($nbVotes = $avgRating.nbVotes)
 $response.setContentType('application/json')
-{"totalvotes" : "${nbVotes}" }
+{'totalvotes' : "$!{nbVotes}" }
 {{/velocity}}</content>
 </xwikidoc>
