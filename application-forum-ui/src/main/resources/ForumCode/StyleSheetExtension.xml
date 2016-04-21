@@ -310,6 +310,7 @@ XWIKI STYLES
 
 .forum-description {
   padding: 10px;
+  overflow: auto;
 }
 
 /* Sorting of topics
@@ -504,7 +505,7 @@ Topic Metadata
 
 .topics .topic-description {
   max-height: 3.2em;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .topic-description {
