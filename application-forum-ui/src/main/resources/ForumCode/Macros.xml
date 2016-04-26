@@ -409,7 +409,7 @@
 #macro(createUniquePageReference $space $name $namePrefix $uniquePageReference)
   #set ($spaceReference = $services.model.resolveSpace($space))
   #set ($parentSpace = $spaceReference.parent)
-  #set ($uniquePageName = "${name}_${util.date.time}_${mathtool.random(1, 99)}")
+  #set ($uniquePageName = "${name}_${datetool.date.time}_${mathtool.random(1, 99)}")
   #set ($uniqueSpaceReference = $services.model.createSpaceReference($uniquePageName, $spaceReference))
   #set ($uniquePageReference = $services.model.createDocumentReference('WebHome', $uniqueSpaceReference))
 #end
@@ -814,9 +814,9 @@
               #if ($comments.size() &gt; 0)
                 #set ($rootKey = '-1')
                 #set ($commentThreads = $collectionstool.map)
-                #set ($discard = $commentThreads.put($rootKey, $util.arrayList))
+                #set ($discard = $commentThreads.put($rootKey, []))
                 #foreach ($comment in $comments)
-                  #set ($discard = $commentThreads.put("${comment.number}", $util.arrayList))
+                  #set ($discard = $commentThreads.put("${comment.number}", []))
                 #end
                 #foreach ($comment in $comments)
                   #addCommentToThreads($comment, $commentThreads, $rootKey)
