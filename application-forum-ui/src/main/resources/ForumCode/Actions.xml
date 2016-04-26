@@ -77,17 +77,6 @@
           ## We add a XWiki.AverageRatingsClass object to simplify sorting topics by votes
           ## when some topics don't have any votes.
           #set($averageObj = $topicDoc.newObject('XWiki.AverageRatingsClass'))
-<<<<<<< HEAD
-          $averageObj.set('nbvotes', 0)
-          ##$averageObj.set('averagevote', 0.0)
-          $averageObj.set('method', 'average')
-          $topicDoc.setTitle($topicTitle)
-          $topicDoc.setParent("$!request.parent")
-          $topicDoc.setHidden(true)
-          #set($discard = $topicDoc.saveWithProgrammingRights())
-          #if("$!request.xredirect" != "")
-            $response.sendRedirect("$!request.xredirect")
-=======
           #set($discard = $averageObj.set('nbvotes', 0))
           #set($discard = $averageObj.set('method', 'average'))
           #set($discard = $topicDoc.setTitle($topicTitle))
@@ -96,7 +85,6 @@
           #set($discard = $topicDoc.saveWithProgrammingRights())
           #if("$!request.xredirect" != '')
             #set($discard = $response.sendRedirect("$!request.xredirect"))
->>>>>>> d9d860f... [Misc] Code clean
           #end
         #else
           #set($discard = $response.setStatus(403))
@@ -204,14 +192,9 @@
           #elseif($isAnswer)
             #set($deleteAction = 'answer')
           #end
-<<<<<<< HEAD
-          #set($map = { "action" : "$deleteAction" , "deleted_content": "$!{itemRepresentation}"})
-         #set ($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', $map))
-=======
           #set($deletedDoc = $conversationDoc))
           #set($map = { 'action' : "$deleteAction" , 'deleted_content' : "$!{itemRepresentation}", 'deletedDoc' : "$!{deletedDoc}"})
           #set($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', $map))
->>>>>>> d9d860f... [Misc] Code clean
           #if ($result != 0)
             #set($mailsent = '0')
           #end
