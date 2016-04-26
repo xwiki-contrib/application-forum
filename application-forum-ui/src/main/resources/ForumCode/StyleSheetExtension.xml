@@ -42,7 +42,7 @@
   <content/>
   <attachment>
     <filename>conversation-alert.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -51,7 +51,7 @@
   </attachment>
   <attachment>
     <filename>conversation-feedback.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -60,7 +60,7 @@
   </attachment>
   <attachment>
     <filename>conversation-like.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -69,7 +69,7 @@
   </attachment>
   <attachment>
     <filename>conversation-question.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -78,7 +78,7 @@
   </attachment>
   <attachment>
     <filename>conversation-replies.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -87,7 +87,7 @@
   </attachment>
   <attachment>
     <filename>conversation-suggestion.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -96,7 +96,7 @@
   </attachment>
   <attachment>
     <filename>forums.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -105,7 +105,7 @@
   </attachment>
   <attachment>
     <filename>home.png</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
@@ -114,7 +114,7 @@
   </attachment>
   <attachment>
     <filename>mainbg.jpg</filename>
-    <author>XWiki.Admin</author>
+    <author>xwiki:XWiki.Admin</author>
     <date>1400156985000</date>
     <version>1.1</version>
     <comment/>
