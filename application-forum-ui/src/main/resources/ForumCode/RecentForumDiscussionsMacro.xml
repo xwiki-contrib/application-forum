@@ -303,11 +303,7 @@
     #end
   #else
     ## Answers
-    #if ($supportsNS)
-      #set ($topic = $document.documentReference.parent)
-    #else
-      #set ($topic = $document.parent)
-    #end
+    #set ($topic = $document.documentReference.parent)
     #set ($topicTitle = $xwiki.getDocument($topic).title)
     #if ($document.version == '1.1')
       #set ($action = 'createdAnswerOnTopic')

@@ -409,16 +409,9 @@
 #macro(createUniquePageReference $space $name $namePrefix $uniquePageReference)
   #set ($spaceReference = $services.model.resolveSpace($space))
   #set ($parentSpace = $spaceReference.parent)
-  ## check if the forum is migrated by checking if the XWiki version is Nested Spaces and if the 
-  ## forum's parent of if the topic's paren't parent is the space called 'Forums' 
-  #if ($supportsNS &amp;&amp; ($parentSpace.type == 'SPACE' &amp;&amp; $parentSpace.name == 'Forums') || ($parentSpace.parent.type == 'SPACE' &amp;&amp; $parentSpace.parent.name == 'Forums'))
-    #set ($uniquePageName = "${name}_${util.date.time}_${mathtool.random(1, 99)}")
-    #set ($uniqueSpaceReference = $services.model.createSpaceReference($uniquePageName, $spaceReference))
-    #set ($uniquePageReference = $services.model.createDocumentReference('WebHome', $uniqueSpaceReference))
-  #else
-    #set ($uniquePageName = $xwiki.getUniquePageName($space, "${namePrefix}${name}"))
-    #set ($uniquePageReference = $services.model.createDocumentReference($doc.wiki, $space, $uniquePageName))
-  #end
+  #set ($uniquePageName = "${name}_${util.date.time}_${mathtool.random(1, 99)}")
+  #set ($uniqueSpaceReference = $services.model.createSpaceReference($uniquePageName, $spaceReference))
+  #set ($uniquePageReference = $services.model.createDocumentReference('WebHome', $uniqueSpaceReference))
 #end
 ###
 #macro(displayTopicAddForm $space)
@@ -1014,14 +1007,9 @@
  * Init Froum after creation
  *#
 #macro(initForum $forumSpaceName)
-  #if ($supportsNS)
-    #set ($forumSpaceReference = $services.model.resolveSpace($forumSpaceName))
-    #set ($spacePreferencesRef = $services.model.createDocumentReference('WebPreferences', $forumSpaceReference))
-    #set ($webHomeRef = $services.model.createDocumentReference('WebHome', $forumSpaceReference))
-  #else
-    #set ($spacePreferencesRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebPreferences'))
-    #set ($webHomeRef = $services.model.createDocumentReference('', $forumSpaceName, 'WebHome'))
-  #end
+  #set ($forumSpaceReference = $services.model.resolveSpace($forumSpaceName))
+  #set ($spacePreferencesRef = $services.model.createDocumentReference('WebPreferences', $forumSpaceReference))
+  #set ($webHomeRef = $services.model.createDocumentReference('WebHome', $forumSpaceReference))
   #if (!$xwiki.exists($spacePreferencesRef))
     ## Hide WebHome of current forum
     #set ($webHomeDoc = $xwiki.getDocument($webHomeRef))
