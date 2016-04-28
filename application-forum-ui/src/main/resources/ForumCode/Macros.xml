@@ -1048,7 +1048,7 @@
   #if ($xcontext.action != 'view')
     #set ($discard = $xwiki.jsx.use('ForumCode.Macros'))
     #set ($titleErrorKey = $errorkey)
-      &lt;!-- Validate form with Groovy --&gt;
+      ## Validate form with Groovy
       &lt;input type="hidden" name="xvalidate" value="1" /&gt;
       &lt;input type="hidden" name="xvalidation" value="ForumCode.ValidateTitle" /&gt;
     #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
