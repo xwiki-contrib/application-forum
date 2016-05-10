@@ -10,7 +10,7 @@ This is a new forum application with powerful features:
 - Ordering topics by number of comments or votes
 - Editing all fields (topics, answers, comments) in Wysiwyg including Images and Macros
 - Admin or Topic Manager forum/topic/answer/comment deleting
-- Flagging innappropriate content with Flag queue for moderators
+- Flagging inappropriate content with Flag queue for moderators
 - Slick UI
 
 * Project Lead: [Alexandru Cotiugă](http://www.xwiki.org/xwiki/bin/view/XWiki/acotiuga)
