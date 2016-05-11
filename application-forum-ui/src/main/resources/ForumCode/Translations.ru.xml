@@ -40,130 +40,7 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>## Classes
-ForumCode.TopicClass_title=Название
-ForumCode.TopicClass_type=Тип
-ForumCode.TopicClass_type_question=Вопрос
-ForumCode.TopicClass_type_suggestion=Предложение
-ForumCode.TopicClass_type_alert=Тревога
-ForumCode.TopicClass_type_feedback=Обратная связь
-ForumCode.TopicClass_status=Статус
-ForumCode.TopicClass_status_inprogress=В процессе
-ForumCode.TopicClass_status_closed=Закрыт
-ForumCode.TopicClass_status_integrated=Доступен
-ForumCode.TopicClass_description=Описание
 ForumCode.AnswerClass_answer=Ответ
-
-## Forums
-conversations.forum.tooltip.totaltopics=Всего тем
-conversations.forum.create=Новый форум
-conversations.forum.create.alreadyexists=Такой форум уже существует : [[{0}&gt;&gt;ForumCode.{1}]]
-conversations.forum.create.submit=Создать
-conversations.forum.sorttopicsby=Сортировать темы по
-conversations.forum.sorttopicsby.date=Дате
-conversations.forum.sorttopicsby.votes=Голосам
-conversations.forum.sorttopicsby.comments=Комментариям
-conversations.titleError=Название не может быть больше 250 символов
-conversations.forum.title=Название
-conversations.forum.description=Описание
-conversations.forum.edit=Редактировать тему
-conversations.forum.delete=Удалить тему
-conversations.forum.more=Показать еще {0}
-forum.admin.action.delete.confiramtion_text=Удалить этот форум?
-forum.admin.action.delete.inprogress=Удаление...
-forum.admin.action.delete.success=Форум удален 
-forum.admin.action.delete.failed=Форум удалить не удалось
-
-
-## Topics
-conversations.topic.tooltip.totalcommentsandanswers=Всего ответов и комментариев
-conversations.topic.tooltip.totalanswers=Всего ответов
-conversations.topic.answer.tooltip.totalcomments=Всего комментариев к ответу
-conversations.topic.create=Новая тема
-conversations.topic.create.submit=Создать
-conversations.topic.count=темы
-conversations.topic.delete.confirm.withReplies=Удалить эту тему и свои ответы?
-
-## Answers
-conversations.title=Обсуждение
-conversation.add.activator=Ответ
-conversation.delete.confirm=Удалить тему?
-conversation.delete.confirm.withReplies=Удалить эту тему и все комментарии к ней?
-conversation.delete.done=Обсуждение удалено
-conversation.delete.success=Обсуждение удалено
-conversation.delete.failed=Обсуждение не может быть удалено
-conversation.delete.inProgress=Удаление ...
-conversation.edit=Редактировать
-conversation.edit.failed=Форма создания обсуждения не может быть показана
-conversation.delete=Удалить
-conversation.delete.title=Удалить это обсуждение
-conversation.edit.title=Изменить параметры обсуждения
-conversation.empty=Нет сообщений
-conversation.forum.delete.title=Удалить тему
-conversation.updatedate={0}
-conversation.creationdate={1}
-conversation.groups.norights=Вы должны быть членом группы, чтобы участвовать в этом обсуждении. Пожалуйста, свяжитесь с администратором группы.
-conversation.norights=У вас нет прав доступа для участия в этом обсуждении.
-conversations.answer.edit=Ответ на тему {0}
-conversations.answer=Ответ
-conversations.answer.count=ответов
-
-## Comments
-conversations.comment.count=Комментариям
-
-## Votes
-conversation.like.button=Голоса
-conversation.like.button.tooltip=Проголосовать за тему
-conversation.like.button.alreadyliked.tooltip=Вы уже голосовали
-conversation.like.score.tooltip={0} пользователей находят это обсуждение интересным.
-conversation.like.failed=Голос не может быть сохранен:
-conversation.like.done=Ваш голос сохранен.
-conversation.like.loading=Голос сохраняется...
-rating.saveexception=Ошибка в процессе сохранения голоса.
-rating.votenotvalid=Голос не допустим.
-rating.voteoutofbounds=Голос не допустим.
-
-## Permalink
-conversation.permalink.tooltip=Постоянная ссылка
-conversation.permalink=Постоянная ссылка
-
-## Livetable
-conversations.doc.title=Название
-conversations.doc.date=Дата
-conversations.doc.creator=Создатель
-conversations.actions=Действия
-conversations._avatar=Аватар
-
-## Messages
-conversations.create.error.topic.norights=У вас нет прав для создания новых тем.
-conversations.create.error.answer.norights=У вас нет прав для создания новых ответов.
-conversations.create.error.missingmetadata=Создание не может быть выполнено из за отсутсвия метаданных.
-conversations.create.error.missingtitle=Отсутвует название..
-conversations.deleteconversation.changecomment=Удалить разговор
-conversations.deletecomment.changecomment=Удаленный комментарий
-conversations.deletecomment.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении разговора.
-conversations.deletecomment.success=Письмо с уведомлением об удалении комментария было отправлено.
-conversations.deletecomment.error.norights=У вас нет прав на удаление комментария.
-conversations.deletecomment.error.notfound=Сообщение не найдено.
-conversations.deleteconversation.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении ответа.
-conversations.deleteconversation.error.norights=У вас нет прав на удаление ответа.
-conversations.deleteconversation.error.notfound=Ответ не найден.
-core.viewers.comments.delete.failed=Комментарий не может быть удален.
-
-## FLAG DIALOG
-conversation.flag.tooltip=Отметка
-conversations.flag.edit=Редактировать
-conversations.flag.button=Отметка
-conversations.flag.viewsource=Посмотреть источник отметки
-conversations.flag.dialog.header=Отметить сообщение
-conversations.flag.dialog.guidingquestion1.txt=Что будет, если отметить сообщение?
-conversations.flag.dialog.instruction1.txt=Вы отправили поток сообщений для оценки Администратору.
-conversations.flag.dialog.guidingquestion2.txt=Почему вы отмечаете это обсуждение?
-conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
-conversations.flag.dialog.instruction2.txt=Я отмечаю этот комментарий потому, что
-conversations.flag.dialog.instruction3.txt=Пожалуйста, поясните что делает это сообщение некорректным (не более 300 символов):
-conversations.flag.dialog.cancel.btt=Отмена
-conversations.flag.dialog.submit.btt=Отправить
-## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Выберите
 ForumCode.FlagClass_reason_1=пpопаганда ненависти или насилия
 ForumCode.FlagClass_reason_2=порнография
@@ -171,44 +48,139 @@ ForumCode.FlagClass_reason_3=пустое сообщение
 ForumCode.FlagClass_reason_4=коммерческое сообщение, которое не соответсвует теме
 ForumCode.FlagClass_reason_5=нечитаемое сообщение
 ForumCode.FlagClass_reason_6=нонсенс
-ForumCode.FlagClass_reason_7=некорректно по другим причинам
-## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Статус
-ForumCode.FlagClass_status_open=Oткрытый
 ForumCode.FlagClass_status_inprogress=В процессе
+ForumCode.FlagClass_status_open=Oткрытый
 ForumCode.FlagClass_status_resolved=Pешены
-## FLAG SUCCESS MESSAGE
-conversations.flag.success.dialog.header=Обсуждение отмечено
-conversations.flag.success.dialog.message=Вы успешно отметили это сообщение.
-conversations.flag.success.dialog.button=Закрыть
-## FLAG livetable
-conversations.flag.reason=Причина
-conversations.flag.user=Пользователь
+ForumCode.TopicClass_description=Описание
+ForumCode.TopicClass_status=Статус
+ForumCode.TopicClass_status_closed=Закрыт
+ForumCode.TopicClass_status_inprogress=В процессе
+ForumCode.TopicClass_status_integrated=Доступен
+ForumCode.TopicClass_title=Название
+ForumCode.TopicClass_type=Тип
+ForumCode.TopicClass_type_alert=Тревога
+ForumCode.TopicClass_type_feedback=Обратная связь
+ForumCode.TopicClass_type_question=Вопрос
+ForumCode.TopicClass_type_suggestion=Предложение
+conversation.add.activator=Ответ
+conversation.creationdate={1}
+conversation.delete=Удалить
+conversation.delete.confirm=Удалить тему?
+conversation.delete.confirm.withReplies=Удалить эту тему и все комментарии к ней?
+conversation.delete.done=Обсуждение удалено
+conversation.delete.failed=Обсуждение не может быть удалено
+conversation.delete.inProgress=Удаление ...
+conversation.delete.success=Обсуждение удалено
+conversation.delete.title=Удалить это обсуждение
+conversation.edit=Редактировать
+conversation.edit.failed=Форма создания обсуждения не может быть показана
+conversation.edit.title=Изменить параметры обсуждения
+conversation.empty=Нет сообщений
+conversation.flag.tooltip=Отметка
+conversation.forum.delete.title=Удалить тему
+conversation.groups.norights=Вы должны быть членом группы, чтобы участвовать в этом обсуждении. Пожалуйста, свяжитесь с администратором группы.
+conversation.like.button=Голоса
+conversation.like.button.alreadyliked.tooltip=Вы уже голосовали
+conversation.like.button.tooltip=Проголосовать за тему
+conversation.like.done=Ваш голос сохранен.
+conversation.like.failed=Голос не может быть сохранен\:
+conversation.like.loading=Голос сохраняется...
+conversation.like.score.tooltip={0} пользователей находят это обсуждение интересным.
+conversation.norights=У вас нет прав доступа для участия в этом обсуждении.
+conversation.permalink=Постоянная ссылка
+conversation.permalink.tooltip=Постоянная ссылка
+conversation.updatedate={0}
+conversations._avatar=Аватар
+conversations.actions=Действия
+conversations.addthis.desc={0}
+conversations.addthis.title={0} \#xwikiforum
+conversations.answer=Ответ
+conversations.answer.count=ответов
+conversations.answer.edit=Ответ на тему {0}
+conversations.comment.count=Комментариям
+conversations.create.error.answer.norights=У вас нет прав для создания новых ответов.
+conversations.create.error.missingmetadata=Создание не может быть выполнено из за отсутсвия метаданных.
+conversations.create.error.missingtitle=Отсутвует название..
+conversations.create.error.topic.norights=У вас нет прав для создания новых тем.
+conversations.deletecomment.changecomment=Удаленный комментарий
+conversations.deletecomment.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении разговора.
+conversations.deletecomment.error.norights=У вас нет прав на удаление комментария.
+conversations.deletecomment.error.notfound=Сообщение не найдено.
+conversations.deletecomment.success=Письмо с уведомлением об удалении комментария было отправлено.
+conversations.deleteconversation.changecomment=Удалить разговор
+conversations.deleteconversation.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении ответа.
+conversations.deleteconversation.error.norights=У вас нет прав на удаление ответа.
+conversations.deleteconversation.error.notfound=Ответ не найден.
+conversations.doc.creator=Создатель
+conversations.doc.date=Дата
+conversations.doc.title=Название
+conversations.flag._actions=Действия
+conversations.flag.button=Отметка
+conversations.flag.dialog.cancel.btt=Отмена
+conversations.flag.dialog.guidingquestion1.txt=Что будет, если отметить сообщение?
+conversations.flag.dialog.guidingquestion2.txt=Почему вы отмечаете это обсуждение?
+conversations.flag.dialog.header=Отметить сообщение
+conversations.flag.dialog.instruction1.txt=Вы отправили поток сообщений для оценки Администратору.
+conversations.flag.dialog.instruction2.txt=Я отмечаю этот комментарий потому, что
+conversations.flag.dialog.instruction3.txt=Пожалуйста, поясните что делает это сообщение некорректным (не более 300 символов)\:
+conversations.flag.dialog.required.field.icon=&lt;em class\="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.submit.btt=Отправить
 conversations.flag.doc.creationDate=Дата
+conversations.flag.edit=Редактировать
+conversations.flag.emptyvalue=-
+conversations.flag.list.instructions=Это список отмеченных сообщений
+conversations.flag.list.title=Список отметок
 conversations.flag.message=Сообщение
 conversations.flag.moderator=Модератор
+conversations.flag.reason=Причина
 conversations.flag.status=Статус
-conversations.flag._actions=Действия
-conversations.flag.target=Цель
-conversations.flag.emptyvalue=-
-conversations.flag.list.title=Список отметок
-conversations.flag.list.instructions=Это список отмеченных сообщений
+conversations.flag.success.dialog.button=Закрыть
 conversations.flag.success.dialog.goback=Вернуться к обсуждению
-conversations.addthis.title={0} #xwikiforum
-conversations.addthis.desc={0}
-
-## most active discussions
-discussion.panel.title=Популярные темы
-discussion.panel.sortby=По:
-discussion.panel.dates=Датам
-discussion.panel.votes=Голосам
+conversations.flag.success.dialog.header=Обсуждение отмечено
+conversations.flag.success.dialog.message=Вы успешно отметили это сообщение.
+conversations.flag.target=Цель
+conversations.flag.user=Пользователь
+conversations.flag.viewsource=Посмотреть источник отметки
+conversations.forum.create=Новый форум
+conversations.forum.create.alreadyexists=Такой форум уже существует \: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Создать
+conversations.forum.delete=Удалить тему
+conversations.forum.description=Описание
+conversations.forum.edit=Редактировать тему
+conversations.forum.more=Показать еще {0}
+conversations.forum.sorttopicsby=Сортировать темы по
+conversations.forum.sorttopicsby.comments=Комментариям
+conversations.forum.sorttopicsby.date=Дате
+conversations.forum.sorttopicsby.votes=Голосам
+conversations.forum.title=Название
+conversations.forum.tooltip.totaltopics=Всего тем
+conversations.title=Обсуждение
+conversations.titleError=Название не может быть больше 250 символов
+conversations.topic.answer.tooltip.totalcomments=Всего комментариев к ответу
+conversations.topic.count=темы
+conversations.topic.create=Новая тема
+conversations.topic.create.submit=Создать
+conversations.topic.delete.confirm.withReplies=Удалить эту тему и свои ответы?
+conversations.topic.tooltip.totalanswers=Всего ответов
+conversations.topic.tooltip.totalcommentsandanswers=Всего ответов и комментариев
+core.viewers.comments.delete.failed=Комментарий не может быть удален.
 discussion.panel.comments=Коммент.
-discussion.panel.topics=Темы
+discussion.panel.dates=Датам
+discussion.panel.sortby=По\:
 discussion.panel.subscribe=Подписать
-discussion.panel.text1=В курсе последних записей которые были подписаны на:
+discussion.panel.text1=В курсе последних записей которые были подписаны на\:
 discussion.panel.text2=или
-
-## applications panel entry
+discussion.panel.title=Популярные темы
+discussion.panel.topics=Темы
+discussion.panel.votes=Голосам
+forum.admin.action.delete.confiramtion_text=Удалить этот форум?
+forum.admin.action.delete.failed=Форум удалить не удалось
+forum.admin.action.delete.inprogress=Удаление...
+forum.admin.action.delete.success=Форум удален 
 forum.applicationsPanelEntryLabel=Форумы
+rating.saveexception=Ошибка в процессе сохранения голоса.
+rating.votenotvalid=Голос не допустим.
+rating.voteoutofbounds=Голос не допустим.
 </content>
 </xwikidoc>
