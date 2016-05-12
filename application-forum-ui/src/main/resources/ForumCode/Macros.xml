@@ -740,12 +740,14 @@
         #if ($withdetails)
           &lt;div class="topic-moderation"&gt;
             #if (($topicDoc.creator==$xcontext.user) || $doc.creator == $xcontext.user || $hasAdmin)
-              ## edit
-              &lt;a class="edit" href="$topicDoc.getURL('edit')" title="$services.localization.render('conversations.forum.edit')"&gt;$services.localization.render('conversations.forum.edit')&lt;/a&gt;
-              #set ($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
-              #set ($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
-              ## delete
-              &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$services.localization.render('conversation.forum.delete.title')"&gt;$services.localization.render('conversation.forum.delete')&lt;/a&gt;
+              &lt;div id="moderation-buttons"&gt;
+                ## edit
+                &lt;a class="edit" href="$topicDoc.getURL('edit')" title="$services.localization.render('conversations.forum.edit')"&gt;$services.localization.render('conversations.forum.edit')&lt;/a&gt;
+                #set ($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
+                #set ($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
+                ## delete
+                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$services.localization.render('conversation.forum.delete.title')"&gt;$services.localization.render('conversations.forum.delete')&lt;/a&gt;
+              &lt;/div&gt;
             #end
           &lt;/div&gt;
         #end

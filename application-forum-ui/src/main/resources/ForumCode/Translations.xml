@@ -243,7 +243,41 @@ recent.forum.discussions.seeAllDiscussions=See all discussions
 
 ## rendering macro
 rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
-</content>
+
+## TOURS
+## Forums homepage tour
+tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
+tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag the inappropriate content.
+tour.forumsHomepageTour.addForum.title=Add Forum
+tour.forumsHomepageTour.addForum.content=Create a new Forum.
+tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
+tour.forumsHomepageTour.forumsLivetable.content=See all the Forums. Check the possible actions: sort, filter, edit, delete.
+tour.forumsHomepageTour.mostActiveTopics.title=Most Active Topics
+tour.forumsHomepageTour.mostActiveTopics.content=This panel displays the most active topics in terms of votes and comments. Topics can be sorted by date, number of votes and number of comments. Click the related button to order ascending/descending. Subscribe to get the latest information about Topics!
+## Forum Tour
+tour.forumTour.forumDetails.title=Forum details
+tour.forumTour.forumDetails.content=Existing information: Forum description, creator, creation date, number of topics and number of votes.
+tour.forumTour.addTopic.title=Add Topic
+tour.forumTour.addTopic.content=Create a new Topic.
+tour.forumTour.sortTopics.title=Sort Topics
+tour.forumTour.sortTopics.content=Topics can be sorted by date, number of votes or number of comments. Click the related button and then change the ascendant/descending order.
+tour.forumTour.listOfTopics.title=List of Topics
+tour.forumTour.listOfTopics.content=See all the Topics. Existing information: Topic name, description, creator, creation date, number of answers, number of comments and number of votes.
+## Topic Tour
+tour.topicTour.topicDetails.title=Topic details
+tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
+tour.topicTour.flagAndPermalink.title=Flag and Permalink
+tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL. 
+tour.topicTour.socialMedia.title=Share to Social Media
+tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
+tour.topicTour.topicModeration.title=Topic moderation
+tour.topicTour.topicModeration.content=Here are the edit and delete buttons.
+tour.topicTour.vote.title=Vote
+tour.topicTour.vote.content=Topic vote.
+tour.topicTour.addAnswer.title=Add Answer
+tour.topicTour.addAnswer.content=Create a new Answer.
+tour.topicTour.listOfAnswers.title=List of Answers
+tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.</content>
   <object>
     <name>ForumCode.Translations</name>
     <number>0</number>
