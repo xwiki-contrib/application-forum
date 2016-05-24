@@ -37,7 +37,7 @@ import org.xwiki.test.ui.po.ViewPage;
 public class ForumsTest extends AbstractTest
 {
     @Rule
-    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil(), getDriver());
+    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil());
 
     private static final String FORUM_TITLE = "MyForum";
 
