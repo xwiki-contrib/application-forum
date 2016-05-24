@@ -45,7 +45,7 @@
       <groupId>org.xwiki.contrib</groupId>
       <artifactId>application-tour-ui</artifactId>
       <type>xar</type>
-      <version>1.0</version>
+      <version>1.0.1</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
