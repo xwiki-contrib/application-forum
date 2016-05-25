@@ -19,6 +19,8 @@
  */
 package org.xwiki.contrib.forum.test.po;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.xwiki.test.ui.po.ViewPage;
@@ -39,6 +41,13 @@ public class ForumsHomePage extends ViewPage
 
     @FindBy(xpath = "//div[@id = 'entryNamePopup']//input[@type = 'image']")
     private WebElement addForumEntryButton;
+
+
+    @FindBy(xpath = "//tbody[@id='forums-display']//tr")
+    private List<WebElement> forums;
+
+    @FindBy(className = "xnotification-done")
+    private WebElement notification;
 
     /**
      * Opens the home page.
@@ -97,5 +106,25 @@ public class ForumsHomePage extends ViewPage
     {
         this.addForumEntryButton.click();
         return new ForumEditPage();
+    }
+
+    public void deleteForumPage(String forumName)
+    {
+        for (WebElement row : forums) {
+            WebElement name = row.findElement(By.xpath("//td[contains(@class, 'doc_title')]/a"));
+            if (forumName.equals(name.getText())) {
+                row.findElement(By.xpath("//a[contains(@class, 'deleteforum') and contains(@space, 'Forums.MyForum')]"))
+                    .click();
+                getDriver().findElement(By.cssSelector(".xdialog-box-confirmation [value = 'Yes']")).click();
+            }
+        }
+    }
+
+    /**
+     * @return the value of the notification
+     */
+    public String getNotification()
+    {
+        return notification.getText();
     }
 }

@@ -62,7 +62,7 @@ public class ForumsTest extends AbstractTest
     }
 
     @Test
-    public void testCreateForumEntities()
+    public void testCreateForumEntities() throws Exception
     {
         // Create new forum
         ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
@@ -97,5 +97,17 @@ public class ForumsTest extends AbstractTest
         CommentAddElement commentAddForm = topicViewPage.clickAddCommentActivator();
         commentAddForm.getEditForm().setComment(TOPIC_COMMENT);
         topicViewPage = commentAddForm.clickAddCommentButton();
+
+        cleanUp(FORUM_TITLE);    
+    }
+
+    private void cleanUp(String page) throws Exception
+    {
+        ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
+        forumsHomePage.deleteForumPage(page);
+
+        // Verify that the forum has been deleted.
+        Assert.assertTrue(forumsHomePage.getNotification().contains("Forum deleted"));
+
     }
 }
