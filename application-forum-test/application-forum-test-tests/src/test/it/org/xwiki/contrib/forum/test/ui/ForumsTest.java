@@ -48,10 +48,6 @@ public class ForumsTest extends AbstractTest
 
     private static final String TOPIC_DESCRIPTION = "MyTopic Description";
 
-    private static final String TOPIC_ANSWER = "MyAnswer";
-
-    private static final String TOPIC_COMMENT = "MyComment";
-
     @Test
     public void testApplicationPanelLinksToForumsHomePage()
     {
@@ -91,19 +87,9 @@ public class ForumsTest extends AbstractTest
         topicAddForm.getEditForm().setDescription(TOPIC_DESCRIPTION);
         forumViewPage = topicAddForm.clickAddTopicButton();
 
-        TopicViewPage topicViewPage = TopicViewPage.gotoPage();
-        Assert.assertEquals(TOPIC_TITLE, topicViewPage.getDocumentTitle());
-        Assert.assertEquals(TOPIC_DESCRIPTION, topicViewPage.getDescription());
-
-        // Create new answer
-        AnswerAddElement answerAddForm = topicViewPage.clickAddAnswerActivator();
-        answerAddForm.getEditForm().setAnswer(TOPIC_ANSWER);
-        topicViewPage = answerAddForm.clickAddAnswerButton();
-
-        // Create new comment
-        CommentAddElement commentAddForm = topicViewPage.clickAddCommentActivator();
-        commentAddForm.getEditForm().setComment(TOPIC_COMMENT);
-        topicViewPage = commentAddForm.clickAddCommentButton();
+        // TODO: Test the visit on Topic page + creation of Answers and Comments after
+        // http://jira.xwiki.org/browse/XAFORUM-222 is fixed
+        // Topic page can't be visited due the fact that the name contains timestamp(no static value can be taken).
 
         cleanUp(FORUM_TITLE);    
     }
