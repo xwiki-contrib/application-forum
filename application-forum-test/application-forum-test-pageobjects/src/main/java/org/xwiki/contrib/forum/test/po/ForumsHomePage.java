@@ -21,6 +21,7 @@ package org.xwiki.contrib.forum.test.po;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.xwiki.test.ui.po.ViewPage;
@@ -42,6 +43,18 @@ public class ForumsHomePage extends ViewPage
     @FindBy(xpath = "//div[@id = 'entryNamePopup']//input[@type = 'image']")
     private WebElement addForumEntryButton;
 
+    // Forums homepage tour steps
+    @FindBy(css = "#step-0 [data-role = 'next']")
+    private WebElement step_0;
+
+    @FindBy(css = "#step-1 [data-role = 'next']")
+    private WebElement step_1;
+
+    @FindBy(css = "#step-2 [data-role = 'next']")
+    private WebElement step_2;
+
+    @FindBy(css = "#step-3 [data-role = 'end']")
+    private WebElement step_3;
 
     @FindBy(xpath = "//tbody[@id='forums-display']//tr")
     private List<WebElement> forums;
@@ -106,6 +119,17 @@ public class ForumsHomePage extends ViewPage
     {
         this.addForumEntryButton.click();
         return new ForumEditPage();
+    }
+
+    /**
+     * Navigates through the Forums homepage tour
+     */
+    public void viewTour()
+    {
+        step_0.click();
+        step_1.click();
+        step_2.click();
+        step_3.click();
     }
 
     public void deleteForumPage(String forumName)

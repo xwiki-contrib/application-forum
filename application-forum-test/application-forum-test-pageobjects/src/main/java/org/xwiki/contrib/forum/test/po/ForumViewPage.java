@@ -37,6 +37,19 @@ public class ForumViewPage extends ViewPage
     @FindBy(css = ".forum-description")
     private WebElement description;
 
+    // Tour steps
+    @FindBy(css = "#step-0 [data-role = 'next']")
+    private WebElement step_0;
+
+    @FindBy(css = "#step-1 [data-role = 'next']")
+    private WebElement step_1;
+
+    @FindBy(css = "#step-2 [data-role = 'next']")
+    private WebElement step_2;
+
+    @FindBy(css = "#step-3 [data-role = 'end']")
+    private WebElement step_3;
+
     /**
      * @return the form to enter new Topic
      */
@@ -53,5 +66,16 @@ public class ForumViewPage extends ViewPage
     public String getDescription()
     {
         return description.getText();
+    }
+
+    /**
+     * Navigates through the Forum tour
+     */
+    public void viewTour()
+    {
+        step_0.click();
+        step_1.click();
+        step_2.click();
+        step_3.click();
     }
 }

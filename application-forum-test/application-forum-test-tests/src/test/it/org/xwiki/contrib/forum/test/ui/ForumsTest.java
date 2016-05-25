@@ -22,6 +22,7 @@ package org.xwiki.contrib.forum.test.ui;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.xwiki.contrib.forum.test.po.*;
 import org.xwiki.panels.test.po.ApplicationsPanel;
 import org.xwiki.test.ui.AbstractTest;
@@ -64,8 +65,11 @@ public class ForumsTest extends AbstractTest
     @Test
     public void testCreateForumEntities() throws Exception
     {
-        // Create new forum
         ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
+        // View Forums homepage tour
+        forumsHomePage.viewTour();
+        waitUntilTourDisappears();
+        // Create new forum
         forumsHomePage.clickAddForumButton();
         forumsHomePage.setAddForumEntryInput(FORUM_TITLE);
 
@@ -78,6 +82,9 @@ public class ForumsTest extends AbstractTest
         Assert.assertEquals(FORUM_TITLE, forumViewPage.getDocumentTitle());
         Assert.assertEquals(FORUM_DESCRIPTION, forumViewPage.getDescription());
 
+        // View Forum tour
+        forumViewPage.viewTour();
+        waitUntilTourDisappears();
         // Create new topic
         TopicAddElement topicAddForm = forumViewPage.clickAddTopicActivator();
         topicAddForm.getEditForm().setTitle(TOPIC_TITLE);
@@ -108,6 +115,15 @@ public class ForumsTest extends AbstractTest
 
         // Verify that the forum has been deleted.
         Assert.assertTrue(forumsHomePage.getNotification().contains("Forum deleted"));
+
+    }
+
+    private void waitUntilTourDisappears()
+    {
+        // Waiting for all the tour elements to disappear instead of the last one because the order varies.
+        getDriver().waitUntilElementDisappears(By.className("tour-backdrop"));
+        getDriver().waitUntilElementDisappears(By.className("tour-step-background"));
+        getDriver().waitUntilElementDisappears(By.cssSelector("id^='step-'"));
 
     }
 }
