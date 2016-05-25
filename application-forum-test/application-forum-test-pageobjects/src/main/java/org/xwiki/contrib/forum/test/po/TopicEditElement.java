@@ -46,7 +46,7 @@ public class TopicEditElement extends BaseElement
     }
 
     /**
-     * @param title the topicTitle to set
+     * @param givenTitle the topicTitle to set
      */
     public void setTitle(String givenTitle)
     {
@@ -63,7 +63,7 @@ public class TopicEditElement extends BaseElement
     }
 
     /**
-     * @param description the topicDescription to set
+     * @param givenDescription the topicDescription to set
      */
     public void setDescription(String givenDescription)
     {

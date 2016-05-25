@@ -31,6 +31,9 @@ import org.xwiki.test.ui.po.BaseElement;
  */
 public class CommentAddElement extends BaseElement
 {
+    @FindBy(css = ".AddComment .button[type=submit]")
+    private WebElement addCommentButton;
+
     private CommentEditElement editForm = new CommentEditElement();
 
     /**
@@ -41,11 +44,8 @@ public class CommentAddElement extends BaseElement
         return editForm;
     }
 
-    @FindBy(css = ".AddComment .button[type=submit]")
-    private WebElement addCommentButton;
-
     /**
-     * @return the form to enter new Answer
+     * @return the form to enter new answer
      */
     public TopicViewPage clickAddCommentButton()
     {

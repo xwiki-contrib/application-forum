@@ -43,7 +43,7 @@ public class CommentEditElement extends BaseElement
     }
 
     /**
-     * @param comment to set
+     * @param givenComment to set
      */
     public void setComment(String givenComment)
     {

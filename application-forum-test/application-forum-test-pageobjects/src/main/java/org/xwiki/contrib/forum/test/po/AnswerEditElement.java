@@ -43,7 +43,7 @@ public class AnswerEditElement extends BaseElement
     }
 
     /**
-     * @param answer to set
+     * @param givenAnswer to set
      */
     public void setAnswer(String givenAnswer)
     {

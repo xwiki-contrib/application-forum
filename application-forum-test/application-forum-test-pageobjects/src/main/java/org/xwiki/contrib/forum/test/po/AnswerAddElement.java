@@ -31,6 +31,9 @@ import org.xwiki.test.ui.po.BaseElement;
  */
 public class AnswerAddElement extends BaseElement
 {
+    @FindBy(css = ".addconversation .button[type=submit]")
+    private WebElement addAnswerButton;
+
     private AnswerEditElement editForm = new AnswerEditElement();
 
     /**
@@ -40,9 +43,6 @@ public class AnswerAddElement extends BaseElement
     {
         return editForm;
     }
-
-    @FindBy(css = ".addconversation .button[type=submit]")
-    private WebElement addAnswerButton;
 
     /**
      * @return the form to enter new Answer

@@ -38,7 +38,7 @@ public class TopicViewPage extends ViewPage
     private WebElement description;
 
     /**
-     * Opens a topic page.
+     * @return the topic page
      */
     public static TopicViewPage gotoPage()
     {
@@ -47,7 +47,7 @@ public class TopicViewPage extends ViewPage
     }
 
     /**
-     * Space name of the home page.
+     * @return the space name of the topic
      */
     public static String getSpace()
     {
@@ -55,7 +55,7 @@ public class TopicViewPage extends ViewPage
     }
 
     /**
-     * Page name of the home page.
+     * @return the page name of the topic
      */
     public static String getPage()
     {
@@ -63,7 +63,7 @@ public class TopicViewPage extends ViewPage
     }
 
     /**
-     * @return the form to enter new Answer
+     * @return the form to enter new answer
      */
     public AnswerAddElement clickAddAnswerActivator()
     {
@@ -73,7 +73,7 @@ public class TopicViewPage extends ViewPage
     }
 
     /**
-     * @return the form to enter new Comment
+     * @return the form to enter new comment
      */
     public CommentAddElement clickAddCommentActivator()
     {
@@ -81,9 +81,8 @@ public class TopicViewPage extends ViewPage
         return commentAddForm;
     }
 
-
     /**
-     * @return the Topic description 
+     * @return the topic description
      */
     public String getDescription()
     {

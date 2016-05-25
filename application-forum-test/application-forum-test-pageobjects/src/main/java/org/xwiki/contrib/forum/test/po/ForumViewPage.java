@@ -39,19 +39,19 @@ public class ForumViewPage extends ViewPage
 
     // Tour steps
     @FindBy(css = "#step-0 [data-role = 'next']")
-    private WebElement step_0;
+    private WebElement step0;
 
     @FindBy(css = "#step-1 [data-role = 'next']")
-    private WebElement step_1;
+    private WebElement step1;
 
     @FindBy(css = "#step-2 [data-role = 'next']")
-    private WebElement step_2;
+    private WebElement step2;
 
     @FindBy(css = "#step-3 [data-role = 'end']")
-    private WebElement step_3;
+    private WebElement step3;
 
     /**
-     * @return the form to enter new Topic
+     * @return the form to enter new topic
      */
     public TopicAddElement clickAddTopicActivator()
     {
@@ -61,7 +61,7 @@ public class ForumViewPage extends ViewPage
     }
 
     /**
-     * @return the Forum description 
+     * @return the Forum description
      */
     public String getDescription()
     {
@@ -69,13 +69,13 @@ public class ForumViewPage extends ViewPage
     }
 
     /**
-     * Navigates through the Forum tour
+     * Navigates through the Forum tour.
      */
     public void viewTour()
     {
-        step_0.click();
-        step_1.click();
-        step_2.click();
-        step_3.click();
+        step0.click();
+        step1.click();
+        step2.click();
+        step3.click();
     }
 }

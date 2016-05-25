@@ -46,7 +46,7 @@ public class ForumEditPage extends InlinePage
     }
 
     /**
-     * @param title the forumTitle to set
+     * @param givenTitle the forumTitle to set
      */
     public void setTitle(String givenTitle)
     {
@@ -63,12 +63,11 @@ public class ForumEditPage extends InlinePage
     }
 
     /**
-     * @param description the forumDescription to set
+     * @param givenDescription the forumDescription to set
      */
     public void setDescription(String givenDescription)
     {
         description.clear();
         description.sendKeys(givenDescription);
     }
-
 }

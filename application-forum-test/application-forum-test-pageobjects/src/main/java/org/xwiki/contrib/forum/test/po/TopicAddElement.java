@@ -31,6 +31,9 @@ import org.xwiki.test.ui.po.BaseElement;
  */
 public class TopicAddElement extends BaseElement
 {
+    @FindBy(css = ".addconversation .button[type=submit]")
+    private WebElement addTopicButton;
+
     private TopicEditElement editForm = new TopicEditElement();
 
     /**
@@ -41,17 +44,13 @@ public class TopicAddElement extends BaseElement
         return editForm;
     }
 
-    @FindBy(css = ".addconversation .button[type=submit]")
-    private WebElement addTopicButton;
-
     /**
-     * @return the form to enter new Topic
+     * @return the form to enter new topic
      */
     public ForumViewPage clickAddTopicButton()
     {
         addTopicButton.click();
         ForumViewPage forumViewPage = new ForumViewPage();
         return forumViewPage;
-
     }
 }

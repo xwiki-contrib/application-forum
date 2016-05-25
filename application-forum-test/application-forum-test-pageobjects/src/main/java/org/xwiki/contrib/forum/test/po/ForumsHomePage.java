@@ -45,16 +45,16 @@ public class ForumsHomePage extends ViewPage
 
     // Forums homepage tour steps
     @FindBy(css = "#step-0 [data-role = 'next']")
-    private WebElement step_0;
+    private WebElement step0;
 
     @FindBy(css = "#step-1 [data-role = 'next']")
-    private WebElement step_1;
+    private WebElement step1;
 
     @FindBy(css = "#step-2 [data-role = 'next']")
-    private WebElement step_2;
+    private WebElement step2;
 
     @FindBy(css = "#step-3 [data-role = 'end']")
-    private WebElement step_3;
+    private WebElement step3;
 
     @FindBy(xpath = "//tbody[@id='forums-display']//tr")
     private List<WebElement> forums;
@@ -63,7 +63,7 @@ public class ForumsHomePage extends ViewPage
     private WebElement notification;
 
     /**
-     * Opens the home page.
+     * @return the Forums homepage
      */
     public static ForumsHomePage gotoPage()
     {
@@ -72,15 +72,15 @@ public class ForumsHomePage extends ViewPage
     }
 
     /**
-     * Space name of the home page.
+     * @return space name of the Forums homepage
      */
     public static String getSpace()
     {
-        return "Forums";
+        return getAppTitle();
     }
 
     /**
-     * Page name of the home page.
+     * @return page name of the Forums homepage
      */
     public static String getPage()
     {
@@ -88,7 +88,7 @@ public class ForumsHomePage extends ViewPage
     }
 
     /**
-     * Title of the application displayed in the AppBar
+     * @return title of the application displayed in the AppBar
      */
     public static String getAppTitle()
     {
@@ -96,7 +96,7 @@ public class ForumsHomePage extends ViewPage
     }
 
     /**
-     * @return the modal to enter new Forum entry name
+     * Opens the modal to enter new Forum entry name.
      */
     public void clickAddForumButton()
     {
@@ -122,16 +122,21 @@ public class ForumsHomePage extends ViewPage
     }
 
     /**
-     * Navigates through the Forums homepage tour
+     * Navigates through the Forums homepage tour.
      */
     public void viewTour()
     {
-        step_0.click();
-        step_1.click();
-        step_2.click();
-        step_3.click();
+        step0.click();
+        step1.click();
+        step2.click();
+        step3.click();
     }
 
+    /**
+     * Deletes a forum from livetable.
+     * 
+     * @param forumName the name of the forum to be deleted
+     */
     public void deleteForumPage(String forumName)
     {
         for (WebElement row : forums) {
