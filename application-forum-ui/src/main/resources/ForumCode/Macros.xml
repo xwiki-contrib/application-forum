@@ -1011,12 +1011,7 @@
 #macro(initForum $forumSpaceName)
   #set ($forumSpaceReference = $services.model.resolveSpace($forumSpaceName))
   #set ($spacePreferencesRef = $services.model.createDocumentReference('WebPreferences', $forumSpaceReference))
-  #set ($webHomeRef = $services.model.createDocumentReference('WebHome', $forumSpaceReference))
   #if (!$xwiki.exists($spacePreferencesRef))
-    ## Hide WebHome of current forum
-    #set ($webHomeDoc = $xwiki.getDocument($webHomeRef))
-    #set ($discard = $webHomeDoc.setHidden(true))
-    #set ($discard = $webHomeDoc.saveWithProgrammingRights('Hide WebHome', true))
     ## Display ForumCode.MostActiveTopicsPanel
     #displayForumPanel($spacePreferencesRef)
   #end
