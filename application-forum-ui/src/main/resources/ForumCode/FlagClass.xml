@@ -85,11 +85,11 @@
     </message>
     <moderator>
       <customDisplay>{{velocity}}
-#if($type=="hidden")
+#if($type == 'hidden')
   {{html clean=false}}
-  &lt;input type="hidden" name="${prefix}${name}" value="$!xwiki.getFormEncoded($value)" /&gt;
+    &lt;input type="hidden" name="${prefix}${name}" value="$!xwiki.getFormEncoded($value)" /&gt;
   {{/html}}
-#elseif($type=="view")
+#elseif($type == 'view')
   #set ($values = $value.split('\s*,\s*'))
   #set ($selectedUsers = [])
   #foreach ($value in $values)
@@ -100,34 +100,30 @@
   #if ($selectedUsers.size() &gt; 0)
     #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css', true))
     {{html wiki=true}}
-    (% class="users" %)
-    (((
-      #foreach ($user in $selectedUsers)
-        #set ($userReference = $services.model.resolveDocument($user))
-        (% class="user" %)
-        (((
-          (% class="user-avatar-wrapper" %)
-          (((
-            #getUserAvatarURL($userReference $avatarURL 30)
-             &lt;img src="$escapetool.xml($avatarURL.url)" class="icon"
-             alt="$escapetool.xml($xwiki.getUserName($user, false))" /&gt;
-          )))
-          (% class="user-name" %)((($xwiki.getUserName($user))))
-          (((
-            (% class="user-alias" %)$escapetool.xml($userReference.name)
-            ## Display the wiki only for local users.
-            #if ($xwiki.isVirtualMode() &amp;&amp; $userReference.wikiReference.name != $xcontext.getMainWikiName())
-              (% class="user-wiki" %)$escapetool.xml($userReference.wikiReference.name)
-            #end
-          )))
-        )))
-      #end
-    )))
+      &lt;div class="users"&gt;
+        #foreach ($user in $selectedUsers)
+          #set ($userReference = $services.model.resolveDocument($user))
+          &lt;div class="user"&gt;
+            &lt;div class="user-avatar-wrapper"&gt;
+              #getUserAvatarURL($userReference $avatarURL 30)
+              &lt;img src="$escapetool.xml($avatarURL.url)" class="icon" alt="$escapetool.xml($xwiki.getUserName($user, false))" /&gt;
+            &lt;/div&gt;
+            &lt;div class="user-name"&gt;$xwiki.getUserName($user)&lt;/div&gt;
+            &lt;div&gt;
+              &lt;span class="user-alias"&gt;$escapetool.xml($userReference.name)&lt;/span&gt;
+              ## Display the wiki only for local users.
+              #if ($xwiki.isVirtualMode() &amp;&amp; $userReference.wikiReference.name != $xcontext.getMainWikiName())
+                &lt;span class="user-wiki"&gt;$escapetool.xml($userReference.wikiReference.name)&lt;/span&gt;
+              #end
+            &lt;/div&gt;
+          &lt;/div&gt;
+        #end
+      &lt;/div&gt;
     {{/html}}
   #end
-#elseif($type=="edit")
+#elseif($type == 'edit')
   #set ($scope = "$!xcontext.macro.params.scope")
-  #set ($scopeClass = "local")
+  #set ($scopeClass = 'local')
   #if ($scope == 'global')
     #set ($scopeClass = 'global')
   #elseif ($scope == 'both')
@@ -135,8 +131,7 @@
   #end
   #set($id = $escapetool.xml("${prefix}${name}"))
   {{html}}
-  &lt;input type="text" id="$!id" name="$!id" value="$!escapetool.xml($value)"
-    class="suggestUsers $!scopeClass" /&gt;
+    &lt;input type="text" id="$!id" name="$!id" value="$!escapetool.xml($value)" class="suggestUsers $!scopeClass" /&gt;
   {{/html}}
 #end
 {{/velocity}}</customDisplay>
@@ -212,11 +207,11 @@
     </target>
     <user>
       <customDisplay>{{velocity}}
-#if($type=="hidden")
+#if($type == 'hidden')
   {{html clean=false}}
-  &lt;input type="hidden" name="${prefix}${name}" value="$!xwiki.getFormEncoded($value)" /&gt;
+    &lt;input type="hidden" name="${prefix}${name}" value="$!xwiki.getFormEncoded($value)" /&gt;
   {{/html}}
-#elseif($type=="view")
+#elseif($type == 'view')
   #set ($values = $value.split('\s*,\s*'))
   #set ($selectedUsers = [])
   #foreach ($value in $values)
@@ -227,34 +222,32 @@
   #if ($selectedUsers.size() &gt; 0)
     #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css', true))
     {{html wiki=true}}
-    (% class="users" %)
-    (((
-      #foreach ($user in $selectedUsers)
-        #set ($userReference = $services.model.resolveDocument($user))
-        (% class="user" %)
-        (((
-          (% class="user-avatar-wrapper" %)
-          (((
-            #getUserAvatarURL($userReference $avatarURL 30)
-             &lt;img src="$escapetool.xml($avatarURL.url)" class="icon"
-             alt="$escapetool.xml($xwiki.getUserName($user, false))" /&gt;
-          )))
-          (% class="user-name" %)((($xwiki.getUserName($user))))
-          (((
-            (% class="user-alias" %)$escapetool.xml($userReference.name)
-            ## Display the wiki only for local users.
-            #if ($xwiki.isVirtualMode() &amp;&amp; $userReference.wikiReference.name != $xcontext.getMainWikiName())
-              (% class="user-wiki" %)$escapetool.xml($userReference.wikiReference.name)
-            #end
-          )))
-        )))
-      #end
-    )))
+      &lt;div class="users"&gt;
+        #foreach ($user in $selectedUsers)
+          #set ($userReference = $services.model.resolveDocument($user))
+          &lt;div class="user"&gt;
+            &lt;div class="user-avatar-wrapper"&gt;
+              #getUserAvatarURL($userReference $avatarURL 30)
+              &lt;img src="$escapetool.xml($avatarURL.url)" class="icon" alt="$escapetool.xml($xwiki.getUserName($user, false))" /&gt;
+            &lt;/div&gt;
+            &lt;div class="user-name"&gt;
+              $xwiki.getUserName($user)
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;span class="user-alias"&gt;$escapetool.xml($userReference.name)&lt;/span&gt;
+              ## Display the wiki only for local users.
+              #if ($xwiki.isVirtualMode() &amp;&amp; $userReference.wikiReference.name != $xcontext.getMainWikiName())
+                &lt;span class="user-wiki"&gt;$escapetool.xml($userReference.wikiReference.name)&lt;/span&gt;
+              #end
+            &lt;/div&gt;
+          &lt;/div&gt;
+        #end
+      &lt;/div&gt;
     {{/html}}
   #end
-#elseif($type=="edit")
+#elseif($type == 'edit')
   #set ($scope = "$!xcontext.macro.params.scope")
-  #set ($scopeClass = "local")
+  #set ($scopeClass = 'local')
   #if ($scope == 'global')
     #set ($scopeClass = 'global')
   #elseif ($scope == 'both')
@@ -262,8 +255,7 @@
   #end
   #set($id = $escapetool.xml("${prefix}${name}"))
   {{html}}
-  &lt;input type="text" id="$!id" name="$!id" value="$!escapetool.xml($value)"
-    class="suggestUsers $!scopeClass" /&gt;
+    &lt;input type="text" id="$!id" name="$!id" value="$!escapetool.xml($value)" class="suggestUsers $!scopeClass" /&gt;
   {{/html}}
 #end
 {{/velocity}}</customDisplay>
