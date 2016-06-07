@@ -111,7 +111,7 @@
     #if($xwiki.hasAccessLevel('edit', $xcontext.user, $fullname))
       #set($editURL = $document.getURL('edit'))
       #set($text = $services.localization.render("platform.livetable._actions.edit"))
-      #set($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt;${actionsLink}")
+      #set($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt; ${actionsLink}")
     #end
     #set($creatorDoc = $xwiki.getDocumentAsAuthor($document.creator))
     #set($creatorView = "&lt;ul class='users'&gt;
