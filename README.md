@@ -7,7 +7,7 @@ Forum application with multiple forums, topics, answers, comments, supporting WY
 * [Issue Tracker](http://jira.xwiki.org/browse/XAFORUM)
 * Communication: [Mailing List](http://dev.xwiki.org/xwiki/bin/view/Community/MailingLists>), [IRC]( http://dev.xwiki.org/xwiki/bin/view/Community/IRC)
 * [Development Practices](http://dev.xwiki.org)
-* Minimal XWiki version supported: XWiki 7.2
+* Minimal XWiki version supported: XWiki 7.4
 * License: LGPL v3
 * [Translations](http://l10n.xwiki.org/xwiki/bin/view/Contrib/ForumApplication)
 * Sonar Dashboard: N/A
