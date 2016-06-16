@@ -39,40 +39,39 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{include reference="ForumCode.Macros" /}}{{include reference="ForumCode.Variables" /}}{{velocity}}
-## do not show the comments tab
-#set($showcomments = "no")
-  #if($xcontext.action == 'edit')
-    {{html wiki='true' clean='false'}}
-      &lt;div class="xform"&gt;
-        &lt;dl&gt;
-          #edittitle("conversations.titleError")
-          &lt;dt&gt;&lt;label&gt;$services.localization.render('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
-          &lt;dd&gt;$doc.display('description')&lt;/dd&gt;
-        &lt;/dl&gt;
-      &lt;/div&gt;
-    {{/html}}
-  #else
-{{html clean='false'}}
-  ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
-  #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
-  #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date").bindValue('parent', $doc.fullName).bindValue('spacePrefix', "${doc.space}.%").execute())
-  #set($comments = $topicAnswers.size())
-  #foreach($topicAnswer in $topicAnswers)
-    #set($answerDoc = $xwiki.getDocument($topicAnswer))
-    #set($answerComments = $answerDoc.getComments())
-    #set($comments = $comments + $answerDoc.getComments().size())
-  #end
-  ## Display topic header
-  #displayForumTopic($doc.fullName true)
-  &lt;h3 class="answers-title"&gt;$services.localization.render('conversations.answer.all')&lt;/h3&gt;
-  ## Display answer (conversation) add form
-  #displayConversationAddForm()
-  #displayAnswers()
-  ## Enable WYSIWYG editors loading when adding comments
-  #displayEditors()
-{{/html}}
-  #end
+  <content>{{include reference="ForumCode.Macros"/}}
+{{velocity}}
+#if($xcontext.action == 'edit')
+  {{html wiki='true' clean='false'}}
+    &lt;div class="xform"&gt;
+      &lt;dl&gt;
+        #edittitle("conversations.titleError")
+        &lt;dt&gt;&lt;label&gt;$services.localization.render('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
+        &lt;dd&gt;$doc.display('description')&lt;/dd&gt;
+      &lt;/dl&gt;
+    &lt;/div&gt;
+  {{/html}}
+#else
+  {{html clean='false'}}
+    ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
+    #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
+    #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date").bindValue('parent', $doc.fullName).bindValue('spacePrefix', "${doc.space}.%").execute())
+    #set($comments = $topicAnswers.size())
+    #foreach($topicAnswer in $topicAnswers)
+      #set($answerDoc = $xwiki.getDocument($topicAnswer))
+      #set($answerComments = $answerDoc.getComments())
+      #set($comments = $comments + $answerDoc.getComments().size())
+    #end
+    ## Display topic header
+    #displayForumTopic($doc.fullName true)
+    &lt;h3 class="answers-title"&gt;$services.localization.render('conversations.answer.all')&lt;/h3&gt;
+    ## Display answer (conversation) add form
+    #displayConversationAddForm()
+    #displayAnswers()
+    ## Enable WYSIWYG editors loading when adding comments
+    #displayEditors()
+  {{/html}}
+#end
 #set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>
