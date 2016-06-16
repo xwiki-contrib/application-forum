@@ -42,7 +42,7 @@
   <content>{{include reference="ForumCode.Macros" /}}{{include reference="ForumCode.Variables" /}}{{velocity}}
 ## do not show the comments tab
 #set($showcomments = "no")
-  #if($xcontext.action != 'view')
+  #if($xcontext.action == 'edit')
     {{html wiki='true' clean='false'}}
       &lt;div class="xform"&gt;
         &lt;dl&gt;
