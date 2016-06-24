@@ -277,7 +277,11 @@ tour.topicTour.vote.content=Topic vote.
 tour.topicTour.addAnswer.title=Add Answer
 tour.topicTour.addAnswer.content=Create a new Answer.
 tour.topicTour.listOfAnswers.title=List of Answers
-tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.</content>
+tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
+
+## Template Provider
+templateProvider.forum.name=Forum
+templateProvider.forum.description=Start a conversation</content>
   <object>
     <name>ForumCode.Translations</name>
     <number>0</number>
