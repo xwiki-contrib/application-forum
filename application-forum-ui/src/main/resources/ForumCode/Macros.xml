@@ -1057,8 +1057,8 @@
         #end
       &lt;/dt&gt;
       &lt;dd&gt;
-        #set ($docTitle = $request.docTitle)
-        &lt;input name='title' type="text" value="#if ("$!docTitle" != '')$!{escapetool.xml($docTitle)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
+        #set ($title = $request.title)
+        &lt;input name='title' type="text" value="#if ("$!title" != '')$!{escapetool.xml($title)}#else$!{escapetool.xml($doc.title)}#end" id="forum-title" /&gt;
       &lt;/dd&gt;
   #end
 #end
