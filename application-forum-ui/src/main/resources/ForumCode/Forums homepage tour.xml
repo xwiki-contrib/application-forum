@@ -38,8 +38,8 @@
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>false</hidden>
   <content/>
+  <hidden>true</hidden>
   <object>
     <name>ForumCode.Forums homepage tour</name>
     <number>0</number>
