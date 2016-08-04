@@ -42,7 +42,7 @@
   <hidden>true</hidden>
   <content>{{velocity}}
   #if($xcontext.action == 'edit')
-    {{html}}
+    {{html wiki=true}}
       &lt;div class="xform"&gt;
         &lt;dl&gt;
           &lt;dt&gt;
