@@ -52,6 +52,7 @@ ForumCode.TopicClass_status_closed=Closed
 ForumCode.TopicClass_status_integrated=Integrated
 ForumCode.TopicClass_description=Description
 ForumCode.AnswerClass_answer=Answer
+ForumCode.AnswerClass_description=Answer
 
 ## Forums
 conversations.forum.tooltip.totaltopics=Total topics

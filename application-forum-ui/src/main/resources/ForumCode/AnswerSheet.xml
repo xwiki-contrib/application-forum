@@ -46,10 +46,10 @@
       &lt;div class="xform"&gt;
         &lt;dl&gt;
           &lt;dt&gt;
-            &lt;label for="ForumCode.AnswerClass_0_answer"&gt;$services.localization.render('conversations.answer')&lt;/label&gt;
+            &lt;label for="ForumCode.AnswerClass_0_description"&gt;$services.localization.render('conversations.answer')&lt;/label&gt;
           &lt;/dt&gt;
           &lt;dd&gt;
-            $doc.display('answer')
+            $doc.display('description')
           &lt;/dd&gt;  
         &lt;/dl&gt; 
       &lt;/div&gt;

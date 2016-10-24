@@ -140,7 +140,7 @@
         #if ($isDeleteComment)
           #set($itemRepresentation = $commentObj.getProperty('comment').value)
         #elseif ($isAnswer)
-          #set($itemRepresentation = $conversationObj.getProperty('answer').value)
+          #set($itemRepresentation = $conversationObj.getProperty('description').value)
         #else
           #set($itemRepresentation = $conversationDoc.displayTitle)
         #end

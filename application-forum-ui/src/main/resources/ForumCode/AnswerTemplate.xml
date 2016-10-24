@@ -52,21 +52,21 @@
       <defaultWeb/>
       <nameField/>
       <validationScript/>
-      <answer>
+      <description>
         <customDisplay/>
         <disabled>0</disabled>
         <editor>Wysiwyg</editor>
-        <name>answer</name>
+        <name>description</name>
         <number>1</number>
         <picker>0</picker>
-        <prettyName>answer</prettyName>
+        <prettyName>description</prettyName>
         <rows>5</rows>
         <size>40</size>
         <unmodifiable>0</unmodifiable>
         <validationMessage/>
         <validationRegExp/>
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-      </answer>
+      </description>
     </class>
     <name>ForumCode.AnswerTemplate</name>
     <number>0</number>

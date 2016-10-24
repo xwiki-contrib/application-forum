@@ -483,10 +483,10 @@
           &lt;/div&gt;
           &lt;dl&gt;
             #set ($fakeConversation = $newAnswerDoc.newObject('ForumCode.AnswerClass'))
-            &lt;dt&gt;&lt;label&gt;$services.localization.render('ForumCode.AnswerClass_answer')&lt;/label&gt;&lt;/dt&gt;
-            &lt;dd&gt;#cleanHTMLMacro($newAnswerDoc.display('answer', 'edit', $fakeConversation))&lt;/dd&gt;  
+            &lt;dt&gt;&lt;label&gt;$services.localization.render('ForumCode.AnswerClass_description')&lt;/label&gt;&lt;/dt&gt;
+            &lt;dd&gt;#cleanHTMLMacro($newAnswerDoc.display('description', 'edit', $fakeConversation))&lt;/dd&gt;  
             ## adding wysiwyg
-            #addEditor('ForumCode.AnswerClass_0_answer', $newAnswerDoc)
+            #addEditor('ForumCode.AnswerClass_0_description', $newAnswerDoc)
           &lt;/dl&gt;
           &lt;div class="buttons"&gt;
             &lt;span class="buttonwrapper"&gt;
@@ -788,7 +788,7 @@
                   &lt;span class="comments" objtype="nbComments" title="$services.localization.render('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size() $services.localization.render('conversations.comment.count')&lt;/span&gt;
                 &lt;/span&gt;
                 &lt;div class="answer-content"&gt;
-                  #cleanHTMLMacro($topicAnswerDoc.answer)
+                  #cleanHTMLMacro($topicAnswerDoc.description)
                   &lt;span class="actions"&gt;
                     #if (!$isGuest)
                       &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
