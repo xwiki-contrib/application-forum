@@ -84,6 +84,11 @@
       <name>Ecaterina Moraru (Valica)</name>
       <organization>XWiki SAS</organization>
     </developer>
+    <developer>
+      <id>acotiuga</id>
+      <name>Alexandru Cotiugă</name>
+      <organization>XWiki SAS</organization>
+    </developer>
   </developers>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-forum.git</connection>
