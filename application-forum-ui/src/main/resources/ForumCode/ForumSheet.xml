@@ -74,7 +74,7 @@
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;h3 class="topics-title"&gt;$services.localization.render('conversations.topic.all')&lt;/h3&gt;
-    #displayTopicAddForm($space)
+    #displayAddConversationButton($space 'Topic')
     &lt;div id="forum-buttons"&gt;
       &lt;label&gt;$services.localization.render('conversations.forum.sorttopicsby')&lt;/label&gt;
       #displayTopicSortButton('date')

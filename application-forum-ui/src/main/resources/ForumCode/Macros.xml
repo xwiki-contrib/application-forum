@@ -403,94 +403,50 @@
   *
   * @param $space the space where the new unique page reference is created
   * @param $name the name to be contained by the new unique page reference
-  * @param $namePrefix the prefix to be used in Pre Nested Spaces (e.g.: to build TopicAnswer )
   * @uniquePageReference the returned parameter
   *#
-#macro(createUniquePageReference $space $name $namePrefix $uniquePageReference)
+#macro(createUniquePageReference $space $name $uniquePageReference)
   #set ($spaceReference = $services.model.resolveSpace($space))
   #set ($parentSpace = $spaceReference.parent)
   #set ($uniquePageName = "${name}_${datetool.date.time}_${mathtool.random(1, 99)}")
   #set ($uniqueSpaceReference = $services.model.createSpaceReference($uniquePageName, $spaceReference))
   #set ($uniquePageReference = $services.model.createDocumentReference('WebHome', $uniqueSpaceReference))
 #end
-###
-#macro(displayTopicAddForm $space)
+##
+#macro (displayAddConversationButton $space $entity)
   #set ($uniquePageReference = '')
-  #createUniquePageReference($space 'Topic' '' $uniquePageReference)
-  #set ($newTopicDoc = $xwiki.getDocument($uniquePageReference))
-  #if ($newTopicDoc.hasAccessLevel('edit'))
-    &lt;div class="addconversation-container addtopic-container"&gt;
-      &lt;div class="addconversation-container-button addtopic-container-button buttonwrapper"&gt;
-        &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if ($services.icon)$services.icon.renderHTML('add') #end$services.localization.render('conversations.topic.create')&lt;/a&gt;
+  #createUniquePageReference($space $entity $uniquePageReference)
+  #set ($newEntityDoc = $xwiki.getDocument($uniquePageReference))
+  #if ($newEntityDoc.hasAccessLevel('edit'))
+    &lt;div class="addconversation-container add${entity.toLowerCase()}-container"&gt;
+      &lt;div class="addconversation-container-button add${entity.toLowerCase()}-container-button buttonwrapper"&gt;
+        &lt;a href="$doc.getURL('view')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if ($services.icon)$services.icon.renderHTML('add') #end$services.localization.render("conversation.${entity.toLowerCase()}.create")&lt;/a&gt;
       &lt;/div&gt;
-      &lt;div class="addconversation-container-form addtopic-container-form"&gt;
-        ## Create a fake topic object to be able to display the status and the type selectors
-        &lt;form class="#if ("$!request.action" != 'addtopic')hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
+      &lt;div class="addconversation-container-form add${entity.toLowerCase()}-container-form"&gt;
+        ## Create a fake entity object to be able to display the status and the type selectors
+        #set ($fakeEntity = $newEntityDoc.newObject("ForumCode.${entity}Class"))
+        &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
           &lt;div&gt;
-            &lt;input type="hidden" name="action" value="addtopic" /&gt;
-            &lt;input type="hidden" name="page" value="$escapetool.xml($newTopicDoc.fullName)" /&gt;
+            &lt;input type="hidden" name="action" value="add${entity.toLowerCase()}" /&gt;
+            &lt;input type="hidden" name="page" value="$escapetool.xml($newEntityDoc.fullName)" /&gt;
             &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
             &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
             &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
             &lt;input type="hidden" name="xredirect" value="$escapetool.xml($doc.getURL('view'))" /&gt;
           &lt;/div&gt;
           &lt;dl&gt;
-            &lt;dt&gt;&lt;label&gt;$services.localization.render('ForumCode.TopicClass_title')&lt;/label&gt;&lt;/dt&gt;
-            &lt;dd&gt;&lt;input type="text" name="title" /&gt;&lt;/dd&gt;
-            #set ($fakeTopic = $newTopicDoc.newObject('ForumCode.TopicClass'))      
-            &lt;dt&gt;&lt;label&gt;$services.localization.render('ForumCode.TopicClass_description')&lt;/label&gt;&lt;/dt&gt;
-            &lt;dd&gt;#cleanHTMLMacro($newTopicDoc.display('description', 'edit', $fakeTopic))&lt;/dd&gt;
-            ## adding wysiwyg
-            #addEditor('ForumCode.TopicClass_0_description', $newTopicDoc)
-          &lt;/dl&gt;
-          &lt;div&gt;
-            ## Cannot choose status, will always create as in progress
-            &lt;input type="hidden" name="ForumCode.TopicClass_${fakeTopic.number}_status" value="inprogress" /&gt;      
-          &lt;/div&gt;
-          &lt;div class="buttons"&gt;
-            &lt;span class="buttonwrapper"&gt;
-              &lt;input class="button" type="submit" class="button" value="$services.localization.render('conversations.topic.create')" /&gt;
-            &lt;/span&gt;
-            &lt;span class="buttonwrapper"&gt;
-              &lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$services.localization.render('cancel')&lt;/a&gt;
-            &lt;/span&gt;
-          &lt;/div&gt;
-        &lt;/form&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  #end
-#end
-##
-#macro(displayConversationAddForm)
-  #set ($uniquePageReference = '')
-  #createUniquePageReference($doc.space 'Answer' "${doc.name}" $uniquePageReference)
-  #set ($newAnswerDoc = $xwiki.getDocument($uniquePageReference))
-  #if ($newAnswerDoc.hasAccessLevel('edit'))
-    &lt;div class="addconversation-container addanswer-container"&gt;
-      &lt;div class="addconversation-container-button addanswer-container-button buttonwrapper"&gt;
-       &lt;a href="$doc.getURL('view', 'action=addconversation')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if ($services.icon)$services.icon.renderHTML('add') #end$services.localization.render('conversation.add.activator')&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class="addconversation-container-form addanswer-container-form"&gt;
-        ## Create a fake conversation object to be able to display the status and the type selectors
-        &lt;form class="#if ("$!request.action" != 'addconversation')hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
-          &lt;div&gt;
-            &lt;input type="hidden" name="action" value="addconversation" /&gt;
-            &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
-            &lt;input type="hidden" name="page" value="$escapetool.xml($newAnswerDoc.fullName)" /&gt;
-            &lt;input type="hidden" name="space" value="$escapetool.xml($doc.space)" /&gt;
-            &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
-            &lt;input type="hidden" name="xredirect" value="$escapetool.xml($doc.getURL('view'))" /&gt;
-          &lt;/div&gt;
-          &lt;dl&gt;
-            #set ($fakeConversation = $newAnswerDoc.newObject('ForumCode.AnswerClass'))
-            &lt;dt&gt;&lt;label&gt;$services.localization.render('ForumCode.AnswerClass_description')&lt;/label&gt;&lt;/dt&gt;
-            &lt;dd&gt;#cleanHTMLMacro($newAnswerDoc.display('description', 'edit', $fakeConversation))&lt;/dd&gt;  
-            ## adding wysiwyg
-            #addEditor('ForumCode.AnswerClass_0_description', $newAnswerDoc)
+            #if ($entity == 'Topic')
+              &lt;dt&gt;&lt;label&gt;$services.localization.render("ForumCode.${entity}Class_title")&lt;/label&gt;&lt;/dt&gt;
+              &lt;dd&gt;&lt;input type="text" name="title" /&gt;&lt;/dd&gt;
+              ## Cannot choose status, will always create as in progress
+              &lt;input type="hidden" name="ForumCode.${entity}Class_${fakeEntity.number}_status" value="inprogress" /&gt; 
+            #end
+            &lt;dt&gt;&lt;label&gt;$services.localization.render("ForumCode.${entity}Class_description")&lt;/label&gt;&lt;/dt&gt;
+            &lt;dd&gt;#cleanHTMLMacro($newEntityDoc.display('description', 'edit', $fakeEntity))&lt;/dd&gt;
           &lt;/dl&gt;
           &lt;div class="buttons"&gt;
             &lt;span class="buttonwrapper"&gt;
-              &lt;input class="button" type="submit" class="button" value="$services.localization.render('conversation.add.activator')" /&gt;
+              &lt;input class="button" type="submit" class="button" value="$services.localization.render("conversation.${entity.toLowerCase()}.create")" /&gt;
             &lt;/span&gt;
             &lt;span class="buttonwrapper"&gt;
               &lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$services.localization.render('cancel')&lt;/a&gt;

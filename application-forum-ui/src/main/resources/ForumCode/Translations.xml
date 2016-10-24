@@ -82,6 +82,7 @@ conversations.topic.tooltip.totalcommentsandanswers=Total answers and comments
 conversations.topic.tooltip.totalanswers=Total answers
 conversations.topic.answer.tooltip.totalcomments=Total comments for the answer
 conversations.topic.create=Add topic
+conversation.topic.create=Add topic
 conversations.topic.create.submit=Create
 conversations.topic.all=All topics
 conversations.topic.empty=No topic
@@ -91,6 +92,7 @@ conversations.topic.delete.confirm.withReplies=Delete this topic and its answers
 ## Answers
 conversations.title=Answer
 conversation.add.activator=Add answer
+conversation.answer.create=Add answer
 conversation.delete.confirm=Delete topic?
 conversation.delete.confirm.withReplies=Delete this answer and its comments ?
 conversation.delete.done=Answer deleted

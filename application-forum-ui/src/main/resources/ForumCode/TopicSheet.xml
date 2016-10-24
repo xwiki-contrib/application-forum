@@ -57,7 +57,7 @@
     #displayForumTopic($doc.fullName true)
     &lt;h3 class="answers-title"&gt;$services.localization.render('conversations.answer.all')&lt;/h3&gt;
     ## Display answer (conversation) add form
-    #displayConversationAddForm()
+    #displayAddConversationButton($space 'Answer')
     #displayAnswers()
     ## Enable WYSIWYG editors loading when adding comments
     #displayEditors()
