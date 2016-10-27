@@ -40,62 +40,61 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity}}
-#set($discard=$xwiki.ssx.use('ForumCode.StyleSheetExtension'))
+#set ($discard=$xwiki.ssx.use('ForumCode.StyleSheetExtension'))
 ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
-#if("$!request.forumName" != '' &amp;&amp; $hasEdit)
-  #set($newForumDocName = "Forums_${request.forumName}.WebHome")
-  #if($newForumDocName.length &gt; 230)
-    #set($newForumDocName = $newForumDocName.substring(0, 230))
+#set ($forumName = $request.forumName)
+#if ("$!{forumName}" != '' &amp;&amp; $hasEdit)
+  #set ($newForumDocName = "Forums_${forumName}.WebHome")
+  #if ($newForumDocName.length &gt; 230)
+    #set ($newForumDocName = $newForumDocName.substring(0, 230))
   #end
-  #set($newForumDoc = $xwiki.getDocument($newForumDocName))
-  #if(!$newForumDoc.isNew())
-    {{warning}}$services.localization.render('forum.create.alreadyexists', ["$!request.forumName", $newForumDocName])
+  #set ($newForumDoc = $xwiki.getDocument($newForumDocName))
+  #if (!$newForumDoc.isNew())
+    {{warning}}$services.localization.render('forum.create.alreadyexists', [$forumName, $newForumDocName])
   #else
-    #*
-	* Add encode uri to handle special chars in the title
-	*#
-    #set ($forumTitle = $escapetool.url("${request.forumName}"))
+	  ## Add encode uri to handle special chars in the title
+    #set ($forumTitle = $escapetool.url($forumName))
     ##
     $response.sendRedirect($newForumDoc.getURL('edit', "title=${forumTitle}&amp;parent=Forums.WebHome&amp;template=ForumCode.ForumTemplate"))
   #end
 #else
-  $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css')
-  $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
-  $xwiki.jsx.use('ForumCode.ForumsHomePage', {"language": $xcontext.language, "derfer" : false})
+  #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css'))
+  #set ($discard = $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true'))
+  #set ($discard = $xwiki.jsx.use('ForumCode.ForumsHomePage', {'language' : $xcontext.language, 'derfer' : false}))
   {{html clean='false'}}
-  &lt;div class="row all-forums-home-title"&gt;
-  	&lt;div class="document-info col-xs-12 col-md-7"&gt;
-    		&lt;h3 class="forums-title"&gt;$services.localization.render('conversations.forum.all')&lt;/h3&gt;
-  	&lt;/div&gt;
-    ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
-    #if ($hasEdit)
-      #set($discard = $xwiki.ssx.use('ForumCode.ForumsHomePage'))
-    	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox"&gt;
-    		&lt;div class="pull-right buttonwrapper"&gt;
-	            &lt;a class="btn btn-success hasIcon add button" id="addForum" href="#AddNewEntry"&gt;
-	             #if($services.icon)$services.icon.renderHTML('add') #end$services.localization.render('conversations.forum.add')
-	            &lt;/a&gt;
-    		&lt;/div&gt;
-        #set($entryDoc = $services.model.createDocumentReference($doc.wiki, ['Forums', '__entryName__'], 'WebHome'))
-        #set($queryString = "editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=Forums.WebHome")
-        &lt;input type="hidden" value="$escapetool.xml($xwiki.getURL($entryDoc, 'edit', $queryString))" /&gt;
+    &lt;div class="row all-forums-home-title"&gt;
+    	&lt;div class="document-info col-xs-12 col-md-7"&gt;
+      		&lt;h3 class="forums-title"&gt;$services.localization.render('conversations.forum.all')&lt;/h3&gt;
     	&lt;/div&gt;
-    #end
-    &lt;div class="clearfloats"&gt;&lt;/div&gt;
-  &lt;/div&gt;
+      ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
+      #if ($hasEdit)
+        #set($discard = $xwiki.ssx.use('ForumCode.ForumsHomePage'))
+      	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox"&gt;
+      		&lt;div class="pull-right buttonwrapper"&gt;
+            &lt;a class="btn btn-success hasIcon add button" id="addForum" href="#AddNewEntry"&gt;
+              $!services.icon.renderHTML('add') $services.localization.render('conversations.forum.add')
+            &lt;/a&gt;
+      		&lt;/div&gt;
+          #set ($entryDoc = $services.model.createDocumentReference($doc.wiki, ['Forums', '__entryName__'], 'WebHome'))
+          #set ($queryString = 'editor=inline&amp;title=__entryName__&amp;template=ForumCode.ForumTemplate&amp;parent=Forums.WebHome')
+          &lt;input type="hidden" value="$escapetool.xml($xwiki.getURL($entryDoc, 'edit', $queryString))" /&gt;
+      	&lt;/div&gt;
+      #end
+      &lt;div class="clearfloats"&gt;&lt;/div&gt;
+    &lt;/div&gt;
   {{/html}}
   ##
   #set($columns = ['doc.title', 'doc.date', 'doc.creator', 'actions'])
   #set($columnsProperties = {
-     "doc.title" : { "type" : "text", "link" : "view"},
-     "doc.creator" : { "type" : "text", "html" : true},
-     "actions" : { "html" : true, "sortable" : false}
+    'doc.title'   : {'type' : 'text', 'link' : 'view'},
+    'doc.creator' : {'type' : 'text', 'html' : true},
+    'actions'     : {'html' : true, 'sortable' : false}
   })
   #set($options = {
-    'className' : 'ForumCode.ForumClass',
+    'className'         : 'ForumCode.ForumClass',
     'translationPrefix' : 'conversations.',
-    'resultPage' : 'ForumCode.GetForumsJson',
-    'rowCount' : 10
+    'resultPage'        : 'ForumCode.GetForumsJson',
+    'rowCount'          : 10
   })
   #livetable('forums' $columns $columnsProperties $options)
 #end
@@ -126,7 +125,7 @@
         <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>long|short|default|forbid</values>
@@ -134,6 +133,7 @@
       </cache>
       <code>
         <disabled>0</disabled>
+        <editor>PureText</editor>
         <name>code</name>
         <number>2</number>
         <prettyName>Code</prettyName>
@@ -171,10 +171,10 @@
         <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
-        <values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+        <values>currentPage|onDemand|always</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </use>
     </class>
@@ -280,7 +280,7 @@
         <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>long|short|default|forbid</values>
@@ -288,6 +288,7 @@
       </cache>
       <code>
         <disabled>0</disabled>
+        <editor>PureText</editor>
         <name>code</name>
         <number>2</number>
         <prettyName>Code</prettyName>
@@ -325,7 +326,7 @@
         <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>currentPage|onDemand|always</values>
@@ -419,11 +420,11 @@ return XWiki;
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
         <name>cache</name>
-        <number>5</number>
+        <number>6</number>
         <prettyName>Caching policy</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>long|short|default|forbid</values>
@@ -431,18 +432,35 @@ return XWiki;
       </cache>
       <code>
         <disabled>0</disabled>
+        <editor>PureText</editor>
         <name>code</name>
-        <number>2</number>
+        <number>3</number>
         <prettyName>Code</prettyName>
         <rows>20</rows>
         <size>50</size>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
       </code>
+      <contentType>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>contentType</name>
+        <number>1</number>
+        <prettyName>Content Type</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>CSS|LESS</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </contentType>
       <name>
         <disabled>0</disabled>
         <name>name</name>
-        <number>1</number>
+        <number>2</number>
         <prettyName>Name</prettyName>
         <size>30</size>
         <unmodifiable>0</unmodifiable>
@@ -453,7 +471,7 @@ return XWiki;
         <displayFormType>select</displayFormType>
         <displayType>yesno</displayType>
         <name>parse</name>
-        <number>4</number>
+        <number>5</number>
         <prettyName>Parse content</prettyName>
         <unmodifiable>0</unmodifiable>
         <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
@@ -464,11 +482,11 @@ return XWiki;
         <displayType>select</displayType>
         <multiSelect>0</multiSelect>
         <name>use</name>
-        <number>3</number>
+        <number>4</number>
         <prettyName>Use this extension</prettyName>
         <relationalStorage>0</relationalStorage>
         <separator> </separator>
-        <separators> ,|</separators>
+        <separators>|, </separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
         <values>currentPage|onDemand|always</values>
