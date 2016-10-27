@@ -984,7 +984,51 @@ document.observe('dom:loaded', init);
 // End XWiki augmentation.
 return XWiki;
 }(XWiki || {}));
-</code>
+
+require(['jquery'], function($) {
+  $(document).ready(function(){
+    var conversationForm = $('.addconversation');
+    conversationForm.submit(function(event) {
+      event.preventDefault();
+      $.ajax({
+        type: $(this).attr('method'),
+        url : $(this).attr('action'),
+        data: $(this).serialize(),
+        beforeSend: function() {
+          this.progressNotification = new XWiki.widgets.Notification("$services.localization.render('conversations.create.inProgress')", 'inprogress');
+        },
+        complete:function() {
+          this.progressNotification.hide();
+        },
+        success: function(data) {
+          new XWiki.widgets.Notification(data['notification'], data['status']);
+          conversationForm.addClass('hidden');
+          $('.addconversation-activator').removeClass('hidden');
+          // After the submission of the form we need to reset reset it (and this includes the editor) in order to not be asked anymore by the browser to save the changes.
+          conversationForm[0].reset()
+          if (window.CKEDITOR) {
+            conversationForm.find('textarea.ckeditor-textarea').each(function() {
+              var editor = CKEDITOR.instances[$(this).attr('name')];
+              editor.setData('', function() {
+                editor.updateElement();
+                location.reload(true);
+              });
+            });
+          } else {
+            location.reload(true);
+          }
+        },
+        error: function(data) {
+          if(data.responseJSON) {
+            new XWiki.widgets.Notification(data.responseJSON['notification'], data.responseJSON['status']);
+          } else {
+            new XWiki.widgets.Notification("$services.localization.render('conversations.create.requestError')", 'error');
+          }
+        }
+      });
+    });
+  });
+});</code>
     </property>
     <property>
       <name>Forum</name>

@@ -143,10 +143,15 @@ conversations.actions=Actions
 conversations._avatar=Avatar
 
 ## Messages
-conversations.create.error.topic.norights=You don't have the rights to create a new topic.
-conversations.create.error.answer.norights=You don't have the rights to create a new answer.
-conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata.
-conversations.create.error.missingtitle=Missing title.
+conversations.create.error.topic.norights=You don't have the rights to create a new topic!
+conversations.create.error.answer.missingParams=Not enough parameters!
+conversations.create.error.answer.norights=You don't have the rights to create a new answer!
+conversations.create.success.answer=Answer successfully added!
+conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata!
+conversations.create.error.missingtitle=Missing title!
+conversations.create.inProgress=Adding...
+conversations.create.requestError=There was an error sending your request. Please try again.
+conversations.create.success.topic=Topic successfully added!
 conversations.deleteconversation.changecomment=Deleted answer
 conversations.deletecomment.changecomment=Deleted comment
 conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the comment.

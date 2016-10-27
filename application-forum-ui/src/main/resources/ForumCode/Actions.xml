@@ -66,6 +66,7 @@
       #end
     #end
   #elseif ("$!request.action" == 'addtopic')
+    #set ($discard = $response.setContentType('application/json'))
     #if ("$!request.title.trim()" != '')
       #if ("$!request.space" != '' &amp;&amp; "$!request.page" != '')
         #set($topicDoc = $xwiki.getDocument("$!request.page"))
@@ -81,21 +82,21 @@
           #set($discard = $topicDoc.setParent("$!request.parent"))
           #set($discard = $topicDoc.setHidden(true))
           #set($discard = $topicDoc.saveWithProgrammingRights())
-          #if ("$!request.xredirect" != '')
-            #set($discard = $response.sendRedirect("$!request.xredirect"))
-          #end
+          #set($jsonRes = {'status': 'done', 'notification': "$services.localization.render('conversations.create.success.topic')"})
         #else
           #set($discard = $response.setStatus(403))
-          {{warning}}$services.localization.render('conversations.create.error.topic.norights'){{/warning}}
+          #set($jsonRes = {'status': 'error', 'notification': "$services.localization.render('conversations.create.error.topic.norights')"})
         #end
       #else
-        {{warning}}$services.localization.render('conversations.create.error.missingmetadata'){{/warning}}
+        #set($jsonRes = {'status': 'error', 'notification': "$services.localization.render('conversations.create.error.missingmetadata')"})
       #end
     #else
       #set($discard = $response.setStatus(403))
-      {{warning}}$services.localization.render('conversations.create.error.missingtitle'){{/warning}}
-    #end  
-  #elseif ("$!request.action" == 'addconversation')
+      #set($jsonRes = {'status': 'error', 'notification': "$services.localization.render('conversations.create.error.missingtitle')"})
+    #end
+    $jsontool.serialize($jsonRes) 
+  #elseif ("$!request.action" == 'addanswer')
+    #set ($discard = $response.setContentType('application/json'))
     #if ("$!request.space" != '' &amp;&amp; "$!request.page" != '')
       #set($answerDoc = $xwiki.getDocument("$!request.page"))
       #if ($answerDoc.hasAccessLevel('edit')) 
@@ -103,16 +104,15 @@
         #set($discard = $answerDoc.setHidden(true))
         #set($discard = $answerDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
         #set($discard = $answerDoc.saveWithProgrammingRights())
-        #if ("$!request.xredirect" != '')
-          #set($discard = $response.sendRedirect("$!request.xredirect"))
-        #end
+        #set($jsonRes = {'status': 'done', 'notification': "$services.localization.render('conversations.create.success.answer')"})
       #else
         #set($discard = $response.setStatus(403))
-        {{warning}}$services.localization.render('conversations.create.error.answer.norights'){{/warning}}
+        #set($jsonRes = {'status': 'error', 'notification': "$services.localization.render('conversations.create.error.answer.norights')"})
       #end    
     #else
-      {{warning}}Not enough parameters.{{/warning}}
+      #set($jsonRes = {'status': 'error', 'notification': "$services.localization.render('conversations.create.error.answer.missingParams')"})
     #end
+    $jsontool.serialize($jsonRes)
   #elseif ("$!request.action" == 'deleteconversation' || "$!request.action" == 'deletecomment')
     #set($isDeleteComment = "$!request.action" == 'deletecomment')
     #set($conversationDoc = $xwiki.getDocument("$!request.conversationdoc"))

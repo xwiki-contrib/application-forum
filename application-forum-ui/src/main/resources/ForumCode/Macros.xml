@@ -420,19 +420,18 @@
   #if ($newEntityDoc.hasAccessLevel('edit'))
     &lt;div class="addconversation-container add${entity.toLowerCase()}-container"&gt;
       &lt;div class="addconversation-container-button add${entity.toLowerCase()}-container-button buttonwrapper"&gt;
-        &lt;a href="$doc.getURL('view')" class="addconversation-activator button btn btn-success hasIcon add"&gt;#if ($services.icon)$services.icon.renderHTML('add') #end$services.localization.render("conversation.${entity.toLowerCase()}.create")&lt;/a&gt;
+        &lt;button class="button btn btn-success addconversation-activator"&gt;$!services.icon.renderHTML('add') $services.localization.render("conversation.${entity.toLowerCase()}.create")&lt;/button&gt;
       &lt;/div&gt;
       &lt;div class="addconversation-container-form add${entity.toLowerCase()}-container-form"&gt;
         ## Create a fake entity object to be able to display the status and the type selectors
         #set ($fakeEntity = $newEntityDoc.newObject("ForumCode.${entity}Class"))
-        &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
+        &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions', 'get', 'outputSyntax=plain')"&gt;
           &lt;div&gt;
             &lt;input type="hidden" name="action" value="add${entity.toLowerCase()}" /&gt;
             &lt;input type="hidden" name="page" value="$escapetool.xml($newEntityDoc.fullName)" /&gt;
             &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
             &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
             &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
-            &lt;input type="hidden" name="xredirect" value="$escapetool.xml($doc.getURL('view'))" /&gt;
           &lt;/div&gt;
           &lt;dl&gt;
             #if ($entity == 'Topic')
