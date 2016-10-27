@@ -168,9 +168,7 @@
 ##
 #macro(displayComment $comment, $commentDoc)
   ## compute the conversation id to make proper permalinks for comments
-  #if ("$!conversationId" == '')
-    #set ($conversationId = $commentDoc.name)
-  #end
+    #set ($conversationId = $commentDoc.documentReference.lastSpaceReference.name)
   #if (!$commentodd || $commentodd == 'even')
    #set ($commentodd = 'odd')
   #else
@@ -223,9 +221,7 @@
 ##
 #macro(displayCommentForm $commentDoc)
   ## compute the conversation id to make proper permalinks for comments
-  #if ("$!conversationId" == '')
-    #set ($conversationId = $commentDoc.name)
-  #end
+  #set ($conversationId = $commentDoc.documentReference.lastSpaceReference.name)
   #if ($commentDoc.hasAccessLevel('comment'))
     ## prepare a nice redirect URL: for the reply form, redirect to the comemnt to which we replied, 
     ## for the new comment form, redirect to the conversation itself
