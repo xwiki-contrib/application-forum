@@ -40,13 +40,13 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{velocity}}
-#set($docRef = $request.docRef)
-#if(!$isGuest &amp;&amp; "$!{request.vote}" == '1')
-  #set($discard = $services.ratings.setRating($docRef, $xcontext.user, 1))
+#set ($discard = $response.setContentType('application/json'))
+#set ($docRef = $request.docRef)
+#if (!$isGuest &amp;&amp; "$!{request.vote}" == '1')
+  #set ($discard = $services.ratings.setRating($docRef, $xcontext.user, 1))
 #end
-#set($avgRating = $services.ratings.getAverageRating($docRef))
-#set($nbVotes = $avgRating.nbVotes)
-$response.setContentType('application/json')
-{'totalvotes' : "$!{nbVotes}" }
+#set ($avgRating = $services.ratings.getAverageRating($docRef))
+#set ($nbVotes = $avgRating.nbVotes)
+$jsontool.serialize({'totalvotes' : "$!{nbVotes}"})
 {{/velocity}}</content>
 </xwikidoc>
