@@ -1005,7 +1005,9 @@ require(['jquery'], function($) {
           conversationForm.addClass('hidden');
           $('.addconversation-activator').removeClass('hidden');
           // After the submission of the form we need to reset reset it (and this includes the editor) in order to not be asked anymore by the browser to save the changes.
-          conversationForm[0].reset()
+          conversationForm[0].reset();
+          // For both CKEditor and GWT/or any other editor, I'm reloading the page as a temporary solution to reload the results.
+          // TODO: reload the results on the page using an AJAX Request.
           if (window.CKEDITOR) {
             conversationForm.find('textarea.ckeditor-textarea').each(function() {
               var editor = CKEDITOR.instances[$(this).attr('name')];
