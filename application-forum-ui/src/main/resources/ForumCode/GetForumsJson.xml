@@ -39,111 +39,36 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>{{velocity}}
-#set ($offset = $numbertool.toNumber($request.offset))
-#set ($limit  = $numbertool.toNumber($request.limit))
-#set ($reqNo  = $numbertool.toNumber($request.reqNo))
-#set ($dir    = $request.dir)
-#set ($sort   = $request.sort)
-
-#if ($dir != 'desc')
-  #set ($dir = 'asc')
-#end
-
-#if (!$offset || $offset &lt; 0)
-  #set ($offset = 1)
-#end
-#set ($offset = $offset - 1)
-
-#if (!$limit &amp;&amp; $limit &lt; 0)
-  #set ($limit = 10)
-#end
-
-#set ($allowedFilterFields = ['doc.title', 'doc.creator'])
-#set ($allowedSortFields = ['doc.title', 'doc.creator', 'doc.date'])
-
-## Building the filter and binded params
-#set ($filter = '')
-#set ($bindedParams = {})
-#foreach ($field in $allowedFilterFields)
-  #set ($value = "$!request.get($field)")
-  #if ("$!value" != '')
-    #set ($param = "param$!{velocityCount}")
-    #set ($filter = "$filter and lower(${field}) like :$param")
-    #set ($discard = $bindedParams.put($param, "%${value.toLowerCase()}%"))
-  #end
-#end
-
-## Building the order clause
-#set ($orederClause = '')
-#if ($allowedSortFields.contains($sort))
-  #set ($orederClause = " order by ${sort} ${dir}")
-#end
-
-#set ($condition = " doc.fullName&lt;&gt;'ForumCode.ForumTemplate'")
-#if ($filter != '')
-  #set ($condition = "${condition} ${filter}")
-#end
-
-#set ($countQuery = $services.query.hql("select count(doc.fullName) from XWikiDocument doc, BaseObject obj where doc.fullName=obj.name and obj.className='ForumCode.ForumClass' and ${condition}"))
-#set ($listQuery = $services.query.xwql("from doc.object('ForumCode.ForumClass') obj where${condition}${orederClause}"))
-
-## Building the values with params
-#foreach ($paramValue in $bindedParams.entryset())
-  #set ($discard = $listQuery.bindValue($paramValue.key, $paramValue.value))
-  #set ($discard = $countQuery.bindValue($paramValue.key, $paramValue.value))
-#end
-
-## Executing the query
-#set ($totalrows = $countQuery.execute().get(0))
-#set ($results = $listQuery.setOffset($offset).setLimit($limit).execute())
-
-#set ($rows = [])
-#foreach ($result in $results)
-  #set ($document = $xwiki.getDocument($result))
-  #if ($document)
-    #set ($actionsLink = '')
-    #if ($xwiki.hasAccessLevel('delete', $xcontext.user, $result))
-      #set ($text = $services.localization.render('platform.livetable._actions.delete'))
-      #set ($deleteURL = 'javascript:void(0)')
-      #set ($actionsLink = "&lt;a href='$deleteURL' class='action actiondelete deleteforum' space='$escapetool.xml($document.space)'&gt;${text}&lt;/a&gt;")
-    #end
-    #if ($xwiki.hasAccessLevel('edit', $xcontext.user, $result))
-      #set ($editURL = $document.getURL('edit'))
-      #set ($text = $services.localization.render('platform.livetable._actions.edit'))
-      #set ($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt; ${actionsLink}")
-    #end
-    #set ($creatorDoc = $xwiki.getDocumentAsAuthor($document.creator))
-    #set ($creatorView = "&lt;ul class='users'&gt;
+  <content>{{include reference="XWiki.LiveTableResultsMacros" /}}
+{{velocity }}
+#set ($map = {})
+#gridresult_buildJSON($request.classname $request.collist.split(',') $map)
+#foreach ($row in $map.get('rows'))
+  #set ($forumName  = "${row.get('doc_space')}.WebHome")
+  #set ($forumDoc   = $xwiki.getDocument($forumName))
+  #set ($creatorDoc = $xwiki.getDocument($forumDoc.creator))
+  #set ($discard = $row.put('doc_creator', 
+    "&lt;ul class='users'&gt;
       &lt;li class='user'&gt;
-        &lt;div class='user-avatar-wrapper'&gt;#resizedUserAvatar($creatorDoc.creator 30)&lt;/div&gt;
+        &lt;div class='user-avatar-wrapper'&gt;#resizedUserAvatar($forumDoc.creator 30)&lt;/div&gt;
         &lt;div class='user-name'&gt;#if (!$creatorDoc.isNew() &amp;&amp; $creatorDoc.URL)&lt;span class='wikilink'&gt;&lt;a href='$creatorDoc.URL'&gt;$creatorDoc.name&lt;/a&gt;&lt;/span&gt;#else${document.creator}#end&lt;/div&gt;
         &lt;div&gt;&lt;span class='user-alias'&gt;$xwiki.getUserName($creatorDoc.fullName, false)&lt;/span&gt;&lt;/div&gt;
       &lt;/li&gt;
-    &lt;/ul&gt;")
-    #set ($row = {
-      'doc_viewable'   : true,
-      'doc_url'        : $document.URL,
-      'doc_title'      : $document.title,
-      'doc_creator'    : $creatorView,
-      'doc_creator_url': $xwiki.getURL($document.creator),
-      'doc_date'       : $xwiki.formatDate($document.date),
-      'actions'        : $actionsLink
-    })
-    #set ($discard = $rows.add($row))
+    &lt;/ul&gt;"))
+  #set ($actionsLink = '')
+  #if ($xwiki.hasAccessLevel('delete', $xcontext.user, $docName))
+    #set ($text = $services.localization.render('platform.livetable._actions.delete'))
+    #set ($deleteURL = 'javascript:void(0)')
+    #set ($actionsLink = "&lt;a href='$deleteURL' class='action actiondelete deleteforum' space='$escapetool.xml($document.space)'&gt;${text}&lt;/a&gt;")
   #end
+  #if ($xwiki.hasAccessLevel('edit', $xcontext.user, $docName))
+    #set ($editURL = $document.getURL('edit'))
+    #set ($text = $services.localization.render('platform.livetable._actions.edit'))
+    #set ($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt; ${actionsLink}")
+  #end
+  #set ($discard = $row.put('doc_creator_url', $xwiki.getURL($document.creator)))
+  #set ($discard = $row.put('actions', $actionsLink))
 #end
-
-#set ($jsonAsMap = {
-  'offset'       : $request.offset,
-  'reqNo'        : $reqNo,
-  'returnedrows' : $results.size(),
-  'totalrows'    : $totalrows,
-  'rows'         : $rows
-})
-
-$jsontool.serialize($jsonAsMap)
-
-{{/velocity}}
-</content>
+$jsontool.serialize($map)
+{{/velocity}}</content>
 </xwikidoc>
