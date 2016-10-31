@@ -46,24 +46,12 @@
 #else
   ## We expect an ajax request for this deleteforum action
   #if ("$!request.action" == 'deleteforum')
-    ## We assume all paths are bad requests, so we have to change status code for other cases.
-    #set($discard = $response.setStatus(400))
-    #set($space = "$!{request.space}")
-    #set($webHomeDoc = $xwiki.getDocument("${space}.WebHome"))
-    ## Check if the space is a froum space
-    #if ($space != '' &amp;&amp; $webHomeDoc.getObject('ForumCode.ForumClass') != $util.null)
-      ## Chck if the current user has delete right on the forum
-      #if ($webHomeDoc.hasAccessLevel('delete'))
-        ## We need to delete all documents of the forum space
-        #set($results = $services.query.xwql('WHERE doc.space=:forumSpace OR doc.space LIKE :forum').bindValue('forumSpace', $space).bindValue('forum', "${space}.%").execute())
-        #foreach ($fullName in $results)
-          #set($discard = $xwiki.getDocument($fullName).delete())
-        #end
-        #set($discard = $response.setStatus(200)) ok
-      #else
-        ## Forbidden action
-        #set($discard = $response.setStatus(403))
-      #end
+    #set($forumName = $request.forumName)
+    #set($forumDoc = $xwiki.getDocument($forumName))
+    ## We need to delete all documents of the forum space
+    #set($results = $services.query.xwql('WHERE doc.space LIKE :forum').bindValue('forum', "${forumDoc.space}%").execute())
+    #foreach ($result in $results)
+      #set($discard = $xwiki.getDocument($result).delete())
     #end
   #elseif ("$!request.action" == 'addtopic')
     #set ($discard = $response.setContentType('application/json'))
