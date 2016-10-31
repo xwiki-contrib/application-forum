@@ -182,34 +182,36 @@
       <cache>long</cache>
     </property>
     <property>
-      <code>(function(){
+      <code>
+(function(){
   var forums = {
     tableId : 'forums',
     /* Refreshs the livetable livetable_forums */
-    refreshLiveTable : function() {
+    refreshLiveTable : function(){
       if(livetable_forums){
         var lt = livetable_forums;
         lt.totalRows = -1;
         lt.showRows(1, lt.limit);
-	    }
+	  }
     },
     /* Deletes the forum, the space of the forum is set in the elem as attribute (space) */
-    deleteForum : function(elem) {
+    deleteForum : function(elem){
       var $elem = $(elem)
-      if($elem.clickDesibled) {
+      if($elem.clickDesibled){
         return;
       }
+      var space = $elem.readAttribute('space');
       new XWiki.widgets.ConfirmedAjaxRequest(
         /* Ajax request URL */
         "$xwiki.getURL('ForumCode.Actions','get', 'outputSyntax=plain')",
         {
           /* Ajax request parameters */
-	  	    parameters  : {
-		        forumName :  $elem.readAttribute('forumName'),
-			      form_token : "$services.csrf.token",
-			      action : 'deleteforum'
-	        },
-          onCreate : function() {
+	  	  parameters  : {
+		    space :  space,
+			form_token : "$services.csrf.token",
+			action : 'deleteforum'
+	      },
+          onCreate : function(){
             $elem.clickDesibled = true;
           },
           onSuccess : function() {
@@ -231,19 +233,18 @@
   }
   /* Observes the displayComplete of the livetable in ordert to attach
      click event on delete forum links */
-  document.observe("xwiki:livetable:displayComplete", function(event) {
+  document.observe("xwiki:livetable:displayComplete", function(event){
     /* We need to check if the displayComplete is fired for the right table */
-    if(event.memo.tableId == forums.tableId) {
-      $$('#' + forums.tableId + ' a.actiondelete').each(function(item) {
-        item.observe('click', function(event) {
-        event.stop();
+    if(event.memo.tableId == forums.tableId){
+      $$('#' + forums.tableId + ' a.deleteforum').each(function(item){
+        item.observe('click', function(){
 	      forums.deleteForum(item);
         });
       });
-	  }
+	}
   });
 })();
-</code>
+      </code>
     </property>
     <property>
       <name/>
