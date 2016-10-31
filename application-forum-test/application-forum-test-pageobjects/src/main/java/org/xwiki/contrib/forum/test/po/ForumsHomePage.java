@@ -142,7 +142,7 @@ public class ForumsHomePage extends ViewPage
         for (WebElement row : forums) {
             WebElement name = row.findElement(By.xpath("//td[contains(@class, 'doc_title')]/a"));
             if (forumName.equals(name.getText())) {
-                row.findElement(By.xpath("//a[contains(@class, 'deleteforum') and contains(@space, 'Forums.MyForum')]"))
+                row.findElement(By.xpath("//a[contains(@class, 'actiondelete') and contains(@forumName, 'Forums.MyForum')]"))
                     .click();
                 getDriver().findElement(By.cssSelector(".xdialog-box-confirmation [value = 'Yes']")).click();
             }
