@@ -493,7 +493,7 @@
   #set ($forumReference = $services.model.resolveDocument($forum))
   #set ($forumSpace = $services.model.serialize($forumReference.parent))
   ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
-  #set ($hierarchyCondition = '(doc.parent=:forum or doc.space=:forumSpace) and ')
+  #set ($hierarchyCondition = 'doc.space like :forumSpace and ')
   #set ($templateCondition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
   #if ($isPanelSort != 1)
     #set ($currentorder = $request.sortorder)
@@ -510,9 +510,9 @@
   #end
   #if ($sortField == 'votes')
     ## sort by votes - requires programming rights
-    #set ($query = $services.query.hql(", BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $condition obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass'  and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}").setOffset($start).setLimit($nb))   
+    #set ($query = $services.query.hql(", BaseObject as obj, BaseObject as votesobj, IntegerProperty as nbvotes where $condition obj.name = doc.fullName and obj.className = 'ForumCode.TopicClass' and votesobj.name=doc.fullName and votesobj.className='XWiki.AverageRatingsClass' and votesobj.id=nbvotes.id.id and nbvotes.id.name='nbvotes'  order by nbvotes.value $!{currentorder}").setOffset($start).setLimit($nb))   
     #if (!$allTopics)
-      #set ($discard = $query.bindValue('forum', $forum).bindValue('forumSpace', $forumSpace))
+      #set ($discard = $query.bindValue('forumSpace', "${forumSpace}.%"))
     #end
     #set ($result = $query.execute())
   #elseif ($sortField == 'comments')
@@ -538,7 +538,7 @@
     })
     #if (!$allTopics)
       #foreach ($query in $option.values())
-        #set ($discard = $query.bindValue('forum', $forum).bindValue('forumSpace', $forumSpace))
+        #set ($discard = $query.bindValue('forumSpace', "${forumSpace}.%"))
       #end
     #end
     #sortAsOutterjoin($option $start $nb $currentorder $result)
@@ -546,7 +546,7 @@
     ## sort by last update date
     #set ($query = $services.query.hql(", BaseObject as obj where $condition obj.name = doc.fullName and obj.className='ForumCode.TopicClass' order by doc.date $!{currentorder}").setOffset($start).setLimit($nb))
     #if (!$allTopics)
-      #set ($discard = $query.bindValue('forum', $forum).bindValue('forumSpace', $forumSpace))
+      #set ($discard = $query.bindValue('forumSpace', "${forumSpace}.%"))
     #end
     #set ($result = $query.execute())
   #end
@@ -627,7 +627,7 @@
     #set ($topicDescription = $topicDoc.display('description'))
     #set ($topicComments = 0)
     #set ($topicAnswers = [])
-    #getTopicAnswers($topic $topicSpace $topicAnswers)
+    #getTopicAnswers($topicSpace $topicAnswers)
     #set ($notAllowed = ($services.ratings.getRating($topicReference, $xcontext.user) != $util.null))
     #if ($topicAnswers)
       #foreach ($topicAnswer in $topicAnswers)
@@ -711,7 +711,7 @@
   ## The list of existing conversations with their comments
   ## Find all the documents which are the children of this document and have an object of type answer inside
   #set ($topicAnswers = [])
-  #getTopicAnswers($doc.fullName $doc.space $topicAnswers)
+  #getTopicAnswers($doc.space $topicAnswers)
   &lt;div class="answers"&gt;
     #if ($topicAnswers.size() &gt; 0)
       #foreach ($topicAnswer in $topicAnswers)
@@ -921,7 +921,7 @@
           #set ($rating = $services.ratings.getAverageRating($topicReference).nbVotes)
           #set ($topicComments = 0)
           #set ($topicAnswers = [])
-          #getTopicAnswers($topicDoc.fullName $topicDoc.space $topicAnswers)
+          #getTopicAnswers($topicDoc.space $topicAnswers)
           #if ($topicAnswers)
             #foreach ($topicAnswer in $topicAnswers)
               #set ($answerDoc = $xwiki.getDocument($topicAnswer))
@@ -1014,10 +1014,8 @@
   #end
 #end
 ## 
-#macro(getTopicAnswers $parent $space $topicAnswers)
-  ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
-  #set ($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
-  #set ($discard = $topicAnswers.addAll($services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition order by doc.date desc").bindValue('parent', $parent).bindValue('spacePrefix', "${space}.%").execute()))
+#macro(getTopicAnswers $topicSpace $topicAnswers)
+  #set ($discard = $topicAnswers.addAll($services.query.xwql('from doc.object(ForumCode.AnswerClass) as answer where doc.space like :topicSpace order by doc.date desc').bindValue('topicSpace', "${topicSpace}.%").execute()))
 #end
 {{/velocity}}</content>
   <object>
