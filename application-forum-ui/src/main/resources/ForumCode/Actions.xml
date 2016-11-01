@@ -197,7 +197,7 @@
         #end
         #if ($isAnswer)
           #set($discard = $response.setContentType('application/json'))
-          {'success' : "${request.action}", 'mailsent' : "$!{mailsent}"}
+          $jsontool.serialize({'success' : $request.action, 'mailsent' : $mailsent})
         #else
           #if ("$!request.xredirect" != '')
             #set($discard = $response.sendRedirect("$!request.xredirect?success=${request.action}&amp;mailsent=$!{mailsent}"))
