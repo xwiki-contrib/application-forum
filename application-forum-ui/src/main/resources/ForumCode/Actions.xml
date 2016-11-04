@@ -186,7 +186,7 @@
           #elseif ($isAnswer)
             #set($deleteAction = 'answer')
           #end
-          #set($deletedDoc = $conversationDoc))
+          #set($deletedDoc = $conversationDoc)
           #set($map = { 'action' : "$deleteAction" , 'deleted_content' : "$!{itemRepresentation}", 'deletedDoc' : "$!{deletedDoc}"})
           #set($result = $xwiki.mailsender.sendMessageFromTemplate($sender, $itemAuthorEmail, ${util.null}, ${util.null}, $xcontext.language, 'ForumCode.Actions', $map))
           #if ($result != 0)
@@ -197,7 +197,7 @@
         #end
         #if ($isAnswer)
           #set($discard = $response.setContentType('application/json'))
-          {'success' : "${request.action}", 'mailsent' : "$!{mailsent}"}
+          $jsontool.serialize({'success' : $request.action, 'mailsent' : $mailsent})
         #else
           #if ("$!request.xredirect" != '')
             #set($discard = $response.sendRedirect("$!request.xredirect?success=${request.action}&amp;mailsent=$!{mailsent}"))
