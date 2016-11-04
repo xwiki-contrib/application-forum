@@ -722,7 +722,7 @@
           #set ($comments = $topicAnswerDoc.getComments())
           ## Compose a conversation id for the conversation from the document name only.
           ## We don't need clearname anymore and neither the date as we control the topic name
-          #set ($topicAnswerID = $topicAnswerDoc.name)
+          #set ($topicAnswerID = $topicAnswerDoc.documentReference.lastSpaceReference.name)
           &lt;div class="answer" objtype="answer" id="$topicAnswerID"&gt;
             &lt;div class="answer-layout"&gt;
               &lt;span class="user-avatar"&gt;
