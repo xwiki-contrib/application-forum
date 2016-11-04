@@ -152,22 +152,27 @@
           #set($itemAuthor = $conversationDoc.creator)
         #end
         ## 1. do the action
+        #set ($target = $conversationDoc)
         #if ($isDeleteComment)
+          #set ($target = "${conversationDoc.parent}:xwikicomment_${conversationDoc.documentReference.lastSpaceReference.name}_${commentNumber}")
           #set($discard = $conversationDoc.removeObject($commentObj))
           #set($discard = $conversationDoc.save($services.localization.render("conversations.${request.action}.changecomment")))
         #else
           #set($discard = $conversationDoc.delete())
           ## if we are a topic delete the answers
           #if ($topicObj)
-            ## Depending on XE version, we consider parent-child relationship for Pre NS or space-subspace for NS.
-            #set($hierarchyCondition = 'doc.parent=:parent or doc.space like :spacePrefix')
-            #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where $hierarchyCondition").bindValue('parent', $conversationDoc.fullName).bindValue('spacePrefix', "${doc.space}.%").execute())
+            #set($hierarchyCondition = 'doc.space like :spacePrefix')
+            #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where doc.space like :spacePrefix").bindValue('spacePrefix', "${doc.space}.%").execute())
             #foreach ($answer in $answers)
               #set($answerDoc = $xwiki.getDocument($answer))
               #set($discard = $answerDoc.deleteWithProgrammingRights())
             #end
+          #else 
+            #set ($target = "${conversationDoc.parent}%${conversationDoc.documentReference.lastSpaceReference.name}")
           #end
         #end
+        ## delete existing flags on this conversation
+        #deleteFlags($target)
         ## 2. send an email
         ## get the email of the dude to send the mail to
         #set($itemAuthorUser = $xwiki.getUser($itemAuthor))
@@ -218,6 +223,14 @@
   #end##action switch
 #end##csrf token verification
 #set($docextras = [])
+#macro (deleteFlags $target)
+  ## When an entity is deleted, delete all its flags + all subentityes' flags. E.g: Topic &gt; ANswer &gt; Comments
+  #set ($query = 'from doc.object(ForumCode.FlagClass) as flag where flag.target like :target')
+  #set ($flags = $services.query.xwql($query).bindValue('target', "${target}%").execute())
+  #foreach ($flag in $flags)
+    #set($discard = $xwiki.getDocument($flag).delete())
+  #end
+#end
 {{/velocity}}</content>
   <object>
     <name>ForumCode.Actions</name>
