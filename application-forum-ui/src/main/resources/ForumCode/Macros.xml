@@ -421,13 +421,14 @@
       &lt;div class="addconversation-container-form add${entity.toLowerCase()}-container-form"&gt;
         ## Create a fake entity object to be able to display the status and the type selectors
         #set ($fakeEntity = $newEntityDoc.newObject("ForumCode.${entity}Class"))
-        &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions', 'get', 'outputSyntax=plain')"&gt;
+        &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
           &lt;div&gt;
             &lt;input type="hidden" name="action" value="add${entity.toLowerCase()}" /&gt;
             &lt;input type="hidden" name="page" value="$escapetool.xml($newEntityDoc.fullName)" /&gt;
             &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
             &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
             &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
+            &lt;input type="hidden" name="xredirect" value="$escapetool.xml($doc.getURL('view'))" /&gt;
           &lt;/div&gt;
           &lt;dl&gt;
             #if ($entity == 'Topic')
