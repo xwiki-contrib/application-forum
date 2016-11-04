@@ -161,11 +161,9 @@
           #set($discard = $conversationDoc.delete())
           ## if we are a topic delete the answers
           #if ($topicObj)
-            #set($hierarchyCondition = 'doc.space like :spacePrefix')
-            #set($answers = $services.query.xwql("from doc.object(ForumCode.AnswerClass) as answer where doc.space like :spacePrefix").bindValue('spacePrefix', "${doc.space}.%").execute())
+            #set($answers = $services.query.xwql('from doc.object(ForumCode.AnswerClass) as answer where doc.space like :spacePrefix').bindValue('spacePrefix', "${conversationDoc.space}.%").execute())
             #foreach ($answer in $answers)
-              #set($answerDoc = $xwiki.getDocument($answer))
-              #set($discard = $answerDoc.deleteWithProgrammingRights())
+              #set($discard = $xwiki.getDocument($answer).deleteWithProgrammingRights())
             #end
           #else 
             #set ($target = "${conversationDoc.parent}%${conversationDoc.documentReference.lastSpaceReference.name}")
