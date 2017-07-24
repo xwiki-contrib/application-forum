@@ -11,4 +11,4 @@ Forum application with multiple forums, topics, answers, comments, supporting WY
 * License: LGPL v3
 * [Translations](http://l10n.xwiki.org/xwiki/bin/view/Contrib/ForumApplication)
 * Sonar Dashboard: N/A
-* Continuous Integration Status: [![Build Status](http://ci.xwiki.org/buildStatus/icon?job=Contrib%20-%20Forum%20Application)](http://ci.xwiki.org/job/Contrib%20-%20Forum%20Application/)
+* Continuous Integration Status: [![Build Status](http://ci.xwiki.org/job/XWiki%20Contrib/job/application-forum/job/master/badge/icon)](http://ci.xwiki.org/job/XWiki%20Contrib/job/application-forum/job/master/)
