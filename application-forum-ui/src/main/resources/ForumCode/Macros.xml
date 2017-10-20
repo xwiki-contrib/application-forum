@@ -394,37 +394,22 @@
   #end
   &lt;span class="${sortclass} ${style}"&gt;&lt;a href="$doc.getURL('view', "sortfield=${field}&amp;sortorder=${nextorder}")" onclick=""&gt;$services.localization.render("conversations.forum.sorttopicsby.${field}")&lt;/a&gt;&lt;/span&gt;
 #end
-#**
-  * Create unique page reference for both Pre Nested Space and Nested Space versions of XWiki
-  *
-  * @param $space the space where the new unique page reference is created
-  * @param $name the name to be contained by the new unique page reference
-  * @uniquePageReference the returned parameter
-  *#
-#macro(createUniquePageReference $space $name $uniquePageReference)
-  #set ($spaceReference = $services.model.resolveSpace($space))
-  #set ($parentSpace = $spaceReference.parent)
-  #set ($uniquePageName = "${name}_${datetool.date.time}_${mathtool.random(1, 99)}")
-  #set ($uniqueSpaceReference = $services.model.createSpaceReference($uniquePageName, $spaceReference))
-  #set ($uniquePageReference = $services.model.createDocumentReference('WebHome', $uniqueSpaceReference))
-#end
 ##
 #macro (displayAddConversationButton $space $entity)
   #set ($uniquePageReference = '')
-  #createUniquePageReference($space $entity $uniquePageReference)
-  #set ($newEntityDoc = $xwiki.getDocument($uniquePageReference))
-  #if ($newEntityDoc.hasAccessLevel('edit'))
+  ## Use a fake document in order to use the user input for topics and answers creation (title and description to compute the name) 
+  #set ($fakeEntityDoc = $xwiki.getDocument('Forums.FakeDocument'))
+  #if ($fakeEntityDoc.hasAccessLevel('edit'))
     &lt;div class="addconversation-container add${entity.toLowerCase()}-container"&gt;
       &lt;div class="addconversation-container-button add${entity.toLowerCase()}-container-button buttonwrapper"&gt;
         &lt;button class="button btn btn-success addconversation-activator"&gt;$!services.icon.renderHTML('add') $services.localization.render("conversation.${entity.toLowerCase()}.create")&lt;/button&gt;
       &lt;/div&gt;
       &lt;div class="addconversation-container-form add${entity.toLowerCase()}-container-form"&gt;
         ## Create a fake entity object to be able to display the status and the type selectors
-        #set ($fakeEntity = $newEntityDoc.newObject("ForumCode.${entity}Class"))
+        #set ($fakeEntity = $fakeEntityDoc.newObject("ForumCode.${entity}Class"))
         &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
           &lt;div&gt;
             &lt;input type="hidden" name="action" value="add${entity.toLowerCase()}" /&gt;
-            &lt;input type="hidden" name="page" value="$escapetool.xml($newEntityDoc.fullName)" /&gt;
             &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
             &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
             &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
@@ -438,7 +423,7 @@
               &lt;input type="hidden" name="ForumCode.${entity}Class_${fakeEntity.number}_status" value="inprogress" /&gt; 
             #end
             &lt;dt&gt;&lt;label&gt;$services.localization.render("ForumCode.${entity}Class_description")&lt;/label&gt;&lt;/dt&gt;
-            &lt;dd&gt;#cleanHTMLMacro($newEntityDoc.display('description', 'edit', $fakeEntity))&lt;/dd&gt;
+            &lt;dd&gt;#cleanHTMLMacro($fakeEntityDoc.display('description', 'edit', $fakeEntity))&lt;/dd&gt;
           &lt;/dl&gt;
           &lt;div class="buttons"&gt;
             &lt;span class="buttonwrapper"&gt;

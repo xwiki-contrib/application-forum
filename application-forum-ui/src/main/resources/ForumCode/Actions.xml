@@ -66,21 +66,25 @@
       #end
     #end
   #elseif ("$!request.action" == 'addtopic')
-    #if ("$!request.title.trim()" != '')
-      #if ("$!request.space" != '' &amp;&amp; "$!request.page" != '')
-        #set($topicDoc = $xwiki.getDocument("$!request.page"))
-        #if ($topicDoc.hasAccessLevel('edit'))
+    #set ($title = $request.title.trim())
+    #if ("$!title" != '')
+      #if ("$!request.space" != '')
+        #getForumEntityDoc($request.space $title $entityDoc)
+        ## #set ($forumReference = $services.model.resolveSpace($request.space))
+        ## #set ($topicSpaceReference = $services.model.createSpaceReference($title, $forumReference))
+        ## #set ($topicReference = $services.model.createDocumentReference('WebHome', $topicSpaceReference))
+        ## #set ($topicDoc = $xwiki.getDocument($topicReference))
+        #if ($entityDoc.hasAccessLevel('edit'))
           ## Add the TopicClass object
-          #set($discard = $topicDoc.updateObjectFromRequest('ForumCode.TopicClass'))
+          #set($discard = $entityDoc.updateObjectFromRequest('ForumCode.TopicClass'))
           ## We add a XWiki.AverageRatingsClass object to simplify sorting topics by votes
           ## when some topics don't have any votes.
-          #set($averageObj = $topicDoc.newObject('XWiki.AverageRatingsClass'))
+          #set($averageObj = $entityDoc.newObject('XWiki.AverageRatingsClass'))
           #set($discard = $averageObj.set('nbvotes', 0))
           #set($discard = $averageObj.set('method', 'average'))
-          #set($discard = $topicDoc.setTitle("$!request.title.trim()"))
-          #set($discard = $topicDoc.setParent("$!request.parent"))
-          #set($discard = $topicDoc.setHidden(true))
-          #set($discard = $topicDoc.saveWithProgrammingRights())
+          #set($discard = $entityDoc.setTitle($title))
+          #set($discard = $entityDoc.setParent("$!request.parent"))
+          #set($discard = $entityDoc.saveWithProgrammingRights())
           #if ("$!request.xredirect" != '')
             #set($discard = $response.sendRedirect("$!request.xredirect"))
           #end
@@ -96,13 +100,21 @@
       {{warning}}$services.localization.render('conversations.create.error.missingtitle'){{/warning}}
     #end  
   #elseif ("$!request.action" == 'addanswer')
-    #if ("$!request.space" != '' &amp;&amp; "$!request.page" != '')
-      #set($answerDoc = $xwiki.getDocument("$!request.page"))
-      #if ($answerDoc.hasAccessLevel('edit')) 
-        #set($discard = $answerDoc.setParent("${request.parent}"))
-        #set($discard = $answerDoc.setHidden(true))
-        #set($discard = $answerDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
-        #set($discard = $answerDoc.saveWithProgrammingRights())
+    #if ("$!request.space" != '')
+      #set ($title = "$!request.get('ForumCode.AnswerClass_0_description').trim()")
+      ## Keep only 50 chars from the description to represent the answer's title
+      #if ($title.length() &gt; 50)
+        #set ($title = "${title.substring(0,50)}...")
+      #end
+      #getForumEntityDoc($request.space $title $entityDoc)
+      ## #set ($topicReference = $services.model.resolveSpace($request.space))
+      ## #set ($answerSpaceReference = $services.model.createSpaceReference($title, $topicReference))
+      ## #set ($answerReference = $services.model.createDocumentReference('WebHome', $answerSpaceReference))
+      ## #set ($answerDoc = $xwiki.getDocument($answerReference))
+      #if ($entityDoc.hasAccessLevel('edit')) 
+        #set($discard = $entityDoc.setParent("${request.parent}"))
+        #set($discard = $entityDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
+        #set($discard = $entityDoc.saveWithProgrammingRights())
         #if ("$!request.xredirect" != '')
           #set($discard = $response.sendRedirect("$!request.xredirect"))
         #end
@@ -229,7 +241,12 @@
     #set($discard = $xwiki.getDocument($flag).delete())
   #end
 #end
-{{/velocity}}</content>
+#macro (getForumEntityDoc $parentSpace $title $entityDoc)
+  #set ($parentReference = $services.model.resolveSpace($parentSpace))
+  #set ($entitySpaceReference = $services.model.createSpaceReference($title, $parentReference))
+  #set ($entityDocReference = $services.model.createDocumentReference('WebHome', $entitySpaceReference))
+  #set ($entityDoc = $xwiki.getDocument($entityDocReference))
+#end</content>
   <object>
     <name>ForumCode.Actions</name>
     <number>0</number>
