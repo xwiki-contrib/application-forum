@@ -70,10 +70,6 @@
     #if ("$!title" != '')
       #if ("$!request.space" != '')
         #getForumEntityDoc($request.space $title $entityDoc)
-        ## #set ($forumReference = $services.model.resolveSpace($request.space))
-        ## #set ($topicSpaceReference = $services.model.createSpaceReference($title, $forumReference))
-        ## #set ($topicReference = $services.model.createDocumentReference('WebHome', $topicSpaceReference))
-        ## #set ($topicDoc = $xwiki.getDocument($topicReference))
         #if ($entityDoc.hasAccessLevel('edit'))
           ## Add the TopicClass object
           #set($discard = $entityDoc.updateObjectFromRequest('ForumCode.TopicClass'))
@@ -107,10 +103,6 @@
         #set ($title = "${title.substring(0,50)}...")
       #end
       #getForumEntityDoc($request.space $title $entityDoc)
-      ## #set ($topicReference = $services.model.resolveSpace($request.space))
-      ## #set ($answerSpaceReference = $services.model.createSpaceReference($title, $topicReference))
-      ## #set ($answerReference = $services.model.createDocumentReference('WebHome', $answerSpaceReference))
-      ## #set ($answerDoc = $xwiki.getDocument($answerReference))
       #if ($entityDoc.hasAccessLevel('edit')) 
         #set($discard = $entityDoc.setParent("${request.parent}"))
         #set($discard = $entityDoc.updateObjectFromRequest('ForumCode.AnswerClass'))
