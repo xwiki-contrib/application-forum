@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc reference="ForumCode.Translations" locale="pl">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>pl</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <parent>WebHome</parent>
+  <creator>xwiki:XWiki.Admin</creator>
+  <author>xwiki:XWiki.Admin</author>
+  <customClass/>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <creationDate>1400156986000</creationDate>
+  <date>1400760336000</date>
+  <contentUpdateDate>1400760336000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <defaultTemplate/>
+  <validationScript/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.AnswerClass_answer=Odpowiedź
+ForumCode.AnswerClass_description=Odpowiedź
+ForumCode.FlagClass_reason_=Zaznacz
+ForumCode.FlagClass_status=Status
+ForumCode.FlagClass_status_inprogress=W trakcie
+ForumCode.FlagClass_status_open=Otwarte
+ForumCode.FlagClass_status_resolved=Rozwiązane
+ForumCode.TopicClass_description=Opis
+ForumCode.TopicClass_status=Status
+ForumCode.TopicClass_status_closed=Zamknięty
+ForumCode.TopicClass_status_inprogress=W trakcie
+ForumCode.TopicClass_type_alert=Ostrzeżenie
+ForumCode.TopicClass_type_feedback=Inf. zwrotna
+ForumCode.TopicClass_type_question=Pytanie
+ForumCode.TopicClass_type_suggestion=Sugetia
+conversation.add.activator=Dodaj odpowiedź
+conversation.answer.create=Dodaj odpowiedź
+conversation.delete.success=Odpowiedź usunięta
+conversation.delete.title=Usuń odpowiedź
+conversation.edit=Edytuj odpowiedź
+conversation.edit.title=Edytuj odpowiedź
+conversation.empty=Bez komentarza
+conversation.flag.tooltip=Flaga
+conversation.like.button=Głosy
+conversation.like.loading=Zapisane głosy...
+</content>
+</xwikidoc>
