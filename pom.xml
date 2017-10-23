@@ -37,6 +37,10 @@
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <properties>
     <platform.version>${commons.version}</platform.version>
+
+    <!-- Enable auto release on jira -->
+    <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
+    <xwiki.issueManagement.jira.id>XAFORUM</xwiki.issueManagement.jira.id>
   </properties>
   <developers>
     <developer>
