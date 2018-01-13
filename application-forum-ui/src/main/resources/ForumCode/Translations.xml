@@ -57,20 +57,20 @@ ForumCode.AnswerClass_description=Answer
 ## Forums
 conversations.forum.tooltip.totaltopics=Total topics
 conversations.forum.create=New forum
-conversations.forum.create.alreadyexists=The forum already exists : [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.alreadyexists=The forum already exists: [[{0}&gt;&gt;ForumCode.{1}]]
 conversations.forum.create.submit=Create
 conversations.forum.sorttopicsby=Sort topics by
 conversations.forum.sorttopicsby.date=Date
 conversations.forum.sorttopicsby.votes=Votes
 conversations.forum.sorttopicsby.comments=Comments
-conversations.titleError=The title should not be longer than 250 characters
+conversations.titleError=The title should not be longer than 250 characters.
 conversations.forum.title=Title
 conversations.forum.description=Description
 conversations.forum.edit=Edit Topic
 conversations.forum.delete=Delete Topic
 conversations.forum.more=Show {0} more
 forum.admin.action.delete.confiramtion_text=Delete this forum?
-forum.admin.action.delete.inprogress=Delete in progress ...
+forum.admin.action.delete.inprogress=Deletion in progress...
 forum.admin.action.delete.success=Forum deleted 
 forum.admin.action.delete.failed=The forum could not be deleted
 conversations.forum.all=All forums
@@ -195,7 +195,7 @@ ForumCode.FlagClass_reason_alt=Other reason
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Status
 ForumCode.FlagClass_status_open=Open
-ForumCode.FlagClass_status_inprogress=In progress
+ForumCode.FlagClass_status_inprogress=In Progress
 ForumCode.FlagClass_status_resolved=Resolved
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Discussion Flagged
@@ -255,7 +255,7 @@ rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
 ## TOURS
 ## Forums homepage tour
 tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
-tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag the inappropriate content.
+tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag inappropriate content.
 tour.forumsHomepageTour.addForum.title=Add Forum
 tour.forumsHomepageTour.addForum.content=Create a new Forum.
 tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
