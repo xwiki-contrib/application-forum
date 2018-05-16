@@ -57,7 +57,7 @@ ForumCode.AnswerClass_description=Réponse
 ## Forums
 conversations.forum.tooltip.totaltopics=Nombre total de sujets
 conversations.forum.create=Nouveau forum
-conversations.forum.create.alreadyexists=Ce forum existe déjà \: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.alreadyexists=Ce forum existe déjà : [[{0}&gt;&gt;ForumCode.{1}]]
 conversations.forum.create.submit=Créer
 conversations.forum.sorttopicsby=Ordonner les sujets par
 conversations.forum.sorttopicsby.date=Date
@@ -69,7 +69,7 @@ conversations.forum.description=Description
 conversations.forum.edit=Modifier le sujet
 conversations.forum.delete=Supprimer le sujet
 conversations.forum.more=Afficher {0} de plus 
-forum.admin.action.delete.confiramtion_text=Êtes-vous sûr de vouloir supprimer ce forum?
+forum.admin.action.delete.confiramtion_text=Êtes-vous sûr de vouloir supprimer ce forum ?
 forum.admin.action.delete.inprogress=Suppression en cours ...
 forum.admin.action.delete.success=Forums supprimé(s)
 forum.admin.action.delete.failed=Le forum n'a pas pu être supprimé
@@ -87,14 +87,14 @@ conversations.topic.create.submit=Créer
 conversations.topic.all=Tous les sujets
 conversations.topic.empty=Aucun sujet
 conversations.topic.count=Sujets
-conversations.topic.delete.confirm.withReplies=Êtes-vous sûr de vouloir supprimer ce sujet et ses réponses?
+conversations.topic.delete.confirm.withReplies=Êtes-vous sûr de vouloir supprimer ce sujet et ses réponses ?
 
 ## Answers
 conversations.title=Réponse
 conversation.add.activator=Ajouter une réponse
 conversation.answer.create=Ajouter une réponse
-conversation.delete.confirm=Supprimer le sujet
-conversation.delete.confirm.withReplies=Supprimer la réponse et ses commentaires
+conversation.delete.confirm=Supprimer le sujet ?
+conversation.delete.confirm.withReplies=Supprimer la réponse et ses commentaires ?
 conversation.delete.done=Réponse supprimée
 conversation.delete.success=Réponse supprimée
 conversation.delete.failed=La réponse n'a pas pu être supprimée
@@ -174,9 +174,9 @@ conversations.flag.dialog.header=Signaler un commentaire
 conversations.flag.dialog.guidingquestion1.txt=Que se passe t-il lorsque vous signalez un commentaire ?
 conversations.flag.dialog.instruction1.txt=Vous soumettez ce commentaire à un administrateur du forum.
 conversations.flag.dialog.guidingquestion2.txt=Pourquoi signalez-vous cette discussion ?
-conversations.flag.dialog.required.field.icon=&lt;em class\="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 conversations.flag.dialog.instruction2.txt=Je signale ce commentaire par ce qu'il
-conversations.flag.dialog.instruction3.txt=Écrivez une note décrivant la raison de cette objection (300 symboles max)\:
+conversations.flag.dialog.instruction3.txt=Écrivez une note décrivant la raison de cette objection (300 symboles max):
 conversations.flag.dialog.reason.label=Raison
 conversations.flag.dialog.message.label=Description
 conversations.flag.dialog.mandatory=Ce champ est obligatoire
@@ -214,29 +214,29 @@ conversations.flag.emptyvalue=-
 conversations.flag.list.title=Signialisations
 conversations.flag.list.instructions=Liste de tous les éléments signalés
 conversations.flag.success.dialog.goback=Retour à la discussion
-conversations.addthis.title={0} \#xwikiforum
+conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
 ## most active discussions
 discussion.panel.title=Sujets les plus actifs
-discussion.panel.sortby=Ordonner par\:
+discussion.panel.sortby=Ordonner par:
 discussion.panel.dates=Dates
 discussion.panel.votes=Votes
 discussion.panel.comments=Commentaires
 discussion.panel.topics=Sujets
 discussion.panel.subscribe=S'abonner
-discussion.panel.text1=Restez à jour en recevant les entrées les plus récentes en vous abonnant à\:
+discussion.panel.text1=Restez à jour en recevant les entrées les plus récentes en vous abonnant à:
 discussion.panel.text2=ou
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Forums
 ## mail notif
 forum.mail.notif.topic.delete.title=Sujet(s) supprimé(s)
-forum.mail.notif.topic.delete.message=Le(s) sujet(s) suivant(s) a/ont été supprimé(s)\:
+forum.mail.notif.topic.delete.message=Le(s) sujet(s) suivant(s) a/ont été supprimé(s):
 forum.mail.notif.answer.delete.title=Réponse(s) supprimée(s)
-forum.mail.notif.answer.delete.message=Le(s) réponse(s) suivante(s) a/ont été supprimée(s)\:
+forum.mail.notif.answer.delete.message=Le(s) réponse(s) suivante(s) a/ont été supprimée(s):
 forum.mail.notif.comment.delete.title=Commentaire(s) supprimé(s)
-forum.mail.notif.comment.delete.message=Le(s) commentaire(s) suivant(s) a/ont été supprimé(s)\:
+forum.mail.notif.comment.delete.message=Le(s) commentaire(s) suivant(s) a/ont été supprimé(s):
 forum.mail.notif.delete.thanks=Merci
 forum.mail.notif.delete.view=Voir les éléments supprimés
 
@@ -259,21 +259,21 @@ tour.forumsHomepageTour.welcome.content=Un forum est un outil de communication q
 tour.forumsHomepageTour.addForum.title=Créer un nouveau forum
 tour.forumsHomepageTour.addForum.content=Créer un nouveau forum
 tour.forumsHomepageTour.forumsLivetable.title=Liste des forums
-tour.forumsHomepageTour.forumsLivetable.content=Voir tous les forums.\nActions possibles \: Tri, Filtre, Édition et Suppression.
+tour.forumsHomepageTour.forumsLivetable.content=Voir tous les forums.\nActions possibles : Tri, Filtre, Édition et Suppression.
 tour.forumsHomepageTour.mostActiveTopics.title=Sujets les plus actifs
 tour.forumsHomepageTour.mostActiveTopics.content=Ce panneau affiche les sujets les plus actifs selon leur nombre de votes et de commentaires.\nLes topics peuvent être triés par date, nombre de votes et nombre de commentaires. Choisissez l'option voulue puis changez l'ordre (croissant ou décroissant).\nAbonnez-vous pour obtenir les dernières mises à jour des sujets de forum.
 ## Forum Tour
 tour.forumTour.forumDetails.title=Détails du forum
-tour.forumTour.forumDetails.content=Information disponible \: Description du forum, Créateur, Date de création, Nombre de sujets et nombre de votes
+tour.forumTour.forumDetails.content=Information disponible : Description du forum, Créateur, Date de création, Nombre de sujets et nombre de votes
 tour.forumTour.addTopic.title=Créer un sujet
 tour.forumTour.addTopic.content=Créer un nouveau sujet
 tour.forumTour.sortTopics.title=Trier les sujets
 tour.forumTour.sortTopics.content=Les sujets peuvent être triés par date, nombre de votes ou nombre de commentaires. Cliquez sur l'option désirés puis changez l'ordre (croissant ou décroissant).
 tour.forumTour.listOfTopics.title=Liste des sujets
-tour.forumTour.listOfTopics.content=Voir tous les sujets.\nInformation disponible \: Nom du sujet, Description, Créateur, Date de création, Nombre de commentaires et nombre de votes
+tour.forumTour.listOfTopics.content=Voir tous les sujets.\nInformation disponible : Nom du sujet, Description, Créateur, Date de création, Nombre de commentaires et nombre de votes
 ## Topic Tour
 tour.topicTour.topicDetails.title=Détails du sujet
-tour.topicTour.topicDetails.content=Information disponible \: Description du sujet, Créateur, Date de création, Nombre de sujets et Nombre de votes.\nLisez la suite pour découvrir d'autres détails sur les sujets.
+tour.topicTour.topicDetails.content=Information disponible : Description du sujet, Créateur, Date de création, Nombre de sujets et Nombre de votes.\nLisez la suite pour découvrir d'autres détails sur les sujets.
 tour.topicTour.flagAndPermalink.title=Drapeau et lien pour l'alerte de contenu inapproprié
 tour.topicTour.flagAndPermalink.content=Si le contenu du sujet est inapproprié, vous pouvez le signaler en cliquant sur l'icône de drapeau.
 tour.topicTour.socialMedia.title=Partager sur vos réseaux sociaux
