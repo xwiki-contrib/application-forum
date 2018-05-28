@@ -40,11 +40,11 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>## Classes
-ForumCode.TopicClass_title=Title
+ForumCode.TopicClass_title=Titles
 ForumCode.TopicClass_type=Type
-ForumCode.TopicClass_type_question=Question
-ForumCode.TopicClass_type_suggestion=Suggestion
-ForumCode.TopicClass_type_alert=Alert
+ForumCode.TopicClass_type_question=Questio
+ForumCode.TopicClass_type_suggestion=Suggestio
+ForumCode.TopicClass_type_alert=dAlert
 ForumCode.TopicClass_type_feedback=Feedback
 ForumCode.TopicClass_status=Status
 ForumCode.TopicClass_status_inprogress=In progress
@@ -53,7 +53,6 @@ ForumCode.TopicClass_status_integrated=Integrated
 ForumCode.TopicClass_description=Description
 ForumCode.AnswerClass_answer=Answer
 ForumCode.AnswerClass_description=Answer
-
 ## Forums
 conversations.forum.tooltip.totaltopics=Total topics
 conversations.forum.create=New forum
@@ -71,12 +70,10 @@ conversations.forum.delete=Delete Topic
 conversations.forum.more=Show {0} more
 forum.admin.action.delete.confiramtion_text=Delete this forum?
 forum.admin.action.delete.inprogress=Deletion in progress...
-forum.admin.action.delete.success=Forum deleted 
+forum.admin.action.delete.success=Forum deleted
 forum.admin.action.delete.failed=The forum could not be deleted
 conversations.forum.all=All forums
 conversations.forum.add=Add forum
-
-
 ## Topics
 conversations.topic.tooltip.totalcommentsandanswers=Total answers and comments
 conversations.topic.tooltip.totalanswers=Total answers
@@ -88,7 +85,6 @@ conversations.topic.all=All topics
 conversations.topic.empty=No topic
 conversations.topic.count=topics
 conversations.topic.delete.confirm.withReplies=Delete this topic and its answers?
-
 ## Answers
 conversations.title=Answer
 conversation.add.activator=Add answer
@@ -115,33 +111,28 @@ conversations.answer=Answer
 conversations.answer.all=All answers
 conversations.answer.empty=No answer
 conversations.answer.count=answers
-
 ## Comments
 conversations.comment.count=comments
-
 ## Votes
 conversation.like.button=Votes
 conversation.like.button.tooltip=Vote topic
 conversation.like.button.alreadyliked.tooltip=You already voted
 conversation.like.score.tooltip={0} users found this answer as being interesting.
-conversation.like.failed=The vote could not be saved: 
+conversation.like.failed=The vote could not be saved:
 conversation.like.done=Your vote has been saved.
 conversation.like.loading=Saving the vote...
 rating.saveexception=Error while saving vote.
 rating.votenotvalid=The vote is not valid.
 rating.voteoutofbounds=The vote is not valid.
-
 ## Permalink
 conversation.permalink.tooltip=Permalink
 conversation.permalink=Permalink
-
 ## Livetable
 conversations.doc.title=Title
 conversations.doc.date=Date
 conversations.doc.creator=Creator
 conversations.actions=Actions
 conversations._avatar=Avatar
-
 ## Messages
 conversations.create.error.topic.norights=You don't have the rights to create a new topic!
 conversations.create.error.answer.missingParams=Not enough parameters!
@@ -164,7 +155,6 @@ conversations.deleteconversation.error.norights=You don't have the rights to del
 conversations.deleteconversation.error.notfound=Topic not found.
 core.viewers.comments.delete.failed=The comment could not be deleted.
 conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
-
 ## FLAG DIALOG
 conversation.flag.tooltip=Flag
 conversations.flag.edit=Edit
@@ -216,7 +206,6 @@ conversations.flag.list.instructions=This is the list of flagged items
 conversations.flag.success.dialog.goback=Return to discussion
 conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
-
 ## most active discussions
 discussion.panel.title=Most Active Topics
 discussion.panel.sortby=Sort By:
@@ -227,7 +216,6 @@ discussion.panel.topics=Topics
 discussion.panel.subscribe=Subscribe
 discussion.panel.text1=Stay up to date with the latest entries by subscribing to:
 discussion.panel.text2=or
-
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Forums
 ## mail notif
@@ -239,7 +227,6 @@ forum.mail.notif.comment.delete.title=Deleted comment
 forum.mail.notif.comment.delete.message=The following comment has been deleted:
 forum.mail.notif.delete.thanks=Thank you
 forum.mail.notif.delete.view=View deleted
-
 ## recent forum discussions
 recent.forum.discussions.addDiscussion=Add discussion
 recent.forum.discussions.createdAnswerOnTopic=answered on topic
@@ -248,10 +235,8 @@ recent.forum.discussions.creationDate=on {0}
 recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
 recent.forum.discussions.editedTopic=edited topic
 recent.forum.discussions.seeAllDiscussions=See all discussions
-
 ## rendering macro
 rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
-
 ## TOURS
 ## Forums homepage tour
 tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
@@ -275,7 +260,7 @@ tour.forumTour.listOfTopics.content=See all the Topics. Existing information: To
 tour.topicTour.topicDetails.title=Topic details
 tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
 tour.topicTour.flagAndPermalink.title=Flag and Permalink
-tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL. 
+tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL.
 tour.topicTour.socialMedia.title=Share to Social Media
 tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
 tour.topicTour.topicModeration.title=Topic moderation
@@ -286,7 +271,6 @@ tour.topicTour.addAnswer.title=Add Answer
 tour.topicTour.addAnswer.content=Create a new Answer.
 tour.topicTour.listOfAnswers.title=List of Answers
 tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
-
 ## Template Provider
 templateProvider.forum.name=Forum
 templateProvider.forum.description=Start a conversation</content>
