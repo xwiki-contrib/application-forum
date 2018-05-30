@@ -39,9 +39,151 @@
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
-  <content>## XWiki Translation for language hr generated from http://www.l10n.xwiki.org
+  <content>## Classes
+ForumCode.TopicClass_title=Naslov
+ForumCode.TopicClass_type=Tip
+ForumCode.TopicClass_type_question=Pitanje
+ForumCode.TopicClass_type_suggestion=Prijedlog
+ForumCode.TopicClass_type_alert=Pažnja
+ForumCode.TopicClass_type_feedback=Povratne infomacije
+ForumCode.TopicClass_status=Status
+ForumCode.TopicClass_status_inprogress=U tijeku
+ForumCode.TopicClass_status_closed=Zatvoreno
+ForumCode.TopicClass_status_integrated=Integrirano
+ForumCode.TopicClass_description=Opis
 ForumCode.AnswerClass_answer=Odgovor
 ForumCode.AnswerClass_description=Odgovor
+
+## Forums
+conversations.forum.tooltip.totaltopics=Ukupno tema
+conversations.forum.create=Novi forum
+conversations.forum.create.alreadyexists=Forum već postoji\: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Otvori
+conversations.forum.sorttopicsby=Poredaj teme po
+conversations.forum.sorttopicsby.date=Datumu
+conversations.forum.sorttopicsby.votes=Glasovima
+conversations.forum.sorttopicsby.comments=Komentarima
+conversations.titleError=Naslov ne bi smio biti duži od 250 znakova
+conversations.forum.title=Naslov
+conversations.forum.description=Opis
+conversations.forum.edit=Uredi temu
+conversations.forum.delete=Obriši temu
+conversations.forum.more=Prikaži još {0}
+forum.admin.action.delete.confiramtion_text=Obrisati ovaj forum?
+forum.admin.action.delete.inprogress=Brisanje u tijeku...
+forum.admin.action.delete.success=Forum obrisan
+forum.admin.action.delete.failed=Brisanje foruma nije uspjelo
+conversations.forum.all=Svi forumi
+conversations.forum.add=Dodaj forum
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=Ukupno odgovora i komentara
+conversations.topic.tooltip.totalanswers=Ukupno odgovora
+conversations.topic.answer.tooltip.totalcomments=Ukupno komentara na odgovor
+conversations.topic.create=Otvori temu
+conversation.topic.create=Dodaj temu
+conversations.topic.create.submit=Otvori
+conversations.topic.all=Sve teme
+conversations.topic.empty=Nema tema
+conversations.topic.count=tema
+conversations.topic.delete.confirm.withReplies=Obrisati ovu temu i njene odgovore?
+
+## Answers
+conversations.title=Odgovor
+conversation.add.activator=Dodaj odgovor
+conversation.answer.create=Dodaj odgovor
+conversation.delete.confirm=Obrisati temu?
+conversation.delete.confirm.withReplies=Obrisati ovaj odgovor i sve komentare na njega?
+conversation.delete.done=Odgovor obrisan
+conversation.delete.success=Odgovor obrisan
+conversation.delete.failed=Brisanje odgovora nije uspjelo
+conversation.delete.inProgress=Brisanje u tijeku...
+conversation.edit=Uredi odgovor
+conversation.edit.failed=Prikaz forme za izradu odgovora nije uspio
+conversation.delete=Obriši odgovor
+conversation.delete.title=Brisanje odgovora
+conversation.edit.title=Uređivanje odgovora
+conversation.empty=Nema komentara
+conversation.forum.delete.title=Brisanje teme
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=Za sudjelovanje u ovoj diskusiji morate biti član ove grupe. Molim kontaktirajte administratora grupe.
+conversation.norights=Niste ovlašteni za sudjelovanje u ovoj diskusiji.
+conversations.answer.edit=Odgovor na temu {0}
+conversations.answer=Odgovor
+conversations.answer.all=Svi odgovori
+conversations.answer.empty=Nema odgovora
+conversations.answer.count=odgovora
+
+## Comments
+conversations.comment.count=komentara
+
+## Votes
+conversation.like.button=Glasovi
+conversation.like.button.tooltip=Glasajte za temu
+conversation.like.button.alreadyliked.tooltip=Već ste glasali
+conversation.like.score.tooltip={0} korisnik{0,choice,0\#a|1\#|1&lt;a} smatra ovaj odgovor interesantnim.
+conversation.like.failed=Spremanje glasa nije uspjelo\: 
+conversation.like.done=Vaš glas je spremljen.
+conversation.like.loading=Spremanje glasa...
+rating.saveexception=Greška prilikom spremanja glasa.
+rating.votenotvalid=Glas je nevažeći.
+rating.voteoutofbounds=Glas je nevažeći.
+
+## Permalink
+conversation.permalink.tooltip=Permanentna poveznica
+conversation.permalink=Permanentna poveznica
+
+## Livetable
+conversations.doc.title=Naslov
+conversations.doc.date=Datum
+conversations.doc.creator=Tvorac
+conversations.actions=Akcije
+conversations._avatar=Avatar
+
+## Messages
+conversations.create.error.topic.norights=Niste ovlašteni za otvaranje nove teme\!
+conversations.create.error.answer.missingParams=Nedovoljno parametara\!
+conversations.create.error.answer.norights=Niste ovlašteni za izradu novog odgovora\!
+conversations.create.success.answer=Odgovor uspješno dodan\!
+conversations.create.error.missingmetadata=Izrada nije mogla biti provedena zbog nedostatka metapodataka\!
+conversations.create.error.missingtitle=Nedostaje naslov\!
+conversations.create.inProgress=Dodavanje...
+conversations.create.requestError=Dogodila se greška prilikom slanja vašeg zahtjeva. Molim pokušajte ponovo.
+conversations.create.success.topic=Tema uspješno dodana\!
+conversations.deleteconversation.changecomment=Obrisani odgovor
+conversations.deletecomment.changecomment=Obrisani komentar
+conversations.deletecomment.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o brisanju komentara.
+conversations.deletecomment.success=Poslana je e-pošta za obavijest o brisanju komentara.
+conversations.deletecomment.error.norights=Niste ovlašteni za brisanje komentara.
+conversations.deletecomment.error.notfound=Komentar nije pronađen.
+conversations.deleteconversation.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o brisanju teme.
+conversations.deleteconversation.success=Tema obrisana.
+conversations.deleteconversation.error.norights=Niste ovlašteni za brisanje odgovora.
+conversations.deleteconversation.error.notfound=Tema nije pronađena.
+core.viewers.comments.delete.failed=Brisanje komentara nije uspjelo.
+conversations.deleteanswer.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o brisanju odgovora.
+
+## FLAG DIALOG
+conversation.flag.tooltip=Zastavica
+conversations.flag.edit=Uredi
+conversations.flag.button=Zastavica
+conversations.flag.viewsource=Vidi izvor zastavice
+conversations.flag.dialog.header=Komentar označi zastavicom
+conversations.flag.dialog.guidingquestion1.txt=Što se događa kada se komentar označi zastavicom?
+conversations.flag.dialog.instruction1.txt=Dretvu komentara smjesta šaljete administratorima foruma na evaluaciju.
+conversations.flag.dialog.guidingquestion2.txt=Zbog čega ovu diskusiju označavate zastavicom?
+conversations.flag.dialog.required.field.icon=&lt;em class\="required-indicator"&gt;*&lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=Ovaj komentar označavam zastavicom jer
+conversations.flag.dialog.instruction3.txt=Unesite bilješku (od ne više od 300 znakova) kojom opisujete zamjerke na ovaj komentar\:
+conversations.flag.dialog.reason.label=Razlog
+conversations.flag.dialog.message.label=Opis
+conversations.flag.dialog.mandatory=Ovo polje je obavezno za unos
+conversations.flag.dialog.cancel.btt=Otkaži
+conversations.flag.dialog.submit.btt=Pošalji
+conversations.flag.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o označavanju komentara zastavicom.
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Odaberite
 ForumCode.FlagClass_reason_1=Promiče mržnju ili nasilje
 ForumCode.FlagClass_reason_2=Prikazuje pornografiju
@@ -50,162 +192,54 @@ ForumCode.FlagClass_reason_4=Očigledno komercijalne naravi, bez jasne edukacijs
 ForumCode.FlagClass_reason_5=Slomljeno ili ima virus
 ForumCode.FlagClass_reason_6=Izgleda besmisleno
 ForumCode.FlagClass_reason_alt=Drugi razlog
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Status
-ForumCode.FlagClass_status_inprogress=U tijeku
 ForumCode.FlagClass_status_open=Otvoreno
+ForumCode.FlagClass_status_inprogress=U tijeku
 ForumCode.FlagClass_status_resolved=Riješeno
-ForumCode.TopicClass_description=Opis
-ForumCode.TopicClass_status=Status
-ForumCode.TopicClass_status_closed=Zatvoreno
-ForumCode.TopicClass_status_inprogress=U tijeku
-ForumCode.TopicClass_status_integrated=Integrirano
-ForumCode.TopicClass_title=Naslov
-ForumCode.TopicClass_type=Tip
-ForumCode.TopicClass_type_alert=Pažnja
-ForumCode.TopicClass_type_feedback=Povratne infomacije
-ForumCode.TopicClass_type_question=Pitanje
-ForumCode.TopicClass_type_suggestion=Prijedlog
-conversation.add.activator=Dodaj odgovor
-conversation.answer.create=Dodaj odgovor
-conversation.creationdate={1}
-conversation.delete=Obriši odgovor
-conversation.delete.confirm=Obrisati temu?
-conversation.delete.confirm.withReplies=Obrisati ovaj odgovor i sve komentare na njega?
-conversation.delete.done=Odgovor obrisan
-conversation.delete.failed=Brisanje odgovora nije uspjelo
-conversation.delete.inProgress=Brisanje u tijeku...
-conversation.delete.success=Odgovor obrisan
-conversation.delete.title=Brisanje odgovora
-conversation.edit=Uredi odgovor
-conversation.edit.failed=Prikaz forme za izradu odgovora nije uspio
-conversation.edit.title=Uređivanje odgovora
-conversation.empty=Nema komentara
-conversation.flag.tooltip=Zastavica
-conversation.forum.delete.title=Brisanje teme
-conversation.groups.norights=Za sudjelovanje u ovoj diskusiji morate biti član ove grupe. Molim kontaktirajte administratora grupe.
-conversation.like.button=Glasovi
-conversation.like.button.alreadyliked.tooltip=Već ste glasali
-conversation.like.button.tooltip=Glasajte za temu
-conversation.like.done=Vaš glas je spremljen.
-conversation.like.failed=Spremanje glasa nije uspjelo\: 
-conversation.like.loading=Spremanje glasa...
-conversation.like.score.tooltip={0} korisnik{0,choice,0\#a|1\#|1&lt;a} smatra ovaj odgovor interesantnim.
-conversation.norights=Niste ovlašteni za sudjelovanje u ovoj diskusiji.
-conversation.permalink=Permanentna poveznica
-conversation.permalink.tooltip=Permanentna poveznica
-conversation.topic.create=Dodaj temu
-conversation.updatedate={0}
-conversations._avatar=Avatar
-conversations.actions=Akcije
-conversations.addthis.desc={0}
-conversations.addthis.title={0} \#xwikiforum
-conversations.answer=Odgovor
-conversations.answer.all=Svi odgovori
-conversations.answer.count=odgovora
-conversations.answer.edit=Odgovor na temu {0}
-conversations.answer.empty=Nema odgovora
-conversations.comment.count=komentara
-conversations.create.error.answer.missingParams=Nedovoljno parametara\!
-conversations.create.error.answer.norights=Niste ovlašteni za izradu novog odgovora\!
-conversations.create.error.missingmetadata=Izrada nije mogla biti provedena zbog nedostatka metapodataka\!
-conversations.create.error.missingtitle=Nedostaje naslov\!
-conversations.create.error.topic.norights=Niste ovlašteni za otvaranje nove teme\!
-conversations.create.inProgress=Dodavanje...
-conversations.create.requestError=Dogodila se greška prilikom slanja vašeg zahtjeva. Molim pokušajte ponovo.
-conversations.create.success.answer=Odgovor uspješno dodan\!
-conversations.create.success.topic=Tema uspješno dodana\!
-conversations.deleteanswer.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o brisanju odgovora.
-conversations.deletecomment.changecomment=Obrisani komentar
-conversations.deletecomment.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o brisanju komentara.
-conversations.deletecomment.error.norights=Niste ovlašteni za brisanje komentara.
-conversations.deletecomment.error.notfound=Komentar nije pronađen.
-conversations.deletecomment.success=Poslana je e-pošta za obavijest o brisanju komentara.
-conversations.deleteconversation.changecomment=Obrisani odgovor
-conversations.deleteconversation.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o brisanju teme.
-conversations.deleteconversation.error.norights=Niste ovlašteni za brisanje odgovora.
-conversations.deleteconversation.error.notfound=Tema nije pronađena.
-conversations.deleteconversation.success=Tema obrisana.
-conversations.doc.creator=Tvorac
-conversations.doc.date=Datum
-conversations.doc.title=Naslov
-conversations.flag._actions=Akcije
-conversations.flag.button=Zastavica
-conversations.flag.dialog.cancel.btt=Otkaži
-conversations.flag.dialog.guidingquestion1.txt=Što se događa kada se komentar označi zastavicom?
-conversations.flag.dialog.guidingquestion2.txt=Zbog čega ovu diskusiju označavate zastavicom?
-conversations.flag.dialog.header=Komentar označi zastavicom
-conversations.flag.dialog.instruction1.txt=Dretvu komentara smjesta šaljete administratorima foruma na evaluaciju.
-conversations.flag.dialog.instruction2.txt=Ovaj komentar označavam zastavicom jer
-conversations.flag.dialog.instruction3.txt=Unesite bilješku (od ne više od 300 znakova) kojom opisujete zamjerke na ovaj komentar\:
-conversations.flag.dialog.mandatory=Ovo polje je obavezno za unos
-conversations.flag.dialog.message.label=Opis
-conversations.flag.dialog.reason.label=Razlog
-conversations.flag.dialog.required.field.icon=&lt;em class\="required-indicator"&gt;*&lt;/em&gt;
-conversations.flag.dialog.submit.btt=Pošalji
-conversations.flag.doc.creationDate=Datum
-conversations.flag.edit=Uredi
-conversations.flag.emptyvalue=-
-conversations.flag.error.nomailsent=Nije mogla biti poslana e-pošta za obavijest o označavanju komentara zastavicom.
-conversations.flag.list.instructions=Ovo je lista predmeta označenih zastavicom
-conversations.flag.list.title=Lista zastavica
-conversations.flag.message=Poruka
-conversations.flag.moderator=Moderator
-conversations.flag.reason=Razlog
-conversations.flag.status=Status
-conversations.flag.success.dialog.button=Zatvori
-conversations.flag.success.dialog.goback=Povratak na diskusiju
+## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Diskusija označena zastavicom
 conversations.flag.success.dialog.message=Uspješno ste ovaj komentar označili zastavicom.
-conversations.flag.target=Odredište
+conversations.flag.success.dialog.button=Zatvori
+## FLAG livetable
+conversations.flag.reason=Razlog
 conversations.flag.user=Korisnik
-conversations.flag.viewsource=Vidi izvor zastavice
-conversations.forum.add=Dodaj forum
-conversations.forum.all=Svi forumi
-conversations.forum.create=Novi forum
-conversations.forum.create.alreadyexists=Forum već postoji\: [[{0}&gt;&gt;ForumCode.{1}]]
-conversations.forum.create.submit=Otvori
-conversations.forum.delete=Obriši temu
-conversations.forum.description=Opis
-conversations.forum.edit=Uredi temu
-conversations.forum.more=Prikaži još {0}
-conversations.forum.sorttopicsby=Poredaj teme po
-conversations.forum.sorttopicsby.comments=Komentarima
-conversations.forum.sorttopicsby.date=Datumu
-conversations.forum.sorttopicsby.votes=Glasovima
-conversations.forum.title=Naslov
-conversations.forum.tooltip.totaltopics=Ukupno tema
-conversations.title=Odgovor
-conversations.titleError=Naslov ne bi smio biti duži od 250 znakova
-conversations.topic.all=Sve teme
-conversations.topic.answer.tooltip.totalcomments=Ukupno komentara na odgovor
-conversations.topic.count=tema
-conversations.topic.create=Otvori temu
-conversations.topic.create.submit=Otvori
-conversations.topic.delete.confirm.withReplies=Obrisati ovu temu i njene odgovore?
-conversations.topic.empty=Nema tema
-conversations.topic.tooltip.totalanswers=Ukupno odgovora
-conversations.topic.tooltip.totalcommentsandanswers=Ukupno odgovora i komentara
-core.viewers.comments.delete.failed=Brisanje komentara nije uspjelo.
-discussion.panel.comments=Komentarima
-discussion.panel.dates=Datumu
+conversations.flag.doc.creationDate=Datum
+conversations.flag.message=Poruka
+conversations.flag.moderator=Moderator
+conversations.flag.status=Status
+conversations.flag._actions=Akcije
+conversations.flag.target=Odredište
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=Lista zastavica
+conversations.flag.list.instructions=Ovo je lista predmeta označenih zastavicom
+conversations.flag.success.dialog.goback=Povratak na diskusiju
+conversations.addthis.title={0} \#xwikiforum
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=Najaktivnije teme
 discussion.panel.sortby=Poredaj po\:
+discussion.panel.dates=Datumu
+discussion.panel.votes=Glasovima
+discussion.panel.comments=Komentarima
+discussion.panel.topics=Teme
 discussion.panel.subscribe=Pretplatite se
 discussion.panel.text1=Budite u toku s najnovijim zapisima uz pretplatu na\:
 discussion.panel.text2=ili
-discussion.panel.title=Najaktivnije teme
-discussion.panel.topics=Teme
-discussion.panel.votes=Glasovima
-forum.admin.action.delete.confiramtion_text=Obrisati ovaj forum?
-forum.admin.action.delete.failed=Brisanje foruma nije uspjelo
-forum.admin.action.delete.inprogress=Brisanje u tijeku...
-forum.admin.action.delete.success=Forum obrisan
+
+## applications panel entry
 forum.applicationsPanelEntryLabel=Forumi
-forum.mail.notif.answer.delete.message=Sljedeći odgovor je obrisan\:
+## mail notif
+forum.mail.notif.topic.delete.title=Obrisana tema
+forum.mail.notif.topic.delete.message=Sljedeća tema je obrisana\:
 forum.mail.notif.answer.delete.title=Obrisani odgovor
-forum.mail.notif.comment.delete.message=Sljedeći komentar je obrisan\:
+forum.mail.notif.answer.delete.message=Sljedeći odgovor je obrisan\:
 forum.mail.notif.comment.delete.title=Obrisani komentar
+forum.mail.notif.comment.delete.message=Sljedeći komentar je obrisan\:
 forum.mail.notif.delete.thanks=Hvala
 forum.mail.notif.delete.view=Pregledaj obrisane
+<<<<<<< HEAD
 forum.mail.notif.topic.delete.message=Sljedeća tema je obrisana\:
 forum.mail.notif.topic.delete.title=Obrisana tema
 rating.saveexception=Greška prilikom spremanja glasa.
@@ -218,38 +252,58 @@ recent.forum.discussions.creationDate=dana {0}
 recent.forum.discussions.editedAnswerOnTopic=je uredio/la odgovor na temu
 recent.forum.discussions.editedTopic=je uredio/la temu
 recent.forum.discussions.seeAllDiscussions=Pregledajte sve diskusije
+=======
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=Dodaj diskusiju
+recent.forum.discussions.createdAnswerOnTopic=odgovorio/la na temu
+recent.forum.discussions.createdTopic=otvorio/la temu
+recent.forum.discussions.creationDate={0}
+recent.forum.discussions.editedAnswerOnTopic=uredio/la odgovor na temu
+recent.forum.discussions.editedTopic=uredio/la temu
+recent.forum.discussions.seeAllDiscussions=Pregledaj sve diskusije
+
+## rendering macro
+>>>>>>> [Translation] Refactor translations
 rendering.macro.forum.recentForumDiscussions.name=Nedavne diskusije na forumu
-templateProvider.forum.description=Započni razgovor
-templateProvider.forum.name=Forum
-tour.forumTour.addTopic.content=Otvorite novu temu.
-tour.forumTour.addTopic.title=Dodavanje teme
-tour.forumTour.forumDetails.content=Postojeće informacije\: opis foruma, tvorac, datum otvaranja, broj tema i broj glasova.
-tour.forumTour.forumDetails.title=Detalji o forumu
-tour.forumTour.listOfTopics.content=Pregledajte sve teme. Postojeće informacije\: ime teme, opis, tvorac, datum otvaranja, broj odgovora, broj komentara i broj glasova.
-tour.forumTour.listOfTopics.title=Lista tema
-tour.forumTour.sortTopics.content=Teme mogu biti poredane po datumu, broju glasova ili broju komentara. Kliknite na odgovarajući gumb za uzlazni/silazni poredak.
-tour.forumTour.sortTopics.title=Sortiranje tema
-tour.forumsHomepageTour.addForum.content=Otvorite novi forum
-tour.forumsHomepageTour.addForum.title=Dodavanje foruma
-tour.forumsHomepageTour.forumsLivetable.content=Pregledajte sve forume. Provjerite moguće akcije\: poredaj, filtriraj, uredi, obriši.
-tour.forumsHomepageTour.forumsLivetable.title=Tablica foruma
-tour.forumsHomepageTour.mostActiveTopics.content=Ovaj panel prikazuje najaktivnije teme prema glasovima i komentarima. Teme mogu biti poredane po datumu, broju glasova i broju komentara. Kliknite odgovarajući gumb za uzlazni/silazni poredak. Pretplatite se za dobivanje najnovijih informacija o temama\!
-tour.forumsHomepageTour.mostActiveTopics.title=Najaktivnije teme
-tour.forumsHomepageTour.welcome.content=Forum je komunikacijski alat koji se može upotrijebiti za otvaranje neograničenog broja foruma za diskusiju, za glasanje, čak i označavanje neprikladnog sadržaja zastavicom.
+
+## TOURS
+## Forums homepage tour
 tour.forumsHomepageTour.welcome.title=Dobrodošli u aplikaciju Forum\!
-tour.topicTour.addAnswer.content=Izradite novi odgovor.
-tour.topicTour.addAnswer.title=Dodavanje odgovora
-tour.topicTour.flagAndPermalink.content=Ukoliko je sadržaj teme neprikladan, možete upotrijebiti zastavicu kako biste upozorili administratore. Permanentna poveznica će vam dati URL.
-tour.topicTour.flagAndPermalink.title=Zastavica i permanentna poveznica
-tour.topicTour.listOfAnswers.content=Pregledaj sve odgovore i komentare na njih
-tour.topicTour.listOfAnswers.title=Lista odgovora
-tour.topicTour.socialMedia.content=Možete podijeliti ovu temu s vašim prijateljima putem gumbića za društvene medije.
-tour.topicTour.socialMedia.title=Dijeljenje na društvenom mediju
-tour.topicTour.topicDetails.content=Postojeće informacije\: opis teme, tvorac, datum otvaranja, broj teme, i broj glasova. Pročitajte sljedeće korake kako biste otkrili moguće akcije nad temama.
+tour.forumsHomepageTour.welcome.content=Forum je komunikacijski alat koji se može upotrijebiti za otvaranje neograničenog broja foruma za diskusiju, za glasanje, čak i označavanje neprikladnog sadržaja zastavicom.
+tour.forumsHomepageTour.addForum.title=Dodavanje foruma
+tour.forumsHomepageTour.addForum.content=Otvorite novi forum
+tour.forumsHomepageTour.forumsLivetable.title=Tablica foruma
+tour.forumsHomepageTour.forumsLivetable.content=Pregledajte sve forume. Provjerite moguće akcije\: poredaj, filtriraj, uredi, obriši.
+tour.forumsHomepageTour.mostActiveTopics.title=Najaktivnije teme
+tour.forumsHomepageTour.mostActiveTopics.content=Ovaj panel prikazuje najaktivnije teme prema glasovima i komentarima. Teme mogu biti poredane po datumu, broju glasova i broju komentara. Kliknite odgovarajući gumb za uzlazni/silazni poredak. Pretplatite se za dobivanje najnovijih informacija o temama\!
+## Forum Tour
+tour.forumTour.forumDetails.title=Detalji o forumu
+tour.forumTour.forumDetails.content=Postojeće informacije\: opis foruma, tvorac, datum otvaranja, broj tema i broj glasova.
+tour.forumTour.addTopic.title=Dodavanje teme
+tour.forumTour.addTopic.content=Otvorite novu temu.
+tour.forumTour.sortTopics.title=Sortiranje tema
+tour.forumTour.sortTopics.content=Teme mogu biti poredane po datumu, broju glasova ili broju komentara. Kliknite na odgovarajući gumb za uzlazni/silazni poredak.
+tour.forumTour.listOfTopics.title=Lista tema
+tour.forumTour.listOfTopics.content=Pregledajte sve teme. Postojeće informacije\: ime teme, opis, tvorac, datum otvaranja, broj odgovora, broj komentara i broj glasova.
+## Topic Tour
 tour.topicTour.topicDetails.title=Detalji o temi
-tour.topicTour.topicModeration.content=Ovdje su gumbi za uređivanje i brisanje.
+tour.topicTour.topicDetails.content=Postojeće informacije\: opis teme, tvorac, datum otvaranja, broj teme, i broj glasova. Pročitajte sljedeće korake kako biste otkrili moguće akcije nad temama.
+tour.topicTour.flagAndPermalink.title=Zastavica i permanentna poveznica
+tour.topicTour.flagAndPermalink.content=Ukoliko je sadržaj teme neprikladan, možete upotrijebiti zastavicu kako biste upozorili administratore. Permanentna poveznica će vam dati URL.
+tour.topicTour.socialMedia.title=Dijeljenje na društvenom mediju
+tour.topicTour.socialMedia.content=Možete podijeliti ovu temu s vašim prijateljima putem gumbića za društvene medije.
 tour.topicTour.topicModeration.title=Moderiranje teme
-tour.topicTour.vote.content=Glas za temu.
+tour.topicTour.topicModeration.content=Ovdje su gumbi za uređivanje i brisanje.
 tour.topicTour.vote.title=Glas
+tour.topicTour.vote.content=Glas za temu.
+tour.topicTour.addAnswer.title=Dodavanje odgovora
+tour.topicTour.addAnswer.content=Izradite novi odgovor.
+tour.topicTour.listOfAnswers.title=Lista odgovora
+tour.topicTour.listOfAnswers.content=Pregledaj sve odgovore i komentare na njih
+
+## Template Provider
+templateProvider.forum.name=Forum
+templateProvider.forum.description=Započni razgovor
 </content>
 </xwikidoc>
