@@ -239,20 +239,6 @@ forum.mail.notif.comment.delete.title=Obrisani komentar
 forum.mail.notif.comment.delete.message=Sljedeći komentar je obrisan\:
 forum.mail.notif.delete.thanks=Hvala
 forum.mail.notif.delete.view=Pregledaj obrisane
-<<<<<<< HEAD
-forum.mail.notif.topic.delete.message=Sljedeća tema je obrisana\:
-forum.mail.notif.topic.delete.title=Obrisana tema
-rating.saveexception=Greška prilikom spremanja glasa.
-rating.votenotvalid=Glas je nevažeći.
-rating.voteoutofbounds=Glas je nevažeći.
-recent.forum.discussions.addDiscussion=Dodajte diskusiju
-recent.forum.discussions.createdAnswerOnTopic=je odgovorio/la na temu
-recent.forum.discussions.createdTopic=je otvorio/la temu
-recent.forum.discussions.creationDate=dana {0}
-recent.forum.discussions.editedAnswerOnTopic=je uredio/la odgovor na temu
-recent.forum.discussions.editedTopic=je uredio/la temu
-recent.forum.discussions.seeAllDiscussions=Pregledajte sve diskusije
-=======
 
 ## recent forum discussions
 recent.forum.discussions.addDiscussion=Dodaj diskusiju
@@ -264,7 +250,6 @@ recent.forum.discussions.editedTopic=uredio/la temu
 recent.forum.discussions.seeAllDiscussions=Pregledaj sve diskusije
 
 ## rendering macro
->>>>>>> [Translation] Refactor translations
 rendering.macro.forum.recentForumDiscussions.name=Nedavne diskusije na forumu
 
 ## TOURS
