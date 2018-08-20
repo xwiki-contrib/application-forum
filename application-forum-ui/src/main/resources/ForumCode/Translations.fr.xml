@@ -143,7 +143,7 @@ conversations.actions=Actions
 conversations._avatar=Avatar
 
 ## Messages
-conversations.create.error.topic.norights=Vous ne disposez pas des droits pour créer un nouveau sujet.
+conversations.create.error.topic.norights=Vous ne disposez pas des droits pour créer un nouveau sujet !
 conversations.create.error.answer.missingParams=Paramètres manquants !
 conversations.create.error.answer.norights=Vous ne disposez pas des droits pour répondre.
 conversations.create.success.answer=Réponse ajoutée avec succès.
