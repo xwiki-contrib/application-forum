@@ -145,13 +145,13 @@ conversations._avatar=Avatar
 ## Messages
 conversations.create.error.topic.norights=Vous ne disposez pas des droits pour créer un nouveau sujet !
 conversations.create.error.answer.missingParams=Paramètres manquants !
-conversations.create.error.answer.norights=Vous ne disposez pas des droits pour répondre.
+conversations.create.error.answer.norights=Vous ne disposez pas des droits pour publier une réponse.
 conversations.create.success.answer=Réponse ajoutée avec succès !
 conversations.create.error.missingmetadata=L'opération n'a pas aboutit car il manque des informations.
 conversations.create.error.missingtitle=Veuillez renseigner un titre !
 conversations.create.inProgress=Ajout en cours...
 conversations.create.requestError=Une erreur est survenue. Merci d'essayer à nouveau.
-conversations.create.success.topic=Sujet ajouté avec succès.
+conversations.create.success.topic=Sujet créé avec succès.
 conversations.deleteconversation.changecomment=Réponse supprimée
 conversations.deletecomment.changecomment=Commentaire supprimé
 conversations.deletecomment.error.nomailsent=Le mail de notification de suppression du commentaire n'a pas pu être envoyé.
@@ -176,7 +176,7 @@ conversations.flag.dialog.instruction1.txt=Vous soumettez ce commentaire à un a
 conversations.flag.dialog.guidingquestion2.txt=Pourquoi signalez-vous cette discussion ?
 conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 conversations.flag.dialog.instruction2.txt=Je signale ce commentaire par ce qu'il
-conversations.flag.dialog.instruction3.txt=Écrivez une note décrivant la raison de cette objection (300 symboles max):
+conversations.flag.dialog.instruction3.txt=Indiquez la raison pour laquelle vous souhaitez signaler ce commentaire (limitée à 300 caractères) :
 conversations.flag.dialog.reason.label=Raison
 conversations.flag.dialog.message.label=Description
 conversations.flag.dialog.mandatory=Ce champ est obligatoire
@@ -199,7 +199,7 @@ ForumCode.FlagClass_status_inprogress=En progrès
 ForumCode.FlagClass_status_resolved=Résolue
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Discussions signalées
-conversations.flag.success.dialog.message=Ce commentaire a été signalé
+conversations.flag.success.dialog.message=Ce commentaire a été signalé.
 conversations.flag.success.dialog.button=Fermer
 ## FLAG livetable
 conversations.flag.reason=Raison
@@ -219,24 +219,24 @@ conversations.addthis.desc={0}
 
 ## most active discussions
 discussion.panel.title=Sujets les plus actifs
-discussion.panel.sortby=Ordonner par:
+discussion.panel.sortby=Trier par :
 discussion.panel.dates=Dates
 discussion.panel.votes=Votes
 discussion.panel.comments=Commentaires
 discussion.panel.topics=Sujets
 discussion.panel.subscribe=S'abonner
-discussion.panel.text1=Restez à jour en recevant les entrées les plus récentes en vous abonnant à:
+discussion.panel.text1=Restez informés en recevant les entrées les plus récentes en vous abonnant à :
 discussion.panel.text2=ou
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Forums
 ## mail notif
 forum.mail.notif.topic.delete.title=Sujet(s) supprimé(s)
-forum.mail.notif.topic.delete.message=Le(s) sujet(s) suivant(s) a/ont été supprimé(s):
+forum.mail.notif.topic.delete.message=Le sujet suivant a été supprimé :
 forum.mail.notif.answer.delete.title=Réponse(s) supprimée(s)
-forum.mail.notif.answer.delete.message=Le(s) réponse(s) suivante(s) a/ont été supprimée(s):
+forum.mail.notif.answer.delete.message=La réponse suivante a été supprimée :
 forum.mail.notif.comment.delete.title=Commentaire(s) supprimé(s)
-forum.mail.notif.comment.delete.message=Le(s) commentaire(s) suivant(s) a/ont été supprimé(s):
+forum.mail.notif.comment.delete.message=Le commentaire suivant a été supprimé :
 forum.mail.notif.delete.thanks=Merci
 forum.mail.notif.delete.view=Voir les éléments supprimés
 
@@ -264,7 +264,7 @@ tour.forumsHomepageTour.mostActiveTopics.title=Sujets les plus actifs
 tour.forumsHomepageTour.mostActiveTopics.content=Ce panneau affiche les sujets les plus actifs selon leur nombre de votes et de commentaires.\nLes topics peuvent être triés par date, nombre de votes et nombre de commentaires. Choisissez l'option voulue puis changez l'ordre (croissant ou décroissant).\nAbonnez-vous pour obtenir les dernières mises à jour des sujets de forum.
 ## Forum Tour
 tour.forumTour.forumDetails.title=Détails du forum
-tour.forumTour.forumDetails.content=Information disponible : Description du forum, Créateur, Date de création, Nombre de sujets et nombre de votes
+tour.forumTour.forumDetails.content=Informations disponibles : Description du forum, Créateur, Date de création, Nombre de sujets et Nombre de votes.
 tour.forumTour.addTopic.title=Créer un sujet
 tour.forumTour.addTopic.content=Créer un nouveau sujet
 tour.forumTour.sortTopics.title=Trier les sujets
@@ -279,13 +279,13 @@ tour.topicTour.flagAndPermalink.content=Si le contenu du sujet est inapproprié,
 tour.topicTour.socialMedia.title=Partager sur vos réseaux sociaux
 tour.topicTour.socialMedia.content=Vous pouvez partager les sujets avec vos amis grâce aux boutons de partage social.
 tour.topicTour.topicModeration.title=Modération d'un sujet
-tour.topicTour.topicModeration.content=Boutons d'édition et de suppression d'un sujet
+tour.topicTour.topicModeration.content=Les boutons Modifier et Supprimer sont situés ici.
 tour.topicTour.vote.title=Vote
-tour.topicTour.vote.content=Vote d'un sujet
+tour.topicTour.vote.content=Vote du sujet
 tour.topicTour.addAnswer.title=Ajouter une réponse
 tour.topicTour.addAnswer.content=Ajouter une réponse
 tour.topicTour.listOfAnswers.title=Liste des réponses
-tour.topicTour.listOfAnswers.content=Voir toutes les réponses et leurs commentaires
+tour.topicTour.listOfAnswers.content=Afficher toutes les réponses et leurs commentaires
 
 ## Template Provider
 templateProvider.forum.name=Forum
