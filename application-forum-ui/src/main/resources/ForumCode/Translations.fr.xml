@@ -147,7 +147,7 @@ conversations.create.error.topic.norights=Vous ne disposez pas des droits pour c
 conversations.create.error.answer.missingParams=Paramètres manquants !
 conversations.create.error.answer.norights=Vous ne disposez pas des droits pour publier une réponse.
 conversations.create.success.answer=Réponse ajoutée avec succès !
-conversations.create.error.missingmetadata=L'opération n'a pas aboutit car il manque des informations.
+conversations.create.error.missingmetadata=La création n'a pas aboutit car il manque des informations !
 conversations.create.error.missingtitle=Veuillez renseigner un titre !
 conversations.create.inProgress=Ajout en cours...
 conversations.create.requestError=Une erreur est survenue. Merci d'essayer à nouveau.
@@ -270,7 +270,7 @@ tour.forumTour.addTopic.content=Créer un nouveau sujet
 tour.forumTour.sortTopics.title=Trier les sujets
 tour.forumTour.sortTopics.content=Les sujets peuvent être triés par date, nombre de votes ou nombre de commentaires. Cliquez sur l'option désirés puis changez l'ordre (croissant ou décroissant).
 tour.forumTour.listOfTopics.title=Liste des sujets
-tour.forumTour.listOfTopics.content=Voir tous les sujets.\nInformation disponible : Nom du sujet, Description, Créateur, Date de création, Nombre de commentaires et nombre de votes
+tour.forumTour.listOfTopics.content=Afficher tous les sujets. Informations disponibles : Nom du sujet, Description, Créateur, Date de création, Nombre de réponses et Nombre de votes.
 ## Topic Tour
 tour.topicTour.topicDetails.title=Détails du sujet
 tour.topicTour.topicDetails.content=Information disponible : Description du sujet, Créateur, Date de création, Nombre de sujets et Nombre de votes.\nLisez la suite pour découvrir d'autres détails sur les sujets.
