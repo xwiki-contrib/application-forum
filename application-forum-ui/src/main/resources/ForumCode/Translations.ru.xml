@@ -52,12 +52,12 @@ ForumCode.TopicClass_status_closed=Закрыт
 ForumCode.TopicClass_status_integrated=Доступен
 ForumCode.TopicClass_description=Описание
 ForumCode.AnswerClass_answer=Ответ
-### Missing: ForumCode.AnswerClass_description=Answer
+ForumCode.AnswerClass_description=Ответ
 
 ## Forums
 conversations.forum.tooltip.totaltopics=Всего тем
 conversations.forum.create=Новый форум
-conversations.forum.create.alreadyexists=Такой форум уже существует \: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.alreadyexists=Такой форум уже существует : [[{0}&gt;&gt;ForumCode.{1}]]
 conversations.forum.create.submit=Создать
 conversations.forum.sorttopicsby=Сортировать темы по
 conversations.forum.sorttopicsby.date=Дате
@@ -73,8 +73,8 @@ forum.admin.action.delete.confiramtion_text=Удалить этот форум?
 forum.admin.action.delete.inprogress=Удаление...
 forum.admin.action.delete.success=Форум удален
 forum.admin.action.delete.failed=Форум удалить не удалось
-### Missing: conversations.forum.all=All forums
-### Missing: conversations.forum.add=Add forum
+conversations.forum.all=Все форумы
+conversations.forum.add=Добавить форум
 
 
 ## Topics
@@ -82,17 +82,17 @@ conversations.topic.tooltip.totalcommentsandanswers=Всего ответов и
 conversations.topic.tooltip.totalanswers=Всего ответов
 conversations.topic.answer.tooltip.totalcomments=Всего комментариев к ответу
 conversations.topic.create=Новая тема
-### Missing: conversation.topic.create=Add topic
+conversation.topic.create=Добавить тему
 conversations.topic.create.submit=Создать
-### Missing: conversations.topic.all=All topics
-### Missing: conversations.topic.empty=No topic
+conversations.topic.all=Все темы
+conversations.topic.empty=Тема не указана
 conversations.topic.count=темы
 conversations.topic.delete.confirm.withReplies=Удалить эту тему и свои ответы?
 
 ## Answers
 conversations.title=Обсуждение
 conversation.add.activator=Ответ
-### Missing: conversation.answer.create=Add answer
+conversation.answer.create=Добавить ответ
 conversation.delete.confirm=Удалить тему?
 conversation.delete.confirm.withReplies=Удалить эту тему и все комментарии к ней?
 conversation.delete.done=Обсуждение удалено
@@ -112,8 +112,8 @@ conversation.groups.norights=Вы должны быть членом групп�
 conversation.norights=У вас нет прав доступа для участия в этом обсуждении.
 conversations.answer.edit=Ответ на тему {0}
 conversations.answer=Ответ
-### Missing: conversations.answer.all=All answers
-### Missing: conversations.answer.empty=No answer
+conversations.answer.all=Все ответы
+conversations.answer.empty=Нет ответа
 conversations.answer.count=ответов
 
 ## Comments
@@ -124,7 +124,7 @@ conversation.like.button=Голоса
 conversation.like.button.tooltip=Проголосовать за тему
 conversation.like.button.alreadyliked.tooltip=Вы уже голосовали
 conversation.like.score.tooltip={0} пользователей находят это обсуждение интересным.
-conversation.like.failed=Голос не может быть сохранен\:
+conversation.like.failed=Голос не может быть сохранен:
 conversation.like.done=Ваш голос сохранен.
 conversation.like.loading=Голос сохраняется...
 rating.saveexception=Ошибка в процессе сохранения голоса.
@@ -144,14 +144,14 @@ conversations._avatar=Аватар
 
 ## Messages
 conversations.create.error.topic.norights=У вас нет прав для создания новых тем.
-### Missing: conversations.create.error.answer.missingParams=Not enough parameters!
+conversations.create.error.answer.missingParams=Недостаточно параметров!
 conversations.create.error.answer.norights=У вас нет прав для создания новых ответов.
-### Missing: conversations.create.success.answer=Answer successfully added!
+conversations.create.success.answer=Ответ успешно добавлен!
 conversations.create.error.missingmetadata=Создание не может быть выполнено из за отсутсвия метаданных.
 conversations.create.error.missingtitle=Отсутвует название..
-### Missing: conversations.create.inProgress=Adding...
-### Missing: conversations.create.requestError=There was an error sending your request. Please try again.
-### Missing: conversations.create.success.topic=Topic successfully added!
+conversations.create.inProgress=Добавление...
+conversations.create.requestError=Произошла ошибка при отправке запроса. Пожалуйста, повторите позже.
+conversations.create.success.topic=Тема успешно добавлена!
 conversations.deleteconversation.changecomment=Удалить разговор
 conversations.deletecomment.changecomment=Удаленный комментарий
 conversations.deletecomment.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении разговора.
@@ -159,11 +159,11 @@ conversations.deletecomment.success=Письмо с уведомлением о�
 conversations.deletecomment.error.norights=У вас нет прав на удаление комментария.
 conversations.deletecomment.error.notfound=Сообщение не найдено.
 conversations.deleteconversation.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении ответа.
-### Missing: conversations.deleteconversation.success=Topic deleted.
+conversations.deleteconversation.success=Тема удалена.
 conversations.deleteconversation.error.norights=У вас нет прав на удаление ответа.
 conversations.deleteconversation.error.notfound=Ответ не найден.
 core.viewers.comments.delete.failed=Комментарий не может быть удален.
-### Missing: conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
+conversations.deleteanswer.error.nomailsent=Не удалось отправить письмо с уведомлением об удалении ответа.
 
 ## FLAG DIALOG
 conversation.flag.tooltip=Отметка
@@ -174,15 +174,15 @@ conversations.flag.dialog.header=Отметить сообщение
 conversations.flag.dialog.guidingquestion1.txt=Что будет, если отметить сообщение?
 conversations.flag.dialog.instruction1.txt=Вы отправили поток сообщений для оценки Администратору.
 conversations.flag.dialog.guidingquestion2.txt=Почему вы отмечаете это обсуждение?
-conversations.flag.dialog.required.field.icon=&lt;em class\="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 conversations.flag.dialog.instruction2.txt=Я отмечаю этот комментарий потому, что
-conversations.flag.dialog.instruction3.txt=Пожалуйста, поясните что делает это сообщение некорректным (не более 300 символов)\:
-### Missing: conversations.flag.dialog.reason.label=Reason
-### Missing: conversations.flag.dialog.message.label=Description
-### Missing: conversations.flag.dialog.mandatory=This field is mandatory
+conversations.flag.dialog.instruction3.txt=Пожалуйста, поясните что делает это сообщение некорректным (не более 300 символов):
+conversations.flag.dialog.reason.label=Причина
+conversations.flag.dialog.message.label=Описание
+conversations.flag.dialog.mandatory=Это поле является обязательным
 conversations.flag.dialog.cancel.btt=Отмена
 conversations.flag.dialog.submit.btt=Отправить
-### Missing: conversations.flag.error.nomailsent=Could not send mail to notify about flagged comment.
+conversations.flag.error.nomailsent=Не удалось отправить письмо, чтобы уведомить о помеченном комментарии.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Выберите
 ForumCode.FlagClass_reason_1=пpопаганда ненависти или насилия
@@ -191,7 +191,7 @@ ForumCode.FlagClass_reason_3=пустое сообщение
 ForumCode.FlagClass_reason_4=коммерческое сообщение, которое не соответсвует теме
 ForumCode.FlagClass_reason_5=нечитаемое сообщение
 ForumCode.FlagClass_reason_6=нонсенс
-### Missing: ForumCode.FlagClass_reason_alt=Other reason
+ForumCode.FlagClass_reason_alt=Другая причина
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Статус
 ForumCode.FlagClass_status_open=Oткрытый
@@ -214,81 +214,81 @@ conversations.flag.emptyvalue=-
 conversations.flag.list.title=Список отметок
 conversations.flag.list.instructions=Это список отмеченных сообщений
 conversations.flag.success.dialog.goback=Вернуться к обсуждению
-conversations.addthis.title={0} \#xwikiforum
+conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
 ## most active discussions
 discussion.panel.title=Популярные темы
-discussion.panel.sortby=По\:
+discussion.panel.sortby=По:
 discussion.panel.dates=Датам
 discussion.panel.votes=Голосам
 discussion.panel.comments=Коммент.
 discussion.panel.topics=Темы
 discussion.panel.subscribe=Подписать
-discussion.panel.text1=В курсе последних записей которые были подписаны на\:
+discussion.panel.text1=В курсе последних записей которые были подписаны на:
 discussion.panel.text2=или
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=Форумы
 ## mail notif
-### Missing: forum.mail.notif.topic.delete.title=Deleted topic
-### Missing: forum.mail.notif.topic.delete.message=The following topic has been deleted:
-### Missing: forum.mail.notif.answer.delete.title=Deleted answer
-### Missing: forum.mail.notif.answer.delete.message=The following answer has been deleted:
-### Missing: forum.mail.notif.comment.delete.title=Deleted comment
-### Missing: forum.mail.notif.comment.delete.message=The following comment has been deleted:
-### Missing: forum.mail.notif.delete.thanks=Thank you
-### Missing: forum.mail.notif.delete.view=View deleted
+forum.mail.notif.topic.delete.title=Удаленная тема
+forum.mail.notif.topic.delete.message=Следующие темы будут удалены:
+forum.mail.notif.answer.delete.title=Удаленный ответ
+forum.mail.notif.answer.delete.message=Следующие ответы будут удалены:
+forum.mail.notif.comment.delete.title=Удаленный комментарий
+forum.mail.notif.comment.delete.message=Следующие комментарии будут удалены:
+forum.mail.notif.delete.thanks=Спасибо
+forum.mail.notif.delete.view=Просмотреть удаленные
 
 ## recent forum discussions
-### Missing: recent.forum.discussions.addDiscussion=Add discussion
-### Missing: recent.forum.discussions.createdAnswerOnTopic=answered on topic
-### Missing: recent.forum.discussions.createdTopic=created topic
+recent.forum.discussions.addDiscussion=Добавить обсуждение
+recent.forum.discussions.createdAnswerOnTopic=ответил в теме
+recent.forum.discussions.createdTopic=созданная тема
 ### Missing: recent.forum.discussions.creationDate=on {0}
-### Missing: recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
-### Missing: recent.forum.discussions.editedTopic=edited topic
-### Missing: recent.forum.discussions.seeAllDiscussions=See all discussions
+recent.forum.discussions.editedAnswerOnTopic=отредактированный ответ
+recent.forum.discussions.editedTopic=отредактированная тема
+recent.forum.discussions.seeAllDiscussions=Смотреть все обсуждения
 
 ## rendering macro
-### Missing: rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
+rendering.macro.forum.recentForumDiscussions.name=Недавние обсуждения на форуме
 
 ## TOURS
 ## Forums homepage tour
-### Missing: tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
-### Missing: tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag inappropriate content.
-### Missing: tour.forumsHomepageTour.addForum.title=Add Forum
-### Missing: tour.forumsHomepageTour.addForum.content=Create a new Forum.
+tour.forumsHomepageTour.welcome.title=Добро пожаловать в форум!
+tour.forumsHomepageTour.welcome.content=Форум - это средство коммуникации, с помощью которого можно создавать неограниченное количество дискуссионных форумов, голосовать за них и даже отмечать нежелательный контент.
+tour.forumsHomepageTour.addForum.title=Добавить форум
+tour.forumsHomepageTour.addForum.content=Создать новый форум.
 ### Missing: tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
-### Missing: tour.forumsHomepageTour.forumsLivetable.content=See all the Forums. Check the possible actions: sort, filter, edit, delete.
-### Missing: tour.forumsHomepageTour.mostActiveTopics.title=Most Active Topics
-### Missing: tour.forumsHomepageTour.mostActiveTopics.content=This panel displays the most active topics in terms of votes and comments. Topics can be sorted by date, number of votes and number of comments. Click the related button to order ascending/descending. Subscribe to get the latest information about Topics!
+tour.forumsHomepageTour.forumsLivetable.content=Посмотреть все форумы. Проверьте возможные действия: сортируйте, фильтруйте, редактируйте, удаляйте.
+tour.forumsHomepageTour.mostActiveTopics.title=Самые активные темы
+tour.forumsHomepageTour.mostActiveTopics.content=Эта панель отображает самые активные темы с точки зрения голосов и комментариев. Темы можно сортировать по дате, количеству голосов и количеству комментариев. Нажмите соответствующую кнопку, чтобы заказать возрастание / убывание. Подпишитесь, чтобы получить последнюю информацию о Темах!
 ## Forum Tour
-### Missing: tour.forumTour.forumDetails.title=Forum details
-### Missing: tour.forumTour.forumDetails.content=Existing information: Forum description, creator, creation date, number of topics and number of votes.
-### Missing: tour.forumTour.addTopic.title=Add Topic
-### Missing: tour.forumTour.addTopic.content=Create a new Topic.
-### Missing: tour.forumTour.sortTopics.title=Sort Topics
-### Missing: tour.forumTour.sortTopics.content=Topics can be sorted by date, number of votes or number of comments. Click the related button and then change the ascendant/descending order.
-### Missing: tour.forumTour.listOfTopics.title=List of Topics
-### Missing: tour.forumTour.listOfTopics.content=See all the Topics. Existing information: Topic name, description, creator, creation date, number of answers, number of comments and number of votes.
+tour.forumTour.forumDetails.title=Подробнее о форуме
+tour.forumTour.forumDetails.content=Существующая информация: описание форума, создатель, дата создания, количество тем и количество голосов.
+tour.forumTour.addTopic.title=Добавить тему
+tour.forumTour.addTopic.content=Создать новую тему.
+tour.forumTour.sortTopics.title=Сортировать темы
+tour.forumTour.sortTopics.content=Темы можно отсортировать по дате, количеству голосов или количеству комментариев. Нажмите соответствующую кнопку, а затем измените порядок возрастания / убывания.
+tour.forumTour.listOfTopics.title=Список тем
+tour.forumTour.listOfTopics.content=Посмотреть все темы. Существующая информация: название темы, описание, создатель, дата создания, количество ответов, количество комментариев и количество голосов.
 ## Topic Tour
-### Missing: tour.topicTour.topicDetails.title=Topic details
-### Missing: tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
-### Missing: tour.topicTour.flagAndPermalink.title=Flag and Permalink
-### Missing: tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL.
-### Missing: tour.topicTour.socialMedia.title=Share to Social Media
-### Missing: tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
-### Missing: tour.topicTour.topicModeration.title=Topic moderation
-### Missing: tour.topicTour.topicModeration.content=Here are the edit and delete buttons.
-### Missing: tour.topicTour.vote.title=Vote
+tour.topicTour.topicDetails.title=Подробнее о теме
+tour.topicTour.topicDetails.content=Существующая информация: описание темы, создатель, дата создания, номер темы и количество голосов. Прочитайте следующие шаги, чтобы узнать возможные действия по темам.
+tour.topicTour.flagAndPermalink.title=Флаг и постоянная ссылка
+tour.topicTour.flagAndPermalink.content=Если содержание темы неуместно, вы можете использовать опцию Пометить, чтобы предупредить администраторов. Постоянная ссылка даст вам URL.
+tour.topicTour.socialMedia.title=Поделиться в соцсетях
+tour.topicTour.socialMedia.content=Вы можете поделиться этой темой с друзьями через кнопки социальных сетей.
+tour.topicTour.topicModeration.title=Модерация темы
+tour.topicTour.topicModeration.content=кнопки редактирования и удаления.
+tour.topicTour.vote.title=Голосовать
 ### Missing: tour.topicTour.vote.content=Topic vote.
-### Missing: tour.topicTour.addAnswer.title=Add Answer
-### Missing: tour.topicTour.addAnswer.content=Create a new Answer.
-### Missing: tour.topicTour.listOfAnswers.title=List of Answers
-### Missing: tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
+tour.topicTour.addAnswer.title=Добавить ответ
+tour.topicTour.addAnswer.content=Создать новый ответ.
+tour.topicTour.listOfAnswers.title=Список ответов
+tour.topicTour.listOfAnswers.content=Посмотреть все ответы и их комментарии.
 
 ## Template Provider
-### Missing: templateProvider.forum.name=Forum
-### Missing: templateProvider.forum.description=Start a conversation
+templateProvider.forum.name=Форум
+templateProvider.forum.description=Начать разговор
 </content>
 </xwikidoc>
