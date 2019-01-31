@@ -289,6 +289,5 @@ tour.topicTour.listOfAnswers.content=Pregledaj sve odgovore i komentare na njih
 
 ## Template Provider
 templateProvider.forum.name=Forum
-templateProvider.forum.description=Započni razgovor
-</content>
+templateProvider.forum.description=Započni razgovor</content>
 </xwikidoc>

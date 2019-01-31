@@ -289,6 +289,5 @@ tour.topicTour.listOfAnswers.content=Посмотреть все ответы и
 
 ## Template Provider
 templateProvider.forum.name=Форум
-templateProvider.forum.description=Начать разговор
-</content>
+templateProvider.forum.description=Начать разговор</content>
 </xwikidoc>

@@ -289,6 +289,5 @@ tour.topicTour.listOfAnswers.content=Afficher toutes les réponses et leurs comm
 
 ## Template Provider
 templateProvider.forum.name=Forum
-templateProvider.forum.description=Démarrer une conversation
-</content>
+templateProvider.forum.description=Démarrer une conversation</content>
 </xwikidoc>
