@@ -167,7 +167,7 @@ conversations.deleteanswer.error.nomailsent=Не удалось отправит
 
 ## FLAG DIALOG
 conversation.flag.tooltip=Отметка
-conversations.flag.edit=Редактировать
+conversations.flag.edit=Правка
 conversations.flag.button=Отметка
 conversations.flag.viewsource=Посмотреть источник отметки
 conversations.flag.dialog.header=Отметить сообщение
