@@ -40,8 +40,8 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>## Classes
-### Missing: ForumCode.TopicClass_title=Title
-### Missing: ForumCode.TopicClass_type=Type
+ForumCode.TopicClass_title=Tytuł
+ForumCode.TopicClass_type=Rodzaj
 ForumCode.TopicClass_type_question=Pytanie
 ForumCode.TopicClass_type_suggestion=Sugetia
 ForumCode.TopicClass_type_alert=Ostrzeżenie
@@ -49,27 +49,27 @@ ForumCode.TopicClass_type_feedback=Inf. zwrotna
 ForumCode.TopicClass_status=Status
 ForumCode.TopicClass_status_inprogress=W trakcie
 ForumCode.TopicClass_status_closed=Zamknięty
-### Missing: ForumCode.TopicClass_status_integrated=Integrated
+ForumCode.TopicClass_status_integrated=Zintegrowany
 ForumCode.TopicClass_description=Opis
 ForumCode.AnswerClass_answer=Odpowiedź
 ForumCode.AnswerClass_description=Odpowiedź
 
 ## Forums
-### Missing: conversations.forum.tooltip.totaltopics=Total topics
-### Missing: conversations.forum.create=New forum
-### Missing: conversations.forum.create.alreadyexists=The forum already exists: [[{0}&gt;&gt;ForumCode.{1}]]
-### Missing: conversations.forum.create.submit=Create
-### Missing: conversations.forum.sorttopicsby=Sort topics by
-### Missing: conversations.forum.sorttopicsby.date=Date
-### Missing: conversations.forum.sorttopicsby.votes=Votes
-### Missing: conversations.forum.sorttopicsby.comments=Comments
-### Missing: conversations.titleError=The title should not be longer than 250 characters.
-### Missing: conversations.forum.title=Title
-### Missing: conversations.forum.description=Description
-### Missing: conversations.forum.edit=Edit Topic
-### Missing: conversations.forum.delete=Delete Topic
-### Missing: conversations.forum.more=Show {0} more
-### Missing: forum.admin.action.delete.confiramtion_text=Delete this forum?
+conversations.forum.tooltip.totaltopics=Wszystkie tematy
+conversations.forum.create=Nowe forum
+conversations.forum.create.alreadyexists=Forum już istnieje: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Stwórz
+conversations.forum.sorttopicsby=Sortuj wg tematu
+conversations.forum.sorttopicsby.date=Data
+conversations.forum.sorttopicsby.votes=Głosy
+conversations.forum.sorttopicsby.comments=Komentarze
+conversations.titleError=Tytuł nie może być dłuższy niż 250 znaków.
+conversations.forum.title=Tytuł
+conversations.forum.description=Opis
+conversations.forum.edit=Edycja tytułu
+conversations.forum.delete=Usuń tytuł
+conversations.forum.more=Pokaż {0} więcej
+forum.admin.action.delete.confiramtion_text=Usunąć forum ?
 ### Missing: forum.admin.action.delete.inprogress=Deletion in progress...
 ### Missing: forum.admin.action.delete.success=Forum deleted
 ### Missing: forum.admin.action.delete.failed=The forum could not be deleted
