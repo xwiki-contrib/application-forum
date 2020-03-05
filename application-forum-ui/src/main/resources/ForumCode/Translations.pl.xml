@@ -70,105 +70,105 @@ conversations.forum.edit=Edycja tytułu
 conversations.forum.delete=Usuń tytuł
 conversations.forum.more=Pokaż {0} więcej
 forum.admin.action.delete.confiramtion_text=Usunąć forum ?
-### Missing: forum.admin.action.delete.inprogress=Deletion in progress...
-### Missing: forum.admin.action.delete.success=Forum deleted
-### Missing: forum.admin.action.delete.failed=The forum could not be deleted
-### Missing: conversations.forum.all=All forums
-### Missing: conversations.forum.add=Add forum
+forum.admin.action.delete.inprogress=Trwa usuwanie ...
+forum.admin.action.delete.success=Forum usunięte
+forum.admin.action.delete.failed=Forum nie może zostać usunięte
+conversations.forum.all=Wszystkie fora
+conversations.forum.add=Dodaj forum
 
 
 ## Topics
-### Missing: conversations.topic.tooltip.totalcommentsandanswers=Total answers and comments
-### Missing: conversations.topic.tooltip.totalanswers=Total answers
-### Missing: conversations.topic.answer.tooltip.totalcomments=Total comments for the answer
-### Missing: conversations.topic.create=Add topic
-### Missing: conversation.topic.create=Add topic
-### Missing: conversations.topic.create.submit=Create
-### Missing: conversations.topic.all=All topics
-### Missing: conversations.topic.empty=No topic
-### Missing: conversations.topic.count=topics
-### Missing: conversations.topic.delete.confirm.withReplies=Delete this topic and its answers?
+conversations.topic.tooltip.totalcommentsandanswers=Łączne odpowiedzi i komentarze
+conversations.topic.tooltip.totalanswers=Wszystkie odpowiedzi
+conversations.topic.answer.tooltip.totalcomments=Łączne komentarze do odpowiedzi
+conversations.topic.create=Dodaj temat
+conversation.topic.create=Dodaj temat
+conversations.topic.create.submit=Utwórz
+conversations.topic.all=Wszystkie tematy
+conversations.topic.empty=Brak tematu
+conversations.topic.count=tematy
+conversations.topic.delete.confirm.withReplies=Usunąć ten temat i jego odpowiedzi?
 
 ## Answers
-### Missing: conversations.title=Answer
+conversations.title=Odpowiedź
 conversation.add.activator=Dodaj odpowiedź
 conversation.answer.create=Dodaj odpowiedź
-### Missing: conversation.delete.confirm=Delete topic?
-### Missing: conversation.delete.confirm.withReplies=Delete this answer and its comments?
-### Missing: conversation.delete.done=Answer deleted
+conversation.delete.confirm=Usunąć temat?
+conversation.delete.confirm.withReplies=Usunąć tę odpowiedź i jej komentarze?
+conversation.delete.done=Odpowiedź została usunięta
 conversation.delete.success=Odpowiedź usunięta
-### Missing: conversation.delete.failed=The answer could not be deleted
-### Missing: conversation.delete.inProgress=Delete in progress ...
+conversation.delete.failed=Nie można usunąć odpowiedzi
+conversation.delete.inProgress=Trwa usuwanie ...
 conversation.edit=Edytuj odpowiedź
-### Missing: conversation.edit.failed=The form used for creating answer could no be displayed
-### Missing: conversation.delete=Delete answer
+conversation.edit.failed=Nie można wyświetlić formularza użytego do utworzenia odpowiedzi
+conversation.delete=Usuń odpowiedź
 conversation.delete.title=Usuń odpowiedź
 conversation.edit.title=Edytuj odpowiedź
 conversation.empty=Bez komentarza
-### Missing: conversation.forum.delete.title=Delete Topic
-### Missing: conversation.updatedate={0}
-### Missing: conversation.creationdate={1}
-### Missing: conversation.groups.norights=You must be a member of this group to participate to this discussion. Please contact the group admin.
-### Missing: conversation.norights=You do not have rights to participate in this discussion.
-### Missing: conversations.answer.edit=Answer to topic {0}
-### Missing: conversations.answer=Answer
-### Missing: conversations.answer.all=All answers
-### Missing: conversations.answer.empty=No answer
-### Missing: conversations.answer.count=answers
+conversation.forum.delete.title=Usuń temat
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=Musisz być członkiem tej grupy, aby wziąć udział w tej dyskusji. Skontaktuj się z administratorem grupy.
+conversation.norights=Nie masz prawa uczestniczyć w tej dyskusji.
+conversations.answer.edit=Odpowiedz na temat {0}
+conversations.answer=Odpowiedź
+conversations.answer.all=Wszystkie odpowiedzi
+conversations.answer.empty=Brak odpowiedzi
+conversations.answer.count=odpowiedzi
 
 ## Comments
-### Missing: conversations.comment.count=comments
+conversations.comment.count=komentarze
 
 ## Votes
 conversation.like.button=Głosy
-### Missing: conversation.like.button.tooltip=Vote topic
-### Missing: conversation.like.button.alreadyliked.tooltip=You already voted
-### Missing: conversation.like.score.tooltip={0} users found this answer as being interesting.
-### Missing: conversation.like.failed=The vote could not be saved:
-### Missing: conversation.like.done=Your vote has been saved.
+conversation.like.button.tooltip=Głosuj na temat
+conversation.like.button.alreadyliked.tooltip=Już głosowałeś
+conversation.like.score.tooltip={0} użytkowników uznało tę odpowiedź za interesującą.
+conversation.like.failed=Głosowania nie można zapisać:
+conversation.like.done=Twój głos został zapisany.
 conversation.like.loading=Zapisane głosy...
-### Missing: rating.saveexception=Error while saving vote.
-### Missing: rating.votenotvalid=The vote is not valid.
-### Missing: rating.voteoutofbounds=The vote is not valid.
+rating.saveexception=Błąd podczas zapisywania głosu.
+rating.votenotvalid=Głosowanie jest nieważne.
+rating.voteoutofbounds=Głosowanie jest nieważne.
 
 ## Permalink
-### Missing: conversation.permalink.tooltip=Permalink
-### Missing: conversation.permalink=Permalink
+conversation.permalink.tooltip=Odnośnik
+conversation.permalink=Odnośnik
 
 ## Livetable
-### Missing: conversations.doc.title=Title
-### Missing: conversations.doc.date=Date
-### Missing: conversations.doc.creator=Creator
-### Missing: conversations.actions=Actions
-### Missing: conversations._avatar=Avatar
+conversations.doc.title=Tytuł
+conversations.doc.date=Data
+conversations.doc.creator=Twórca
+conversations.actions=Akcje
+conversations._avatar=Awatar
 
 ## Messages
-### Missing: conversations.create.error.topic.norights=You don't have the rights to create a new topic!
-### Missing: conversations.create.error.answer.missingParams=Not enough parameters!
-### Missing: conversations.create.error.answer.norights=You don't have the rights to create a new answer!
-### Missing: conversations.create.success.answer=Answer successfully added!
-### Missing: conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata!
-### Missing: conversations.create.error.missingtitle=Missing title!
-### Missing: conversations.create.inProgress=Adding...
-### Missing: conversations.create.requestError=There was an error sending your request. Please try again.
-### Missing: conversations.create.success.topic=Topic successfully added!
-### Missing: conversations.deleteconversation.changecomment=Deleted answer
-### Missing: conversations.deletecomment.changecomment=Deleted comment
-### Missing: conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the comment.
-### Missing: conversations.deletecomment.success=The mail to notify about comment deletion has been sent.
-### Missing: conversations.deletecomment.error.norights=You don't have the rights to delete the comment.
-### Missing: conversations.deletecomment.error.notfound=Comment not found.
-### Missing: conversations.deleteconversation.error.nomailsent=Could not send mail to notify about deleting the topic.
-### Missing: conversations.deleteconversation.success=Topic deleted.
-### Missing: conversations.deleteconversation.error.norights=You don't have the rights to delete the answer.
-### Missing: conversations.deleteconversation.error.notfound=Topic not found.
-### Missing: core.viewers.comments.delete.failed=The comment could not be deleted.
-### Missing: conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
+conversations.create.error.topic.norights=Nie masz uprawnień do utworzenia nowego tematu!
+conversations.create.error.answer.missingParams=Za mało parametrów!
+conversations.create.error.answer.norights=Nie masz uprawnień, aby utworzyć nową odpowiedź!
+conversations.create.success.answer=Odpowiedź została pomyślnie dodana!
+conversations.create.error.missingmetadata=Nie można stworzyć z powodu brakujących metadanych!
+conversations.create.error.missingtitle=Brakujący tytuł!
+conversations.create.inProgress=Dodawanie...
+conversations.create.requestError=Podczas wysyłania żądania wystąpił błąd. Proszę spróbuj ponownie.
+conversations.create.success.topic=Temat został pomyślnie dodany!
+conversations.deleteconversation.changecomment=Usunięto odpowiedź
+conversations.deletecomment.changecomment=Usunięty komentarz
+conversations.deletecomment.error.nomailsent=Nie można wysłać wiadomości e-mail z powiadomieniem o usunięciu komentarza.
+conversations.deletecomment.success=Wiadomość e-mail z powiadomieniem o usunięciu komentarza została wysłana.
+conversations.deletecomment.error.norights=Nie masz uprawnień do usunięcia komentarza.
+conversations.deletecomment.error.notfound=Nie znaleziono komentarza.
+conversations.deleteconversation.error.nomailsent=Nie można wysłać wiadomości e-mail z powiadomieniem o usunięciu tematu.
+conversations.deleteconversation.success=Temat usunięty.
+conversations.deleteconversation.error.norights=Nie masz uprawnień do usunięcia odpowiedzi.
+conversations.deleteconversation.error.notfound=Nie znaleziono tematu.
+core.viewers.comments.delete.failed=Nie można usunąć komentarza.
+conversations.deleteanswer.error.nomailsent=Nie można wysłać wiadomości e-mail z powiadomieniem o usunięciu odpowiedzi.
 
 ## FLAG DIALOG
 conversation.flag.tooltip=Flaga
-### Missing: conversations.flag.edit=Edit
-### Missing: conversations.flag.button=Flag
+conversations.flag.edit=Edycja
+conversations.flag.button=Flaga
 ### Missing: conversations.flag.viewsource=View Flag Source
 ### Missing: conversations.flag.dialog.header=Flag a Comment
 ### Missing: conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
