@@ -158,7 +158,7 @@ conversations.deletecomment.error.nomailsent=No puedo enviar correo electrónico
 conversations.deletecomment.success=Se ha enviado el mensaje para notificar sobre el borrado del comentario.
 conversations.deletecomment.error.norights=No tienes permisos para borrar el comentario.
 conversations.deletecomment.error.notfound=Comentario no encontrado.
-conversations.deleteconversation.error.nomailsent=No puede enviar correo electrónico para notificar sobre borrar el tema.
+conversations.deleteconversation.error.nomailsent=No se puede enviar correo electrónico para notificar sobre borrar el tema.
 conversations.deleteconversation.success=Tema borrado.
 conversations.deleteconversation.error.norights=No tienes permisos para borrar la respuesta.
 conversations.deleteconversation.error.notfound=Tema no encontrado.
@@ -182,7 +182,7 @@ conversations.flag.dialog.message.label=Descripción
 conversations.flag.dialog.mandatory=El campo es obligatorio
 conversations.flag.dialog.cancel.btt=Cancelar
 conversations.flag.dialog.submit.btt=Enviar
-conversations.flag.error.nomailsent=No puedo enviar correo electrónico para notificar sobre el comentario marcado.
+conversations.flag.error.nomailsent=No se puede enviar correo electrónico para notificar sobre el comentario marcado.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Seleccionar
 ForumCode.FlagClass_reason_1=Fomenta el odio o la violencia
