@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.1">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>es</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1400760336000</date>
+  <contentUpdateDate>1400760336000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.TopicClass_title=Título
+ForumCode.TopicClass_type=Tipo
+ForumCode.TopicClass_type_question=Pregunta
+ForumCode.TopicClass_type_suggestion=Sugerencia
+ForumCode.TopicClass_type_alert=Alerta
+ForumCode.TopicClass_type_feedback=Reacción
+ForumCode.TopicClass_status=Situación
+ForumCode.TopicClass_status_inprogress=Progresando
+ForumCode.TopicClass_status_closed=Cerrado
+ForumCode.TopicClass_status_integrated=Integrado
+ForumCode.TopicClass_description=Descripción
+ForumCode.AnswerClass_answer=Respuesta
+ForumCode.AnswerClass_description=Respuesta
+
+## Forums
+conversations.forum.tooltip.totaltopics=Temas totales
+conversations.forum.create=Foro nuevo
+conversations.forum.create.alreadyexists=El foro ya existe: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Crear
+conversations.forum.sorttopicsby=Ordenar los temas por
+conversations.forum.sorttopicsby.date=Fecha
+conversations.forum.sorttopicsby.votes=Votos
+conversations.forum.sorttopicsby.comments=Comentarios
+conversations.titleError=El título no debe tener más de 250 caracteres.
+conversations.forum.title=Título
+conversations.forum.description=Descripción
+conversations.forum.edit=Editar tema
+conversations.forum.delete=Borrar tema
+conversations.forum.more=Mostrar {0} más
+forum.admin.action.delete.confiramtion_text=¿Borrar este foro?
+forum.admin.action.delete.inprogress=Borrado en progreso...
+forum.admin.action.delete.success=Foro borrado
+forum.admin.action.delete.failed=No se puede borrar el foro
+conversations.forum.all=Todos los foros
+conversations.forum.add=Añadir foro
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=Respuestas y comentarios totales
+conversations.topic.tooltip.totalanswers=Respuestas totales
+conversations.topic.answer.tooltip.totalcomments=Total de comentarios de la respuesta
+conversations.topic.create=Añadir tema
+conversation.topic.create=Añadir tema
+conversations.topic.create.submit=Crear
+conversations.topic.all=Todos los temas
+conversations.topic.empty=Ningún tema
+conversations.topic.count=temas
+conversations.topic.delete.confirm.withReplies=¿Borrar este tema y sus respuestas?
+
+## Answers
+conversations.title=Respuesta
+conversation.add.activator=Añadir respuesta
+conversation.answer.create=Añadir respuesta
+conversation.delete.confirm=¿Borrar tema?
+conversation.delete.confirm.withReplies=¿Borrar esta respuesta y sus comentarios?
+conversation.delete.done=Respuesta borrada
+conversation.delete.success=Respuesta borrada
+conversation.delete.failed=No se pudo borrar la respuesta
+conversation.delete.inProgress=Borrado en progreso...
+conversation.edit=Editar respuesta
+conversation.edit.failed=No se puede visualizar el formulario empleado para crear respuestas
+conversation.delete=Borrar respuesta
+conversation.delete.title=Borrar respuesta
+conversation.edit.title=Editar respuesta
+conversation.empty=Sin comentarios
+conversation.forum.delete.title=Borrar tema
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=Tienes que pertenecer a este grupo para participar en la discusión. Por favor, contacta con el administrador del grupo.
+conversation.norights=No tienes permisos para participar en esta discusión.
+conversations.answer.edit=Respuesta al tema {0}
+conversations.answer=Respuesta
+conversations.answer.all=Todas las respuestas
+conversations.answer.empty=No hay respuesta
+conversations.answer.count=respuestas
+
+## Comments
+conversations.comment.count=comentarios
+
+## Votes
+conversation.like.button=Votos
+conversation.like.button.tooltip=Votar tema
+conversation.like.button.alreadyliked.tooltip=Ya has votado
+conversation.like.score.tooltip={0} usuarios encontraron esta respuesta de interés.
+conversation.like.failed=No se puede guardar el voto:
+conversation.like.done=Tu voto se ha guardado.
+conversation.like.loading=Guardando el voto...
+rating.saveexception=Error al guardar el voto.
+rating.votenotvalid=El voto no es válido.
+rating.voteoutofbounds=El voto no es válido.
+
+## Permalink
+conversation.permalink.tooltip=Enlace permanente
+conversation.permalink=Enlace permanente
+
+## Livetable
+conversations.doc.title=Título
+conversations.doc.date=Fecha
+conversations.doc.creator=Creador
+conversations.actions=Acciones
+conversations._avatar=Avatar
+
+## Messages
+conversations.create.error.topic.norights=¡No tienes permisos para crear un tema nuevo!
+conversations.create.error.answer.missingParams=¡Faltan parámetros!
+conversations.create.error.answer.norights=¡No tienes permisos para crear una respuesta nueva!
+conversations.create.success.answer=¡Respuesta añadida exitosamente!
+conversations.create.error.missingmetadata=¡No se puede ejecutar la creación porque faltan metadatos!
+conversations.create.error.missingtitle=¡Falta el título!
+conversations.create.inProgress=Añadiendo...
+conversations.create.requestError=Se produjo un error al enviar tu solicitud. Por favor, inténtalo otra vez.
+conversations.create.success.topic=¡Tema añadido exitosamente!
+conversations.deleteconversation.changecomment=Respuesta borrada
+conversations.deletecomment.changecomment=Comentario borrado
+conversations.deletecomment.error.nomailsent=No puedo enviar correo electrónico para notificar sobre borrar el comentario.
+conversations.deletecomment.success=Se ha enviado el mensaje para notificar sobre el borrado del comentario.
+conversations.deletecomment.error.norights=No tienes permisos para borrar el comentario.
+conversations.deletecomment.error.notfound=Comentario no encontrado.
+conversations.deleteconversation.error.nomailsent=No se puede enviar correo electrónico para notificar sobre borrar el tema.
+conversations.deleteconversation.success=Tema borrado.
+conversations.deleteconversation.error.norights=No tienes permisos para borrar la respuesta.
+conversations.deleteconversation.error.notfound=Tema no encontrado.
+core.viewers.comments.delete.failed=No se puede borrar el comentario.
+conversations.deleteanswer.error.nomailsent=No puede enviar correo electrónico para notificar sobre borrar la respuesta.
+
+## FLAG DIALOG
+conversation.flag.tooltip=Marcar
+conversations.flag.edit=Editar
+conversations.flag.button=Marcar
+conversations.flag.viewsource=Ver origen del marcador
+conversations.flag.dialog.header=Marcar un comentario
+conversations.flag.dialog.guidingquestion1.txt=¿Qué ocurre cuando marcas un comentario?
+conversations.flag.dialog.instruction1.txt=Envías el hilo de comentarios para evaluación inmediata por parte de los administradores del foro.
+conversations.flag.dialog.guidingquestion2.txt=¿Por qué estás marcando esta discusión?
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=Estoy marcando este comentario porque
+conversations.flag.dialog.instruction3.txt=Introduce una nota (de no más de 300 caracteres) describiendo lo que hace este comentario censurable:
+conversations.flag.dialog.reason.label=Razón
+conversations.flag.dialog.message.label=Descripción
+conversations.flag.dialog.mandatory=El campo es obligatorio
+conversations.flag.dialog.cancel.btt=Cancelar
+conversations.flag.dialog.submit.btt=Enviar
+conversations.flag.error.nomailsent=No se puede enviar correo electrónico para notificar sobre el comentario marcado.
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+ForumCode.FlagClass_reason_=Seleccionar
+ForumCode.FlagClass_reason_1=Fomenta el odio o la violencia
+ForumCode.FlagClass_reason_2=Muestra pornografía
+ForumCode.FlagClass_reason_3=Está vació o blanco
+ForumCode.FlagClass_reason_4=Es de naturaleza claramente comercial, sin una relevancia educativa clara
+ForumCode.FlagClass_reason_5=Es erróneo o tiene virus
+ForumCode.FlagClass_reason_6=Parece no tener sentido
+ForumCode.FlagClass_reason_alt=Otra razón
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=Situación
+ForumCode.FlagClass_status_open=Abierto
+ForumCode.FlagClass_status_inprogress=Progresando
+ForumCode.FlagClass_status_resolved=Resuelto
+## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=Discusión marcada
+conversations.flag.success.dialog.message=Has marcado este comentario exitosamente.
+conversations.flag.success.dialog.button=Cerrar
+## FLAG livetable
+conversations.flag.reason=Razón
+conversations.flag.user=Usuario
+conversations.flag.doc.creationDate=Fecha
+conversations.flag.message=Mensaje
+conversations.flag.moderator=Moderador
+conversations.flag.status=Situación
+conversations.flag._actions=Acciones
+conversations.flag.target=Objetivo
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=Lista de marcados
+conversations.flag.list.instructions=Esta es la lista de ítems marcados
+conversations.flag.success.dialog.goback=Volver a la discusión
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=Temas con mayor actividad
+discussion.panel.sortby=Ordenar por:
+discussion.panel.dates=Fechas
+discussion.panel.votes=Votos
+discussion.panel.comments=Comentarios
+discussion.panel.topics=Temas
+discussion.panel.subscribe=Suscribir
+discussion.panel.text1=Mantente al día con las últimas entradas suscribiéndote a:
+discussion.panel.text2=o
+
+## applications panel entry
+forum.applicationsPanelEntryLabel=Foros
+## mail notif
+forum.mail.notif.topic.delete.title=Tema borrado
+forum.mail.notif.topic.delete.message=Se ha borrado el tema siguiente:
+forum.mail.notif.answer.delete.title=Respuesta borrada
+forum.mail.notif.answer.delete.message=Se ha borrado la respuesta siguiente:
+forum.mail.notif.comment.delete.title=Comentario borrado
+forum.mail.notif.comment.delete.message=Se ha borrado el comentario siguiente:
+forum.mail.notif.delete.thanks=Gracias
+forum.mail.notif.delete.view=Vista borrada
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=Añadir discusión
+recent.forum.discussions.createdAnswerOnTopic=respondido en el tema
+recent.forum.discussions.createdTopic=tema creado
+recent.forum.discussions.creationDate=en {0}
+recent.forum.discussions.editedAnswerOnTopic=respuesta editada en el tema
+recent.forum.discussions.editedTopic=tema editado
+recent.forum.discussions.seeAllDiscussions=Ver todas las discusiones
+
+## rendering macro
+rendering.macro.forum.recentForumDiscussions.name=Discusiones en el foro recientes
+
+## TOURS
+## Forums homepage tour
+tour.forumsHomepageTour.welcome.title=¡Bienvenido a la Aplicación Foro!
+tour.forumsHomepageTour.welcome.content=Foro es una herramienta de comunicación que se puede utilizar para crear un número ilimitado de foros de debate, votarlos e incluso controlar el contenido inapropiado.
+tour.forumsHomepageTour.addForum.title=Añadir foro
+tour.forumsHomepageTour.addForum.content=Crear un foro nuevo.
+tour.forumsHomepageTour.forumsLivetable.title=Tabla dinámica de foros
+tour.forumsHomepageTour.forumsLivetable.content=Ver todos los foros. Comprobar las acciones posibles: ordenar, filtrar, editar, borrar.
+tour.forumsHomepageTour.mostActiveTopics.title=Temas con mayor actividad
+tour.forumsHomepageTour.mostActiveTopics.content=Este panel muestra los temas más activos por votos y comentarios. Los temas se pueden ordenar por fecha, número de votos y número de comentarios. Clica el botón adecuado para ordenar de forma ascendente/descendente. ¡Subscríbete para obtener la información más actual sobre los temas!
+## Forum Tour
+tour.forumTour.forumDetails.title=Detalles del foro
+tour.forumTour.forumDetails.content=Información existente: Descripción del foro, creador, fecha de creación, número de temas y número de votos.
+tour.forumTour.addTopic.title=Añadir tema
+tour.forumTour.addTopic.content=Crear un tema nuevo.
+tour.forumTour.sortTopics.title=Ordenar temas
+tour.forumTour.sortTopics.content=Los temas se pueden ordenar por fecha, número de votos o número de comentarios. Clica el botón adecuado y luego cambia el orden ascendente/descendente.
+tour.forumTour.listOfTopics.title=Lista de temas
+tour.forumTour.listOfTopics.content=Ver todos los temas. Información existente: Nombre del tema, descripción, creador, fecha de creación, número de respuestas, número de comentarios y número de votos.
+## Topic Tour
+tour.topicTour.topicDetails.title=Detalles del tema
+tour.topicTour.topicDetails.content=Información existente: Descripción del tema, creador, fecha de creación, número de temas, y número de votos. Lee los pasos siguientes para descubrir las acciones posibles con los temas.
+tour.topicTour.flagAndPermalink.title=Marcador y enlace permanente
+tour.topicTour.flagAndPermalink.content=Si el contenido del tema no es apropiado puedes utilizar la opción Marcar para alertar a los administradores. Enlace permanente te dará la URL.
+tour.topicTour.socialMedia.title=Compartir en los medios sociales
+tour.topicTour.socialMedia.content=Puedes compartir este tema con tus amigos con los botones de medios sociales.
+tour.topicTour.topicModeration.title=Moderación del tema
+tour.topicTour.topicModeration.content=Aquí están los botones de edición y borrado.
+tour.topicTour.vote.title=Votar
+tour.topicTour.vote.content=Tema de votación.
+tour.topicTour.addAnswer.title=Añadir respuesta
+tour.topicTour.addAnswer.content=Crear una respuesta nueva.
+tour.topicTour.listOfAnswers.title=Lista de respuestas
+tour.topicTour.listOfAnswers.content=Ver todas las respuestas y sus comentarios.
+
+## Template Provider
+templateProvider.forum.name=Foro
+templateProvider.forum.description=Comenzar una conversación</content>
+  
+</xwikidoc>
