@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>parent-platform</artifactId>
-    <version>7.4-2</version>
+    <version>7.4-15</version>
   </parent>
   <groupId>org.xwiki.contrib.forum</groupId>
   <artifactId>application-forum</artifactId>
@@ -36,8 +36,6 @@
   <name>Forum Application - Parent POM</name>
   <description>Forum application with multiple forums, topics, answers, comments, supporting Wysiwyg and Votes</description>
   <properties>
-    <platform.version>${commons.version}</platform.version>
-
     <!-- Enable auto release on jira -->
     <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
     <xwiki.issueManagement.jira.id>XAFORUM</xwiki.issueManagement.jira.id>
@@ -100,13 +98,6 @@
     <url>https://github.com/xwiki-contrib/application-forum/tree/master</url>
     <tag>HEAD</tag>
   </scm>
-  <distributionManagement>
-    <repository>
-      <id>xwiki-staging</id>
-      <name>XWiki Staging Repository</name>
-      <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
   <modules>
     <module>application-forum-ui</module>
   </modules>
