@@ -150,7 +150,7 @@ conversations.create.success.answer=¡Respuesta añadida exitosamente!
 conversations.create.error.missingmetadata=¡No se puede ejecutar la creación porque faltan metadatos!
 conversations.create.error.missingtitle=¡Falta el título!
 conversations.create.inProgress=Añadiendo...
-conversations.create.requestError=Se produjo un error al enviar tu solicitud. Por favor, inténtalo otra vez.
+conversations.create.requestError=Se produjo un error al enviar la solicitud. Inténtelo de nuevo.
 conversations.create.success.topic=¡Tema añadido exitosamente!
 conversations.deleteconversation.changecomment=Respuesta borrada
 conversations.deletecomment.changecomment=Comentario borrado
@@ -166,12 +166,12 @@ core.viewers.comments.delete.failed=No se puede borrar el comentario.
 conversations.deleteanswer.error.nomailsent=No puede enviar correo electrónico para notificar sobre borrar la respuesta.
 
 ## FLAG DIALOG
-conversation.flag.tooltip=Marcar
+conversation.flag.tooltip=Denunciar
 conversations.flag.edit=Editar
-conversations.flag.button=Marcar
+conversations.flag.button=Denunciar
 conversations.flag.viewsource=Ver origen del marcador
-conversations.flag.dialog.header=Marcar un comentario
-conversations.flag.dialog.guidingquestion1.txt=¿Qué ocurre cuando marcas un comentario?
+conversations.flag.dialog.header=Denunciar un comentario
+conversations.flag.dialog.guidingquestion1.txt=¿Qué ocurre cuando denuncia un comentario?
 conversations.flag.dialog.instruction1.txt=Envías el hilo de comentarios para evaluación inmediata por parte de los administradores del foro.
 conversations.flag.dialog.guidingquestion2.txt=¿Por qué estás marcando esta discusión?
 conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
@@ -187,7 +187,7 @@ conversations.flag.error.nomailsent=No se puede enviar correo electrónico para 
 ForumCode.FlagClass_reason_=Seleccionar
 ForumCode.FlagClass_reason_1=Fomenta el odio o la violencia
 ForumCode.FlagClass_reason_2=Muestra pornografía
-ForumCode.FlagClass_reason_3=Está vació o blanco
+ForumCode.FlagClass_reason_3=Está vacío o en blanco
 ForumCode.FlagClass_reason_4=Es de naturaleza claramente comercial, sin una relevancia educativa clara
 ForumCode.FlagClass_reason_5=Es erróneo o tiene virus
 ForumCode.FlagClass_reason_6=Parece no tener sentido
@@ -195,11 +195,11 @@ ForumCode.FlagClass_reason_alt=Otra razón
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Situación
 ForumCode.FlagClass_status_open=Abierto
-ForumCode.FlagClass_status_inprogress=Progresando
+ForumCode.FlagClass_status_inprogress=En curso
 ForumCode.FlagClass_status_resolved=Resuelto
 ## FLAG SUCCESS MESSAGE
-conversations.flag.success.dialog.header=Discusión marcada
-conversations.flag.success.dialog.message=Has marcado este comentario exitosamente.
+conversations.flag.success.dialog.header=Debate denunciado
+conversations.flag.success.dialog.message=Ha denunciado este comentario correctamente.
 conversations.flag.success.dialog.button=Cerrar
 ## FLAG livetable
 conversations.flag.reason=Razón
@@ -211,9 +211,9 @@ conversations.flag.status=Situación
 conversations.flag._actions=Acciones
 conversations.flag.target=Objetivo
 conversations.flag.emptyvalue=-
-conversations.flag.list.title=Lista de marcados
-conversations.flag.list.instructions=Esta es la lista de ítems marcados
-conversations.flag.success.dialog.goback=Volver a la discusión
+conversations.flag.list.title=Lista de denuncias
+conversations.flag.list.instructions=Esta es la lista de elementos denunciados
+conversations.flag.success.dialog.goback=Volver al debate
 conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
@@ -224,7 +224,7 @@ discussion.panel.dates=Fechas
 discussion.panel.votes=Votos
 discussion.panel.comments=Comentarios
 discussion.panel.topics=Temas
-discussion.panel.subscribe=Suscribir
+discussion.panel.subscribe=Suscribirse
 discussion.panel.text1=Mantente al día con las últimas entradas suscribiéndote a:
 discussion.panel.text2=o
 
@@ -264,7 +264,7 @@ tour.forumsHomepageTour.mostActiveTopics.title=Temas con mayor actividad
 tour.forumsHomepageTour.mostActiveTopics.content=Este panel muestra los temas más activos por votos y comentarios. Los temas se pueden ordenar por fecha, número de votos y número de comentarios. Clica el botón adecuado para ordenar de forma ascendente/descendente. ¡Subscríbete para obtener la información más actual sobre los temas!
 ## Forum Tour
 tour.forumTour.forumDetails.title=Detalles del foro
-tour.forumTour.forumDetails.content=Información existente: Descripción del foro, creador, fecha de creación, número de temas y número de votos.
+tour.forumTour.forumDetails.content=Información existente: descripción del foro, creador, fecha de creación, número de temas y número de votos.
 tour.forumTour.addTopic.title=Añadir tema
 tour.forumTour.addTopic.content=Crear un tema nuevo.
 tour.forumTour.sortTopics.title=Ordenar temas
@@ -274,12 +274,12 @@ tour.forumTour.listOfTopics.content=Ver todos los temas. Información existente:
 ## Topic Tour
 tour.topicTour.topicDetails.title=Detalles del tema
 tour.topicTour.topicDetails.content=Información existente: Descripción del tema, creador, fecha de creación, número de temas, y número de votos. Lee los pasos siguientes para descubrir las acciones posibles con los temas.
-tour.topicTour.flagAndPermalink.title=Marcador y enlace permanente
+tour.topicTour.flagAndPermalink.title=Denunciar y Enlace permanente
 tour.topicTour.flagAndPermalink.content=Si el contenido del tema no es apropiado puedes utilizar la opción Marcar para alertar a los administradores. Enlace permanente te dará la URL.
 tour.topicTour.socialMedia.title=Compartir en los medios sociales
 tour.topicTour.socialMedia.content=Puedes compartir este tema con tus amigos con los botones de medios sociales.
 tour.topicTour.topicModeration.title=Moderación del tema
-tour.topicTour.topicModeration.content=Aquí están los botones de edición y borrado.
+tour.topicTour.topicModeration.content=Estos son los botones de edición y de eliminación.
 tour.topicTour.vote.title=Votar
 tour.topicTour.vote.content=Tema de votación.
 tour.topicTour.addAnswer.title=Añadir respuesta
