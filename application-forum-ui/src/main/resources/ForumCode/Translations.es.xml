@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -47,7 +47,7 @@ ForumCode.TopicClass_type_suggestion=Sugerencia
 ForumCode.TopicClass_type_alert=Alerta
 ForumCode.TopicClass_type_feedback=Reacción
 ForumCode.TopicClass_status=Situación
-ForumCode.TopicClass_status_inprogress=Progresando
+ForumCode.TopicClass_status_inprogress=En curso
 ForumCode.TopicClass_status_closed=Cerrado
 ForumCode.TopicClass_status_integrated=Integrado
 ForumCode.TopicClass_description=Descripción
@@ -67,10 +67,10 @@ conversations.titleError=El título no debe tener más de 250 caracteres.
 conversations.forum.title=Título
 conversations.forum.description=Descripción
 conversations.forum.edit=Editar tema
-conversations.forum.delete=Borrar tema
+conversations.forum.delete=Eliminar tema
 conversations.forum.more=Mostrar {0} más
-forum.admin.action.delete.confiramtion_text=¿Borrar este foro?
-forum.admin.action.delete.inprogress=Borrado en progreso...
+forum.admin.action.delete.confiramtion_text=¿Quiere eliminar este foro?
+forum.admin.action.delete.inprogress=Eliminación en curso…
 forum.admin.action.delete.success=Foro borrado
 forum.admin.action.delete.failed=No se puede borrar el foro
 conversations.forum.all=Todos los foros
@@ -289,6 +289,7 @@ tour.topicTour.listOfAnswers.content=Ver todas las respuestas y sus comentarios.
 
 ## Template Provider
 templateProvider.forum.name=Foro
-templateProvider.forum.description=Comenzar una conversación</content>
+templateProvider.forum.description=Comenzar una conversación
+</content>
   
 </xwikidoc>
