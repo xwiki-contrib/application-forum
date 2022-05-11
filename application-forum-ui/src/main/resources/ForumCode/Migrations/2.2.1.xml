@@ -38,8 +38,8 @@
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <hidden>false</hidden>
-  <content>This migration script will make visible all the forum entities (topics and answers) in order to make them visible to all the users (be able to search for a topic/answer). Also, the cryptic names (##Topic_1508480809329_23##) wich be replaced with the titles defined by the users. For more details, please see: https://jira.xwiki.org/browse/XAFORUM-144.
+  <hidden>true</hidden>
+  <content>This migration script will make visible all the forum entities (topics and answers) in order to make them visible to all the users (be able to search for a topic/answer). Also, the cryptic names (##Topic_1508480809329_23##) will be replaced with the titles defined by the users. For more details, please see: https://jira.xwiki.org/browse/XAFORUM-144.
 
 (F) - Forum
 (T) - Topic
