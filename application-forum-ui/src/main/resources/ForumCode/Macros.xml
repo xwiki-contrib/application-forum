@@ -371,20 +371,10 @@
 #macro(displayTopicSortButton $field)
   #set ($style = '')
   #set ($sortclass = 'forum-sort-button-inactive')
-  #if ($request.sortfield)
-    #set ($currentfield = $request.sortfield)
-  #else
-    #set ($currentfield = 'date')
-  #end   
-  #if ($request.sortorder)
-    #set ($currentorder = $request.sortorder)
-  #else
-    #set ($currentorder = 'desc')
-  #end  
   #set ($nextorder = 'desc')
-  #if ($currentfield == $field)
+  #if ($sortField == $field)
     #set ($sortclass = 'forum-sort-button-active')
-    #if ($currentorder == 'desc')
+    #if ($sortOrder == 'desc')
       #set ($style = 'forum-sort-button-desc')
       #set ($nextorder = 'asc')
     #else
@@ -482,11 +472,12 @@
   #set ($hierarchyCondition = 'doc.space like :forumSpace and ')
   #set ($templateCondition = "doc.fullName&lt;&gt;'ForumCode.TopicTemplate' and ")
   #if ($isPanelSort != 1)
-    #set ($currentorder = $request.sortorder)
+    #set ($currentorder = $sortOrder)
   #end
-  #if ($currentorder != 'desc')
-    #set ($currentorder = 'asc')
+  #if ($currentorder != 'asc')
+    #set ($currentorder = 'desc')
   #end
+
   #set ($allTopics = true)
   #if ("$!forum" != '')
     #set ($allTopics = false)
@@ -549,7 +540,7 @@
     #set ($start = $util.parseInt($request.start))
     #set ($nextstart = $start + $step)
   #end
-  #getOrdredTopics($doc.fullName $start $nb $request.sortfield 'topics')
+  #getOrdredTopics($doc.fullName $start $nb $sortField 'topics')
   #if ($topics.size() &gt; 0)
     #foreach ($topic in $topics)
       #if ($count != $step)
