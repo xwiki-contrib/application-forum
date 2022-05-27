@@ -1,0 +1,294 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.1" locale="de">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>de</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1400760336000</date>
+  <contentUpdateDate>1400760336000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.TopicClass_title=Titel
+ForumCode.TopicClass_type=Typ
+ForumCode.TopicClass_type_question=Frage
+ForumCode.TopicClass_type_suggestion=Anregung
+ForumCode.TopicClass_type_alert=Alarm
+ForumCode.TopicClass_type_feedback=Rückmeldung
+ForumCode.TopicClass_status=Status
+ForumCode.TopicClass_status_inprogress=In Bearbeitung
+ForumCode.TopicClass_status_closed=Geschlossen
+ForumCode.TopicClass_status_integrated=Integriert
+ForumCode.TopicClass_description=Beschreibung
+ForumCode.AnswerClass_answer=Antwort
+ForumCode.AnswerClass_description=Antwort
+
+## Forums
+conversations.forum.tooltip.totaltopics=Gesamt Themen
+conversations.forum.create=Neues Forum
+conversations.forum.create.alreadyexists=Das Forum existiert bereits: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Erstellen
+conversations.forum.sorttopicsby=Themen sortieren nach
+conversations.forum.sorttopicsby.date=Datum
+conversations.forum.sorttopicsby.votes=Stimmen
+conversations.forum.sorttopicsby.comments=Kommentare
+conversations.titleError=Der Titel sollte nicht länger als 250 Zeichen sein.
+conversations.forum.title=Titel
+conversations.forum.description=Beschreibung
+conversations.forum.edit=Thema bearbeiten
+conversations.forum.delete=Thema löschen
+conversations.forum.more=Zeige {0} mehr
+forum.admin.action.delete.confiramtion_text=Dieses Forum löschen?
+forum.admin.action.delete.inprogress=Löschvorgang läuft...
+forum.admin.action.delete.success=Forum gelöscht
+forum.admin.action.delete.failed=Das Forum konnte nicht gelöscht werden
+conversations.forum.all=Alle Foren
+conversations.forum.add=Forum hinzufügen
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=Gesamt Antworten und Kommentare
+conversations.topic.tooltip.totalanswers=Gesamt Antworten
+conversations.topic.answer.tooltip.totalcomments=Gesamt Kommentare zur Frage
+conversations.topic.create=Thema hinzufügen
+conversation.topic.create=Thema hinzufügen
+conversations.topic.create.submit=Erstellen
+conversations.topic.all=Alle Themen
+conversations.topic.empty=Kein Thema
+conversations.topic.count=Themen
+conversations.topic.delete.confirm.withReplies=Dieses Thema samt Antworten löschen?
+
+## Answers
+conversations.title=Antwort
+conversation.add.activator=Antwort hinzufügen
+conversation.answer.create=Antwort hinzufügen
+conversation.delete.confirm=Thema löschen?
+conversation.delete.confirm.withReplies=Diese Antwort samt Kommentaren löschen?
+conversation.delete.done=Antwort gelöscht
+conversation.delete.success=Antwort gelöscht
+conversation.delete.failed=Die Antwort konnte nicht gelöscht werden
+conversation.delete.inProgress=Löschvorgang läuft ...
+conversation.edit=Antwort bearbeiten
+conversation.edit.failed=Das zum Erstellen der Antwort verwendete Formular konnte nicht angezeigt werden
+conversation.delete=Antwort löschen
+conversation.delete.title=Antwort löschen
+conversation.edit.title=Antwort bearbeiten
+conversation.empty=Kein Kommentar
+conversation.forum.delete.title=Thema löschen
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=Sie müssen Mitglied dieser Gruppe sein, um an dieser Diskussion teilnehmen zu können. Bitte wenden Sie sich an den Gruppenadministrator.
+conversation.norights=Sie sind nicht berechtigt, an dieser Diskussion teilzunehmen.
+conversations.answer.edit=Antwort auf Thema {0}
+conversations.answer=Antwort
+conversations.answer.all=Alle Antworten
+conversations.answer.empty=Keine Antwort
+conversations.answer.count=Antworten
+
+## Comments
+conversations.comment.count=Kommentare
+
+## Votes
+conversation.like.button=Stimmen
+conversation.like.button.tooltip=Stimme für das Thema
+conversation.like.button.alreadyliked.tooltip=Bereits abgestimmt
+conversation.like.score.tooltip={0} Nutzer fanden diese Antwort interessant.
+conversation.like.failed=Die Stimme konnte nicht gespeichert werden:
+conversation.like.done=Die Stimme wurde gespeichert.
+conversation.like.loading=Stimme speichern...
+rating.saveexception=Fehler beim Speichern der Stimme.
+rating.votenotvalid=Die Abstimmung ist ungültig.
+rating.voteoutofbounds=Die Abstimmung ist ungültig.
+
+## Permalink
+conversation.permalink.tooltip=Permalink
+conversation.permalink=Permalink
+
+## Livetable
+conversations.doc.title=Titel
+conversations.doc.date=Datum
+conversations.doc.creator=Ersteller
+conversations.actions=Aktionen
+conversations._avatar=Avatar
+
+## Messages
+conversations.create.error.topic.norights=Keine Berechtigung, ein neues Thema zu erstellen!
+conversations.create.error.answer.missingParams=Nicht genügend Parameter!
+conversations.create.error.answer.norights=Keine Berechtigung, eine neue Antwort zu erstellen!
+conversations.create.success.answer=Antwort erfolgreich hinzugefügt!
+conversations.create.error.missingmetadata=Die Erstellung konnte wegen fehlender Metadaten nicht durchgeführt werden!
+conversations.create.error.missingtitle=Titel fehlt!
+conversations.create.inProgress=Hinzufügen...
+conversations.create.requestError=Beim Senden der Anfrage ist ein Fehler aufgetreten. Bitte erneut versuchen.
+conversations.create.success.topic=Thema erfolgreich hinzugefügt!
+conversations.deleteconversation.changecomment=Gelöschte Antwort
+conversations.deletecomment.changecomment=Gelöschter Kommentar
+conversations.deletecomment.error.nomailsent=E-Mail zur Benachrichtigung über das Löschen des Kommentars konnte nicht gesendet werden.
+conversations.deletecomment.success=Die E-Mail zur Benachrichtigung über das Löschen des Kommentars wurde gesendet.
+conversations.deletecomment.error.norights=Keine Berechtigung, den Kommentar zu löschen.
+conversations.deletecomment.error.notfound=Kommentar nicht gefunden.
+conversations.deleteconversation.error.nomailsent=E-Mail zur Benachrichtigung über das Löschen des Themas konnte nicht gesendet werden.
+conversations.deleteconversation.success=Thema gelöscht.
+conversations.deleteconversation.error.norights=Keine Berechtigung, die Antwort zu löschen.
+conversations.deleteconversation.error.notfound=Thema nicht gefunden.
+core.viewers.comments.delete.failed=Der Kommentar konnte nicht gelöscht werden.
+conversations.deleteanswer.error.nomailsent=E-Mail zur Benachrichtigung über das Löschen der Antwort konnte nicht gesendet werden.
+
+## FLAG DIALOG
+conversation.flag.tooltip=Melden
+conversations.flag.edit=Bearbeiten
+conversations.flag.button=Melden
+conversations.flag.viewsource=Melden-Quelle anzeigen
+conversations.flag.dialog.header=Kommentar melden
+conversations.flag.dialog.guidingquestion1.txt=Was passiert, wenn ein Kommentar gemeldet wird?
+conversations.flag.dialog.instruction1.txt=Sie reichen den Kommentarthread zur sofortigen Bewertung durch die Forumsadministratoren ein.
+conversations.flag.dialog.guidingquestion2.txt=Warum melden Sie die Diskussion?
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=Ich melde den Kommentar weil
+conversations.flag.dialog.instruction3.txt=Geben Sie eine Notiz ein (nicht mehr als 300 Zeichen), die beschreibt, warum dieser Kommentar problematisch ist:
+conversations.flag.dialog.reason.label=Begründung
+conversations.flag.dialog.message.label=Beschreibung
+conversations.flag.dialog.mandatory=Das Feld ist notwendig
+conversations.flag.dialog.cancel.btt=Abbrechen
+conversations.flag.dialog.submit.btt=Absenden
+conversations.flag.error.nomailsent=E-Mail zur Benachrichtigung über gemeldeten Kommentar konnte nicht gesendet werden.
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+ForumCode.FlagClass_reason_=Auswählen
+ForumCode.FlagClass_reason_1=Fördert Hass oder Gewalt
+ForumCode.FlagClass_reason_2=Zeigt Pornografie
+ForumCode.FlagClass_reason_3=Ist leer
+ForumCode.FlagClass_reason_4=Ist offensichtlich kommerzieller Natur, ohne aufklärerischen Bezug
+ForumCode.FlagClass_reason_5=Ist kaputt oder hat einen Virus
+ForumCode.FlagClass_reason_6=Scheint unsinnig zu sein
+ForumCode.FlagClass_reason_alt=Anderer Grund
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=Status
+ForumCode.FlagClass_status_open=Offen
+ForumCode.FlagClass_status_inprogress=In Bearbeitung
+ForumCode.FlagClass_status_resolved=Gelöst
+## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=Diskussion gemeldet
+conversations.flag.success.dialog.message=Sie haben diesen Kommentar erfolgreich gemeldet.
+conversations.flag.success.dialog.button=Geschlossen
+## FLAG livetable
+conversations.flag.reason=Grund
+conversations.flag.user=Benutzer
+conversations.flag.doc.creationDate=Datum
+conversations.flag.message=Nachricht
+conversations.flag.moderator=Moderator
+conversations.flag.status=Status
+conversations.flag._actions=Aktionen
+conversations.flag.target=Ziel
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=Liste der Meldungen
+conversations.flag.list.instructions=Dies ist die Liste der gemeldeten Elemente
+conversations.flag.success.dialog.goback=Zurück zur Diskussion
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=Aktivste Themen
+discussion.panel.sortby=Sortiert nach:
+discussion.panel.dates=Datum
+discussion.panel.votes=Stimmen
+discussion.panel.comments=Kommentare
+discussion.panel.topics=Themen
+discussion.panel.subscribe=Abonnieren
+discussion.panel.text1=Bleiben Sie über die neuesten Einträge auf dem Laufenden, indem Sie Folgendes abonnieren:
+discussion.panel.text2=oder
+
+## applications panel entry
+forum.applicationsPanelEntryLabel=Foren
+## mail notif
+forum.mail.notif.topic.delete.title=Gelöschtes Thema
+forum.mail.notif.topic.delete.message=Das folgende Thema wurde gelöscht:
+forum.mail.notif.answer.delete.title=Gelöschte Antwort
+forum.mail.notif.answer.delete.message=Die folgende Antwort wurde gelöscht:
+forum.mail.notif.comment.delete.title=Gelöschter Kommentar
+forum.mail.notif.comment.delete.message=Der folgende Kommentar wurde gelöscht:
+forum.mail.notif.delete.thanks=Danke
+forum.mail.notif.delete.view=Ansicht gelöscht
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=Diskussion hinzufügen
+recent.forum.discussions.createdAnswerOnTopic=zum Thema geantwortet
+recent.forum.discussions.createdTopic=Thema erstellt
+recent.forum.discussions.creationDate=am {0}
+recent.forum.discussions.editedAnswerOnTopic=bearbeitete Antwort zum Thema
+recent.forum.discussions.editedTopic=bearbeitetes Thema
+recent.forum.discussions.seeAllDiscussions=Alle Diskussionen ansehen
+
+## rendering macro
+rendering.macro.forum.recentForumDiscussions.name=Aktuelle Forumsdiskussionen
+
+## TOURS
+## Forums homepage tour
+tour.forumsHomepageTour.welcome.title=Willkommen zur Forum-Anwendung!
+tour.forumsHomepageTour.welcome.content=Das Forum ist ein Kommunikationstool, mit dem Sie eine unbegrenzte Anzahl von Diskussionsforen erstellen, über sie abstimmen und unangemessene Inhalte melden können.
+tour.forumsHomepageTour.addForum.title=Forum hinzufügen
+tour.forumsHomepageTour.addForum.content=Ein neues Forum erstellen.
+tour.forumsHomepageTour.forumsLivetable.title=Foren Live-Tabelle
+tour.forumsHomepageTour.forumsLivetable.content=Alle Foren anzeigen. Nutzen Sie die möglichen Aktionen: sortieren, filtern, bearbeiten, löschen.
+tour.forumsHomepageTour.mostActiveTopics.title=Aktivste Themen
+tour.forumsHomepageTour.mostActiveTopics.content=Dieses Panel zeigt die aktivsten Themen in Bezug auf Stimmen und Kommentare. Die Themen können nach Datum, Anzahl der Stimmen und Anzahl der Kommentare sortiert werden. Klicken Sie auf die entsprechende Schaltfläche, um aufsteigend/absteigend zu sortieren. Abonnieren Sie, um die neuesten Informationen zu Themen zu erhalten!
+## Forum Tour
+tour.forumTour.forumDetails.title=Forendetails
+tour.forumTour.forumDetails.content=Vorhandene Informationen: Forumsbeschreibung, Ersteller, Erstellungsdatum, Anzahl der Themen und Anzahl der Stimmen.
+tour.forumTour.addTopic.title=Thema hinzufügen
+tour.forumTour.addTopic.content=Ein neues Thema erstellen.
+tour.forumTour.sortTopics.title=Themen sortieren
+tour.forumTour.sortTopics.content=Die Themen können nach Datum, Anzahl der Stimmen oder Anzahl der Kommentare sortiert werden. Klicken Sie auf die entsprechende Schaltfläche und ändern Sie dann die aufsteigende/absteigende Reihenfolge.
+tour.forumTour.listOfTopics.title=Liste der Themen
+tour.forumTour.listOfTopics.content=Alle Themen anzeigen. Vorhandene Informationen: Themenname, Beschreibung, Ersteller, Erstellungsdatum, Anzahl Antworten, Anzahl Kommentare und Anzahl Stimmen.
+## Topic Tour
+tour.topicTour.topicDetails.title=Themendetails
+tour.topicTour.topicDetails.content=Vorhandene Informationen: Themenbeschreibung, Ersteller, Erstellungsdatum, Nummer des Themas und Anzahl der Stimmen. Lesen Sie die nächsten Schritte, um die möglichen Aktionen zu Themen zu entdecken.
+tour.topicTour.flagAndPermalink.title=Melden und Permalink
+tour.topicTour.flagAndPermalink.content=Wenn der Inhalt des Themas unangemessen ist, können Sie die Option Melden verwenden, um die Administratoren zu informieren. Permalink zeigt den Direktlink zum Thema.
+tour.topicTour.socialMedia.title=In Sozialen Medien teilen
+tour.topicTour.socialMedia.content=Über die Social-Media-Schaltflächen können Sie dieses Thema mit Ihren Freunden teilen.
+tour.topicTour.topicModeration.title=Themenmoderation
+tour.topicTour.topicModeration.content=Hier sind die Schaltflächen Bearbeiten und Löschen.
+tour.topicTour.vote.title=Abstimmen
+tour.topicTour.vote.content=Themenabstimmung.
+tour.topicTour.addAnswer.title=Antwort hinzufügen
+tour.topicTour.addAnswer.content=Eine neue Antwort erstellen.
+tour.topicTour.listOfAnswers.title=Liste der Antworten
+tour.topicTour.listOfAnswers.content=Alle Antworten und Kommentare ansehen.
+
+## Template Provider
+templateProvider.forum.name=Forum
+templateProvider.forum.description=Eine Unterhaltung beginnen
+</content>
+  </xwikidoc>
