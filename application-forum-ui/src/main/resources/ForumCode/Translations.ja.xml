@@ -41,254 +41,254 @@
   <hidden>true</hidden>
   <content>## Classes
 ForumCode.TopicClass_title=タイトル
-### Missing: ForumCode.TopicClass_type=Type
-### Missing: ForumCode.TopicClass_type_question=Question
-### Missing: ForumCode.TopicClass_type_suggestion=Suggestion
-### Missing: ForumCode.TopicClass_type_alert=Alert
-### Missing: ForumCode.TopicClass_type_feedback=Feedback
-### Missing: ForumCode.TopicClass_status=Status
-### Missing: ForumCode.TopicClass_status_inprogress=In progress
-### Missing: ForumCode.TopicClass_status_closed=Closed
-### Missing: ForumCode.TopicClass_status_integrated=Integrated
-### Missing: ForumCode.TopicClass_description=Description
-### Missing: ForumCode.AnswerClass_answer=Answer
-### Missing: ForumCode.AnswerClass_description=Answer
+ForumCode.TopicClass_type=種類
+ForumCode.TopicClass_type_question=質問
+ForumCode.TopicClass_type_suggestion=候補
+ForumCode.TopicClass_type_alert=通知
+ForumCode.TopicClass_type_feedback=フィードバック
+ForumCode.TopicClass_status=状態
+ForumCode.TopicClass_status_inprogress=進行中
+ForumCode.TopicClass_status_closed=閉鎖済
+ForumCode.TopicClass_status_integrated=統合済
+ForumCode.TopicClass_description=説明
+ForumCode.AnswerClass_answer=回答
+ForumCode.AnswerClass_description=回答
 
 ## Forums
-### Missing: conversations.forum.tooltip.totaltopics=Total topics
-### Missing: conversations.forum.create=New forum
-### Missing: conversations.forum.create.alreadyexists=The forum already exists: [[{0}&gt;&gt;ForumCode.{1}]]
-### Missing: conversations.forum.create.submit=Create
-### Missing: conversations.forum.sorttopicsby=Sort topics by
-### Missing: conversations.forum.sorttopicsby.date=Date
-### Missing: conversations.forum.sorttopicsby.votes=Votes
-### Missing: conversations.forum.sorttopicsby.comments=Comments
-### Missing: conversations.titleError=The title should not be longer than 250 characters.
-### Missing: conversations.forum.title=Title
-### Missing: conversations.forum.description=Description
-### Missing: conversations.forum.edit=Edit Topic
-### Missing: conversations.forum.delete=Delete Topic
-### Missing: conversations.forum.more=Show {0} more
-### Missing: forum.admin.action.delete.confiramtion_text=Delete this forum?
-### Missing: forum.admin.action.delete.inprogress=Deletion in progress...
-### Missing: forum.admin.action.delete.success=Forum deleted
-### Missing: forum.admin.action.delete.failed=The forum could not be deleted
-### Missing: conversations.forum.all=All forums
-### Missing: conversations.forum.add=Add forum
+conversations.forum.tooltip.totaltopics=トピックの数
+conversations.forum.create=新しいフォーラム
+conversations.forum.create.alreadyexists=フォーラムは既に存在します：[[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=作成
+conversations.forum.sorttopicsby=トピックの並び替え
+conversations.forum.sorttopicsby.date=日付順
+conversations.forum.sorttopicsby.votes=投票数順
+conversations.forum.sorttopicsby.comments=コメント順
+conversations.titleError=タイトルは250字以下である必要があります。
+conversations.forum.title=タイトル
+conversations.forum.description=説明
+conversations.forum.edit=トピックを編集
+conversations.forum.delete=トピックを削除
+conversations.forum.more=あと{0}件表示
+forum.admin.action.delete.confiramtion_text=このフォーラムを削除しますか？
+forum.admin.action.delete.inprogress=削除しています…
+forum.admin.action.delete.success=フォーラムを削除しました
+forum.admin.action.delete.failed=フォーラムを削除できませんでした
+conversations.forum.all=全てのフォーラム
+conversations.forum.add=フォーラムを追加
 
 
 ## Topics
-### Missing: conversations.topic.tooltip.totalcommentsandanswers=Total answers and comments
-### Missing: conversations.topic.tooltip.totalanswers=Total answers
-### Missing: conversations.topic.answer.tooltip.totalcomments=Total comments for the answer
-### Missing: conversations.topic.create=Add topic
-### Missing: conversation.topic.create=Add topic
-### Missing: conversations.topic.create.submit=Create
-### Missing: conversations.topic.all=All topics
-### Missing: conversations.topic.empty=No topic
-### Missing: conversations.topic.count=topics
-### Missing: conversations.topic.delete.confirm.withReplies=Delete this topic and its answers?
+conversations.topic.tooltip.totalcommentsandanswers=全ての回答とコメントの数
+conversations.topic.tooltip.totalanswers=全回答数
+conversations.topic.answer.tooltip.totalcomments=回答に関する全てのコメント数
+conversations.topic.create=トピックを追加
+conversation.topic.create=トピックを追加
+conversations.topic.create.submit=作成
+conversations.topic.all=全てのトピック
+conversations.topic.empty=トピックはありません
+conversations.topic.count=トピック
+conversations.topic.delete.confirm.withReplies=このトピックと回答を削除しますか？
 
 ## Answers
-### Missing: conversations.title=Answer
-### Missing: conversation.add.activator=Add answer
-### Missing: conversation.answer.create=Add answer
-### Missing: conversation.delete.confirm=Delete topic?
-### Missing: conversation.delete.confirm.withReplies=Delete this answer and its comments?
-### Missing: conversation.delete.done=Answer deleted
-### Missing: conversation.delete.success=Answer deleted
-### Missing: conversation.delete.failed=The answer could not be deleted
-### Missing: conversation.delete.inProgress=Delete in progress ...
-### Missing: conversation.edit=Edit answer
-### Missing: conversation.edit.failed=The form used for creating answer could no be displayed
-### Missing: conversation.delete=Delete answer
-### Missing: conversation.delete.title=Delete answer
-### Missing: conversation.edit.title=Edit answer
-### Missing: conversation.empty=No comment
-### Missing: conversation.forum.delete.title=Delete Topic
-### Missing: conversation.updatedate={0}
-### Missing: conversation.creationdate={1}
-### Missing: conversation.groups.norights=You must be a member of this group to participate to this discussion. Please contact the group admin.
-### Missing: conversation.norights=You do not have rights to participate in this discussion.
-### Missing: conversations.answer.edit=Answer to topic {0}
-### Missing: conversations.answer=Answer
-### Missing: conversations.answer.all=All answers
-### Missing: conversations.answer.empty=No answer
-### Missing: conversations.answer.count=answers
+conversations.title=回答
+conversation.add.activator=回答を追加
+conversation.answer.create=回答を追加
+conversation.delete.confirm=トピックを削除しますか？
+conversation.delete.confirm.withReplies=この回答とコメントを削除しますか？
+conversation.delete.done=回答を削除しました
+conversation.delete.success=回答を削除しました
+conversation.delete.failed=回答を削除できませんでした
+conversation.delete.inProgress=削除しています…
+conversation.edit=回答を編集
+conversation.edit.failed=回答の作成に使用したフォームを表示できませんでした
+conversation.delete=回答を削除
+conversation.delete.title=回答を削除
+conversation.edit.title=回答を編集
+conversation.empty=コメントがありません
+conversation.forum.delete.title=トピックを削除
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=この議論に参加するには、このグループのメンバーである必要があります。グループの管理者に連絡してください。
+conversation.norights=この議論に参加する権限がありません。
+conversations.answer.edit=トピック {0} に回答
+conversations.answer=回答
+conversations.answer.all=全ての回答
+conversations.answer.empty=回答がありません
+conversations.answer.count=回答
 
 ## Comments
-### Missing: conversations.comment.count=comments
+conversations.comment.count=コメント
 
 ## Votes
-### Missing: conversation.like.button=Votes
-### Missing: conversation.like.button.tooltip=Vote topic
-### Missing: conversation.like.button.alreadyliked.tooltip=You already voted
-### Missing: conversation.like.score.tooltip={0} users found this answer as being interesting.
-### Missing: conversation.like.failed=The vote could not be saved:
-### Missing: conversation.like.done=Your vote has been saved.
-### Missing: conversation.like.loading=Saving the vote...
-### Missing: rating.saveexception=Error while saving vote.
-### Missing: rating.votenotvalid=The vote is not valid.
-### Missing: rating.voteoutofbounds=The vote is not valid.
+conversation.like.button=投票
+conversation.like.button.tooltip=トピックに投票
+conversation.like.button.alreadyliked.tooltip=投票済です
+conversation.like.score.tooltip={0}人のユーザーがこの回答を興味深いとしています。
+conversation.like.failed=投票を保存できませんでした：
+conversation.like.done=投票を保存しました。
+conversation.like.loading=投票を保存しています…
+rating.saveexception=投票を保存する際にエラーが発生しました。
+rating.votenotvalid=投票は有効ではありません。
+rating.voteoutofbounds=投票は有効ではありません。
 
 ## Permalink
-### Missing: conversation.permalink.tooltip=Permalink
-### Missing: conversation.permalink=Permalink
+conversation.permalink.tooltip=パーマリンク
+conversation.permalink=パーマリンク
 
 ## Livetable
-### Missing: conversations.doc.title=Title
-### Missing: conversations.doc.date=Date
-### Missing: conversations.doc.creator=Creator
-### Missing: conversations.actions=Actions
-### Missing: conversations._avatar=Avatar
+conversations.doc.title=タイトル
+conversations.doc.date=日付
+conversations.doc.creator=作者
+conversations.actions=アクション
+conversations._avatar=アバター
 
 ## Messages
-### Missing: conversations.create.error.topic.norights=You don't have the rights to create a new topic!
-### Missing: conversations.create.error.answer.missingParams=Not enough parameters!
-### Missing: conversations.create.error.answer.norights=You don't have the rights to create a new answer!
-### Missing: conversations.create.success.answer=Answer successfully added!
-### Missing: conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata!
-### Missing: conversations.create.error.missingtitle=Missing title!
-### Missing: conversations.create.inProgress=Adding...
-### Missing: conversations.create.requestError=There was an error sending your request. Please try again.
-### Missing: conversations.create.success.topic=Topic successfully added!
-### Missing: conversations.deleteconversation.changecomment=Deleted answer
-### Missing: conversations.deletecomment.changecomment=Deleted comment
-### Missing: conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the comment.
-### Missing: conversations.deletecomment.success=The mail to notify about comment deletion has been sent.
-### Missing: conversations.deletecomment.error.norights=You don't have the rights to delete the comment.
-### Missing: conversations.deletecomment.error.notfound=Comment not found.
-### Missing: conversations.deleteconversation.error.nomailsent=Could not send mail to notify about deleting the topic.
-### Missing: conversations.deleteconversation.success=Topic deleted.
-### Missing: conversations.deleteconversation.error.norights=You don't have the rights to delete the answer.
-### Missing: conversations.deleteconversation.error.notfound=Topic not found.
-### Missing: core.viewers.comments.delete.failed=The comment could not be deleted.
-### Missing: conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
+conversations.create.error.topic.norights=新しいトピックを作成する権限がありません！
+conversations.create.error.answer.missingParams=パラメーターが不足しています！
+conversations.create.error.answer.norights=新しい回答を作成する権限がありません！
+conversations.create.success.answer=回答を追加しました！
+conversations.create.error.missingmetadata=メタデータが欠けているため作成できませんでした！
+conversations.create.error.missingtitle=タイトルがありません！
+conversations.create.inProgress=追加しています…
+conversations.create.requestError=リクエストを送信する際にエラーが発生しました。もう一度やり直してください。
+conversations.create.success.topic=トピックを追加しました！
+conversations.deleteconversation.changecomment=削除した回答
+conversations.deletecomment.changecomment=削除したコメント
+conversations.deletecomment.error.nomailsent=コメントの削除を通知するメールを送信できませんでした。
+conversations.deletecomment.success=コメントの削除を通知するメールを送信しました。
+conversations.deletecomment.error.norights=コメントを削除する権限がありません。
+conversations.deletecomment.error.notfound=コメントが見つかりません。
+conversations.deleteconversation.error.nomailsent=トピックの削除を通知するメールを送信できませんでした。
+conversations.deleteconversation.success=トピックを削除しました。
+conversations.deleteconversation.error.norights=回答を削除する権限がありません。
+conversations.deleteconversation.error.notfound=トピックが見つかりませんでした。
+core.viewers.comments.delete.failed=コメントを削除できませんでした。
+conversations.deleteanswer.error.nomailsent=回答の削除を通知するメールを送信できませんでした。
 
 ## FLAG DIALOG
-### Missing: conversation.flag.tooltip=Flag
-### Missing: conversations.flag.edit=Edit
-### Missing: conversations.flag.button=Flag
-### Missing: conversations.flag.viewsource=View Flag Source
+conversation.flag.tooltip=通報
+conversations.flag.edit=編集
+conversations.flag.button=通報
+conversations.flag.viewsource=通報元を表示
 conversations.flag.dialog.header=コメントを通報
-### Missing: conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
-### Missing: conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
-### Missing: conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
-### Missing: conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
-### Missing: conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
-### Missing: conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
-### Missing: conversations.flag.dialog.reason.label=Reason
-### Missing: conversations.flag.dialog.message.label=Description
-### Missing: conversations.flag.dialog.mandatory=This field is mandatory
-### Missing: conversations.flag.dialog.cancel.btt=Cancel
-### Missing: conversations.flag.dialog.submit.btt=Submit
-### Missing: conversations.flag.error.nomailsent=Could not send mail to notify about flagged comment.
+conversations.flag.dialog.guidingquestion1.txt=コメントを通報すると何が起こりますか？
+conversations.flag.dialog.instruction1.txt=フォーラムの管理者にコメントのスレッドを送信し、対応を要求します。
+conversations.flag.dialog.guidingquestion2.txt=この議論を通報する理由
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=このコメントを通報する理由
+conversations.flag.dialog.instruction3.txt=このコメントに問題があると考える理由を記入してください（300字以内）。
+conversations.flag.dialog.reason.label=理由
+conversations.flag.dialog.message.label=説明
+conversations.flag.dialog.mandatory=このフィールドは必須です
+conversations.flag.dialog.cancel.btt=キャンセル
+conversations.flag.dialog.submit.btt=送信
+conversations.flag.error.nomailsent=通報されたコメントを通知するメールを送信できませんでした。
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
-### Missing: ForumCode.FlagClass_reason_=Select
-### Missing: ForumCode.FlagClass_reason_1=Promotes hate or violence
-### Missing: ForumCode.FlagClass_reason_2=Displays pornography
-### Missing: ForumCode.FlagClass_reason_3=Is empty or blank
-### Missing: ForumCode.FlagClass_reason_4=Is obviously commercial in nature, without clear educational relevance
-### Missing: ForumCode.FlagClass_reason_5=Is broken or has a virus
-### Missing: ForumCode.FlagClass_reason_6=Appears to be nonsensical
-### Missing: ForumCode.FlagClass_reason_alt=Other reason
+ForumCode.FlagClass_reason_=選択
+ForumCode.FlagClass_reason_1=憎悪や暴力を助長しているため
+ForumCode.FlagClass_reason_2=卑猥な画像を表示しているため
+ForumCode.FlagClass_reason_3=コメントが空のため
+ForumCode.FlagClass_reason_4=明らかな営利目的のため
+ForumCode.FlagClass_reason_5=壊れている、またはウィルスがあるため
+ForumCode.FlagClass_reason_6=意味をなさないため
+ForumCode.FlagClass_reason_alt=その他の理由
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
-### Missing: ForumCode.FlagClass_status=Status
-### Missing: ForumCode.FlagClass_status_open=Open
-### Missing: ForumCode.FlagClass_status_inprogress=In Progress
-### Missing: ForumCode.FlagClass_status_resolved=Resolved
+ForumCode.FlagClass_status=状態
+ForumCode.FlagClass_status_open=オープン
+ForumCode.FlagClass_status_inprogress=進行中
+ForumCode.FlagClass_status_resolved=解決済
 ## FLAG SUCCESS MESSAGE
-### Missing: conversations.flag.success.dialog.header=Discussion Flagged
-### Missing: conversations.flag.success.dialog.message=You have successfully flagged this comment.
-### Missing: conversations.flag.success.dialog.button=Close
+conversations.flag.success.dialog.header=議論を通報しました
+conversations.flag.success.dialog.message=このコメントを通報しました。
+conversations.flag.success.dialog.button=閉じる
 ## FLAG livetable
-### Missing: conversations.flag.reason=Reason
-### Missing: conversations.flag.user=User
-### Missing: conversations.flag.doc.creationDate=Date
-### Missing: conversations.flag.message=Message
-### Missing: conversations.flag.moderator=Moderator
-### Missing: conversations.flag.status=Status
-### Missing: conversations.flag._actions=Actions
-### Missing: conversations.flag.target=Target
-### Missing: conversations.flag.emptyvalue=-
-### Missing: conversations.flag.list.title=Flag List
-### Missing: conversations.flag.list.instructions=This is the list of flagged items
-### Missing: conversations.flag.success.dialog.goback=Return to discussion
-### Missing: conversations.addthis.title={0} #xwikiforum
-### Missing: conversations.addthis.desc={0}
+conversations.flag.reason=理由
+conversations.flag.user=ユーザー
+conversations.flag.doc.creationDate=日付
+conversations.flag.message=メッセージ
+conversations.flag.moderator=モデレーター
+conversations.flag.status=状態
+conversations.flag._actions=アクション
+conversations.flag.target=ターゲット
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=通報の一覧
+conversations.flag.list.instructions=通報された項目の一覧です
+conversations.flag.success.dialog.goback=議論に戻る
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
 
 ## most active discussions
-### Missing: discussion.panel.title=Most Active Topics
-### Missing: discussion.panel.sortby=Sort By:
-### Missing: discussion.panel.dates=Dates
-### Missing: discussion.panel.votes=Votes
-### Missing: discussion.panel.comments=Comments
-### Missing: discussion.panel.topics=Topics
-### Missing: discussion.panel.subscribe=Subscribe
-### Missing: discussion.panel.text1=Stay up to date with the latest entries by subscribing to:
-### Missing: discussion.panel.text2=or
+discussion.panel.title=最もアクティブなトピック
+discussion.panel.sortby=並び替え：
+discussion.panel.dates=日付順
+discussion.panel.votes=投票数順
+discussion.panel.comments=コメント順
+discussion.panel.topics=トピック
+discussion.panel.subscribe=購読
+discussion.panel.text1=以下を購読して、トピックに関する最新の情報を入手しましょう。
+discussion.panel.text2=または
 
 ## applications panel entry
-### Missing: forum.applicationsPanelEntryLabel=Forums
+forum.applicationsPanelEntryLabel=フォーラム
 ## mail notif
-### Missing: forum.mail.notif.topic.delete.title=Deleted topic
-### Missing: forum.mail.notif.topic.delete.message=The following topic has been deleted:
-### Missing: forum.mail.notif.answer.delete.title=Deleted answer
-### Missing: forum.mail.notif.answer.delete.message=The following answer has been deleted:
-### Missing: forum.mail.notif.comment.delete.title=Deleted comment
-### Missing: forum.mail.notif.comment.delete.message=The following comment has been deleted:
-### Missing: forum.mail.notif.delete.thanks=Thank you
-### Missing: forum.mail.notif.delete.view=View deleted
+forum.mail.notif.topic.delete.title=削除したトピック
+forum.mail.notif.topic.delete.message=以下のトピックを削除しました：
+forum.mail.notif.answer.delete.title=削除した回答
+forum.mail.notif.answer.delete.message=以下の回答を削除しました：
+forum.mail.notif.comment.delete.title=削除したコメント
+forum.mail.notif.comment.delete.message=以下のコメントを削除しました：
+forum.mail.notif.delete.thanks=ありがとうございます
+forum.mail.notif.delete.view=表示を削除しました
 
 ## recent forum discussions
-### Missing: recent.forum.discussions.addDiscussion=Add discussion
-### Missing: recent.forum.discussions.createdAnswerOnTopic=answered on topic
-### Missing: recent.forum.discussions.createdTopic=created topic
-### Missing: recent.forum.discussions.creationDate=on {0}
-### Missing: recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
-### Missing: recent.forum.discussions.editedTopic=edited topic
-### Missing: recent.forum.discussions.seeAllDiscussions=See all discussions
+recent.forum.discussions.addDiscussion=議論を追加
+recent.forum.discussions.createdAnswerOnTopic=トピックに回答しました
+recent.forum.discussions.createdTopic=トピックを作成しました
+recent.forum.discussions.creationDate={0}に
+recent.forum.discussions.editedAnswerOnTopic=トピックの回答を編集しました
+recent.forum.discussions.editedTopic=トピックを編集しました
+recent.forum.discussions.seeAllDiscussions=全ての議論を表示
 
 ## rendering macro
-### Missing: rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
+rendering.macro.forum.recentForumDiscussions.name=最近のフォーラムの議論
 
 ## TOURS
 ## Forums homepage tour
 tour.forumsHomepageTour.welcome.title=フォーラムのアプリケーションにようこそ！
-### Missing: tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag inappropriate content.
-### Missing: tour.forumsHomepageTour.addForum.title=Add Forum
-### Missing: tour.forumsHomepageTour.addForum.content=Create a new Forum.
-### Missing: tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
-### Missing: tour.forumsHomepageTour.forumsLivetable.content=See all the Forums. Check the possible actions: sort, filter, edit, delete.
-### Missing: tour.forumsHomepageTour.mostActiveTopics.title=Most Active Topics
-### Missing: tour.forumsHomepageTour.mostActiveTopics.content=This panel displays the most active topics in terms of votes and comments. Topics can be sorted by date, number of votes and number of comments. Click the related button to order ascending/descending. Subscribe to get the latest information about Topics!
+tour.forumsHomepageTour.welcome.content=フォーラムは、好きな数の議論を作成し、それに投票したり不適切なコンテンツを通報したりできるコミュニケーションツールです。
+tour.forumsHomepageTour.addForum.title=フォーラムを追加
+tour.forumsHomepageTour.addForum.content=新しいフォーラムを作成。
+tour.forumsHomepageTour.forumsLivetable.title=フォーラムのライブテーブル
+tour.forumsHomepageTour.forumsLivetable.content=全てのフォーラムを表示。次のアクションを行えます：並び替え、フィルタリング、編集、削除。
+tour.forumsHomepageTour.mostActiveTopics.title=最もアクティブなトピック
+tour.forumsHomepageTour.mostActiveTopics.content=このパネルには投票とコメントで最も活発なトピックを表示します。トピックは日付、投票数、コメント数で並び替えることができます。関連するボタンをクリックすると、昇順・降順を変更できます。購読するとトピックの最新の情報を入手できます！
 ## Forum Tour
-### Missing: tour.forumTour.forumDetails.title=Forum details
-### Missing: tour.forumTour.forumDetails.content=Existing information: Forum description, creator, creation date, number of topics and number of votes.
-### Missing: tour.forumTour.addTopic.title=Add Topic
-### Missing: tour.forumTour.addTopic.content=Create a new Topic.
-### Missing: tour.forumTour.sortTopics.title=Sort Topics
-### Missing: tour.forumTour.sortTopics.content=Topics can be sorted by date, number of votes or number of comments. Click the related button and then change the ascendant/descending order.
-### Missing: tour.forumTour.listOfTopics.title=List of Topics
-### Missing: tour.forumTour.listOfTopics.content=See all the Topics. Existing information: Topic name, description, creator, creation date, number of answers, number of comments and number of votes.
+tour.forumTour.forumDetails.title=フォーラムの詳細
+tour.forumTour.forumDetails.content=既存の情報：フォーラムの詳細、作成者、作成日、トピック数、投票数。
+tour.forumTour.addTopic.title=トピックを追加
+tour.forumTour.addTopic.content=新しいトピックを追加します。
+tour.forumTour.sortTopics.title=トピックの並び替え
+tour.forumTour.sortTopics.content=トピックは日付、投票数、コメント数で並び替えられます。関連するボタンをクリックすると、昇順・降順を変更できます。
+tour.forumTour.listOfTopics.title=トピックの一覧
+tour.forumTour.listOfTopics.content=全てのトピックを表示。既存の情報：トピック名、詳細、作成者、作成日、回答数、コメント数、投票数。
 ## Topic Tour
-### Missing: tour.topicTour.topicDetails.title=Topic details
-### Missing: tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
-### Missing: tour.topicTour.flagAndPermalink.title=Flag and Permalink
-### Missing: tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL.
-### Missing: tour.topicTour.socialMedia.title=Share to Social Media
-### Missing: tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
-### Missing: tour.topicTour.topicModeration.title=Topic moderation
-### Missing: tour.topicTour.topicModeration.content=Here are the edit and delete buttons.
-### Missing: tour.topicTour.vote.title=Vote
-### Missing: tour.topicTour.vote.content=Topic vote.
+tour.topicTour.topicDetails.title=トピックの詳細
+tour.topicTour.topicDetails.content=既存の情報：トピックの詳細、作成者、作成日、トピック数、投票数。以降のステップで、トピックについて行えるアクションを説明します。
+tour.topicTour.flagAndPermalink.title=通報とパーマリンク
+tour.topicTour.flagAndPermalink.content=トピックの内容が不適切な場合は、通報のオプションを使用して管理者に通報できます。パーマリンクからはURLを取得できます。
+tour.topicTour.socialMedia.title=ソーシャルメディアで共有
+tour.topicTour.socialMedia.content=トピックを知人とソーシャルメディアで共有できます。
+tour.topicTour.topicModeration.title=トピックのモデレーション
+tour.topicTour.topicModeration.content=ここに編集と削除ボタンが表示されます。
+tour.topicTour.vote.title=投票
+tour.topicTour.vote.content=トピックの投票。
 tour.topicTour.addAnswer.title=回答を追加
 tour.topicTour.addAnswer.content=新しい回答を作成。
 tour.topicTour.listOfAnswers.title=回答一覧
 tour.topicTour.listOfAnswers.content=全ての回答とコメントを表示。
 
 ## Template Provider
-### Missing: templateProvider.forum.name=Forum
-### Missing: templateProvider.forum.description=Start a conversation
+templateProvider.forum.name=フォーラム
+templateProvider.forum.description=会話を開始
 </content>
   </xwikidoc>
