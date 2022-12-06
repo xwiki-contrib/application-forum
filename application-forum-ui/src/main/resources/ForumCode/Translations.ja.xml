@@ -1,0 +1,294 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.1" locale="ja">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>ja</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1400760336000</date>
+  <contentUpdateDate>1400760336000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.TopicClass_title=タイトル
+ForumCode.TopicClass_type=種類
+ForumCode.TopicClass_type_question=質問
+ForumCode.TopicClass_type_suggestion=候補
+ForumCode.TopicClass_type_alert=通知
+ForumCode.TopicClass_type_feedback=フィードバック
+ForumCode.TopicClass_status=状態
+ForumCode.TopicClass_status_inprogress=進行中
+ForumCode.TopicClass_status_closed=閉鎖済
+ForumCode.TopicClass_status_integrated=統合済
+ForumCode.TopicClass_description=説明
+ForumCode.AnswerClass_answer=回答
+ForumCode.AnswerClass_description=回答
+
+## Forums
+conversations.forum.tooltip.totaltopics=トピックの数
+conversations.forum.create=新しいフォーラム
+conversations.forum.create.alreadyexists=フォーラムは既に存在します：[[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=作成
+conversations.forum.sorttopicsby=トピックの並び替え
+conversations.forum.sorttopicsby.date=日付順
+conversations.forum.sorttopicsby.votes=投票数順
+conversations.forum.sorttopicsby.comments=コメント順
+conversations.titleError=タイトルは250字以下である必要があります。
+conversations.forum.title=タイトル
+conversations.forum.description=説明
+conversations.forum.edit=トピックを編集
+conversations.forum.delete=トピックを削除
+conversations.forum.more=あと{0}件表示
+forum.admin.action.delete.confiramtion_text=このフォーラムを削除しますか？
+forum.admin.action.delete.inprogress=削除しています…
+forum.admin.action.delete.success=フォーラムを削除しました
+forum.admin.action.delete.failed=フォーラムを削除できませんでした
+conversations.forum.all=全てのフォーラム
+conversations.forum.add=フォーラムを追加
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=全ての回答とコメントの数
+conversations.topic.tooltip.totalanswers=全回答数
+conversations.topic.answer.tooltip.totalcomments=回答に関する全てのコメント数
+conversations.topic.create=トピックを追加
+conversation.topic.create=トピックを追加
+conversations.topic.create.submit=作成
+conversations.topic.all=全てのトピック
+conversations.topic.empty=トピックはありません
+conversations.topic.count=トピック
+conversations.topic.delete.confirm.withReplies=このトピックと回答を削除しますか？
+
+## Answers
+conversations.title=回答
+conversation.add.activator=回答を追加
+conversation.answer.create=回答を追加
+conversation.delete.confirm=トピックを削除しますか？
+conversation.delete.confirm.withReplies=この回答とコメントを削除しますか？
+conversation.delete.done=回答を削除しました
+conversation.delete.success=回答を削除しました
+conversation.delete.failed=回答を削除できませんでした
+conversation.delete.inProgress=削除しています…
+conversation.edit=回答を編集
+conversation.edit.failed=回答の作成に使用したフォームを表示できませんでした
+conversation.delete=回答を削除
+conversation.delete.title=回答を削除
+conversation.edit.title=回答を編集
+conversation.empty=コメントがありません
+conversation.forum.delete.title=トピックを削除
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=この議論に参加するには、このグループのメンバーである必要があります。グループの管理者に連絡してください。
+conversation.norights=この議論に参加する権限がありません。
+conversations.answer.edit=トピック {0} に回答
+conversations.answer=回答
+conversations.answer.all=全ての回答
+conversations.answer.empty=回答がありません
+conversations.answer.count=回答
+
+## Comments
+conversations.comment.count=コメント
+
+## Votes
+conversation.like.button=投票
+conversation.like.button.tooltip=トピックに投票
+conversation.like.button.alreadyliked.tooltip=投票済です
+conversation.like.score.tooltip={0}人のユーザーがこの回答を興味深いとしています。
+conversation.like.failed=投票を保存できませんでした：
+conversation.like.done=投票を保存しました。
+conversation.like.loading=投票を保存しています…
+rating.saveexception=投票を保存する際にエラーが発生しました。
+rating.votenotvalid=投票は有効ではありません。
+rating.voteoutofbounds=投票は有効ではありません。
+
+## Permalink
+conversation.permalink.tooltip=パーマリンク
+conversation.permalink=パーマリンク
+
+## Livetable
+conversations.doc.title=タイトル
+conversations.doc.date=日付
+conversations.doc.creator=作者
+conversations.actions=アクション
+conversations._avatar=アバター
+
+## Messages
+conversations.create.error.topic.norights=新しいトピックを作成する権限がありません！
+conversations.create.error.answer.missingParams=パラメーターが不足しています！
+conversations.create.error.answer.norights=新しい回答を作成する権限がありません！
+conversations.create.success.answer=回答を追加しました！
+conversations.create.error.missingmetadata=メタデータが欠けているため作成できませんでした！
+conversations.create.error.missingtitle=タイトルがありません！
+conversations.create.inProgress=追加しています…
+conversations.create.requestError=リクエストを送信する際にエラーが発生しました。もう一度やり直してください。
+conversations.create.success.topic=トピックを追加しました！
+conversations.deleteconversation.changecomment=削除した回答
+conversations.deletecomment.changecomment=削除したコメント
+conversations.deletecomment.error.nomailsent=コメントの削除を通知するメールを送信できませんでした。
+conversations.deletecomment.success=コメントの削除を通知するメールを送信しました。
+conversations.deletecomment.error.norights=コメントを削除する権限がありません。
+conversations.deletecomment.error.notfound=コメントが見つかりません。
+conversations.deleteconversation.error.nomailsent=トピックの削除を通知するメールを送信できませんでした。
+conversations.deleteconversation.success=トピックを削除しました。
+conversations.deleteconversation.error.norights=回答を削除する権限がありません。
+conversations.deleteconversation.error.notfound=トピックが見つかりませんでした。
+core.viewers.comments.delete.failed=コメントを削除できませんでした。
+conversations.deleteanswer.error.nomailsent=回答の削除を通知するメールを送信できませんでした。
+
+## FLAG DIALOG
+conversation.flag.tooltip=通報
+conversations.flag.edit=編集
+conversations.flag.button=通報
+conversations.flag.viewsource=通報元を表示
+conversations.flag.dialog.header=コメントを通報
+conversations.flag.dialog.guidingquestion1.txt=コメントを通報すると何が起こりますか？
+conversations.flag.dialog.instruction1.txt=フォーラムの管理者にコメントのスレッドを送信し、対応を要求します。
+conversations.flag.dialog.guidingquestion2.txt=この議論を通報する理由
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=このコメントを通報する理由
+conversations.flag.dialog.instruction3.txt=このコメントに問題があると考える理由を記入してください（300字以内）。
+conversations.flag.dialog.reason.label=理由
+conversations.flag.dialog.message.label=説明
+conversations.flag.dialog.mandatory=このフィールドは必須です
+conversations.flag.dialog.cancel.btt=キャンセル
+conversations.flag.dialog.submit.btt=送信
+conversations.flag.error.nomailsent=通報されたコメントを通知するメールを送信できませんでした。
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+ForumCode.FlagClass_reason_=選択
+ForumCode.FlagClass_reason_1=憎悪や暴力を助長しているため
+ForumCode.FlagClass_reason_2=卑猥な画像を表示しているため
+ForumCode.FlagClass_reason_3=コメントが空のため
+ForumCode.FlagClass_reason_4=明らかな営利目的のため
+ForumCode.FlagClass_reason_5=壊れている、またはウィルスがあるため
+ForumCode.FlagClass_reason_6=意味をなさないため
+ForumCode.FlagClass_reason_alt=その他の理由
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=状態
+ForumCode.FlagClass_status_open=オープン
+ForumCode.FlagClass_status_inprogress=進行中
+ForumCode.FlagClass_status_resolved=解決済
+## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=議論を通報しました
+conversations.flag.success.dialog.message=このコメントを通報しました。
+conversations.flag.success.dialog.button=閉じる
+## FLAG livetable
+conversations.flag.reason=理由
+conversations.flag.user=ユーザー
+conversations.flag.doc.creationDate=日付
+conversations.flag.message=メッセージ
+conversations.flag.moderator=モデレーター
+conversations.flag.status=状態
+conversations.flag._actions=アクション
+conversations.flag.target=ターゲット
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=通報の一覧
+conversations.flag.list.instructions=通報された項目の一覧です
+conversations.flag.success.dialog.goback=議論に戻る
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=最もアクティブなトピック
+discussion.panel.sortby=並び替え：
+discussion.panel.dates=日付順
+discussion.panel.votes=投票数順
+discussion.panel.comments=コメント順
+discussion.panel.topics=トピック
+discussion.panel.subscribe=購読
+discussion.panel.text1=以下を購読して、トピックに関する最新の情報を入手しましょう。
+discussion.panel.text2=または
+
+## applications panel entry
+forum.applicationsPanelEntryLabel=フォーラム
+## mail notif
+forum.mail.notif.topic.delete.title=削除したトピック
+forum.mail.notif.topic.delete.message=以下のトピックを削除しました：
+forum.mail.notif.answer.delete.title=削除した回答
+forum.mail.notif.answer.delete.message=以下の回答を削除しました：
+forum.mail.notif.comment.delete.title=削除したコメント
+forum.mail.notif.comment.delete.message=以下のコメントを削除しました：
+forum.mail.notif.delete.thanks=ありがとうございます
+forum.mail.notif.delete.view=表示を削除しました
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=議論を追加
+recent.forum.discussions.createdAnswerOnTopic=トピックに回答しました
+recent.forum.discussions.createdTopic=トピックを作成しました
+recent.forum.discussions.creationDate={0}に
+recent.forum.discussions.editedAnswerOnTopic=トピックの回答を編集しました
+recent.forum.discussions.editedTopic=トピックを編集しました
+recent.forum.discussions.seeAllDiscussions=全ての議論を表示
+
+## rendering macro
+rendering.macro.forum.recentForumDiscussions.name=最近のフォーラムの議論
+
+## TOURS
+## Forums homepage tour
+tour.forumsHomepageTour.welcome.title=フォーラムのアプリケーションにようこそ！
+tour.forumsHomepageTour.welcome.content=フォーラムは、好きな数の議論を作成し、それに投票したり不適切なコンテンツを通報したりできるコミュニケーションツールです。
+tour.forumsHomepageTour.addForum.title=フォーラムを追加
+tour.forumsHomepageTour.addForum.content=新しいフォーラムを作成。
+tour.forumsHomepageTour.forumsLivetable.title=フォーラムのライブテーブル
+tour.forumsHomepageTour.forumsLivetable.content=全てのフォーラムを表示。次のアクションを行えます：並び替え、フィルタリング、編集、削除。
+tour.forumsHomepageTour.mostActiveTopics.title=最もアクティブなトピック
+tour.forumsHomepageTour.mostActiveTopics.content=このパネルには投票とコメントで最も活発なトピックを表示します。トピックは日付、投票数、コメント数で並び替えることができます。関連するボタンをクリックすると、昇順・降順を変更できます。購読するとトピックの最新の情報を入手できます！
+## Forum Tour
+tour.forumTour.forumDetails.title=フォーラムの詳細
+tour.forumTour.forumDetails.content=既存の情報：フォーラムの詳細、作成者、作成日、トピック数、投票数。
+tour.forumTour.addTopic.title=トピックを追加
+tour.forumTour.addTopic.content=新しいトピックを追加します。
+tour.forumTour.sortTopics.title=トピックの並び替え
+tour.forumTour.sortTopics.content=トピックは日付、投票数、コメント数で並び替えられます。関連するボタンをクリックすると、昇順・降順を変更できます。
+tour.forumTour.listOfTopics.title=トピックの一覧
+tour.forumTour.listOfTopics.content=全てのトピックを表示。既存の情報：トピック名、詳細、作成者、作成日、回答数、コメント数、投票数。
+## Topic Tour
+tour.topicTour.topicDetails.title=トピックの詳細
+tour.topicTour.topicDetails.content=既存の情報：トピックの詳細、作成者、作成日、トピック数、投票数。以降のステップで、トピックについて行えるアクションを説明します。
+tour.topicTour.flagAndPermalink.title=通報とパーマリンク
+tour.topicTour.flagAndPermalink.content=トピックの内容が不適切な場合は、通報のオプションを使用して管理者に通報できます。パーマリンクからはURLを取得できます。
+tour.topicTour.socialMedia.title=ソーシャルメディアで共有
+tour.topicTour.socialMedia.content=トピックを知人とソーシャルメディアで共有できます。
+tour.topicTour.topicModeration.title=トピックのモデレーション
+tour.topicTour.topicModeration.content=ここに編集と削除ボタンが表示されます。
+tour.topicTour.vote.title=投票
+tour.topicTour.vote.content=トピックの投票。
+tour.topicTour.addAnswer.title=回答を追加
+tour.topicTour.addAnswer.content=新しい回答を作成。
+tour.topicTour.listOfAnswers.title=回答一覧
+tour.topicTour.listOfAnswers.content=全ての回答とコメントを表示。
+
+## Template Provider
+templateProvider.forum.name=フォーラム
+templateProvider.forum.description=会話を開始
+</content>
+  </xwikidoc>
