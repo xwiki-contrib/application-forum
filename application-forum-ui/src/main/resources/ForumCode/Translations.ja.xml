@@ -108,8 +108,8 @@ conversation.empty=コメントがありません
 conversation.forum.delete.title=トピックを削除
 conversation.updatedate={0}
 conversation.creationdate={1}
-conversation.groups.norights=この議論に参加するには、このグループのメンバーである必要があります。グループの管理者に連絡してください。
-conversation.norights=この議論に参加する権限がありません。
+conversation.groups.norights=このディスカッションに参加するには、このグループのメンバーである必要があります。グループの管理者に連絡してください。
+conversation.norights=このディスカッションに参加する権限がありません。
 conversations.answer.edit=トピック {0} に回答
 conversations.answer=回答
 conversations.answer.all=全ての回答
@@ -173,7 +173,7 @@ conversations.flag.viewsource=通報元を表示
 conversations.flag.dialog.header=コメントを通報
 conversations.flag.dialog.guidingquestion1.txt=コメントを通報すると何が起こりますか？
 conversations.flag.dialog.instruction1.txt=フォーラムの管理者にコメントのスレッドを送信し、対応を要求します。
-conversations.flag.dialog.guidingquestion2.txt=この議論を通報する理由
+conversations.flag.dialog.guidingquestion2.txt=このディスカッションを通報する理由
 conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
 conversations.flag.dialog.instruction2.txt=このコメントを通報する理由
 conversations.flag.dialog.instruction3.txt=このコメントに問題があると考える理由を記入してください（300字以内）。
@@ -198,7 +198,7 @@ ForumCode.FlagClass_status_open=オープン
 ForumCode.FlagClass_status_inprogress=進行中
 ForumCode.FlagClass_status_resolved=解決済
 ## FLAG SUCCESS MESSAGE
-conversations.flag.success.dialog.header=議論を通報しました
+conversations.flag.success.dialog.header=ディスカッションを通報しました
 conversations.flag.success.dialog.message=このコメントを通報しました。
 conversations.flag.success.dialog.button=閉じる
 ## FLAG livetable
@@ -213,7 +213,7 @@ conversations.flag.target=ターゲット
 conversations.flag.emptyvalue=-
 conversations.flag.list.title=通報の一覧
 conversations.flag.list.instructions=通報された項目の一覧です
-conversations.flag.success.dialog.goback=議論に戻る
+conversations.flag.success.dialog.goback=ディスカッションに戻る
 conversations.addthis.title={0} #xwikiforum
 conversations.addthis.desc={0}
 
@@ -241,21 +241,21 @@ forum.mail.notif.delete.thanks=ありがとうございます
 forum.mail.notif.delete.view=表示を削除しました
 
 ## recent forum discussions
-recent.forum.discussions.addDiscussion=議論を追加
+recent.forum.discussions.addDiscussion=ディスカッションを追加
 recent.forum.discussions.createdAnswerOnTopic=トピックに回答しました
 recent.forum.discussions.createdTopic=トピックを作成しました
 recent.forum.discussions.creationDate={0}に
 recent.forum.discussions.editedAnswerOnTopic=トピックの回答を編集しました
 recent.forum.discussions.editedTopic=トピックを編集しました
-recent.forum.discussions.seeAllDiscussions=全ての議論を表示
+recent.forum.discussions.seeAllDiscussions=全てのディスカッションを表示
 
 ## rendering macro
-rendering.macro.forum.recentForumDiscussions.name=最近のフォーラムの議論
+rendering.macro.forum.recentForumDiscussions.name=最近のフォーラムのディスカッション
 
 ## TOURS
 ## Forums homepage tour
 tour.forumsHomepageTour.welcome.title=フォーラムのアプリケーションにようこそ！
-tour.forumsHomepageTour.welcome.content=フォーラムは、好きな数の議論を作成し、それに投票したり不適切なコンテンツを通報したりできるコミュニケーションツールです。
+tour.forumsHomepageTour.welcome.content=フォーラムは、好きな数のディスカッションを作成し、それに投票したり不適切なコンテンツを通報したりできるコミュニケーションツールです。
 tour.forumsHomepageTour.addForum.title=フォーラムを追加
 tour.forumsHomepageTour.addForum.content=新しいフォーラムを作成。
 tour.forumsHomepageTour.forumsLivetable.title=フォーラムのライブテーブル
