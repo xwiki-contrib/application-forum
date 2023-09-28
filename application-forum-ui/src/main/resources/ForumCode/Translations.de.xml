@@ -200,7 +200,7 @@ ForumCode.FlagClass_status_resolved=Gelöst
 ## FLAG SUCCESS MESSAGE
 conversations.flag.success.dialog.header=Diskussion gemeldet
 conversations.flag.success.dialog.message=Sie haben diesen Kommentar erfolgreich gemeldet.
-conversations.flag.success.dialog.button=Geschlossen
+conversations.flag.success.dialog.button=Schließen
 ## FLAG livetable
 conversations.flag.reason=Grund
 conversations.flag.user=Benutzer
