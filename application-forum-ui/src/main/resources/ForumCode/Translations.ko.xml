@@ -102,193 +102,193 @@ conversation.delete.inProgress=이 저장되었지만, 일부 새롭게 실패�
 conversation.edit=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
 conversation.edit.failed=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
 conversation.delete=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
-### Missing: conversation.delete.title=Delete answer
-### Missing: conversation.edit.title=Edit answer
-### Missing: conversation.empty=No comment
-### Missing: conversation.forum.delete.title=Delete Topic
-### Missing: conversation.updatedate={0}
-### Missing: conversation.creationdate={1}
-### Missing: conversation.groups.norights=You must be a member of this group to participate to this discussion. Please contact the group admin.
-### Missing: conversation.norights=You do not have rights to participate in this discussion.
-### Missing: conversations.answer.edit=Answer to topic {0}
-### Missing: conversations.answer=Answer
-### Missing: conversations.answer.all=All answers
-### Missing: conversations.answer.empty=No answer
-### Missing: conversations.answer.count=answers
+conversation.delete.title=답변 삭제
+conversation.edit.title=답변 수정
+conversation.empty=댓글 없음
+conversation.forum.delete.title=주제 삭제
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=이 토론에 참여하려면 이 그룹의 구성원이어야 합니다. 그룹 관리자에게 문의하세요.
+conversation.norights=귀하에게는 이 토론에 참여할 권리가 없습니다.
+conversations.answer.edit=주제 {0}에 대한 답변
+conversations.answer=답변
+conversations.answer.all=모든 답변
+conversations.answer.empty=답변 없음
+conversations.answer.count=답변
 
 ## Comments
-### Missing: conversations.comment.count=comments
+conversations.comment.count=코멘트
 
 ## Votes
-### Missing: conversation.like.button=Votes
-### Missing: conversation.like.button.tooltip=Vote topic
-### Missing: conversation.like.button.alreadyliked.tooltip=You already voted
-### Missing: conversation.like.score.tooltip={0} users found this answer as being interesting.
-### Missing: conversation.like.failed=The vote could not be saved:
-### Missing: conversation.like.done=Your vote has been saved.
-### Missing: conversation.like.loading=Saving the vote...
-### Missing: rating.saveexception=Error while saving vote.
-### Missing: rating.votenotvalid=The vote is not valid.
-### Missing: rating.voteoutofbounds=The vote is not valid.
+conversation.like.button=투표
+conversation.like.button.tooltip=주제 투표
+conversation.like.button.alreadyliked.tooltip=이미 투표하셨습니다
+conversation.like.score.tooltip={0}명의 사용자가 이 답변이 흥미롭다고 생각했습니다.
+conversation.like.failed=투표를 저장할 수 없습니다:
+conversation.like.done=귀하의 투표가 저장되었습니다.
+conversation.like.loading=투표를 저장하는 중...
+rating.saveexception=투표를 저장하는 중에 오류가 발생했습니다.
+rating.votenotvalid=투표가 유효하지 않습니다.
+rating.voteoutofbounds=투표가 유효하지 않습니다.
 
 ## Permalink
-### Missing: conversation.permalink.tooltip=Permalink
-### Missing: conversation.permalink=Permalink
+conversation.permalink.tooltip=고유링크
+conversation.permalink=고유링크
 
 ## Livetable
-### Missing: conversations.doc.title=Title
-### Missing: conversations.doc.date=Date
-### Missing: conversations.doc.creator=Creator
-### Missing: conversations.actions=Actions
-### Missing: conversations._avatar=Avatar
+conversations.doc.title=제목
+conversations.doc.date=날짜
+conversations.doc.creator=창조자
+conversations.actions=행위
+conversations._avatar=화신
 
 ## Messages
-### Missing: conversations.create.error.topic.norights=You don't have the rights to create a new topic!
-### Missing: conversations.create.error.answer.missingParams=Not enough parameters!
-### Missing: conversations.create.error.answer.norights=You don't have the rights to create a new answer!
-### Missing: conversations.create.success.answer=Answer successfully added!
-### Missing: conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata!
-### Missing: conversations.create.error.missingtitle=Missing title!
-### Missing: conversations.create.inProgress=Adding...
-### Missing: conversations.create.requestError=There was an error sending your request. Please try again.
-### Missing: conversations.create.success.topic=Topic successfully added!
-### Missing: conversations.deleteconversation.changecomment=Deleted answer
-### Missing: conversations.deletecomment.changecomment=Deleted comment
-### Missing: conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the comment.
-### Missing: conversations.deletecomment.success=The mail to notify about comment deletion has been sent.
-### Missing: conversations.deletecomment.error.norights=You don't have the rights to delete the comment.
-### Missing: conversations.deletecomment.error.notfound=Comment not found.
-### Missing: conversations.deleteconversation.error.nomailsent=Could not send mail to notify about deleting the topic.
-### Missing: conversations.deleteconversation.success=Topic deleted.
-### Missing: conversations.deleteconversation.error.norights=You don't have the rights to delete the answer.
-### Missing: conversations.deleteconversation.error.notfound=Topic not found.
-### Missing: core.viewers.comments.delete.failed=The comment could not be deleted.
-### Missing: conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
+conversations.create.error.topic.norights=새 주제를 만들 수 있는 권한이 없습니다!
+conversations.create.error.answer.missingParams=매개변수가 충분하지 않습니다!
+conversations.create.error.answer.norights=새로운 답변을 만들 수 있는 권한이 없습니다!
+conversations.create.success.answer=답변이 추가되었습니다!
+conversations.create.error.missingmetadata=메타데이터가 누락되어 생성을 수행할 수 없습니다!
+conversations.create.error.missingtitle=제목이 없습니다!
+conversations.create.inProgress=첨가...
+conversations.create.requestError=요청을 보내는 중에 오류가 발생했습니다. 다시 시도해 주세요.
+conversations.create.success.topic=주제가 추가되었습니다!
+conversations.deleteconversation.changecomment=삭제된 답변
+conversations.deletecomment.changecomment=삭제된 댓글
+conversations.deletecomment.error.nomailsent=댓글 삭제를 알리는 메일을 보낼 수 없습니다.
+conversations.deletecomment.success=댓글 삭제 알림 메일이 발송되었습니다.
+conversations.deletecomment.error.norights=댓글을 삭제할 권한이 없습니다.
+conversations.deletecomment.error.notfound=댓글을 찾을 수 없습니다.
+conversations.deleteconversation.error.nomailsent=주제 삭제를 알리는 메일을 보낼 수 없습니다.
+conversations.deleteconversation.success=주제가 삭제되었습니다.
+conversations.deleteconversation.error.norights=답변을 삭제할 권한이 없습니다.
+conversations.deleteconversation.error.notfound=주제를 찾을 수 없습니다.
+core.viewers.comments.delete.failed=댓글을 삭제할 수 없습니다.
+conversations.deleteanswer.error.nomailsent=답변 삭제를 알리는 메일을 보낼 수 없습니다.
 
 ## FLAG DIALOG
-### Missing: conversation.flag.tooltip=Flag
-### Missing: conversations.flag.edit=Edit
-### Missing: conversations.flag.button=Flag
-### Missing: conversations.flag.viewsource=View Flag Source
-### Missing: conversations.flag.dialog.header=Flag a Comment
-### Missing: conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
-### Missing: conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
-### Missing: conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
-### Missing: conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
-### Missing: conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
-### Missing: conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
-### Missing: conversations.flag.dialog.reason.label=Reason
-### Missing: conversations.flag.dialog.message.label=Description
-### Missing: conversations.flag.dialog.mandatory=This field is mandatory
-### Missing: conversations.flag.dialog.cancel.btt=Cancel
-### Missing: conversations.flag.dialog.submit.btt=Submit
-### Missing: conversations.flag.error.nomailsent=Could not send mail to notify about flagged comment.
+conversation.flag.tooltip=깃발
+conversations.flag.edit=편집하다
+conversations.flag.button=깃발
+conversations.flag.viewsource=플래그 소스 보기
+conversations.flag.dialog.header=댓글에 플래그 지정
+conversations.flag.dialog.guidingquestion1.txt=댓글에 플래그를 지정하면 어떻게 되나요?
+conversations.flag.dialog.instruction1.txt=포럼 관리자가 즉시 평가할 수 있도록 댓글 스레드를 제출합니다.
+conversations.flag.dialog.guidingquestion2.txt=이 토론을 신고하는 이유는 무엇입니까?
+conversations.flag.dialog.required.field.icon=&lt;em class="필수 표시기"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=이 댓글을 신고하는 이유는 다음과 같습니다.
+conversations.flag.dialog.instruction3.txt=이 댓글이 불쾌한 이유를 설명하는 메모(300자 이하)를 입력하세요.
+conversations.flag.dialog.reason.label=이유
+conversations.flag.dialog.message.label=설명
+conversations.flag.dialog.mandatory=이 필드는 필수입니다.
+conversations.flag.dialog.cancel.btt=취소
+conversations.flag.dialog.submit.btt=제출하다
+conversations.flag.error.nomailsent=플래그가 지정된 댓글에 대해 알리기 위한 메일을 보낼 수 없습니다.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
-### Missing: ForumCode.FlagClass_reason_=Select
-### Missing: ForumCode.FlagClass_reason_1=Promotes hate or violence
-### Missing: ForumCode.FlagClass_reason_2=Displays pornography
-### Missing: ForumCode.FlagClass_reason_3=Is empty or blank
-### Missing: ForumCode.FlagClass_reason_4=Is obviously commercial in nature, without clear educational relevance
-### Missing: ForumCode.FlagClass_reason_5=Is broken or has a virus
-### Missing: ForumCode.FlagClass_reason_6=Appears to be nonsensical
-### Missing: ForumCode.FlagClass_reason_alt=Other reason
+ForumCode.FlagClass_reason_=선택하다
+ForumCode.FlagClass_reason_1=증오심이나 폭력을 조장합니다.
+ForumCode.FlagClass_reason_2=음란물을 표시합니다.
+ForumCode.FlagClass_reason_3=비어 있거나 비어 있습니다.
+ForumCode.FlagClass_reason_4=명확한 교육적 관련성이 없이 본질적으로 명백히 상업적입니다.
+ForumCode.FlagClass_reason_5=손상되었거나 바이러스가 있음
+ForumCode.FlagClass_reason_6=말도 안 되는 소리인 것 같다
+ForumCode.FlagClass_reason_alt=다른 이유
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
-### Missing: ForumCode.FlagClass_status=Status
-### Missing: ForumCode.FlagClass_status_open=Open
-### Missing: ForumCode.FlagClass_status_inprogress=In Progress
-### Missing: ForumCode.FlagClass_status_resolved=Resolved
+ForumCode.FlagClass_status=상태
+ForumCode.FlagClass_status_open=열려 있는
+ForumCode.FlagClass_status_inprogress=진행 중
+ForumCode.FlagClass_status_resolved=해결됨
 ## FLAG SUCCESS MESSAGE
-### Missing: conversations.flag.success.dialog.header=Discussion Flagged
-### Missing: conversations.flag.success.dialog.message=You have successfully flagged this comment.
-### Missing: conversations.flag.success.dialog.button=Close
+conversations.flag.success.dialog.header=토론에 플래그가 지정됨
+conversations.flag.success.dialog.message=이 댓글을 성공적으로 신고했습니다.
+conversations.flag.success.dialog.button=닫다
 ## FLAG livetable
-### Missing: conversations.flag.reason=Reason
-### Missing: conversations.flag.user=User
-### Missing: conversations.flag.doc.creationDate=Date
-### Missing: conversations.flag.message=Message
-### Missing: conversations.flag.moderator=Moderator
-### Missing: conversations.flag.status=Status
-### Missing: conversations.flag._actions=Actions
-### Missing: conversations.flag.target=Target
-### Missing: conversations.flag.emptyvalue=-
-### Missing: conversations.flag.list.title=Flag List
-### Missing: conversations.flag.list.instructions=This is the list of flagged items
-### Missing: conversations.flag.success.dialog.goback=Return to discussion
-### Missing: conversations.addthis.title={0} #xwikiforum
-### Missing: conversations.addthis.desc={0}
+conversations.flag.reason=이유
+conversations.flag.user=사용자
+conversations.flag.doc.creationDate=날짜
+conversations.flag.message=메시지
+conversations.flag.moderator=중재자
+conversations.flag.status=상태
+conversations.flag._actions=행위
+conversations.flag.target=표적
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=플래그 목록
+conversations.flag.list.instructions=신고된 항목의 목록입니다.
+conversations.flag.success.dialog.goback=토론으로 돌아가기
+conversations.addthis.title={0} #xwiki포럼
+conversations.addthis.desc={0}
 
 ## most active discussions
-### Missing: discussion.panel.title=Most Active Topics
-### Missing: discussion.panel.sortby=Sort By:
-### Missing: discussion.panel.dates=Dates
-### Missing: discussion.panel.votes=Votes
-### Missing: discussion.panel.comments=Comments
-### Missing: discussion.panel.topics=Topics
-### Missing: discussion.panel.subscribe=Subscribe
-### Missing: discussion.panel.text1=Stay up to date with the latest entries by subscribing to:
-### Missing: discussion.panel.text2=or
+discussion.panel.title=가장 활발한 주제
+discussion.panel.sortby=정렬 기준:
+discussion.panel.dates=날짜
+discussion.panel.votes=투표
+discussion.panel.comments=코멘트
+discussion.panel.topics=주제
+discussion.panel.subscribe=구독하다
+discussion.panel.text1=다음을 구독하여 최신 항목을 받아보세요.
+discussion.panel.text2=또는
 
 ## applications panel entry
-### Missing: forum.applicationsPanelEntryLabel=Forums
+forum.applicationsPanelEntryLabel=포럼
 ## mail notif
-### Missing: forum.mail.notif.topic.delete.title=Deleted topic
-### Missing: forum.mail.notif.topic.delete.message=The following topic has been deleted:
-### Missing: forum.mail.notif.answer.delete.title=Deleted answer
-### Missing: forum.mail.notif.answer.delete.message=The following answer has been deleted:
-### Missing: forum.mail.notif.comment.delete.title=Deleted comment
-### Missing: forum.mail.notif.comment.delete.message=The following comment has been deleted:
-### Missing: forum.mail.notif.delete.thanks=Thank you
-### Missing: forum.mail.notif.delete.view=View deleted
+forum.mail.notif.topic.delete.title=삭제된 주제
+forum.mail.notif.topic.delete.message=다음 주제가 삭제되었습니다.
+forum.mail.notif.answer.delete.title=삭제된 답변
+forum.mail.notif.answer.delete.message=다음 답변이 삭제되었습니다.
+forum.mail.notif.comment.delete.title=삭제된 댓글
+forum.mail.notif.comment.delete.message=다음 댓글이 삭제되었습니다.
+forum.mail.notif.delete.thanks=감사합니다
+forum.mail.notif.delete.view=삭제된 보기
 
 ## recent forum discussions
-### Missing: recent.forum.discussions.addDiscussion=Add discussion
-### Missing: recent.forum.discussions.createdAnswerOnTopic=answered on topic
-### Missing: recent.forum.discussions.createdTopic=created topic
-### Missing: recent.forum.discussions.creationDate=on {0}
-### Missing: recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
-### Missing: recent.forum.discussions.editedTopic=edited topic
-### Missing: recent.forum.discussions.seeAllDiscussions=See all discussions
+recent.forum.discussions.addDiscussion=토론 추가
+recent.forum.discussions.createdAnswerOnTopic=주제에 대한 답변
+recent.forum.discussions.createdTopic=생성된 주제
+recent.forum.discussions.creationDate={0}에
+recent.forum.discussions.editedAnswerOnTopic=주제에 대한 편집된 답변
+recent.forum.discussions.editedTopic=편집된 주제
+recent.forum.discussions.seeAllDiscussions=모든 토론 보기
 
 ## rendering macro
-### Missing: rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
+rendering.macro.forum.recentForumDiscussions.name=최근 포럼 토론
 
 ## TOURS
 ## Forums homepage tour
-### Missing: tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
-### Missing: tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag inappropriate content.
-### Missing: tour.forumsHomepageTour.addForum.title=Add Forum
-### Missing: tour.forumsHomepageTour.addForum.content=Create a new Forum.
-### Missing: tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
-### Missing: tour.forumsHomepageTour.forumsLivetable.content=See all the Forums. Check the possible actions: sort, filter, edit, delete.
-### Missing: tour.forumsHomepageTour.mostActiveTopics.title=Most Active Topics
-### Missing: tour.forumsHomepageTour.mostActiveTopics.content=This panel displays the most active topics in terms of votes and comments. Topics can be sorted by date, number of votes and number of comments. Click the related button to order ascending/descending. Subscribe to get the latest information about Topics!
+tour.forumsHomepageTour.welcome.title=포럼 응용 프로그램에 오신 것을 환영합니다!
+tour.forumsHomepageTour.welcome.content=포럼은 토론 포럼을 무제한으로 만들고, 투표하고, 부적절한 콘텐츠에 플래그를 지정하는 데 사용할 수 있는 커뮤니케이션 도구입니다.
+tour.forumsHomepageTour.addForum.title=포럼 추가
+tour.forumsHomepageTour.addForum.content=새 포럼을 만듭니다.
+tour.forumsHomepageTour.forumsLivetable.title=포럼 라이브테이블
+tour.forumsHomepageTour.forumsLivetable.content=모든 포럼을 확인하세요. 정렬, 필터링, 편집, 삭제 등 가능한 작업을 확인하세요.
+tour.forumsHomepageTour.mostActiveTopics.title=가장 활발한 주제
+tour.forumsHomepageTour.mostActiveTopics.content=이 패널에는 투표 및 댓글 측면에서 가장 활발한 주제가 표시됩니다. 주제는 날짜, 투표 수, 댓글 수를 기준으로 정렬할 수 있습니다. 해당 버튼을 클릭하면 오름차순/내림차순으로 정렬됩니다. 주제에 대한 최신 정보를 얻으려면 구독하세요!
 ## Forum Tour
-### Missing: tour.forumTour.forumDetails.title=Forum details
-### Missing: tour.forumTour.forumDetails.content=Existing information: Forum description, creator, creation date, number of topics and number of votes.
-### Missing: tour.forumTour.addTopic.title=Add Topic
-### Missing: tour.forumTour.addTopic.content=Create a new Topic.
-### Missing: tour.forumTour.sortTopics.title=Sort Topics
-### Missing: tour.forumTour.sortTopics.content=Topics can be sorted by date, number of votes or number of comments. Click the related button and then change the ascendant/descending order.
-### Missing: tour.forumTour.listOfTopics.title=List of Topics
-### Missing: tour.forumTour.listOfTopics.content=See all the Topics. Existing information: Topic name, description, creator, creation date, number of answers, number of comments and number of votes.
+tour.forumTour.forumDetails.title=포럼 세부정보
+tour.forumTour.forumDetails.content=기존 정보: 포럼 설명, 작성자, 생성 날짜, 주제 수 및 투표 수.
+tour.forumTour.addTopic.title=주제 추가
+tour.forumTour.addTopic.content=새 주제를 만듭니다.
+tour.forumTour.sortTopics.title=주제 정렬
+tour.forumTour.sortTopics.content=주제는 날짜, 투표 수 또는 댓글 수를 기준으로 정렬할 수 있습니다. 해당 버튼을 클릭한 후 오름차순/내림차순을 변경하세요.
+tour.forumTour.listOfTopics.title=주제 목록
+tour.forumTour.listOfTopics.content=모든 주제를 확인하세요. 기존정보 : 주제명, 설명, 작성자, 작성일자, 답변수, 댓글수, 투표수.
 ## Topic Tour
-### Missing: tour.topicTour.topicDetails.title=Topic details
-### Missing: tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
-### Missing: tour.topicTour.flagAndPermalink.title=Flag and Permalink
-### Missing: tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL.
-### Missing: tour.topicTour.socialMedia.title=Share to Social Media
-### Missing: tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
-### Missing: tour.topicTour.topicModeration.title=Topic moderation
-### Missing: tour.topicTour.topicModeration.content=Here are the edit and delete buttons.
-### Missing: tour.topicTour.vote.title=Vote
-### Missing: tour.topicTour.vote.content=Topic vote.
-### Missing: tour.topicTour.addAnswer.title=Add Answer
-### Missing: tour.topicTour.addAnswer.content=Create a new Answer.
-### Missing: tour.topicTour.listOfAnswers.title=List of Answers
-### Missing: tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
+tour.topicTour.topicDetails.title=주제 세부정보
+tour.topicTour.topicDetails.content=기존 정보: 주제 설명, 작성자, 생성 날짜, 주제 수, 투표 수. 주제에 대해 가능한 작업을 알아보려면 다음 단계를 읽어보세요.
+tour.topicTour.flagAndPermalink.title=플래그 및 고유링크
+tour.topicTour.flagAndPermalink.content=주제의 내용이 부적절한 경우 플래그 옵션을 사용하여 관리자에게 경고할 수 있습니다. 영구링크가 귀하에게 URL을 제공할 것입니다.
+tour.topicTour.socialMedia.title=소셜 미디어에 공유
+tour.topicTour.socialMedia.content=소셜 미디어 버튼을 통해 이 주제를 친구들과 공유할 수 있습니다.
+tour.topicTour.topicModeration.title=주제 조정
+tour.topicTour.topicModeration.content=여기에 수정, 삭제 버튼이 있습니다.
+tour.topicTour.vote.title=투표
+tour.topicTour.vote.content=주제 투표.
+tour.topicTour.addAnswer.title=답변 추가
+tour.topicTour.addAnswer.content=새로운 답변을 작성하세요.
+tour.topicTour.listOfAnswers.title=답변 목록
+tour.topicTour.listOfAnswers.content=모든 답변과 댓글을 확인하세요.
 
 ## Template Provider
-### Missing: templateProvider.forum.name=Forum
-### Missing: templateProvider.forum.description=Start a conversation
+templateProvider.forum.name=법정
+templateProvider.forum.description=대화 시작
 </content>
   </xwikidoc>
