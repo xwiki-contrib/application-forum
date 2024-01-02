@@ -51,7 +51,7 @@ ForumCode.TopicClass_status_inprogress=진행 중
 ForumCode.TopicClass_status_closed=닫은
 ForumCode.TopicClass_status_integrated=통합
 ForumCode.TopicClass_description=설명
-ForumCode.AnswerClass_answer=역이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 줄임표
+ForumCode.AnswerClass_answer=답변
 ForumCode.AnswerClass_description=답변
 
 ## Forums
@@ -71,37 +71,37 @@ conversations.forum.delete=주제 삭제
 conversations.forum.more={0}개 더 보기
 forum.admin.action.delete.confiramtion_text=이 포럼을 삭제하시겠습니까?
 forum.admin.action.delete.inprogress=삭제 진행 중...
-forum.admin.action.delete.success=삭제 진행 중...
-forum.admin.action.delete.failed=삭제 진행 중...
-conversations.forum.all=삭제 진행 중...
-conversations.forum.add=삭제 진행 중...
+forum.admin.action.delete.success=포럼이 삭제되었습니다
+forum.admin.action.delete.failed=포럼을 삭제할 수 없습니다
+conversations.forum.all=모든 포럼
+conversations.forum.add=포럼 추가
 
 
 ## Topics
-conversations.topic.tooltip.totalcommentsandanswers=삭제 진행 중...
-conversations.topic.tooltip.totalanswers=삭제 진행 중...
-conversations.topic.answer.tooltip.totalcomments=삭제 진행 중...
-conversations.topic.create=삭제 진행 중...
-conversation.topic.create=삭제 진행 중...
-conversations.topic.create.submit=삭제 진행 중...
-conversations.topic.all=삭제 진행 중...
-conversations.topic.empty=삭제 진행 중...
-conversations.topic.count=삭제 진행 중...
-conversations.topic.delete.confirm.withReplies=삭제 진행 중...
+conversations.topic.tooltip.totalcommentsandanswers=총 답변 및 댓글
+conversations.topic.tooltip.totalanswers=총 답변
+conversations.topic.answer.tooltip.totalcomments=답변에 대한 총 댓글 수
+conversations.topic.create=주제 추가
+conversation.topic.create=주제 추가
+conversations.topic.create.submit=만들다
+conversations.topic.all=모든 주제
+conversations.topic.empty=주제 없음
+conversations.topic.count=주제
+conversations.topic.delete.confirm.withReplies=이 주제와 답변을 삭제하시겠습니까?
 
 ## Answers
-conversations.title=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 물음표(?)
-conversation.add.activator=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 물음표(?)
-conversation.answer.create=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 물음표(?)
-conversation.delete.confirm=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
-conversation.delete.confirm.withReplies=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
-conversation.delete.done=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
-conversation.delete.success=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
-conversation.delete.failed=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
-conversation.delete.inProgress=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
-conversation.edit=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
-conversation.edit.failed=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
-conversation.delete=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
+conversations.title=답변
+conversation.add.activator=답변 추가
+conversation.answer.create=답변 추가
+conversation.delete.confirm=주제를 삭제하시겠습니까?
+conversation.delete.confirm.withReplies=이 답변과 댓글을 삭제하시겠습니까?
+conversation.delete.done=답변이 삭제되었습니다
+conversation.delete.success=답변이 삭제되었습니다
+conversation.delete.failed=답변을 삭제할 수 없습니다
+conversation.delete.inProgress=삭제 중...
+conversation.edit=답변 수정
+conversation.edit.failed=답변 작성에 사용된 양식을 표시할 수 없습니다
+conversation.delete=답변 삭제
 conversation.delete.title=답변 삭제
 conversation.edit.title=답변 수정
 conversation.empty=댓글 없음
@@ -175,20 +175,20 @@ conversations.flag.dialog.guidingquestion1.txt=댓글에 플래그를 지정하�
 conversations.flag.dialog.instruction1.txt=포럼 관리자가 즉시 평가할 수 있도록 댓글 스레드를 제출합니다.
 conversations.flag.dialog.guidingquestion2.txt=이 토론을 신고하는 이유는 무엇입니까?
 conversations.flag.dialog.required.field.icon=&lt;em class="필수 표시기"&gt;* &lt;/em&gt;
-conversations.flag.dialog.instruction2.txt=이 댓글을 신고하는 이유는 다음과 같습니다.
-conversations.flag.dialog.instruction3.txt=이 댓글이 불쾌한 이유를 설명하는 메모(300자 이하)를 입력하세요.
+conversations.flag.dialog.instruction2.txt=이 댓글을 신고하는 이유는 다음과 같습니다
+conversations.flag.dialog.instruction3.txt=이 댓글이 불쾌한 이유를 설명하는 메모(300자 이하)를 입력하세요:
 conversations.flag.dialog.reason.label=이유
 conversations.flag.dialog.message.label=설명
-conversations.flag.dialog.mandatory=이 필드는 필수입니다.
+conversations.flag.dialog.mandatory=이 필드는 필수입니다
 conversations.flag.dialog.cancel.btt=취소
 conversations.flag.dialog.submit.btt=제출하다
 conversations.flag.error.nomailsent=플래그가 지정된 댓글에 대해 알리기 위한 메일을 보낼 수 없습니다.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=선택하다
-ForumCode.FlagClass_reason_1=증오심이나 폭력을 조장합니다.
-ForumCode.FlagClass_reason_2=음란물을 표시합니다.
-ForumCode.FlagClass_reason_3=비어 있거나 비어 있습니다.
-ForumCode.FlagClass_reason_4=명확한 교육적 관련성이 없이 본질적으로 명백히 상업적입니다.
+ForumCode.FlagClass_reason_1=증오심이나 폭력을 조장합니다
+ForumCode.FlagClass_reason_2=음란물을 표시합니다
+ForumCode.FlagClass_reason_3=비어 있거나 비어 있습니다
+ForumCode.FlagClass_reason_4=명확한 교육적 관련성이 없이 본질적으로 명백히 상업적입니다
 ForumCode.FlagClass_reason_5=손상되었거나 바이러스가 있음
 ForumCode.FlagClass_reason_6=말도 안 되는 소리인 것 같다
 ForumCode.FlagClass_reason_alt=다른 이유
@@ -212,7 +212,7 @@ conversations.flag._actions=행위
 conversations.flag.target=표적
 conversations.flag.emptyvalue=-
 conversations.flag.list.title=플래그 목록
-conversations.flag.list.instructions=신고된 항목의 목록입니다.
+conversations.flag.list.instructions=신고된 항목의 목록입니다
 conversations.flag.success.dialog.goback=토론으로 돌아가기
 conversations.addthis.title={0} #xwiki포럼
 conversations.addthis.desc={0}
@@ -225,18 +225,18 @@ discussion.panel.votes=투표
 discussion.panel.comments=코멘트
 discussion.panel.topics=주제
 discussion.panel.subscribe=구독하다
-discussion.panel.text1=다음을 구독하여 최신 항목을 받아보세요.
+discussion.panel.text1=다음을 구독하여 최신 항목을 받아보세요:
 discussion.panel.text2=또는
 
 ## applications panel entry
 forum.applicationsPanelEntryLabel=포럼
 ## mail notif
 forum.mail.notif.topic.delete.title=삭제된 주제
-forum.mail.notif.topic.delete.message=다음 주제가 삭제되었습니다.
+forum.mail.notif.topic.delete.message=다음 주제가 삭제되었습니다:
 forum.mail.notif.answer.delete.title=삭제된 답변
-forum.mail.notif.answer.delete.message=다음 답변이 삭제되었습니다.
+forum.mail.notif.answer.delete.message=다음 답변이 삭제되었습니다:
 forum.mail.notif.comment.delete.title=삭제된 댓글
-forum.mail.notif.comment.delete.message=다음 댓글이 삭제되었습니다.
+forum.mail.notif.comment.delete.message=다음 댓글이 삭제되었습니다:
 forum.mail.notif.delete.thanks=감사합니다
 forum.mail.notif.delete.view=삭제된 보기
 
