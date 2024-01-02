@@ -1,0 +1,294 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.1" locale="ko">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>ko</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1400760336000</date>
+  <contentUpdateDate>1400760336000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.TopicClass_title=제목
+ForumCode.TopicClass_type=유형
+ForumCode.TopicClass_type_question=질문
+ForumCode.TopicClass_type_suggestion=제안
+ForumCode.TopicClass_type_alert=알리다
+ForumCode.TopicClass_type_feedback=피드백
+ForumCode.TopicClass_status=상태
+ForumCode.TopicClass_status_inprogress=진행 중
+ForumCode.TopicClass_status_closed=닫은
+ForumCode.TopicClass_status_integrated=통합
+ForumCode.TopicClass_description=설명
+ForumCode.AnswerClass_answer=역이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 줄임표
+ForumCode.AnswerClass_description=답변
+
+## Forums
+conversations.forum.tooltip.totaltopics=총 주제
+conversations.forum.create=새로운 포럼
+conversations.forum.create.alreadyexists=포럼이 이미 존재합니다: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=만들다
+conversations.forum.sorttopicsby=주제 정렬 기준
+conversations.forum.sorttopicsby.date=날짜
+conversations.forum.sorttopicsby.votes=투표
+conversations.forum.sorttopicsby.comments=코멘트
+conversations.titleError=제목은 250자(영문 기준) 이하여야 합니다.
+conversations.forum.title=제목
+conversations.forum.description=설명
+conversations.forum.edit=주제 편집
+conversations.forum.delete=주제 삭제
+conversations.forum.more={0}개 더 보기
+forum.admin.action.delete.confiramtion_text=이 포럼을 삭제하시겠습니까?
+forum.admin.action.delete.inprogress=삭제 진행 중...
+forum.admin.action.delete.success=삭제 진행 중...
+forum.admin.action.delete.failed=삭제 진행 중...
+conversations.forum.all=삭제 진행 중...
+conversations.forum.add=삭제 진행 중...
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=삭제 진행 중...
+conversations.topic.tooltip.totalanswers=삭제 진행 중...
+conversations.topic.answer.tooltip.totalcomments=삭제 진행 중...
+conversations.topic.create=삭제 진행 중...
+conversation.topic.create=삭제 진행 중...
+conversations.topic.create.submit=삭제 진행 중...
+conversations.topic.all=삭제 진행 중...
+conversations.topic.empty=삭제 진행 중...
+conversations.topic.count=삭제 진행 중...
+conversations.topic.delete.confirm.withReplies=삭제 진행 중...
+
+## Answers
+conversations.title=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 물음표(?)
+conversation.add.activator=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 물음표(?)
+conversation.answer.create=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.), 일치하지 않는 물음표(?)
+conversation.delete.confirm=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
+conversation.delete.confirm.withReplies=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
+conversation.delete.done=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
+conversation.delete.success=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
+conversation.delete.failed=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
+conversation.delete.inProgress=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
+conversation.edit=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
+conversation.edit.failed=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 마침표(.)
+conversation.delete=이 저장되었지만, 일부 새롭게 실패한 검사가 있습니다: 일치하지 않는 콜론(:)
+conversation.delete.title=답변 삭제
+conversation.edit.title=답변 수정
+conversation.empty=댓글 없음
+conversation.forum.delete.title=주제 삭제
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=이 토론에 참여하려면 이 그룹의 구성원이어야 합니다. 그룹 관리자에게 문의하세요.
+conversation.norights=귀하에게는 이 토론에 참여할 권리가 없습니다.
+conversations.answer.edit=주제 {0}에 대한 답변
+conversations.answer=답변
+conversations.answer.all=모든 답변
+conversations.answer.empty=답변 없음
+conversations.answer.count=답변
+
+## Comments
+conversations.comment.count=코멘트
+
+## Votes
+conversation.like.button=투표
+conversation.like.button.tooltip=주제 투표
+conversation.like.button.alreadyliked.tooltip=이미 투표하셨습니다
+conversation.like.score.tooltip={0}명의 사용자가 이 답변이 흥미롭다고 생각했습니다.
+conversation.like.failed=투표를 저장할 수 없습니다:
+conversation.like.done=귀하의 투표가 저장되었습니다.
+conversation.like.loading=투표를 저장하는 중...
+rating.saveexception=투표를 저장하는 중에 오류가 발생했습니다.
+rating.votenotvalid=투표가 유효하지 않습니다.
+rating.voteoutofbounds=투표가 유효하지 않습니다.
+
+## Permalink
+conversation.permalink.tooltip=고유링크
+conversation.permalink=고유링크
+
+## Livetable
+conversations.doc.title=제목
+conversations.doc.date=날짜
+conversations.doc.creator=창조자
+conversations.actions=행위
+conversations._avatar=화신
+
+## Messages
+conversations.create.error.topic.norights=새 주제를 만들 수 있는 권한이 없습니다!
+conversations.create.error.answer.missingParams=매개변수가 충분하지 않습니다!
+conversations.create.error.answer.norights=새로운 답변을 만들 수 있는 권한이 없습니다!
+conversations.create.success.answer=답변이 추가되었습니다!
+conversations.create.error.missingmetadata=메타데이터가 누락되어 생성을 수행할 수 없습니다!
+conversations.create.error.missingtitle=제목이 없습니다!
+conversations.create.inProgress=첨가...
+conversations.create.requestError=요청을 보내는 중에 오류가 발생했습니다. 다시 시도해 주세요.
+conversations.create.success.topic=주제가 추가되었습니다!
+conversations.deleteconversation.changecomment=삭제된 답변
+conversations.deletecomment.changecomment=삭제된 댓글
+conversations.deletecomment.error.nomailsent=댓글 삭제를 알리는 메일을 보낼 수 없습니다.
+conversations.deletecomment.success=댓글 삭제 알림 메일이 발송되었습니다.
+conversations.deletecomment.error.norights=댓글을 삭제할 권한이 없습니다.
+conversations.deletecomment.error.notfound=댓글을 찾을 수 없습니다.
+conversations.deleteconversation.error.nomailsent=주제 삭제를 알리는 메일을 보낼 수 없습니다.
+conversations.deleteconversation.success=주제가 삭제되었습니다.
+conversations.deleteconversation.error.norights=답변을 삭제할 권한이 없습니다.
+conversations.deleteconversation.error.notfound=주제를 찾을 수 없습니다.
+core.viewers.comments.delete.failed=댓글을 삭제할 수 없습니다.
+conversations.deleteanswer.error.nomailsent=답변 삭제를 알리는 메일을 보낼 수 없습니다.
+
+## FLAG DIALOG
+conversation.flag.tooltip=깃발
+conversations.flag.edit=편집하다
+conversations.flag.button=깃발
+conversations.flag.viewsource=플래그 소스 보기
+conversations.flag.dialog.header=댓글에 플래그 지정
+conversations.flag.dialog.guidingquestion1.txt=댓글에 플래그를 지정하면 어떻게 되나요?
+conversations.flag.dialog.instruction1.txt=포럼 관리자가 즉시 평가할 수 있도록 댓글 스레드를 제출합니다.
+conversations.flag.dialog.guidingquestion2.txt=이 토론을 신고하는 이유는 무엇입니까?
+conversations.flag.dialog.required.field.icon=&lt;em class="필수 표시기"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=이 댓글을 신고하는 이유는 다음과 같습니다.
+conversations.flag.dialog.instruction3.txt=이 댓글이 불쾌한 이유를 설명하는 메모(300자 이하)를 입력하세요.
+conversations.flag.dialog.reason.label=이유
+conversations.flag.dialog.message.label=설명
+conversations.flag.dialog.mandatory=이 필드는 필수입니다.
+conversations.flag.dialog.cancel.btt=취소
+conversations.flag.dialog.submit.btt=제출하다
+conversations.flag.error.nomailsent=플래그가 지정된 댓글에 대해 알리기 위한 메일을 보낼 수 없습니다.
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+ForumCode.FlagClass_reason_=선택하다
+ForumCode.FlagClass_reason_1=증오심이나 폭력을 조장합니다.
+ForumCode.FlagClass_reason_2=음란물을 표시합니다.
+ForumCode.FlagClass_reason_3=비어 있거나 비어 있습니다.
+ForumCode.FlagClass_reason_4=명확한 교육적 관련성이 없이 본질적으로 명백히 상업적입니다.
+ForumCode.FlagClass_reason_5=손상되었거나 바이러스가 있음
+ForumCode.FlagClass_reason_6=말도 안 되는 소리인 것 같다
+ForumCode.FlagClass_reason_alt=다른 이유
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=상태
+ForumCode.FlagClass_status_open=열려 있는
+ForumCode.FlagClass_status_inprogress=진행 중
+ForumCode.FlagClass_status_resolved=해결됨
+## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=토론에 플래그가 지정됨
+conversations.flag.success.dialog.message=이 댓글을 성공적으로 신고했습니다.
+conversations.flag.success.dialog.button=닫다
+## FLAG livetable
+conversations.flag.reason=이유
+conversations.flag.user=사용자
+conversations.flag.doc.creationDate=날짜
+conversations.flag.message=메시지
+conversations.flag.moderator=중재자
+conversations.flag.status=상태
+conversations.flag._actions=행위
+conversations.flag.target=표적
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=플래그 목록
+conversations.flag.list.instructions=신고된 항목의 목록입니다.
+conversations.flag.success.dialog.goback=토론으로 돌아가기
+conversations.addthis.title={0} #xwiki포럼
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=가장 활발한 주제
+discussion.panel.sortby=정렬 기준:
+discussion.panel.dates=날짜
+discussion.panel.votes=투표
+discussion.panel.comments=코멘트
+discussion.panel.topics=주제
+discussion.panel.subscribe=구독하다
+discussion.panel.text1=다음을 구독하여 최신 항목을 받아보세요.
+discussion.panel.text2=또는
+
+## applications panel entry
+forum.applicationsPanelEntryLabel=포럼
+## mail notif
+forum.mail.notif.topic.delete.title=삭제된 주제
+forum.mail.notif.topic.delete.message=다음 주제가 삭제되었습니다.
+forum.mail.notif.answer.delete.title=삭제된 답변
+forum.mail.notif.answer.delete.message=다음 답변이 삭제되었습니다.
+forum.mail.notif.comment.delete.title=삭제된 댓글
+forum.mail.notif.comment.delete.message=다음 댓글이 삭제되었습니다.
+forum.mail.notif.delete.thanks=감사합니다
+forum.mail.notif.delete.view=삭제된 보기
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=토론 추가
+recent.forum.discussions.createdAnswerOnTopic=주제에 대한 답변
+recent.forum.discussions.createdTopic=생성된 주제
+recent.forum.discussions.creationDate={0}에
+recent.forum.discussions.editedAnswerOnTopic=주제에 대한 편집된 답변
+recent.forum.discussions.editedTopic=편집된 주제
+recent.forum.discussions.seeAllDiscussions=모든 토론 보기
+
+## rendering macro
+rendering.macro.forum.recentForumDiscussions.name=최근 포럼 토론
+
+## TOURS
+## Forums homepage tour
+tour.forumsHomepageTour.welcome.title=포럼 응용 프로그램에 오신 것을 환영합니다!
+tour.forumsHomepageTour.welcome.content=포럼은 토론 포럼을 무제한으로 만들고, 투표하고, 부적절한 콘텐츠에 플래그를 지정하는 데 사용할 수 있는 커뮤니케이션 도구입니다.
+tour.forumsHomepageTour.addForum.title=포럼 추가
+tour.forumsHomepageTour.addForum.content=새 포럼을 만듭니다.
+tour.forumsHomepageTour.forumsLivetable.title=포럼 라이브테이블
+tour.forumsHomepageTour.forumsLivetable.content=모든 포럼을 확인하세요. 정렬, 필터링, 편집, 삭제 등 가능한 작업을 확인하세요.
+tour.forumsHomepageTour.mostActiveTopics.title=가장 활발한 주제
+tour.forumsHomepageTour.mostActiveTopics.content=이 패널에는 투표 및 댓글 측면에서 가장 활발한 주제가 표시됩니다. 주제는 날짜, 투표 수, 댓글 수를 기준으로 정렬할 수 있습니다. 해당 버튼을 클릭하면 오름차순/내림차순으로 정렬됩니다. 주제에 대한 최신 정보를 얻으려면 구독하세요!
+## Forum Tour
+tour.forumTour.forumDetails.title=포럼 세부정보
+tour.forumTour.forumDetails.content=기존 정보: 포럼 설명, 작성자, 생성 날짜, 주제 수 및 투표 수.
+tour.forumTour.addTopic.title=주제 추가
+tour.forumTour.addTopic.content=새 주제를 만듭니다.
+tour.forumTour.sortTopics.title=주제 정렬
+tour.forumTour.sortTopics.content=주제는 날짜, 투표 수 또는 댓글 수를 기준으로 정렬할 수 있습니다. 해당 버튼을 클릭한 후 오름차순/내림차순을 변경하세요.
+tour.forumTour.listOfTopics.title=주제 목록
+tour.forumTour.listOfTopics.content=모든 주제를 확인하세요. 기존정보 : 주제명, 설명, 작성자, 작성일자, 답변수, 댓글수, 투표수.
+## Topic Tour
+tour.topicTour.topicDetails.title=주제 세부정보
+tour.topicTour.topicDetails.content=기존 정보: 주제 설명, 작성자, 생성 날짜, 주제 수, 투표 수. 주제에 대해 가능한 작업을 알아보려면 다음 단계를 읽어보세요.
+tour.topicTour.flagAndPermalink.title=플래그 및 고유링크
+tour.topicTour.flagAndPermalink.content=주제의 내용이 부적절한 경우 플래그 옵션을 사용하여 관리자에게 경고할 수 있습니다. 영구링크가 귀하에게 URL을 제공할 것입니다.
+tour.topicTour.socialMedia.title=소셜 미디어에 공유
+tour.topicTour.socialMedia.content=소셜 미디어 버튼을 통해 이 주제를 친구들과 공유할 수 있습니다.
+tour.topicTour.topicModeration.title=주제 조정
+tour.topicTour.topicModeration.content=여기에 수정, 삭제 버튼이 있습니다.
+tour.topicTour.vote.title=투표
+tour.topicTour.vote.content=주제 투표.
+tour.topicTour.addAnswer.title=답변 추가
+tour.topicTour.addAnswer.content=새로운 답변을 작성하세요.
+tour.topicTour.listOfAnswers.title=답변 목록
+tour.topicTour.listOfAnswers.content=모든 답변과 댓글을 확인하세요.
+
+## Template Provider
+templateProvider.forum.name=법정
+templateProvider.forum.description=대화 시작
+</content>
+  </xwikidoc>
