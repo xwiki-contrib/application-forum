@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -178,42 +178,42 @@ conversations.flag.button=Flaga
 ### Missing: conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
 ### Missing: conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
 ### Missing: conversations.flag.dialog.reason.label=Reason
-### Missing: conversations.flag.dialog.message.label=Description
-### Missing: conversations.flag.dialog.mandatory=This field is mandatory
-### Missing: conversations.flag.dialog.cancel.btt=Cancel
-### Missing: conversations.flag.dialog.submit.btt=Submit
-### Missing: conversations.flag.error.nomailsent=Could not send mail to notify about flagged comment.
+conversations.flag.dialog.message.label=Opis
+conversations.flag.dialog.mandatory=To pole jest obowiązkowe
+conversations.flag.dialog.cancel.btt=Anuluj
+conversations.flag.dialog.submit.btt=Prześlij
+conversations.flag.error.nomailsent=Nie można wysłać wiadomości e-mail z powiadomieniem o oznaczonym komentarzu.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
 ForumCode.FlagClass_reason_=Zaznacz
-### Missing: ForumCode.FlagClass_reason_1=Promotes hate or violence
-### Missing: ForumCode.FlagClass_reason_2=Displays pornography
-### Missing: ForumCode.FlagClass_reason_3=Is empty or blank
-### Missing: ForumCode.FlagClass_reason_4=Is obviously commercial in nature, without clear educational relevance
-### Missing: ForumCode.FlagClass_reason_5=Is broken or has a virus
-### Missing: ForumCode.FlagClass_reason_6=Appears to be nonsensical
-### Missing: ForumCode.FlagClass_reason_alt=Other reason
+ForumCode.FlagClass_reason_1=Promują nienawiść lub przemoc
+ForumCode.FlagClass_reason_2=Wyświetla pornografię
+ForumCode.FlagClass_reason_3=Jest pusty lub pusty
+ForumCode.FlagClass_reason_4=Ma oczywiście charakter komercyjny, bez wyraźnego znaczenia edukacyjnego
+ForumCode.FlagClass_reason_5=Jest zepsuty lub ma wirusa
+ForumCode.FlagClass_reason_6=Wydaje się być bezsensowne
+ForumCode.FlagClass_reason_alt=Inny powód
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
 ForumCode.FlagClass_status=Status
 ForumCode.FlagClass_status_open=Otwarte
 ForumCode.FlagClass_status_inprogress=W trakcie
 ForumCode.FlagClass_status_resolved=Rozwiązane
 ## FLAG SUCCESS MESSAGE
-### Missing: conversations.flag.success.dialog.header=Discussion Flagged
-### Missing: conversations.flag.success.dialog.message=You have successfully flagged this comment.
-### Missing: conversations.flag.success.dialog.button=Close
+conversations.flag.success.dialog.header=Dyskusja oflagowana
+conversations.flag.success.dialog.message=Ten komentarz został pomyślnie zgłoszony.
+conversations.flag.success.dialog.button=Zamknij
 ## FLAG livetable
-### Missing: conversations.flag.reason=Reason
-### Missing: conversations.flag.user=User
-### Missing: conversations.flag.doc.creationDate=Date
-### Missing: conversations.flag.message=Message
+conversations.flag.reason=Powód
+conversations.flag.user=Użytkownik
+conversations.flag.doc.creationDate=Data
+conversations.flag.message=Wiadomość
 ### Missing: conversations.flag.moderator=Moderator
 ### Missing: conversations.flag.status=Status
-### Missing: conversations.flag._actions=Actions
-### Missing: conversations.flag.target=Target
+conversations.flag._actions=Akcje
+conversations.flag.target=Cel
 ### Missing: conversations.flag.emptyvalue=-
-### Missing: conversations.flag.list.title=Flag List
-### Missing: conversations.flag.list.instructions=This is the list of flagged items
-### Missing: conversations.flag.success.dialog.goback=Return to discussion
+conversations.flag.list.title=Lista oznaczeń
+conversations.flag.list.instructions=To jest lista oznaczonych elementów
+conversations.flag.success.dialog.goback=Wróć do dyskusji
 ### Missing: conversations.addthis.title={0} #xwikiforum
 ### Missing: conversations.addthis.desc={0}
 
@@ -234,17 +234,17 @@ ForumCode.FlagClass_status_resolved=Rozwiązane
 ### Missing: forum.mail.notif.topic.delete.title=Deleted topic
 ### Missing: forum.mail.notif.topic.delete.message=The following topic has been deleted:
 ### Missing: forum.mail.notif.answer.delete.title=Deleted answer
-### Missing: forum.mail.notif.answer.delete.message=The following answer has been deleted:
-### Missing: forum.mail.notif.comment.delete.title=Deleted comment
-### Missing: forum.mail.notif.comment.delete.message=The following comment has been deleted:
-### Missing: forum.mail.notif.delete.thanks=Thank you
-### Missing: forum.mail.notif.delete.view=View deleted
+forum.mail.notif.answer.delete.message=Skreślono następującą odpowiedź:
+forum.mail.notif.comment.delete.title=Usunięty komentarz
+forum.mail.notif.comment.delete.message=Usunięto następujący komentarz:
+forum.mail.notif.delete.thanks=Dziękuję
+forum.mail.notif.delete.view=Podgląd usunięty
 
 ## recent forum discussions
-### Missing: recent.forum.discussions.addDiscussion=Add discussion
-### Missing: recent.forum.discussions.createdAnswerOnTopic=answered on topic
-### Missing: recent.forum.discussions.createdTopic=created topic
-### Missing: recent.forum.discussions.creationDate=on {0}
+recent.forum.discussions.addDiscussion=Dodaj dyskusję
+recent.forum.discussions.createdAnswerOnTopic=Odpowiedział na temat
+recent.forum.discussions.createdTopic=utworzony temat
+recent.forum.discussions.creationDate=na {0}
 ### Missing: recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
 ### Missing: recent.forum.discussions.editedTopic=edited topic
 ### Missing: recent.forum.discussions.seeAllDiscussions=See all discussions
@@ -289,5 +289,6 @@ ForumCode.FlagClass_status_resolved=Rozwiązane
 
 ## Template Provider
 ### Missing: templateProvider.forum.name=Forum
-### Missing: templateProvider.forum.description=Start a conversation</content>
+### Missing: templateProvider.forum.description=Start a conversation
+</content>
 </xwikidoc>
