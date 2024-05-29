@@ -12,3 +12,12 @@ Forum application with multiple forums, topics, answers, comments, supporting WY
 * [Translations](http://l10n.xwiki.org/xwiki/bin/view/Contrib/ForumApplication)
 * Sonar Dashboard: N/A
 * Continuous Integration Status: [![Build Status](http://ci.xwiki.org/job/XWiki%20Contrib/job/application-forum/job/master/badge/icon)](http://ci.xwiki.org/job/XWiki%20Contrib/job/application-forum/job/master/)
+
+# Release
+
+* Release
+
+```
+mvn release:prepare -Pintegration-tests
+mvn release:perform -Pintegration-tests
+```
