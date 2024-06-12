@@ -177,8 +177,8 @@
   &lt;div id="xwikicomment_${conversationId}_${comment.number}" objtype="comment" class="comment $commentodd #if ($comment.getProperty('author').value == $commentDoc.creator) commentByCreator#end"&gt;
     &lt;div class="comment-layout"&gt;
       &lt;span class="user-avatar"&gt;
-        #if ("$!comment.replyto" == '')#smallUserAvater2($comment.author)#{else}#smallUserAvater2($comment.author)#end
-      &lt;/span&gt; 
+        #smallUserAvater2($comment.getValue('author'))
+      &lt;/span&gt;
       &lt;span class="comment-meta"&gt;
         &lt;span class="user"&gt;$!xwiki.getUserName($comment.getValue('author'))&lt;/span&gt;
         #set ($date = $comment.getProperty('date').value)
