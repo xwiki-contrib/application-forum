@@ -20,19 +20,19 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc version="1.1">
+<xwikidoc version="1.2" reference="ForumCode.CommentTemplate" locale="">
   <web>ForumCode</web>
   <name>CommentTemplate</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
   <creationDate>1414416351000</creationDate>
+  <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1414416371000</date>
-  <contentUpdateDate>1414416371000</contentUpdateDate>
+  <date>1715080412000</date>
+  <contentUpdateDate>1715080412000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>

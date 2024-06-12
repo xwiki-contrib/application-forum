@@ -20,29 +20,31 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 
-<xwikidoc>
+<xwikidoc version="1.2" reference="ForumCode.TopicTemplate" locale="">
   <web>ForumCode</web>
   <name>TopicTemplate</name>
   <language/>
   <defaultLanguage/>
   <translation>0</translation>
-  <parent>WebHome</parent>
   <creator>xwiki:XWiki.Admin</creator>
-  <author>xwiki:XWiki.Admin</author>
-  <customClass/>
-  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
   <creationDate>1375308000000</creationDate>
-  <date>1375308000000</date>
-  <contentUpdateDate>1375308000000</contentUpdateDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1715080413000</date>
+  <contentUpdateDate>1715080413000</contentUpdateDate>
   <version>1.1</version>
   <title/>
-  <defaultTemplate/>
-  <validationScript/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
+  <content/>
   <object>
+    <name>ForumCode.TopicTemplate</name>
+    <number>0</number>
+    <className>ForumCode.TopicClass</className>
+    <guid>e92a3daa-0acd-452d-a36d-7748a1c6fcb6</guid>
     <class>
       <name>ForumCode.TopicClass</name>
       <customClass/>
@@ -110,10 +112,6 @@
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </type>
     </class>
-    <name>ForumCode.TopicTemplate</name>
-    <number>0</number>
-    <className>ForumCode.TopicClass</className>
-    <guid>e92a3daa-0acd-452d-a36d-7748a1c6fcb6</guid>
     <property>
       <description/>
     </property>
@@ -124,5 +122,4 @@
       <type/>
     </property>
   </object>
-  <content/>
 </xwikidoc>

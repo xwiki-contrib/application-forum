@@ -31,15 +31,15 @@
   <parent>Tour.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1463048591000</date>
-  <contentUpdateDate>1462974724000</contentUpdateDate>
+  <date>1715080413000</date>
+  <contentUpdateDate>1715080413000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
   <minorEdit>false</minorEdit>
   <syntaxId>xwiki/2.1</syntaxId>
-  <content/>
   <hidden>true</hidden>
+  <content/>
   <object>
     <name>ForumCode.Forum tour</name>
     <number>0</number>
@@ -71,7 +71,7 @@
       <content>
         <customDisplay/>
         <disabled>0</disabled>
-        <editor>---</editor>
+        <editor>Text</editor>
         <name>content</name>
         <number>3</number>
         <picker>0</picker>
@@ -212,7 +212,7 @@ $services.localization.render('tour.forumTour.forumDetails.content')
       <content>
         <customDisplay/>
         <disabled>0</disabled>
-        <editor>---</editor>
+        <editor>Text</editor>
         <name>content</name>
         <number>3</number>
         <picker>0</picker>
@@ -353,7 +353,7 @@ $services.localization.render('tour.forumTour.addTopic.content')
       <content>
         <customDisplay/>
         <disabled>0</disabled>
-        <editor>---</editor>
+        <editor>Text</editor>
         <name>content</name>
         <number>3</number>
         <picker>0</picker>
@@ -494,7 +494,7 @@ $services.localization.render('tour.forumTour.sortTopics.content')
       <content>
         <customDisplay/>
         <disabled>0</disabled>
-        <editor>---</editor>
+        <editor>Text</editor>
         <name>content</name>
         <number>3</number>
         <picker>0</picker>
