@@ -200,7 +200,7 @@ viewers.Comments = Class.create({
         } else {
           new XWiki.widgets.ConfirmedAjaxRequest(
             /* Ajax request URL */
-            item.readAttribute('href') + (Prototype.Browser.Opera ? '' : '&amp;ajax=1'),
+            item.readAttribute('href') + (Prototype.Browser.Opera ? '' : '&amp;ajax=1&amp;outputSyntax=plain'),
             /* Ajax request parameters */
             {
               onCreate : function() {

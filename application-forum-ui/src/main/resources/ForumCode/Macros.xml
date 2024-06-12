@@ -214,7 +214,7 @@
         ## edit
         &lt;a class="edit" href="$commentDoc.getURL('view', "number=${comment.number}&amp;amp;xredirect=$escapetool.url($commentEditRedirect)&amp;amp;xpage=xpart&amp;amp;vm=commentsinline.vm")" title="$services.localization.render('core.viewers.comments.edit')"&gt;$services.localization.render('core.viewers.comments.edit')&lt;/a&gt;
         ## delete
-        &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', "action=deletecomment&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;amp;commentnumber=${comment.number}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$services.localization.render('core.viewers.comments.delete')"&gt;$services.localization.render('core.viewers.comments.delete')&lt;/a&gt;
+        &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deletecomment&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;amp;commentnumber=${comment.number}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$services.localization.render('core.viewers.comments.delete')"&gt;$services.localization.render('core.viewers.comments.delete')&lt;/a&gt;
       #end
     &lt;/div&gt;
 #end
