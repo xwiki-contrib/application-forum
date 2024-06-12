@@ -290,5 +290,7 @@ tour.topicTour.listOfAnswers.content=Посмотреть все ответы и
 ## Template Provider
 templateProvider.forum.name=Форум
 templateProvider.forum.description=Начать разговор
-</content>
+
+## Forum Administration Section
+forum.administration.configuration.title=конфигурация</content>
 </xwikidoc>

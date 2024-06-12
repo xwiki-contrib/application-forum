@@ -289,7 +289,10 @@ tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
 
 ## Template Provider
 templateProvider.forum.name=Forum
-templateProvider.forum.description=Start a conversation</content>
+templateProvider.forum.description=Start a conversation
+
+## Forum Administration Section
+forum.administration.configuration.title=Configuration</content>
   <object>
     <name>ForumCode.Translations</name>
     <number>0</number>

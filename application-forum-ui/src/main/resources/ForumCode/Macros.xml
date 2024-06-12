@@ -556,30 +556,34 @@
   #end
 #end
 ##
-#macro(displayForumAddThis $topicDoc, $topicTitle) 
-  #set ($addThisTitle = $services.localization.render('conversations.addthis.title', [$topicTitle, $topicDoc.getExternalURL()]))
-  #set ($addThisDesc = $services.localization.render('conversations.addthis.desc', [$topicTitle, $topicDoc.getExternalURL()]))
-  &lt;div class="topic-addthis"&gt;
-    &lt;!-- AddThis Button BEGIN --&gt;
-    &lt;div class="addthis_toolbox addthis_default_style "
-    addthis:url="${escapetool.xml($topicDoc.getExternalURL())}"
-    addthis:title="${escapetool.xml($addThisTitle)}"
-    #if ($addThisDesc != '' &amp;&amp; $addThisDesc != 'conversations.addthis.desc')
-    addthis:description="${escapetool.xml($addThisDesc)}"
-    #end&gt;
-      &lt;a class="addthis_button_preferred_1"&gt;&lt;/a&gt;
-      &lt;a class="addthis_button_preferred_2"&gt;&lt;/a&gt;
-      &lt;a class="addthis_button_preferred_3"&gt;&lt;/a&gt;
-      &lt;a class="addthis_button_preferred_4"&gt;&lt;/a&gt;
-      &lt;a class="addthis_button_compact"&gt;&lt;/a&gt;
-      &lt;a class="addthis_counter addthis_bubble_style"&gt;&lt;/a&gt;
+#macro(displayForumAddThis $topicDoc, $topicTitle)
+  #set ($configDoc = $xwiki.getDocument('ForumCode.ConfigurationAdmin'))
+  #set ($configObj = $configDoc.getObject('ForumCode.ConfigurationClass'))
+  #if ($configObj.getValue('enableSocialButtons') == 1)
+    #set ($addThisTitle = $services.localization.render('conversations.addthis.title', [$topicTitle, $topicDoc.getExternalURL()]))
+    #set ($addThisDesc = $services.localization.render('conversations.addthis.desc', [$topicTitle, $topicDoc.getExternalURL()]))
+    &lt;div class="topic-addthis"&gt;
+      &lt;!-- AddThis Button BEGIN --&gt;
+      &lt;div class="addthis_toolbox addthis_default_style "
+      addthis:url="${escapetool.xml($topicDoc.getExternalURL())}"
+      addthis:title="${escapetool.xml($addThisTitle)}"
+      #if ($addThisDesc != '' &amp;&amp; $addThisDesc != 'conversations.addthis.desc')
+      addthis:description="${escapetool.xml($addThisDesc)}"
+      #end&gt;
+        &lt;a class="addthis_button_preferred_1"&gt;&lt;/a&gt;
+        &lt;a class="addthis_button_preferred_2"&gt;&lt;/a&gt;
+        &lt;a class="addthis_button_preferred_3"&gt;&lt;/a&gt;
+        &lt;a class="addthis_button_preferred_4"&gt;&lt;/a&gt;
+        &lt;a class="addthis_button_compact"&gt;&lt;/a&gt;
+        &lt;a class="addthis_counter addthis_bubble_style"&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;script type="text/javascript"&gt;
+        var addthis_config = {'data_track_addressbar' : true};
+      &lt;/script&gt;
+      &lt;script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51acd2cb7dc9d536"&gt;&lt;/script&gt;
+      &lt;!-- AddThis Button END --&gt;
     &lt;/div&gt;
-    &lt;script type="text/javascript"&gt;
-      var addthis_config = {'data_track_addressbar' : true};
-    &lt;/script&gt;
-    &lt;script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51acd2cb7dc9d536"&gt;&lt;/script&gt;
-    &lt;!-- AddThis Button END --&gt;
-  &lt;/div&gt;
+  #end
 #end
 ##
 #macro(displayForumActions $topicDoc) 
