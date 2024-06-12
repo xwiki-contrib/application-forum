@@ -256,8 +256,6 @@
                 &lt;div class="commentcontainer"&gt;
                   &lt;label for="${xCommentClass}_comment_${conversationId}"&gt;$services.localization.render('core.viewers.comments.add.comment.label')&lt;/label&gt;
                   &lt;textarea id='${xCommentClass}_comment_${conversationId}' rows="5" cols="80" name="${xCommentClass}_comment" class="maximizable"&gt;$!comment&lt;/textarea&gt;
-                  ## adding to wysiwyg editors
-                  #addEditor("${xCommentClass}_comment_${conversationId}", $commentDoc)
                 &lt;/div&gt;
                 #if ($xcontext.user == 'XWiki.XWikiGuest' &amp;&amp; $offerGuestsCaptcha)
                   #displayCaptcha()
@@ -769,69 +767,6 @@
       &lt;p class="noitems"&gt;$services.localization.render('conversations.answer.empty')&lt;/p&gt;
     #end
   &lt;/div&gt;&lt;!-- / .answers --&gt;
-#end
-##
-#macro(addEditor $fieldname $editorDoc)
-  #if (!$myeditors)
-    #set ($myeditors = $collectionstool.map)
-  #end
-  #set ($config = $myeditors.get($editorDoc.fullName))
-  #if (!$config)
-    #set ($config = $collectionstool.map)
-    #set ($discard = $config.put('doc', $editorDoc))
-    #set ($discard = $config.put('editors', $fieldname))
-    #set ($discard = $myeditors.put($editorDoc.fullName, $config))
-  #else
-    #set ($discard = $config.put('editors', "${config.get('editors')},$fieldname"))
-  #end
-#end
-##
-#macro(displayEditors)
-  #if ($myeditors)
-    #if ($services.wysiwyg.isSyntaxSupported($doc.syntax.toIdString()))
-      #wysiwyg_import(false)
-      #foreach ($myeditor in $myeditors.values())
-        ## only prepare the editor but do not activate it
-        #foreach ($myeditor2 in $myeditor.get('editors').split(','))
-          #set ($parameters = $collectionstool.map)
-          #wysiwyg_storeConfig($parameters $myeditor.get('doc') $myeditor2 false)
-          #wysiwyg_prepareEditor($parameters)
-        #end
-      #end
-    #else
-      #warning("The new GWT-based WYSIWYG editor doesn't support the syntax of the current document: &lt;em&gt;$doc.syntax.toIdString()&lt;/em&gt;.")
-    #end
-  #end
-#end
-## Load the rich text object properties using a compact WYSIWYG editor.
-#**
-  * Creates a new WYSIWYG editor instance using the given configuration parameters.
-  *
-  * @param $parameters WYSIWYG editor configuration parameters
-  *#
-#macro(wysiwyg_prepareEditor $parameters)
-  #set ($jsVarName = "wysiwygConfig${util.generateRandomString(4)}")
-  #wysiwyg_writeConfig($jsVarName $parameters)
-  &lt;script type="text/javascript"&gt;
-    //&lt;![CDATA[
-      // force waiting for dom loaded to activate wysiwyg
-      document.observe('xwiki:dom:loaded', function(){
-        var Wysiwyg = Wysiwyg || {};
-        window.WysiwygConfig = window.WysiwygConfig || {};
-        WysiwygConfig["${parameters.hookId}"] = $jsVarName; 
-        #if ($parameters.hookId.startsWith('XWiki.XWikiComments_'))
-          WysiwygConfig["${parameters.hookId}"].inputURL = "$xwiki.getURL('ForumCode.CommentTemplate', 'edit', 'xpage=wysiwyginput&amp;token=$services.csrf.getToken()')";
-        #end
-        $jsVarName = undefined;
-        $("${parameters.hookId}").observe('focus', function(event){
-          if ($("${parameters.hookId}").wysiwyg == undefined) {
-            WysiwygConfig["${parameters.hookId}"].hookId = "${parameters.hookId}";
-            $("${parameters.hookId}").wysiwyg = new WysiwygEditor(WysiwygConfig["${parameters.hookId}"]);
-          }
-        });
-      });
-    //]]&gt;
-  &lt;/script&gt;
 #end
 #**
  * Summary of active discussions

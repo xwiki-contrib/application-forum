@@ -85,8 +85,6 @@
     &lt;div class="topics"&gt;
       #displayTopics()
     &lt;/div&gt;
-    ## Enable WYSIWYG editors loading when adding comments
-    #displayEditors()
   {{/html}}
 #end
 #set($docextras = [])

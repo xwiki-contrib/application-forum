@@ -45,9 +45,6 @@
 ## Set some 'global' variables
 ##---------------------------------------------------------------------
 ##
-## need this editors list to activate wysiwyg
-#set($editors = "")
-##
 #set($xCommentClass = 'XWiki.XWikiComments')
 ##
 #if(!$replyTo)

@@ -1205,8 +1205,6 @@ Various Fixes
 .AddComment .commentcontainer { padding: 4px 0; }
 .AddComment .commentcontainer label { display: none; }
 .AddComment .commentcontainer textarea { width: 100%; }
-/* Hide the fullscreen link genertated by wysiwyg */
-.AddComment .commentcontainer .fullScreenEditLinkContainer { display:none; }
 
 * html .AddComment .commentcontainer textarea {
   /* fix for IE6 */

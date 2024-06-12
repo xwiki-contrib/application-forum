@@ -288,18 +288,7 @@ viewers.Comments = Class.create({
                   this.editing = item;
                 } catch (e) {
                   console.log('Failed to activate editing: ' + e);
-                }   
-                // activate wysiwyg. We will use the configuration from the other textarea
-                try {
-                  var commentAddTextareaId = this.conversation.down('.commentcontainer').down('textarea').id;
-                  var wConfig = WysiwygConfig[commentAddTextareaId];
-                  wConfig.hookId = item._x_editForm.down('textarea').id;
-                  wConfig.cacheId = item._x_editForm.down('input').id;
-                  item._x_editForm.wysiwyg = new WysiwygEditor(wConfig);
-                  // XWiki.widgets.fs.addBehavior(item._x_editForm.down(".xRichTextEditor")); 
-                } catch (e) {
-                  console.log('Failed to activate wysiwyg: ' + e);
-                }   
+                }
                 item._x_notification.hide();
               }.bind(this),
               onFailure : function (response) {
@@ -356,17 +345,8 @@ viewers.Comments = Class.create({
             this.form.up('.commentreplies').previous(this.xcommentSelector).down('a.commentreply').show();
           }
 
-          // Before moving the editor we need to unload the wysiwyg editor
-          var tarea = this.form['XWiki.XWikiComments_comment'];
-          tarea.wysiwyg.release()
-          tarea.previous().remove()
-
           // Insert the form on top of that comment's discussion
           item.up(this.xcommentSelector).next('.commentthread').insert({'top' : this.form});
-
-          // now we can reload the editor
-          tarea.wysiwyg = new WysiwygEditor(WysiwygConfig[tarea.id]);
-          XWiki.widgets.fs.addBehavior(this.form.down('.xRichTextEditor'));
 
           // Set the replyto field to the replied comment's number
           this.form['XWiki.XWikiComments_replyto'].value = item.up(this.xcommentSelector)._x_number;
@@ -574,17 +554,8 @@ viewers.Comments = Class.create({
       // Show the comment's reply button
       this.form.up(".commentreplies").previous(this.xcommentSelector).down('a.commentreply').show();
 
-      // Before moving the editor we need to unload the wysiwyg editor
-      var tarea = this.form['XWiki.XWikiComments_comment'];
-      tarea.wysiwyg.release()
-      tarea.previous().remove()
-
       // Put the form back to its initial location and clear the contents
       this.initialLocation.insert({after: this.form});
-
-      // now we can reload the editor
-      tarea.wysiwyg = new WysiwygEditor(WysiwygConfig[tarea.id]);
-      XWiki.widgets.fs.addBehavior(this.form.down('.xRichTextEditor'));
     }
     this.form['XWiki.XWikiComments_replyto'].value = '';
     this.form['XWiki.XWikiComments_comment'].value = '';
@@ -726,11 +697,6 @@ viewers.Comments = Class.create({
           // put the redirect in the form and wait for the prey...
           editForm.insert(new Element('input', {'type' : 'hidden', 'name' : 'xredirect', 'value' : window.location.href}));
           editForm.insert(buttonsContainer);
-
-          // activate wysiwyg. We will use the configuration from the other textarea
-          var convTextArea = this.form['XWiki.XWikiComments_comment'];
-          editForm.wysiwyg = new WysiwygEditor(WysiwygConfig[convTextArea.id]);
-          XWiki.widgets.fs.addBehavior(editForm.down('.xRichTextEditor'));    
         }.bind(this),
         onFailure : function (response) {
           var failureReason = response.statusText;
