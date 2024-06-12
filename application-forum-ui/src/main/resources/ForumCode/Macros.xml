@@ -180,7 +180,7 @@
         #if ("$!comment.replyto" == '')#smallUserAvater2($comment.author)#{else}#smallUserAvater2($comment.author)#end
       &lt;/span&gt; 
       &lt;span class="comment-meta"&gt;
-        &lt;span class="user"&gt;$!xwiki.getUserName($doc.display('author', 'view', $comment))&lt;/span&gt;
+        &lt;span class="user"&gt;$!xwiki.getUserName($comment.getValue('author'))&lt;/span&gt;
         #set ($date = $comment.getProperty('date').value)
         &lt;span class="time"&gt;$!xwiki.formatDate($date)&lt;/span&gt;
       &lt;/span&gt;
