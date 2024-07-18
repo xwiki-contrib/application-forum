@@ -97,11 +97,7 @@
     #end  
   #elseif ("$!request.action" == 'addanswer')
     #if ("$!request.space" != '')
-      #set ($title = "$!request.get('ForumCode.AnswerClass_0_description').trim()")
-      ## Keep only 50 chars from the description to represent the answer's title
-      #if ($title.length() &gt; 50)
-        #set ($title = "${title.substring(0,50)}...")
-      #end
+      #set ($title = "Answer_${datetool.date.time}_${mathtool.random(1, 99)}")
       #getForumEntityDoc($request.space $title $entityDoc)
       #if ($entityDoc.hasAccessLevel('edit')) 
         #set($discard = $entityDoc.setParent("${request.parent}"))
