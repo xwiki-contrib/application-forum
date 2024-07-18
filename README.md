@@ -9,7 +9,7 @@ Forum application with multiple forums, topics, answers, comments, supporting WY
 * [Development Practices](http://dev.xwiki.org)
 * Minimal XWiki version supported: XWiki 8.4
 * License: LGPL v3
-* [Translations](http://l10n.xwiki.org/xwiki/bin/view/Contrib/ForumApplication)
+* [Translations](https://l10n.xwiki.org/projects/xwiki-contrib/forum-application/)
 * Sonar Dashboard: N/A
 * Continuous Integration Status: [![Build Status](http://ci.xwiki.org/job/XWiki%20Contrib/job/application-forum/job/master/badge/icon)](http://ci.xwiki.org/job/XWiki%20Contrib/job/application-forum/job/master/)
 
