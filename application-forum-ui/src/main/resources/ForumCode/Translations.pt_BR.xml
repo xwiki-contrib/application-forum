@@ -1,0 +1,297 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.2" reference="ForumCode.Translations" locale="pt_BR">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>pt_BR</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1715080412000</date>
+  <contentUpdateDate>1715080412000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.TopicClass_title=Título
+ForumCode.TopicClass_type=Tipo
+ForumCode.TopicClass_type_question=Pergunta
+ForumCode.TopicClass_type_suggestion=Sugestão
+ForumCode.TopicClass_type_alert=Alerta
+ForumCode.TopicClass_type_feedback=Opinião
+ForumCode.TopicClass_status=Status
+ForumCode.TopicClass_status_inprogress=Em andamento
+ForumCode.TopicClass_status_closed=Fechado
+ForumCode.TopicClass_status_integrated=Integrado
+ForumCode.TopicClass_description=Descrição
+ForumCode.AnswerClass_answer=Responder
+ForumCode.AnswerClass_description=Responder
+
+## Forums
+conversations.forum.tooltip.totaltopics=Total de tópicos
+conversations.forum.create=Novo fórum
+conversations.forum.create.alreadyexists=O fórum já existe: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Criar
+conversations.forum.sorttopicsby=Classificar tópicos por
+conversations.forum.sorttopicsby.date=Data
+conversations.forum.sorttopicsby.votes=Votos
+conversations.forum.sorttopicsby.comments=Comentários
+conversations.titleError=O título não deve ter mais de 250 caracteres.
+conversations.forum.title=Título
+conversations.forum.description=Descrição
+conversations.forum.edit=Editar tópico
+conversations.forum.delete=Excluir tópico
+conversations.forum.more=Mostrar mais {0}
+forum.admin.action.delete.confiramtion_text=Excluir este fórum?
+forum.admin.action.delete.inprogress=Exclusão em andamento...
+forum.admin.action.delete.success=Fórum excluído
+forum.admin.action.delete.failed=Não foi possível excluir o fórum
+conversations.forum.all=Todos os fóruns
+conversations.forum.add=Adicionar fórum
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=Total de respostas e comentários
+conversations.topic.tooltip.totalanswers=Total de respostas
+conversations.topic.answer.tooltip.totalcomments=Total de comentários para a resposta
+conversations.topic.create=Adicionar tópico
+conversation.topic.create=Adicionar tópico
+conversations.topic.create.submit=Criar
+conversations.topic.all=Todos os tópicos
+conversations.topic.empty=Nenhum tópico
+conversations.topic.count=tópicos
+conversations.topic.delete.confirm.withReplies=Excluir este tópico e suas respostas?
+
+## Answers
+conversations.title=Responder
+conversation.add.activator=Adicionar resposta
+conversation.answer.create=Adicionar resposta
+conversation.delete.confirm=Excluir tópico?
+conversation.delete.confirm.withReplies=Excluir esta resposta e seus comentários?
+conversation.delete.done=Resposta excluída
+conversation.delete.success=Resposta excluída
+conversation.delete.failed=A resposta não pôde ser excluída
+conversation.delete.inProgress=Exclusão em andamento...
+conversation.edit=Editar resposta
+conversation.edit.failed=O formulário usado para criar a resposta não pôde ser exibido
+conversation.delete=Excluir resposta
+conversation.delete.title=Excluir resposta
+conversation.edit.title=Editar resposta
+conversation.empty=Sem comentários
+conversation.forum.delete.title=Excluir tópico
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=Você deve ser um membro deste grupo para participar desta discussão. Entre em contato com o administrador do grupo.
+conversation.norights=Você não tem direitos para participar desta discussão.
+conversations.answer.edit=Resposta ao tópico {0}
+conversations.answer=Responder
+conversations.answer.all=Todas as respostas
+conversations.answer.empty=Sem resposta
+conversations.answer.count=respostas
+
+## Comments
+conversations.comment.count=comentários
+
+## Votes
+conversation.like.button=Votos
+conversation.like.button.tooltip=Tópico de votação
+conversation.like.button.alreadyliked.tooltip=Você já votou
+conversation.like.score.tooltip={0} usuários acharam esta resposta interessante.
+conversation.like.failed=A votação não pôde ser salva:
+conversation.like.done=Seu voto foi salvo.
+conversation.like.loading=Salvando o voto...
+rating.saveexception=Erro ao salvar o voto.
+rating.votenotvalid=A votação não é válida.
+rating.voteoutofbounds=A votação não é válida.
+
+## Permalink
+### Missing: conversation.permalink.tooltip=Permalink
+### Missing: conversation.permalink=Permalink
+
+## Livetable
+### Missing: conversations.doc.title=Title
+### Missing: conversations.doc.date=Date
+### Missing: conversations.doc.creator=Creator
+### Missing: conversations.actions=Actions
+### Missing: conversations._avatar=Avatar
+
+## Messages
+### Missing: conversations.create.error.topic.norights=You don't have the rights to create a new topic!
+### Missing: conversations.create.error.answer.missingParams=Not enough parameters!
+### Missing: conversations.create.error.answer.norights=You don't have the rights to create a new answer!
+### Missing: conversations.create.success.answer=Answer successfully added!
+### Missing: conversations.create.error.missingmetadata=The creation could not be performed because of missing metadata!
+### Missing: conversations.create.error.missingtitle=Missing title!
+### Missing: conversations.create.inProgress=Adding...
+### Missing: conversations.create.requestError=There was an error sending your request. Please try again.
+### Missing: conversations.create.success.topic=Topic successfully added!
+### Missing: conversations.deleteconversation.changecomment=Deleted answer
+### Missing: conversations.deletecomment.changecomment=Deleted comment
+### Missing: conversations.deletecomment.error.nomailsent=Could not send mail to notify about deleting the comment.
+### Missing: conversations.deletecomment.success=The mail to notify about comment deletion has been sent.
+### Missing: conversations.deletecomment.error.norights=You don't have the rights to delete the comment.
+### Missing: conversations.deletecomment.error.notfound=Comment not found.
+### Missing: conversations.deleteconversation.error.nomailsent=Could not send mail to notify about deleting the topic.
+### Missing: conversations.deleteconversation.success=Topic deleted.
+### Missing: conversations.deleteconversation.error.norights=You don't have the rights to delete the answer.
+### Missing: conversations.deleteconversation.error.notfound=Topic not found.
+### Missing: core.viewers.comments.delete.failed=The comment could not be deleted.
+### Missing: conversations.deleteanswer.error.nomailsent=Could not send mail to notify about deleting the answer.
+
+## FLAG DIALOG
+### Missing: conversation.flag.tooltip=Flag
+### Missing: conversations.flag.edit=Edit
+### Missing: conversations.flag.button=Flag
+### Missing: conversations.flag.viewsource=View Flag Source
+### Missing: conversations.flag.dialog.header=Flag a Comment
+### Missing: conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
+### Missing: conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
+### Missing: conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
+### Missing: conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+### Missing: conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
+### Missing: conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
+### Missing: conversations.flag.dialog.reason.label=Reason
+### Missing: conversations.flag.dialog.message.label=Description
+### Missing: conversations.flag.dialog.mandatory=This field is mandatory
+### Missing: conversations.flag.dialog.cancel.btt=Cancel
+### Missing: conversations.flag.dialog.submit.btt=Submit
+### Missing: conversations.flag.error.nomailsent=Could not send mail to notify about flagged comment.
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+### Missing: ForumCode.FlagClass_reason_=Select
+### Missing: ForumCode.FlagClass_reason_1=Promotes hate or violence
+### Missing: ForumCode.FlagClass_reason_2=Displays pornography
+### Missing: ForumCode.FlagClass_reason_3=Is empty or blank
+### Missing: ForumCode.FlagClass_reason_4=Is obviously commercial in nature, without clear educational relevance
+### Missing: ForumCode.FlagClass_reason_5=Is broken or has a virus
+### Missing: ForumCode.FlagClass_reason_6=Appears to be nonsensical
+### Missing: ForumCode.FlagClass_reason_alt=Other reason
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+### Missing: ForumCode.FlagClass_status=Status
+### Missing: ForumCode.FlagClass_status_open=Open
+### Missing: ForumCode.FlagClass_status_inprogress=In Progress
+### Missing: ForumCode.FlagClass_status_resolved=Resolved
+## FLAG SUCCESS MESSAGE
+### Missing: conversations.flag.success.dialog.header=Discussion Flagged
+### Missing: conversations.flag.success.dialog.message=You have successfully flagged this comment.
+### Missing: conversations.flag.success.dialog.button=Close
+## FLAG livetable
+### Missing: conversations.flag.reason=Reason
+### Missing: conversations.flag.user=User
+### Missing: conversations.flag.doc.creationDate=Date
+### Missing: conversations.flag.message=Message
+### Missing: conversations.flag.moderator=Moderator
+### Missing: conversations.flag.status=Status
+### Missing: conversations.flag._actions=Actions
+### Missing: conversations.flag.target=Target
+### Missing: conversations.flag.emptyvalue=-
+### Missing: conversations.flag.list.title=Flag List
+### Missing: conversations.flag.list.instructions=This is the list of flagged items
+### Missing: conversations.flag.success.dialog.goback=Return to discussion
+### Missing: conversations.addthis.title={0} #xwikiforum
+### Missing: conversations.addthis.desc={0}
+
+## most active discussions
+### Missing: discussion.panel.title=Most Active Topics
+### Missing: discussion.panel.sortby=Sort By:
+### Missing: discussion.panel.dates=Dates
+### Missing: discussion.panel.votes=Votes
+### Missing: discussion.panel.comments=Comments
+### Missing: discussion.panel.topics=Topics
+### Missing: discussion.panel.subscribe=Subscribe
+### Missing: discussion.panel.text1=Stay up to date with the latest entries by subscribing to:
+### Missing: discussion.panel.text2=or
+
+## applications panel entry
+### Missing: forum.applicationsPanelEntryLabel=Forums
+## mail notif
+### Missing: forum.mail.notif.topic.delete.title=Deleted topic
+### Missing: forum.mail.notif.topic.delete.message=The following topic has been deleted:
+### Missing: forum.mail.notif.answer.delete.title=Deleted answer
+### Missing: forum.mail.notif.answer.delete.message=The following answer has been deleted:
+### Missing: forum.mail.notif.comment.delete.title=Deleted comment
+### Missing: forum.mail.notif.comment.delete.message=The following comment has been deleted:
+### Missing: forum.mail.notif.delete.thanks=Thank you
+### Missing: forum.mail.notif.delete.view=View deleted
+
+## recent forum discussions
+### Missing: recent.forum.discussions.addDiscussion=Add discussion
+### Missing: recent.forum.discussions.createdAnswerOnTopic=answered on topic
+### Missing: recent.forum.discussions.createdTopic=created topic
+### Missing: recent.forum.discussions.creationDate=on {0}
+### Missing: recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
+### Missing: recent.forum.discussions.editedTopic=edited topic
+### Missing: recent.forum.discussions.seeAllDiscussions=See all discussions
+
+## rendering macro
+### Missing: rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
+
+## TOURS
+## Forums homepage tour
+### Missing: tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
+### Missing: tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag inappropriate content.
+### Missing: tour.forumsHomepageTour.addForum.title=Add Forum
+### Missing: tour.forumsHomepageTour.addForum.content=Create a new Forum.
+### Missing: tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
+### Missing: tour.forumsHomepageTour.forumsLivetable.content=See all the Forums. Check the possible actions: sort, filter, edit, delete.
+### Missing: tour.forumsHomepageTour.mostActiveTopics.title=Most Active Topics
+### Missing: tour.forumsHomepageTour.mostActiveTopics.content=This panel displays the most active topics in terms of votes and comments. Topics can be sorted by date, number of votes and number of comments. Click the related button to order ascending/descending. Subscribe to get the latest information about Topics!
+## Forum Tour
+### Missing: tour.forumTour.forumDetails.title=Forum details
+### Missing: tour.forumTour.forumDetails.content=Existing information: Forum description, creator, creation date, number of topics and number of votes.
+### Missing: tour.forumTour.addTopic.title=Add Topic
+### Missing: tour.forumTour.addTopic.content=Create a new Topic.
+### Missing: tour.forumTour.sortTopics.title=Sort Topics
+### Missing: tour.forumTour.sortTopics.content=Topics can be sorted by date, number of votes or number of comments. Click the related button and then change the ascendant/descending order.
+### Missing: tour.forumTour.listOfTopics.title=List of Topics
+### Missing: tour.forumTour.listOfTopics.content=See all the Topics. Existing information: Topic name, description, creator, creation date, number of answers, number of comments and number of votes.
+## Topic Tour
+### Missing: tour.topicTour.topicDetails.title=Topic details
+### Missing: tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
+### Missing: tour.topicTour.flagAndPermalink.title=Flag and Permalink
+### Missing: tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL.
+### Missing: tour.topicTour.socialMedia.title=Share to Social Media
+### Missing: tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
+### Missing: tour.topicTour.topicModeration.title=Topic moderation
+### Missing: tour.topicTour.topicModeration.content=Here are the edit and delete buttons.
+### Missing: tour.topicTour.vote.title=Vote
+### Missing: tour.topicTour.vote.content=Topic vote.
+### Missing: tour.topicTour.addAnswer.title=Add Answer
+### Missing: tour.topicTour.addAnswer.content=Create a new Answer.
+### Missing: tour.topicTour.listOfAnswers.title=List of Answers
+### Missing: tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
+
+## Template Provider
+### Missing: templateProvider.forum.name=Forum
+### Missing: templateProvider.forum.description=Start a conversation
+
+## Forum Administration Section
+### Missing: forum.administration.configuration.title=Configuration
+</content>
+  </xwikidoc>
