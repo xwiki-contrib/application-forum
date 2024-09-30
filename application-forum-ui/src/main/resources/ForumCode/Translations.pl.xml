@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -169,8 +169,8 @@ conversations.deleteanswer.error.nomailsent=Nie można wysłać wiadomości e-ma
 conversation.flag.tooltip=Flaga
 conversations.flag.edit=Edycja
 conversations.flag.button=Flaga
-### Missing: conversations.flag.viewsource=View Flag Source
-### Missing: conversations.flag.dialog.header=Flag a Comment
+conversations.flag.viewsource=Wyświetl źródło flagi
+conversations.flag.dialog.header=Oflaguj komentarz
 ### Missing: conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
 ### Missing: conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
 ### Missing: conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
@@ -290,5 +290,8 @@ recent.forum.discussions.creationDate=na {0}
 ## Template Provider
 ### Missing: templateProvider.forum.name=Forum
 ### Missing: templateProvider.forum.description=Start a conversation
+
+## Forum Administration Section
+### Missing: forum.administration.configuration.title=Configuration
 </content>
 </xwikidoc>
