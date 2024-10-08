@@ -171,13 +171,13 @@ conversations.flag.edit=Edycja
 conversations.flag.button=Flaga
 conversations.flag.viewsource=Wyświetl źródło flagi
 conversations.flag.dialog.header=Oflaguj komentarz
-### Missing: conversations.flag.dialog.guidingquestion1.txt=What happens when you flag a comment ?
-### Missing: conversations.flag.dialog.instruction1.txt=You submit the comment thread for immediate evaluation by Forum Administrators.
-### Missing: conversations.flag.dialog.guidingquestion2.txt=Why are you flagging this discussion?
-### Missing: conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
-### Missing: conversations.flag.dialog.instruction2.txt=I am flagging this comment because it
-### Missing: conversations.flag.dialog.instruction3.txt=Enter a note (no more than 300 characters) describing what makes this comment objectionable:
-### Missing: conversations.flag.dialog.reason.label=Reason
+conversations.flag.dialog.guidingquestion1.txt=Co się stanie, gdy oznaczysz komentarz ?
+conversations.flag.dialog.instruction1.txt=Przesyłasz wątek komentarzy do natychmiastowej oceny przez administratorów forum.
+conversations.flag.dialog.guidingquestion2.txt=Dlaczego oznaczasz tą dyskusję?
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=Zgłaszam ten komentarz, ponieważ
+conversations.flag.dialog.instruction3.txt=Wpisz notatkę (nie większą niż 300 znaków) opisującą, co sprawia, że ten komentarz budzi zastrzeżenia:
+conversations.flag.dialog.reason.label=Powód
 conversations.flag.dialog.message.label=Opis
 conversations.flag.dialog.mandatory=To pole jest obowiązkowe
 conversations.flag.dialog.cancel.btt=Anuluj
@@ -206,34 +206,34 @@ conversations.flag.reason=Powód
 conversations.flag.user=Użytkownik
 conversations.flag.doc.creationDate=Data
 conversations.flag.message=Wiadomość
-### Missing: conversations.flag.moderator=Moderator
-### Missing: conversations.flag.status=Status
+conversations.flag.moderator=Moderator
+conversations.flag.status=Status
 conversations.flag._actions=Akcje
 conversations.flag.target=Cel
-### Missing: conversations.flag.emptyvalue=-
+conversations.flag.emptyvalue=-
 conversations.flag.list.title=Lista oznaczeń
 conversations.flag.list.instructions=To jest lista oznaczonych elementów
 conversations.flag.success.dialog.goback=Wróć do dyskusji
-### Missing: conversations.addthis.title={0} #xwikiforum
-### Missing: conversations.addthis.desc={0}
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
 
 ## most active discussions
-### Missing: discussion.panel.title=Most Active Topics
-### Missing: discussion.panel.sortby=Sort By:
-### Missing: discussion.panel.dates=Dates
-### Missing: discussion.panel.votes=Votes
-### Missing: discussion.panel.comments=Comments
-### Missing: discussion.panel.topics=Topics
-### Missing: discussion.panel.subscribe=Subscribe
-### Missing: discussion.panel.text1=Stay up to date with the latest entries by subscribing to:
-### Missing: discussion.panel.text2=or
+discussion.panel.title=Najbardziej aktywne tematy
+discussion.panel.sortby=Sortuj według:
+discussion.panel.dates=Daty
+discussion.panel.votes=Głosy
+discussion.panel.comments=Komentarze
+discussion.panel.topics=Tematy
+discussion.panel.subscribe=Powiadom
+discussion.panel.text1=Bądź na bieżąco z najnowszymi wpisami, subskrybując:
+discussion.panel.text2=lub
 
 ## applications panel entry
-### Missing: forum.applicationsPanelEntryLabel=Forums
+forum.applicationsPanelEntryLabel=Forum
 ## mail notif
-### Missing: forum.mail.notif.topic.delete.title=Deleted topic
-### Missing: forum.mail.notif.topic.delete.message=The following topic has been deleted:
-### Missing: forum.mail.notif.answer.delete.title=Deleted answer
+forum.mail.notif.topic.delete.title=Usunięty temat
+forum.mail.notif.topic.delete.message=Usunięto następujący temat:
+forum.mail.notif.answer.delete.title=Usunięto odpowiedź
 forum.mail.notif.answer.delete.message=Skreślono następującą odpowiedź:
 forum.mail.notif.comment.delete.title=Usunięty komentarz
 forum.mail.notif.comment.delete.message=Usunięto następujący komentarz:
@@ -245,53 +245,53 @@ recent.forum.discussions.addDiscussion=Dodaj dyskusję
 recent.forum.discussions.createdAnswerOnTopic=Odpowiedział na temat
 recent.forum.discussions.createdTopic=utworzony temat
 recent.forum.discussions.creationDate=na {0}
-### Missing: recent.forum.discussions.editedAnswerOnTopic=edited answer on topic
-### Missing: recent.forum.discussions.editedTopic=edited topic
-### Missing: recent.forum.discussions.seeAllDiscussions=See all discussions
+recent.forum.discussions.editedAnswerOnTopic=Edytowano odpowiedź w temacie
+recent.forum.discussions.editedTopic=edytowany temat
+recent.forum.discussions.seeAllDiscussions=Zobacz wszystkie dyskusje
 
 ## rendering macro
-### Missing: rendering.macro.forum.recentForumDiscussions.name=Recent Forum Discussions
+rendering.macro.forum.recentForumDiscussions.name=Ostatnie dyskusje na forum
 
 ## TOURS
 ## Forums homepage tour
-### Missing: tour.forumsHomepageTour.welcome.title=Welcome to the Forum Application!
-### Missing: tour.forumsHomepageTour.welcome.content=Forum is a communication tool that can be used to create an unlimited number of discussion forums, vote them and even flag inappropriate content.
-### Missing: tour.forumsHomepageTour.addForum.title=Add Forum
-### Missing: tour.forumsHomepageTour.addForum.content=Create a new Forum.
-### Missing: tour.forumsHomepageTour.forumsLivetable.title=Forums livetable
-### Missing: tour.forumsHomepageTour.forumsLivetable.content=See all the Forums. Check the possible actions: sort, filter, edit, delete.
-### Missing: tour.forumsHomepageTour.mostActiveTopics.title=Most Active Topics
-### Missing: tour.forumsHomepageTour.mostActiveTopics.content=This panel displays the most active topics in terms of votes and comments. Topics can be sorted by date, number of votes and number of comments. Click the related button to order ascending/descending. Subscribe to get the latest information about Topics!
+tour.forumsHomepageTour.welcome.title=Witamy w aplikacji Forum!
+tour.forumsHomepageTour.welcome.content=Forum to narzędzie komunikacyjne, które można wykorzystać do tworzenia nieograniczonej liczby forów dyskusyjnych, głosowania na nie, a nawet oznaczania nieodpowiednich treści.
+tour.forumsHomepageTour.addForum.title=Add Dodaj forum
+tour.forumsHomepageTour.addForum.content=Utwórz nowe forum.
+tour.forumsHomepageTour.forumsLivetable.title=Fora na żywo
+tour.forumsHomepageTour.forumsLivetable.content=Zobacz wszystkie fora. Sprawdź możliwe akcje: sortuj, filtruj, edytuj, usuwaj.
+tour.forumsHomepageTour.mostActiveTopics.title=Najbardziej aktywne tematy
+tour.forumsHomepageTour.mostActiveTopics.content=W tym panelu wyświetlane są najbardziej aktywne tematy pod względem głosów i komentarzy. Tematy można sortować według daty, liczby głosów i liczby komentarzy. Kliknij powiązany przycisk, aby uporządkować rosnąco/malejąco. Zapisz się, aby otrzymywać najnowsze informacje o tematach!
 ## Forum Tour
-### Missing: tour.forumTour.forumDetails.title=Forum details
-### Missing: tour.forumTour.forumDetails.content=Existing information: Forum description, creator, creation date, number of topics and number of votes.
-### Missing: tour.forumTour.addTopic.title=Add Topic
-### Missing: tour.forumTour.addTopic.content=Create a new Topic.
-### Missing: tour.forumTour.sortTopics.title=Sort Topics
-### Missing: tour.forumTour.sortTopics.content=Topics can be sorted by date, number of votes or number of comments. Click the related button and then change the ascendant/descending order.
-### Missing: tour.forumTour.listOfTopics.title=List of Topics
-### Missing: tour.forumTour.listOfTopics.content=See all the Topics. Existing information: Topic name, description, creator, creation date, number of answers, number of comments and number of votes.
+tour.forumTour.forumDetails.title=Informacje o forum
+tour.forumTour.forumDetails.content=Istniejące informacje: opis forum, twórca, data utworzenia, liczba tematów i liczba głosów.
+tour.forumTour.addTopic.title=Dodaj Temat
+tour.forumTour.addTopic.content=Utwórz nowy temat.
+tour.forumTour.sortTopics.title=Sortowanie tematów
+tour.forumTour.sortTopics.content=Tematy można sortować według daty, liczby głosów lub liczby komentarzy. Kliknij odpowiedni przycisk, a następnie zmień kolejność rosnącą/malejącą.
+tour.forumTour.listOfTopics.title=Lista tematów
+tour.forumTour.listOfTopics.content=Zobacz wszystkie tematy. Istniejące informacje: nazwa tematu, opis, twórca, data utworzenia, liczba odpowiedzi, liczba komentarzy i liczba głosów.
 ## Topic Tour
-### Missing: tour.topicTour.topicDetails.title=Topic details
-### Missing: tour.topicTour.topicDetails.content=Existing information: Topic description, creator, creation date, number of topic, and number of votes. Read the next steps to discover the possible actions on topics.
-### Missing: tour.topicTour.flagAndPermalink.title=Flag and Permalink
-### Missing: tour.topicTour.flagAndPermalink.content=If the content of the topic is inappropriate you can use the Flag option to alert the administrators. Permalink will give you the URL.
-### Missing: tour.topicTour.socialMedia.title=Share to Social Media
-### Missing: tour.topicTour.socialMedia.content=You can share this topic with your friends via the Social Media buttons.
-### Missing: tour.topicTour.topicModeration.title=Topic moderation
-### Missing: tour.topicTour.topicModeration.content=Here are the edit and delete buttons.
-### Missing: tour.topicTour.vote.title=Vote
-### Missing: tour.topicTour.vote.content=Topic vote.
-### Missing: tour.topicTour.addAnswer.title=Add Answer
-### Missing: tour.topicTour.addAnswer.content=Create a new Answer.
-### Missing: tour.topicTour.listOfAnswers.title=List of Answers
-### Missing: tour.topicTour.listOfAnswers.content=See all the Answers and their Comments.
+tour.topicTour.topicDetails.title=Szczegóły tematu
+tour.topicTour.topicDetails.content=Istniejące informacje: opis tematu, twórca, data utworzenia, liczba tematów i liczba głosów. Zapoznaj się z kolejnymi krokami, aby dowiedzieć się, jakie są możliwe działania dotyczące tematów.
+tour.topicTour.flagAndPermalink.title=Flaga i odnośnik
+tour.topicTour.flagAndPermalink.content=Jeśli treść tematu jest nieodpowiednia, możesz użyć opcji Flaga, aby powiadomić administratorów. odnośnik poda Ci adres URL.
+tour.topicTour.socialMedia.title=Udostępnij w mediach społecznościowych
+tour.topicTour.socialMedia.content=Możesz podzielić się tym tematem ze znajomymi za pomocą przycisków mediów społecznościowych.
+tour.topicTour.topicModeration.title=Moderacja tematu
+tour.topicTour.topicModeration.content=Oto przyciski edycji i usuwania.
+tour.topicTour.vote.title=Głosuj
+tour.topicTour.vote.content=Głosowanie na temat.
+tour.topicTour.addAnswer.title=Dodaj Odpowiedź
+tour.topicTour.addAnswer.content=Utwórz nową odpowiedź.
+tour.topicTour.listOfAnswers.title=Lista odpowiedzi
+tour.topicTour.listOfAnswers.content=Zobacz wszystkie odpowiedzi i ich komentarze.
 
 ## Template Provider
-### Missing: templateProvider.forum.name=Forum
-### Missing: templateProvider.forum.description=Start a conversation
+templateProvider.forum.name=Forum
+templateProvider.forum.description=Rozpoczynanie rozmowy
 
 ## Forum Administration Section
-### Missing: forum.administration.configuration.title=Configuration
+forum.administration.configuration.title=Konfiguracja
 </content>
 </xwikidoc>
