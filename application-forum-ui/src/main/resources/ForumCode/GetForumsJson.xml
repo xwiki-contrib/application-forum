@@ -40,7 +40,7 @@
   <syntaxId>xwiki/2.1</syntaxId>
   <hidden>true</hidden>
   <content>{{include reference="XWiki.LiveTableResultsMacros" /}}
-{{velocity }}
+{{velocity wiki="false"}}
 #set ($map = {})
 #gridresult_buildJSON($request.classname $request.collist.split(',') $map)
 #foreach ($row in $map.get('rows'))
