@@ -62,7 +62,7 @@ conversations.forum.create.submit=Stwórz
 conversations.forum.sorttopicsby=Sortuj wg tematu
 conversations.forum.sorttopicsby.date=Data
 conversations.forum.sorttopicsby.votes=Głosy
-conversations.forum.sorttopicsby.comments=Komentarze
+conversations.forum.sorttopicsby.comments=Komentarz
 conversations.titleError=Tytuł nie może być dłuższy niż 250 znaków.
 conversations.forum.title=Tytuł
 conversations.forum.description=Opis
@@ -72,7 +72,7 @@ conversations.forum.more=Pokaż {0} więcej
 forum.admin.action.delete.confiramtion_text=Usunąć forum ?
 forum.admin.action.delete.inprogress=Trwa usuwanie ...
 forum.admin.action.delete.success=Forum usunięte
-forum.admin.action.delete.failed=Forum nie może zostać usunięte
+forum.admin.action.delete.failed=Nie można usunąć forum
 conversations.forum.all=Wszystkie fora
 conversations.forum.add=Dodaj forum
 
@@ -80,7 +80,7 @@ conversations.forum.add=Dodaj forum
 ## Topics
 conversations.topic.tooltip.totalcommentsandanswers=Wszystkie odpowiedzi i komentarze
 conversations.topic.tooltip.totalanswers=Wszystkie odpowiedzi
-conversations.topic.answer.tooltip.totalcomments=Łączne komentarze do odpowiedzi
+conversations.topic.answer.tooltip.totalcomments=Wszystkie komentarze i odpowiedzi
 conversations.topic.create=Dodaj temat
 conversation.topic.create=Dodaj temat
 conversations.topic.create.submit=Utwórz
