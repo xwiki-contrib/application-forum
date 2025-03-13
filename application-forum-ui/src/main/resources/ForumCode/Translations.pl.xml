@@ -78,7 +78,7 @@ conversations.forum.add=Dodaj forum
 
 
 ## Topics
-conversations.topic.tooltip.totalcommentsandanswers=Łączne odpowiedzi i komentarze
+conversations.topic.tooltip.totalcommentsandanswers=Wszystkie odpowiedzi i komentarze
 conversations.topic.tooltip.totalanswers=Wszystkie odpowiedzi
 conversations.topic.answer.tooltip.totalcomments=Łączne komentarze do odpowiedzi
 conversations.topic.create=Dodaj temat
@@ -86,21 +86,21 @@ conversation.topic.create=Dodaj temat
 conversations.topic.create.submit=Utwórz
 conversations.topic.all=Wszystkie tematy
 conversations.topic.empty=Brak tematu
-conversations.topic.count=tematy
-conversations.topic.delete.confirm.withReplies=Usunąć ten temat i jego odpowiedzi?
+conversations.topic.count=Temat
+conversations.topic.delete.confirm.withReplies=Usunąć temat i jego odpowiedzi ?
 
 ## Answers
 conversations.title=Odpowiedź
 conversation.add.activator=Dodaj odpowiedź
 conversation.answer.create=Dodaj odpowiedź
-conversation.delete.confirm=Usunąć temat?
+conversation.delete.confirm=Usunąć temat ?
 conversation.delete.confirm.withReplies=Usunąć tę odpowiedź i jej komentarze?
-conversation.delete.done=Odpowiedź została usunięta
+conversation.delete.done=Odpowiedź usunięta
 conversation.delete.success=Odpowiedź usunięta
-conversation.delete.failed=Nie można usunąć odpowiedzi
-conversation.delete.inProgress=Trwa usuwanie ...
+conversation.delete.failed=Odpowiedź nie może być usunięta
+conversation.delete.inProgress=Usuwanie w toku ...
 conversation.edit=Edytuj odpowiedź
-conversation.edit.failed=Nie można wyświetlić formularza użytego do utworzenia odpowiedzi
+conversation.edit.failed=Formularz użyty do utworzenia odpowiedzi nie może być wyświetlony
 conversation.delete=Usuń odpowiedź
 conversation.delete.title=Usuń odpowiedź
 conversation.edit.title=Edytuj odpowiedź
@@ -109,8 +109,8 @@ conversation.forum.delete.title=Usuń temat
 conversation.updatedate={0}
 conversation.creationdate={1}
 conversation.groups.norights=Musisz być członkiem tej grupy, aby wziąć udział w tej dyskusji. Skontaktuj się z administratorem grupy.
-conversation.norights=Nie masz prawa uczestniczyć w tej dyskusji.
-conversations.answer.edit=Odpowiedz na temat {0}
+conversation.norights=Nie masz uprawnień aby uczestniczyć w tej dyskusji.
+conversations.answer.edit=Odpowiedź do tematu {0}
 conversations.answer=Odpowiedź
 conversations.answer.all=Wszystkie odpowiedzi
 conversations.answer.empty=Brak odpowiedzi
