@@ -80,7 +80,7 @@ conversations.forum.add=Dodaj forum
 ## Topics
 conversations.topic.tooltip.totalcommentsandanswers=Wszystkie odpowiedzi i komentarze
 conversations.topic.tooltip.totalanswers=Wszystkie odpowiedzi
-conversations.topic.answer.tooltip.totalcomments=Wszystkie komentarze i odpowiedzi
+conversations.topic.answer.tooltip.totalcomments=Wszystkie komentarze dla odpowiedzi
 conversations.topic.create=Dodaj temat
 conversation.topic.create=Dodaj temat
 conversations.topic.create.submit=Utwórz
@@ -124,7 +124,7 @@ conversation.like.button=Głosy
 conversation.like.button.tooltip=Głosuj na temat
 conversation.like.button.alreadyliked.tooltip=Już głosowałeś
 conversation.like.score.tooltip={0} użytkowników uznało tę odpowiedź za interesującą.
-conversation.like.failed=Głosowania nie można zapisać:
+conversation.like.failed=Głosowanie nie może być zapisane :
 conversation.like.done=Twój głos został zapisany.
 conversation.like.loading=Zapisane głosy...
 rating.saveexception=Błąd podczas zapisywania głosu.
