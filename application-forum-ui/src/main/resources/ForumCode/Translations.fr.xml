@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -145,13 +145,13 @@ conversations._avatar=Avatar
 ## Messages
 conversations.create.error.topic.norights=Vous ne disposez pas des droits pour créer un nouveau sujet !
 conversations.create.error.answer.missingParams=Paramètres manquants !
-conversations.create.error.answer.norights=Vous ne disposez pas des droits pour publier une réponse.
+conversations.create.error.answer.norights=Vous ne disposez pas des droits pour publier une réponse !
 conversations.create.success.answer=Réponse ajoutée avec succès !
 conversations.create.error.missingmetadata=La création n'a pas aboutit car il manque des informations !
 conversations.create.error.missingtitle=Veuillez renseigner un titre !
 conversations.create.inProgress=Ajout en cours...
 conversations.create.requestError=Une erreur est survenue. Merci d'essayer à nouveau.
-conversations.create.success.topic=Sujet créé avec succès.
+conversations.create.success.topic=Sujet créé avec succès !
 conversations.deleteconversation.changecomment=Réponse supprimée
 conversations.deletecomment.changecomment=Commentaire supprimé
 conversations.deletecomment.error.nomailsent=Le courriel de notification de suppression du commentaire n'a pas pu être envoyé.
@@ -254,26 +254,26 @@ rendering.macro.forum.recentForumDiscussions.name=Discussions récentes du forum
 
 ## TOURS
 ## Forums homepage tour
-tour.forumsHomepageTour.welcome.title=Bienvenue sur l'application Forum
-tour.forumsHomepageTour.welcome.content=Un forum est un outil de communication qui peut être utilisé pour créer un nombre infinie de discussions.\nIl est possible de voter pour une discussion et même de signaler les contenus inappropriés.
+tour.forumsHomepageTour.welcome.title=Bienvenue sur l'Application Forum !
+tour.forumsHomepageTour.welcome.content=Un forum est un outil de communication qui peut être utilisé pour créer un nombre infini de discussions, de voter pour celles-ci et même de signaler les contenus inappropriés.
 tour.forumsHomepageTour.addForum.title=Créer un nouveau forum
-tour.forumsHomepageTour.addForum.content=Créer un nouveau forum
+tour.forumsHomepageTour.addForum.content=Créer un nouveau forum.
 tour.forumsHomepageTour.forumsLivetable.title=Liste des forums
-tour.forumsHomepageTour.forumsLivetable.content=Voir tous les forums.\nActions possibles : Tri, Filtre, Édition et Suppression.
+tour.forumsHomepageTour.forumsLivetable.content=Voir tous les forums. Actions possibles : trier, filtrer, éditer et supprimer.
 tour.forumsHomepageTour.mostActiveTopics.title=Sujets les plus actifs
-tour.forumsHomepageTour.mostActiveTopics.content=Ce panneau affiche les sujets les plus actifs selon leur nombre de votes et de commentaires.\nLes topics peuvent être triés par date, nombre de votes et nombre de commentaires. Choisissez l'option voulue puis changez l'ordre (croissant ou décroissant).\nAbonnez-vous pour obtenir les dernières mises à jour des sujets de forum.
+tour.forumsHomepageTour.mostActiveTopics.content=Ce panneau affiche les sujets les plus actifs selon leur nombre de votes et de commentaires. Les sujets peuvent être triés par date, nombre de votes et nombre de commentaires. Choisissez l'option voulue puis changez l'ordre (croissant ou décroissant). Abonnez-vous pour obtenir les dernières mises à jour des différents sujets !
 ## Forum Tour
 tour.forumTour.forumDetails.title=Détails du forum
 tour.forumTour.forumDetails.content=Informations disponibles : Description du forum, Créateur, Date de création, Nombre de sujets et Nombre de votes.
 tour.forumTour.addTopic.title=Créer un sujet
-tour.forumTour.addTopic.content=Créer un nouveau sujet
+tour.forumTour.addTopic.content=Créer un nouveau Sujet.
 tour.forumTour.sortTopics.title=Trier les sujets
 tour.forumTour.sortTopics.content=Les sujets peuvent être triés par date, nombre de votes ou nombre de commentaires. Cliquez sur l'option désirés puis changez l'ordre (croissant ou décroissant).
 tour.forumTour.listOfTopics.title=Liste des sujets
 tour.forumTour.listOfTopics.content=Afficher tous les sujets. Informations disponibles : Nom du sujet, Description, Créateur, Date de création, Nombre de réponses et Nombre de votes.
 ## Topic Tour
 tour.topicTour.topicDetails.title=Détails du sujet
-tour.topicTour.topicDetails.content=Information disponible : Description du sujet, Créateur, Date de création, Nombre de sujets et Nombre de votes.\nLisez la suite pour découvrir d'autres détails sur les sujets.
+tour.topicTour.topicDetails.content=Information disponible : Description du sujet, Créateur, Date de création, Nombre de sujets et Nombre de votes. Lisez la suite pour découvrir d'autres détails sur les sujets.
 tour.topicTour.flagAndPermalink.title=Drapeau et lien pour l'alerte de contenu inapproprié
 tour.topicTour.flagAndPermalink.content=Si le contenu du sujet est inapproprié, vous pouvez le signaler en cliquant sur l'icône de drapeau.
 tour.topicTour.socialMedia.title=Partager sur vos réseaux sociaux
@@ -281,16 +281,17 @@ tour.topicTour.socialMedia.content=Vous pouvez partager les sujets avec vos amis
 tour.topicTour.topicModeration.title=Modération d'un sujet
 tour.topicTour.topicModeration.content=Les boutons Modifier et Supprimer sont situés ici.
 tour.topicTour.vote.title=Vote
-tour.topicTour.vote.content=Vote du sujet
+tour.topicTour.vote.content=Vote pour le sujet
 tour.topicTour.addAnswer.title=Ajouter une réponse
-tour.topicTour.addAnswer.content=Ajouter une réponse
+tour.topicTour.addAnswer.content=Ajouter une nouvelle réponse.
 tour.topicTour.listOfAnswers.title=Liste des réponses
-tour.topicTour.listOfAnswers.content=Afficher toutes les réponses et leurs commentaires
+tour.topicTour.listOfAnswers.content=Afficher toutes les Réponses et leurs Commentaires.
 
 ## Template Provider
 templateProvider.forum.name=Forum
 templateProvider.forum.description=Démarrer une conversation
 
 ## Forum Administration Section
-forum.administration.configuration.title=Configuration</content>
+forum.administration.configuration.title=Configuration
+</content>
 </xwikidoc>
