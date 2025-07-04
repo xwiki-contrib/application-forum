@@ -259,7 +259,7 @@ tour.forumsHomepageTour.welcome.content=Un forum est un outil de communication q
 tour.forumsHomepageTour.addForum.title=Créer un nouveau forum
 tour.forumsHomepageTour.addForum.content=Créer un nouveau forum.
 tour.forumsHomepageTour.forumsLivetable.title=Liste des forums
-tour.forumsHomepageTour.forumsLivetable.content=Voir tous les forums. Actions possibles : trier, filtrer, éditer et supprimer.
+tour.forumsHomepageTour.forumsLivetable.content=Voir tous les forums. Actions possibles : trier, filtrer, modifier et supprimer.
 tour.forumsHomepageTour.mostActiveTopics.title=Sujets les plus actifs
 tour.forumsHomepageTour.mostActiveTopics.content=Ce panneau affiche les sujets les plus actifs selon leur nombre de votes et de commentaires. Les sujets peuvent être triés par date, nombre de votes et nombre de commentaires. Choisissez l'option voulue puis changez l'ordre (croissant ou décroissant). Abonnez-vous pour obtenir les dernières mises à jour des différents sujets !
 ## Forum Tour
