@@ -692,7 +692,8 @@
   ## The list of existing conversations with their comments
   ## Find all the documents which are the children of this document and have an object of type answer inside
   #set ($topicAnswers = [])
-  #getTopicAnswers($doc.space $topicAnswers)
+  #set ($spaceStr = $services.model.serialize($doc.documentReference.lastSpaceReference))
+  #getTopicAnswers($spaceStr $topicAnswers)
   &lt;div class="answers"&gt;
     #if ($topicAnswers.size() &gt; 0)
       #foreach ($topicAnswer in $topicAnswers)
@@ -833,13 +834,14 @@
       &lt;/tr&gt;
       #foreach ($topic in $topics)
         #set ($topicReference = $services.model.resolveDocument($topic))
-        #set ($topicDoc = $xwiki.getDocument($topic))  
+        #set ($topicDoc = $xwiki.getDocument($topicReference))
         #if ($topicDoc)
           #set ($topicTitle = $topicDoc.title)
           #set ($rating = $services.ratings.getAverageRating($topicReference).nbVotes)
           #set ($topicComments = 0)
           #set ($topicAnswers = [])
-          #getTopicAnswers($topicDoc.space $topicAnswers)
+          #set ($topicSpaceStr = $services.model.serialize($topicReference.parent))
+          #getTopicAnswers($topicSpaceStr $topicAnswers)
           #if ($topicAnswers)
             #foreach ($topicAnswer in $topicAnswers)
               #set ($answerDoc = $xwiki.getDocument($topicAnswer))
@@ -933,7 +935,7 @@
 #end
 ## 
 #macro(getTopicAnswers $space $topicAnswers)
-  #set ($discard = $topicAnswers.addAll($services.query.xwql('from doc.object(ForumCode.AnswerClass) as answer where doc.space like :topicSpace order by doc.date desc').bindValue('topicSpace', "${topicSpace}.%").execute()))
+  #set ($discard = $topicAnswers.addAll($services.query.xwql('from doc.object(ForumCode.AnswerClass) as answer where doc.space like :topicSpace order by doc.date desc').bindValue('topicSpace').literal("${space}.").anyChars().query().execute()))
 #end
 {{/velocity}}</content>
   <object>
