@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.xwiki.contrib.forum</groupId>
     <artifactId>application-forum-test</artifactId>
-    <version>2.3.11-SNAPSHOT</version>
+    <version>2.3.11</version>
   </parent>
   <artifactId>application-forum-test-pageobjects</artifactId>
   <packaging>jar</packaging>
