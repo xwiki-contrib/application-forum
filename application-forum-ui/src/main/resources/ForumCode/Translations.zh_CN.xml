@@ -1,0 +1,297 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.2" reference="ForumCode.Translations" locale="zh_CN">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>zh_CN</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1715080412000</date>
+  <contentUpdateDate>1715080412000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+### Missing: ForumCode.TopicClass_title=
+### Missing: ForumCode.TopicClass_type=
+### Missing: ForumCode.TopicClass_type_question=
+### Missing: ForumCode.TopicClass_type_suggestion=
+### Missing: ForumCode.TopicClass_type_alert=
+### Missing: ForumCode.TopicClass_type_feedback=
+### Missing: ForumCode.TopicClass_status=
+### Missing: ForumCode.TopicClass_status_inprogress=
+### Missing: ForumCode.TopicClass_status_closed=
+### Missing: ForumCode.TopicClass_status_integrated=
+### Missing: ForumCode.TopicClass_description=
+### Missing: ForumCode.AnswerClass_answer=
+### Missing: ForumCode.AnswerClass_description=
+
+## Forums
+### Missing: conversations.forum.tooltip.totaltopics=
+### Missing: conversations.forum.create=
+### Missing: conversations.forum.create.alreadyexists=
+### Missing: conversations.forum.create.submit=
+### Missing: conversations.forum.sorttopicsby=
+### Missing: conversations.forum.sorttopicsby.date=
+### Missing: conversations.forum.sorttopicsby.votes=
+### Missing: conversations.forum.sorttopicsby.comments=
+### Missing: conversations.titleError=
+### Missing: conversations.forum.title=
+### Missing: conversations.forum.description=
+### Missing: conversations.forum.edit=
+### Missing: conversations.forum.delete=
+### Missing: conversations.forum.more=
+### Missing: forum.admin.action.delete.confiramtion_text=
+### Missing: forum.admin.action.delete.inprogress=
+### Missing: forum.admin.action.delete.success=
+### Missing: forum.admin.action.delete.failed=
+### Missing: conversations.forum.all=
+### Missing: conversations.forum.add=
+
+
+## Topics
+### Missing: conversations.topic.tooltip.totalcommentsandanswers=
+### Missing: conversations.topic.tooltip.totalanswers=
+### Missing: conversations.topic.answer.tooltip.totalcomments=
+### Missing: conversations.topic.create=
+### Missing: conversation.topic.create=
+### Missing: conversations.topic.create.submit=
+### Missing: conversations.topic.all=
+### Missing: conversations.topic.empty=
+### Missing: conversations.topic.count=
+### Missing: conversations.topic.delete.confirm.withReplies=
+
+## Answers
+### Missing: conversations.title=
+### Missing: conversation.add.activator=
+### Missing: conversation.answer.create=
+### Missing: conversation.delete.confirm=
+### Missing: conversation.delete.confirm.withReplies=
+### Missing: conversation.delete.done=
+### Missing: conversation.delete.success=
+### Missing: conversation.delete.failed=
+### Missing: conversation.delete.inProgress=
+### Missing: conversation.edit=
+### Missing: conversation.edit.failed=
+### Missing: conversation.delete=
+### Missing: conversation.delete.title=
+### Missing: conversation.edit.title=
+### Missing: conversation.empty=
+### Missing: conversation.forum.delete.title=
+### Missing: conversation.updatedate=
+### Missing: conversation.creationdate=
+### Missing: conversation.groups.norights=
+### Missing: conversation.norights=
+### Missing: conversations.answer.edit=
+### Missing: conversations.answer=
+### Missing: conversations.answer.all=
+### Missing: conversations.answer.empty=
+### Missing: conversations.answer.count=
+
+## Comments
+### Missing: conversations.comment.count=
+
+## Votes
+### Missing: conversation.like.button=
+### Missing: conversation.like.button.tooltip=
+### Missing: conversation.like.button.alreadyliked.tooltip=
+### Missing: conversation.like.score.tooltip=
+### Missing: conversation.like.failed=
+### Missing: conversation.like.done=
+### Missing: conversation.like.loading=
+### Missing: rating.saveexception=
+### Missing: rating.votenotvalid=
+### Missing: rating.voteoutofbounds=
+
+## Permalink
+### Missing: conversation.permalink.tooltip=
+### Missing: conversation.permalink=
+
+## Livetable
+### Missing: conversations.doc.title=
+### Missing: conversations.doc.date=
+### Missing: conversations.doc.creator=
+### Missing: conversations.actions=
+### Missing: conversations._avatar=
+
+## Messages
+### Missing: conversations.create.error.topic.norights=
+### Missing: conversations.create.error.answer.missingParams=
+### Missing: conversations.create.error.answer.norights=
+### Missing: conversations.create.success.answer=
+### Missing: conversations.create.error.missingmetadata=
+### Missing: conversations.create.error.missingtitle=
+### Missing: conversations.create.inProgress=
+### Missing: conversations.create.requestError=
+### Missing: conversations.create.success.topic=
+### Missing: conversations.deleteconversation.changecomment=
+### Missing: conversations.deletecomment.changecomment=
+### Missing: conversations.deletecomment.error.nomailsent=
+### Missing: conversations.deletecomment.success=
+### Missing: conversations.deletecomment.error.norights=
+### Missing: conversations.deletecomment.error.notfound=
+### Missing: conversations.deleteconversation.error.nomailsent=
+### Missing: conversations.deleteconversation.success=
+### Missing: conversations.deleteconversation.error.norights=
+### Missing: conversations.deleteconversation.error.notfound=
+### Missing: core.viewers.comments.delete.failed=
+### Missing: conversations.deleteanswer.error.nomailsent=
+
+## FLAG DIALOG
+### Missing: conversation.flag.tooltip=
+### Missing: conversations.flag.edit=
+### Missing: conversations.flag.button=
+### Missing: conversations.flag.viewsource=
+### Missing: conversations.flag.dialog.header=
+### Missing: conversations.flag.dialog.guidingquestion1.txt=
+### Missing: conversations.flag.dialog.instruction1.txt=
+### Missing: conversations.flag.dialog.guidingquestion2.txt=
+### Missing: conversations.flag.dialog.required.field.icon=
+### Missing: conversations.flag.dialog.instruction2.txt=
+### Missing: conversations.flag.dialog.instruction3.txt=
+### Missing: conversations.flag.dialog.reason.label=
+### Missing: conversations.flag.dialog.message.label=
+### Missing: conversations.flag.dialog.mandatory=
+### Missing: conversations.flag.dialog.cancel.btt=
+### Missing: conversations.flag.dialog.submit.btt=
+### Missing: conversations.flag.error.nomailsent=
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+### Missing: ForumCode.FlagClass_reason_=
+### Missing: ForumCode.FlagClass_reason_1=
+### Missing: ForumCode.FlagClass_reason_2=
+### Missing: ForumCode.FlagClass_reason_3=
+### Missing: ForumCode.FlagClass_reason_4=
+### Missing: ForumCode.FlagClass_reason_5=
+### Missing: ForumCode.FlagClass_reason_6=
+### Missing: ForumCode.FlagClass_reason_alt=
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+### Missing: ForumCode.FlagClass_status=
+### Missing: ForumCode.FlagClass_status_open=
+### Missing: ForumCode.FlagClass_status_inprogress=
+### Missing: ForumCode.FlagClass_status_resolved=
+## FLAG SUCCESS MESSAGE
+### Missing: conversations.flag.success.dialog.header=
+### Missing: conversations.flag.success.dialog.message=
+### Missing: conversations.flag.success.dialog.button=
+## FLAG livetable
+### Missing: conversations.flag.reason=
+### Missing: conversations.flag.user=
+### Missing: conversations.flag.doc.creationDate=
+### Missing: conversations.flag.message=
+### Missing: conversations.flag.moderator=
+### Missing: conversations.flag.status=
+### Missing: conversations.flag._actions=
+### Missing: conversations.flag.target=
+### Missing: conversations.flag.emptyvalue=
+### Missing: conversations.flag.list.title=
+### Missing: conversations.flag.list.instructions=
+### Missing: conversations.flag.success.dialog.goback=
+### Missing: conversations.addthis.title=
+### Missing: conversations.addthis.desc=
+
+## most active discussions
+### Missing: discussion.panel.title=
+### Missing: discussion.panel.sortby=
+### Missing: discussion.panel.dates=
+### Missing: discussion.panel.votes=
+### Missing: discussion.panel.comments=
+### Missing: discussion.panel.topics=
+### Missing: discussion.panel.subscribe=
+### Missing: discussion.panel.text1=
+### Missing: discussion.panel.text2=
+
+## applications panel entry
+### Missing: forum.applicationsPanelEntryLabel=
+## mail notif
+### Missing: forum.mail.notif.topic.delete.title=
+### Missing: forum.mail.notif.topic.delete.message=
+### Missing: forum.mail.notif.answer.delete.title=
+### Missing: forum.mail.notif.answer.delete.message=
+### Missing: forum.mail.notif.comment.delete.title=
+### Missing: forum.mail.notif.comment.delete.message=
+### Missing: forum.mail.notif.delete.thanks=
+### Missing: forum.mail.notif.delete.view=
+
+## recent forum discussions
+### Missing: recent.forum.discussions.addDiscussion=
+### Missing: recent.forum.discussions.createdAnswerOnTopic=
+### Missing: recent.forum.discussions.createdTopic=
+### Missing: recent.forum.discussions.creationDate=
+### Missing: recent.forum.discussions.editedAnswerOnTopic=
+### Missing: recent.forum.discussions.editedTopic=
+### Missing: recent.forum.discussions.seeAllDiscussions=
+
+## rendering macro
+### Missing: rendering.macro.forum.recentForumDiscussions.name=
+
+## TOURS
+## Forums homepage tour
+### Missing: tour.forumsHomepageTour.welcome.title=
+### Missing: tour.forumsHomepageTour.welcome.content=
+### Missing: tour.forumsHomepageTour.addForum.title=
+### Missing: tour.forumsHomepageTour.addForum.content=
+### Missing: tour.forumsHomepageTour.forumsLivetable.title=
+### Missing: tour.forumsHomepageTour.forumsLivetable.content=
+### Missing: tour.forumsHomepageTour.mostActiveTopics.title=
+### Missing: tour.forumsHomepageTour.mostActiveTopics.content=
+## Forum Tour
+### Missing: tour.forumTour.forumDetails.title=
+### Missing: tour.forumTour.forumDetails.content=
+### Missing: tour.forumTour.addTopic.title=
+### Missing: tour.forumTour.addTopic.content=
+### Missing: tour.forumTour.sortTopics.title=
+### Missing: tour.forumTour.sortTopics.content=
+### Missing: tour.forumTour.listOfTopics.title=
+### Missing: tour.forumTour.listOfTopics.content=
+## Topic Tour
+### Missing: tour.topicTour.topicDetails.title=
+### Missing: tour.topicTour.topicDetails.content=
+### Missing: tour.topicTour.flagAndPermalink.title=
+### Missing: tour.topicTour.flagAndPermalink.content=
+### Missing: tour.topicTour.socialMedia.title=
+### Missing: tour.topicTour.socialMedia.content=
+### Missing: tour.topicTour.topicModeration.title=
+### Missing: tour.topicTour.topicModeration.content=
+### Missing: tour.topicTour.vote.title=
+### Missing: tour.topicTour.vote.content=
+### Missing: tour.topicTour.addAnswer.title=
+### Missing: tour.topicTour.addAnswer.content=
+### Missing: tour.topicTour.listOfAnswers.title=
+### Missing: tour.topicTour.listOfAnswers.content=
+
+## Template Provider
+### Missing: templateProvider.forum.name=
+### Missing: templateProvider.forum.description=
+
+## Forum Administration Section
+### Missing: forum.administration.configuration.title=
+</content>
+</xwikidoc>
