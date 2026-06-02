@@ -1,0 +1,297 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.2" reference="ForumCode.Translations" locale="zh_CN">
+  <web>ForumCode</web>
+  <name>Translations</name>
+  <language>zh_CN</language>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>1</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1400156986000</creationDate>
+  <parent>WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1715080412000</date>
+  <contentUpdateDate>1715080412000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>## Classes
+ForumCode.TopicClass_title=标题
+ForumCode.TopicClass_type=类型
+ForumCode.TopicClass_type_question=问题
+ForumCode.TopicClass_type_suggestion=建议
+ForumCode.TopicClass_type_alert=提醒
+ForumCode.TopicClass_type_feedback=反馈
+ForumCode.TopicClass_status=状态
+ForumCode.TopicClass_status_inprogress=进行中
+ForumCode.TopicClass_status_closed=已关闭
+ForumCode.TopicClass_status_integrated=已集成
+ForumCode.TopicClass_description=描述
+ForumCode.AnswerClass_answer=答案
+ForumCode.AnswerClass_description=答案描述
+
+## Forums
+conversations.forum.tooltip.totaltopics=所有主题
+conversations.forum.create=新建论坛
+conversations.forum.create.alreadyexists=该论坛已存在：[[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=创建
+conversations.forum.sorttopicsby=主题排序依据
+conversations.forum.sorttopicsby.date=日期
+conversations.forum.sorttopicsby.votes=投票数
+conversations.forum.sorttopicsby.comments=评论数
+conversations.titleError=标题长度不得超过250个字符。
+conversations.forum.title=标题
+conversations.forum.description=描述
+conversations.forum.edit=编辑主题
+conversations.forum.delete=删除主题
+conversations.forum.more=再显示{0}个
+forum.admin.action.delete.confiramtion_text=是否删除这个论坛？
+forum.admin.action.delete.inprogress=正在删除中...
+forum.admin.action.delete.success=论坛已删除
+forum.admin.action.delete.failed=无法删除该论坛
+conversations.forum.all=所有论坛
+conversations.forum.add=添加论坛
+
+
+## Topics
+conversations.topic.tooltip.totalcommentsandanswers=评论和回答总数
+conversations.topic.tooltip.totalanswers=回答总数
+conversations.topic.answer.tooltip.totalcomments=该回答的评论总数
+conversations.topic.create=添加主题
+conversation.topic.create=添加主题
+conversations.topic.create.submit=创建
+conversations.topic.all=所有主题
+conversations.topic.empty=无主题
+conversations.topic.count=个主题
+conversations.topic.delete.confirm.withReplies=删除此主题及其所有回答？
+
+## Answers
+conversations.title=回答
+conversation.add.activator=添加回答
+conversation.answer.create=添加回答
+conversation.delete.confirm=删除主题？
+conversation.delete.confirm.withReplies=删除此回答及其所有评论？
+conversation.delete.done=回答已删除
+conversation.delete.success=回答已删除
+conversation.delete.failed=无法删除该回答
+conversation.delete.inProgress=正在删除中...
+conversation.edit=编辑回答
+conversation.edit.failed=无法显示用于创建回答的表单
+conversation.delete=删除回答
+conversation.delete.title=删除回答
+conversation.edit.title=编辑回答
+conversation.empty=无评论
+conversation.forum.delete.title=删除主题
+conversation.updatedate=更新时间：{0}
+conversation.creationdate=创建时间：{1}
+conversation.groups.norights=您必须是该群组的成员才能参与此讨论。请联系群组管理员。
+conversation.norights=您无权参与此讨论。
+conversations.answer.edit=回复主题 {0}
+conversations.answer=回答
+conversations.answer.all=所有回答
+conversations.answer.empty=无回答
+conversations.answer.count=个回答
+
+## Comments
+conversations.comment.count=条评论
+
+## Votes
+conversation.like.button=投票
+conversation.like.button.tooltip=为主题投票
+conversation.like.button.alreadyliked.tooltip=您已投票
+conversation.like.score.tooltip=有{0}位用户认为此回答有帮助。
+conversation.like.failed=投票保存失败：
+conversation.like.done=您的投票已保存。
+conversation.like.loading=正在保存投票...
+rating.saveexception=保存投票时出错。
+rating.votenotvalid=投票无效。
+rating.voteoutofbounds=投票无效。
+
+## Permalink
+conversation.permalink.tooltip=永久链接
+conversation.permalink=永久链接
+
+## Livetable
+conversations.doc.title=标题
+conversations.doc.date=日期
+conversations.doc.creator=创建者
+conversations.actions=操作
+conversations._avatar=头像
+
+## Messages
+conversations.create.error.topic.norights=您无权创建新主题！
+conversations.create.error.answer.missingParams=参数不足！
+conversations.create.error.answer.norights=您无权创建新回答！
+conversations.create.success.answer=回答添加成功！
+conversations.create.error.missingmetadata=因元数据缺失，无法完成创建操作！
+conversations.create.error.missingtitle=标题缺失！
+conversations.create.inProgress=正在添加...
+conversations.create.requestError=请求发送出错，请重试。
+conversations.create.success.topic=主题添加成功！
+conversations.deleteconversation.changecomment=已删除回答
+conversations.deletecomment.changecomment=已删除评论
+conversations.deletecomment.error.nomailsent=无法发送邮件通知评论删除事宜。
+conversations.deletecomment.success=评论删除通知邮件已发送。
+conversations.deletecomment.error.norights=您无权删除该评论。
+conversations.deletecomment.error.notfound=未找到该评论。
+conversations.deleteconversation.error.nomailsent=无法发送邮件通知主题删除事宜。
+conversations.deleteconversation.success=主题已删除。
+conversations.deleteconversation.error.norights=您无权删除该回答。
+conversations.deleteconversation.error.notfound=未找到该主题。
+core.viewers.comments.delete.failed=无法删除该评论。
+conversations.deleteanswer.error.nomailsent=无法发送邮件通知回答删除事宜。
+
+## FLAG DIALOG
+conversation.flag.tooltip=标记
+conversations.flag.edit=编辑
+conversations.flag.button=标记
+conversations.flag.viewsource=查看标记来源
+conversations.flag.dialog.header=标记评论
+conversations.flag.dialog.guidingquestion1.txt=标记评论后会发生什么？
+conversations.flag.dialog.instruction1.txt=您提交的该评论线程将由论坛管理员立即评估。
+conversations.flag.dialog.guidingquestion2.txt=您为何要标记此讨论？
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=我标记此评论是因为它
+conversations.flag.dialog.instruction3.txt=输入说明（不超过300个字符），描述该评论令人反感的原因：
+conversations.flag.dialog.reason.label=原因
+conversations.flag.dialog.message.label=描述
+conversations.flag.dialog.mandatory=此字段为必填项
+conversations.flag.dialog.cancel.btt=取消
+conversations.flag.dialog.submit.btt=提交
+conversations.flag.error.nomailsent=无法发送邮件通知标记评论事宜。
+## REASONS FOR FLAGGING - USE IN FLAG DIALOG
+ForumCode.FlagClass_reason_=请选择
+ForumCode.FlagClass_reason_1=宣扬仇恨或暴力
+ForumCode.FlagClass_reason_2=包含色情内容
+ForumCode.FlagClass_reason_3=内容为空
+ForumCode.FlagClass_reason_4=明显具有商业性质，且无明确教育意义
+ForumCode.FlagClass_reason_5=内容失效或包含病毒
+ForumCode.FlagClass_reason_6=内容无意义
+ForumCode.FlagClass_reason_alt=其他原因
+## STATUS FOR A FLAG - USE IN FLAG DIALOG
+ForumCode.FlagClass_status=状态
+ForumCode.FlagClass_status_open=未处理
+ForumCode.FlagClass_status_inprogress=处理中
+ForumCode.FlagClass_status_resolved=已解决
+## FLAG SUCCESS MESSAGE
+conversations.flag.success.dialog.header=讨论已标记
+conversations.flag.success.dialog.message=您已成功标记此评论。
+conversations.flag.success.dialog.button=关闭
+## FLAG livetable
+conversations.flag.reason=原因
+conversations.flag.user=用户
+conversations.flag.doc.creationDate=日期
+conversations.flag.message=留言
+conversations.flag.moderator=版主
+conversations.flag.status=状态
+conversations.flag._actions=操作
+conversations.flag.target=标记对象
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=标记列表
+conversations.flag.list.instructions=此为已标记项的列表
+conversations.flag.success.dialog.goback=返回讨论
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
+
+## most active discussions
+discussion.panel.title=最活跃主题
+discussion.panel.sortby=排序依据：
+discussion.panel.dates=日期
+discussion.panel.votes=投票数
+discussion.panel.comments=评论数
+discussion.panel.topics=主题数
+discussion.panel.subscribe=订阅
+discussion.panel.text1=通过订阅以下内容，及时了解最新动态：
+discussion.panel.text2=或
+
+## applications panel entry
+forum.applicationsPanelEntryLabel=论坛
+## mail notif
+forum.mail.notif.topic.delete.title=主题已删除
+forum.mail.notif.topic.delete.message=以下主题已被删除：
+forum.mail.notif.answer.delete.title=回答已删除
+forum.mail.notif.answer.delete.message=以下回答已被删除：
+forum.mail.notif.comment.delete.title=评论已删除
+forum.mail.notif.comment.delete.message=以下评论已被删除：
+forum.mail.notif.delete.thanks=感谢您
+forum.mail.notif.delete.view=查看已删除内容
+
+## recent forum discussions
+recent.forum.discussions.addDiscussion=添加讨论
+recent.forum.discussions.createdAnswerOnTopic=在主题下发布了回答
+recent.forum.discussions.createdTopic=创建了主题
+recent.forum.discussions.creationDate=于 {0}
+recent.forum.discussions.editedAnswerOnTopic=编辑了主题下的回答
+recent.forum.discussions.editedTopic=编辑了主题
+recent.forum.discussions.seeAllDiscussions=查看全部讨论
+
+## rendering macro
+rendering.macro.forum.recentForumDiscussions.name=最新论坛讨论
+
+## TOURS
+## Forums homepage tour
+tour.forumsHomepageTour.welcome.title=欢迎使用论坛应用！
+tour.forumsHomepageTour.welcome.content=论坛是一款沟通工具，可用于创建不限数量的讨论论坛、为内容投票，甚至标记不当内容。
+tour.forumsHomepageTour.addForum.title=添加论坛
+tour.forumsHomepageTour.addForum.content=创建一个新论坛。
+tour.forumsHomepageTour.forumsLivetable.title=论坛动态表格
+tour.forumsHomepageTour.forumsLivetable.content=查看所有论坛。可执行以下操作：排序、筛选、编辑、删除。
+tour.forumsHomepageTour.mostActiveTopics.title=最活跃主题
+tour.forumsHomepageTour.mostActiveTopics.content=此面板展示按投票数和评论数排序的最活跃主题。主题可按日期、投票数、评论数排序，点击对应按钮可切换升序/降序。订阅即可获取主题的最新信息！
+## Forum Tour
+tour.forumTour.forumDetails.title=论坛详情
+tour.forumTour.forumDetails.content=包含信息：论坛描述、创建者、创建日期、主题数量、投票数量。
+tour.forumTour.addTopic.title=添加主题
+tour.forumTour.addTopic.content=创建一个新主题。
+tour.forumTour.sortTopics.title=主题排序
+tour.forumTour.sortTopics.content=主题可按日期、投票数或评论数排序。点击对应按钮，即可切换升序/降序。
+tour.forumTour.listOfTopics.title=主题列表
+tour.forumTour.listOfTopics.content=查看所有主题。包含信息：主题名称、描述、创建者、创建日期、回答数量、评论数量、投票数量。
+## Topic Tour
+tour.topicTour.topicDetails.title=主题详情
+tour.topicTour.topicDetails.content=包含信息：主题描述、创建者、创建日期、主题数量、投票数量。继续阅读下文，了解主题的可执行操作。
+tour.topicTour.flagAndPermalink.title=标记与永久链接
+tour.topicTour.flagAndPermalink.content=若主题内容不当，可使用「标记」功能提醒管理员。永久链接可提供该主题的专属URL。
+tour.topicTour.socialMedia.title=分享至社交媒体
+tour.topicTour.socialMedia.content=可通过社交媒体按钮将此主题分享给好友。
+tour.topicTour.topicModeration.title=主题管理
+tour.topicTour.topicModeration.content=此处为编辑和删除按钮。
+tour.topicTour.vote.title=投票
+tour.topicTour.vote.content=为主题投票。
+tour.topicTour.addAnswer.title=添加回答
+tour.topicTour.addAnswer.content=创建一个新回答。
+tour.topicTour.listOfAnswers.title=回答列表
+tour.topicTour.listOfAnswers.content=查看所有回答及其评论。
+
+## Template Provider
+templateProvider.forum.name=论坛
+templateProvider.forum.description=发起一场讨论
+
+## Forum Administration Section
+forum.administration.configuration.title=配置
+</content>
+</xwikidoc>
