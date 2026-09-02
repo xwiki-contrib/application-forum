@@ -42,9 +42,9 @@
   <content>{{velocity}}
 $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true')
 $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css', true)
-= $services.localization.render("conversations.flag.list.title") =
+= {{translation key="conversations.flag.list.title"/}} =
 
-$services.localization.render("conversations.flag.list.instructions")##
+{{translation key="conversations.flag.list.instructions"/}}##
   #set($columns = ['reason', 'user', 'doc.creationDate', 'moderator', 'status', '_actions'])
   #set($columnsProperties = {
      "reason" : { "type" : "list", "link" : "view"},

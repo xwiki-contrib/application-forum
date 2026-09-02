@@ -41,7 +41,7 @@
   <hidden>true</hidden>
   <content>{{velocity}}
 #set($discard = $xwiki.jsx.use('ForumCode.NewFlagSheet'))
-= $services.localization.render('conversations.flag.dialog.header')  =
+= {{translation key="conversations.flag.dialog.header"/}}  =
 
 #set($flagDocName = $xwiki.getUniquePageName('Flags', 'Flag'))
 #set($flagDoc = $xwiki.getDocument("Flags.${flagDocName}"))
@@ -71,23 +71,23 @@
     #end
   #end
 
-  == $services.localization.render('conversations.flag.success.dialog.header') ==
+  == {{translation key="conversations.flag.success.dialog.header"/}} ==
 
-  $services.localization.render('conversations.flag.success.dialog.message')
+  {{translation key="conversations.flag.success.dialog.message"/}}
 
   #if("$!{adminEmail}" != '' &amp;&amp; "$!{moderatorEmail}" != '')
     #set($mailTo = "${adminEmail},${moderatorEmail}")
     #set($url = $flagDoc.getExternalURL())
     #set($res = $xwiki.mailsender.sendMessageFromTemplate($adminEmail, $mailTo, $util.null, $util.null, '', 'ForumCode.MailTemplateFlag', $xcontext.vcontext))
     #if ($res != 0)
-      {{warning}}$services.localization.render('conversations.flag.error.nomailsent'){{/warning}}
+      {{warning}}{{translation key="conversations.flag.error.nomailsent"/}}{{/warning}}
     #end
   #else
-    {{warning}}$services.localization.render('conversations.flag.error.nomailsent'){{/warning}}
+    {{warning}}{{translation key="conversations.flag.error.nomailsent"/}}{{/warning}}
   #end
   ## sending notification email
 
-  [[$services.localization.render('conversations.flag.success.dialog.goback') &gt;&gt;$request.targetDocName]]
+  [[{{translation key="conversations.flag.success.dialog.goback"/}}&gt;&gt;$services.rendering.escape($request.targetDocName, $xwiki.currentContentSyntaxId)]]
 #else
   #set($discard = $flagDoc.set("user", $xcontext.user))
   #if($request.target)
@@ -109,25 +109,25 @@
     $flagDoc.display('target', 'hidden')
     $flagDoc.display('user', 'hidden')
     $flagDoc.display('moderator', 'hidden')
-    &lt;h2&gt;$services.localization.render('conversations.flag.dialog.guidingquestion1.txt')&lt;/h2&gt;
-      $services.localization.render('conversations.flag.dialog.instruction1.txt')
-    &lt;h2&gt;$services.localization.render('conversations.flag.dialog.guidingquestion2.txt')&lt;/h2&gt;
+    &lt;h2&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.guidingquestion1.txt'))&lt;/h2&gt;
+      $escapetool.xml($services.localization.render('conversations.flag.dialog.instruction1.txt'))
+    &lt;h2&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.guidingquestion2.txt'))&lt;/h2&gt;
     &lt;dl&gt;
       &lt;dt&gt;
-        &lt;label&gt;$services.localization.render('conversations.flag.dialog.reason.label')&lt;/label&gt;
-        &lt;span class="xHint"&gt;$services.localization.render('conversations.flag.dialog.instruction2.txt')&lt;/span&gt;
-        #if($request.get('ForumCode.FlagClass_0_reason') &amp;&amp; $request.get('ForumCode.FlagClass_0_reason') == '')
-          &lt;span class="xErrorMsg"&gt;$services.localization.render('conversations.flag.dialog.mandatory')&lt;/span&gt;
+        &lt;label&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.reason.label'))&lt;/label&gt;
+        &lt;span class="xHint"&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.instruction2.txt'))&lt;/span&gt;
+        #if ($request.get('ForumCode.FlagClass_0_reason') &amp;&amp; $request.get('ForumCode.FlagClass_0_reason') == '')
+          &lt;span class="xErrorMsg"&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.mandatory'))&lt;/span&gt;
         #end
       &lt;/dt&gt;
       &lt;dd&gt;
         $flagDoc.display('reason', 'edit')
       &lt;/dd&gt;
       &lt;dt&gt;
-        &lt;label&gt;$services.localization.render('conversations.flag.dialog.message.label')&lt;/label&gt;
-        &lt;span class="xHint"&gt;$services.localization.render('conversations.flag.dialog.instruction3.txt')&lt;/span&gt;
+        &lt;label&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.message.label'))&lt;/label&gt;
+        &lt;span class="xHint"&gt;$escapetool.xml($services.localization.render('conversations.flag.dialog.instruction3.txt'))&lt;/span&gt;
         #if($request.get('ForumCode.FlagClass_0_message') &amp;&amp; $request.get('ForumCode.FlagClass_0_message').trim() == '')
-          &lt;span class="xErrorMsg"&gt; $services.localization.render('conversations.flag.dialog.mandatory')&lt;/span&gt;
+          &lt;span class="xErrorMsg"&gt; $escapetool.xml($services.localization.render('conversations.flag.dialog.mandatory'))&lt;/span&gt;
         #end
       &lt;/dt&gt;
       &lt;dd&gt;
@@ -136,10 +136,10 @@
     &lt;/dl&gt;
     &lt;div class="buttons"&gt;
       &lt;span class="buttonwrapper"&gt;
-        &lt;input class="button btn btn-primary" type="submit" value="$services.localization.render('conversations.flag.dialog.submit.btt')" /&gt;
+        &lt;input class="button btn btn-primary" type="submit" value="$escapetool.xml($services.localization.render('conversations.flag.dialog.submit.btt'))" /&gt;
       &lt;/span&gt;
       &lt;span class="buttonwrapper"&gt;
-        &lt;input class="button secondary btn btn-default" type="button" value="$services.localization.render('conversations.flag.dialog.cancel.btt')" onclick="history.go(-1);" /&gt;
+        &lt;input class="button secondary btn btn-default" type="button" value="$escapetool.xml($services.localization.render('conversations.flag.dialog.cancel.btt'))" onclick="history.go(-1);" /&gt;
       &lt;/span&gt;
     &lt;/div&gt;
   &lt;/form&gt;

@@ -76,28 +76,28 @@
   #if ($current_avatar &amp;&amp; "${current_avatar}" != '')##
     #set ($attach = $userdoc.getAttachment("${current_avatar}").attachment)
     #set ($src = $userdoc.getAttachmentURL($current_avatar, 'download'))##
-    &lt;a href="$userdoc.getURL('view')" title="$escapetool.xml($assetAuthorDisplayName)" class="photo"&gt;
+    &lt;a href="$escapetool.xml($userdoc.getURL('view'))" title="$escapetool.xml($assetAuthorDisplayName)" class="photo"&gt;
       #if ("$!width" == '' &amp;&amp; "$!height" == '')##
-         &lt;img src="$src" class="photo"/&gt;##
+         &lt;img src="$escapetool.xml($src)" class="photo"/&gt;##
       #elseif ("$!width" == '')##
-         &lt;img src="$src?height=$reqHeight" height="$height" class="photo"/&gt;##
+         &lt;img src="$escapetool.xml("$src?height=$reqHeight")" height="$height" class="photo"/&gt;##
       #elseif ("$!height" == '')##
-         &lt;img src="$src?width=$reqWidth" width="$width" class="photo"/&gt;##
+         &lt;img src="$escapetool.xml("$src?width=$reqWidth")" width="$width" class="photo"/&gt;##
       #else##
-         &lt;img src="$src?width=$reqWidth&amp;height=$reqHeight&amp;keepAspectRatio=true" class="photo"/&gt;
+         &lt;img src="$escapetool.xml("$src?width=$reqWidth&amp;height=$reqHeight&amp;keepAspectRatio=true")" class="photo"/&gt;
       #end##
     &lt;/a&gt;
   #else ##
     #set ($src = $xwiki.getSkinFile('icons/xwiki/noavatar.png'))##
-    &lt;a href="$userdoc.URL" title="$escapetool.xml($assetAuthorDisplayName)"&gt;
+    &lt;a href="$escapetool.xml($userdoc.URL)" title="$escapetool.xml($assetAuthorDisplayName)"&gt;
       #if ("$!width" == '' &amp;&amp; "$!height" == '')##
-         &lt;img src="$src" class="photo"/&gt;
+         &lt;img src="$escapetool.xml($src) class="photo")"/&gt;
       #elseif ("$!width" == '')##
-         &lt;img src="$src?height=$reqHeight" height="$height" class="photo"/&gt;
+         &lt;img src="$escapetool.xml("$src?height=$reqHeight")" height="$height" class="photo"/&gt;
       #elseif ("$!height" == '')##
-         &lt;img src="$src?width=$reqWidth" width="$width" class="photo"/&gt;
+         &lt;img src="$escapetool.xml("$src?width=$reqWidth")" width="$width" class="photo"/&gt;
       #else##
-         &lt;img src="$src?width=$width&amp;height=$reqHeight&amp;keepAspectRatio=true" class="photo"/&gt;
+         &lt;img src="$escapetool.xml("$src?width=$width&amp;height=$reqHeight&amp;keepAspectRatio=true")" class="photo"/&gt;
       #end##
     &lt;/a&gt;
   #end##
@@ -188,19 +188,19 @@
         $commentDoc.getRenderedContent($comment.getProperty('comment').getValue(), $doc.getSyntax().toIdString())
         &lt;span class="actions"&gt;
           #if ($xcontext.user != 'XWiki.XWikiGuest')
-            &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
-             &lt;a href="$xwiki.getURL('Forums.NewFlag', 'view', "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}")"&gt;$services.localization.render('conversations.flag.button')&lt;/a&gt;
+            &lt;span class="flag" title="$escapetool.xml($services.localization.render('conversation.flag.tooltip'))"&gt;
+             &lt;a href="$escapetool.xml($xwiki.getURL('Forums.NewFlag', 'view', "target=${escapetool.url($doc.fullName)}:xwikicomment_${conversationId}_${comment.number}"))"&gt;$escapetool.xml($services.localization.render('conversations.flag.button'))&lt;/a&gt;
             &lt;/span&gt;
           #end
           ## compose the comment permalink in conversation carefully, taking care of making it point to the article's conversation view and not to the conversation itself
           #set ($commentPermalinkInConversation = $doc.getURL('view'))
           #set ($parentArticle = $doc.parent)
           &lt;span class="conversation-permalink"&gt;
-            &lt;a class="permalink" href="$escapetool.xml($commentPermalinkInConversation)#xwikicomment_${conversationId}_${comment.number}" title="$services.localization.render('core.viewers.comments.permalink')"&gt;$services.localization.render('core.viewers.comments.permalink')&lt;/a&gt;
+            &lt;a class="permalink" href="$escapetool.xml($commentPermalinkInConversation)#xwikicomment_${conversationId}_${comment.number}" title="$escapetool.xml($services.localization.render('core.viewers.comments.permalink'))"&gt;$escapetool.xml($services.localization.render('core.viewers.comments.permalink'))&lt;/a&gt;
           &lt;/span&gt;
           #if ($commentDoc.hasAccessLevel('comment'))
             &lt;span class="commenttool commentreply"&gt;
-              &lt;a class="commentreply" href="$escapetool.xml($xredirect.replaceAll('&amp;?replyto=\d++', ''))&amp;amp;replyto=${comment.number}&amp;amp;replytoconversation=${escapetool.url($commentDoc.fullName)}#xwikicomment_${conversationId}_${comment.number}" title="$services.localization.render('core.viewers.comments.reply')"#if ("$!replyTo" == "${comment.number}" &amp;&amp; "$!replyToConversation" == "$!commentDoc.fullName") style="display: none;"#end&gt;$services.localization.render('core.viewers.comments.reply')&lt;/a&gt;
+              &lt;a class="commentreply" href="$escapetool.xml("$xredirect.replaceAll('&amp;?replyto=\d++', '')&amp;replyto=${comment.number}&amp;replytoconversation=${escapetool.url($commentDoc.fullName)}#xwikicomment_${conversationId}_${comment.number}")" title="$escapetool.xml($services.localization.render('core.viewers.comments.reply'))"#if ("$!replyTo" == "${comment.number}" &amp;&amp; "$!replyToConversation" == "$!commentDoc.fullName") style="display: none;"#end&gt;$escapetool.xml($services.localization.render('core.viewers.comments.reply'))&lt;/a&gt;
             &lt;/span&gt;
           #end
         &lt;/span&gt;    
@@ -212,9 +212,9 @@
         ## so edit comment will redirect to the conversations view of the article for which we edited comment, so that we have a correct reloading after save
         #set ($commentEditRedirect = $commentDoc.getURL('get', 'xpage=xpart&amp;vm=conversations.vm'))
         ## edit
-        &lt;a class="edit" href="$commentDoc.getURL('view', "number=${comment.number}&amp;amp;xredirect=$escapetool.url($commentEditRedirect)&amp;amp;xpage=xpart&amp;amp;vm=commentsinline.vm")" title="$services.localization.render('core.viewers.comments.edit')"&gt;$services.localization.render('core.viewers.comments.edit')&lt;/a&gt;
+        &lt;a class="edit" href="$escapetool.xml($commentDoc.getURL('view', "number=${comment.number}&amp;xredirect=$escapetool.url($commentEditRedirect)&amp;xpage=xpart&amp;vm=commentsinline.vm"))" title="$escapetool.xml($services.localization.render('core.viewers.comments.edit'))"&gt;$escapetool.xml($services.localization.render('core.viewers.comments.edit'))&lt;/a&gt;
         ## delete
-        &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deletecomment&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;amp;commentnumber=${comment.number}&amp;amp;xredirect=$escapetool.url($xredirect)")" title="$services.localization.render('core.viewers.comments.delete')"&gt;$services.localization.render('core.viewers.comments.delete')&lt;/a&gt;
+        &lt;a class="delete" href="$escapetool.xml($xwiki.getURL('ForumCode.Actions', 'get', "action=deletecomment&amp;form_token=$!{services.csrf.getToken()}&amp;conversationdoc=${escapetool.url($commentDoc.fullName)}&amp;commentnumber=${comment.number}&amp;xredirect=$escapetool.url($xredirect)"))" title="$escapetool.xml($services.localization.render('core.viewers.comments.delete'))"&gt;$escapetool.xml($services.localization.render('core.viewers.comments.delete'))&lt;/a&gt;
       #end
     &lt;/div&gt;
 #end
@@ -240,12 +240,12 @@
             &lt;div class="comment-reply"&gt;
               &lt;span class="comment-meta"&gt;
                 #if ($xcontext.user != 'XWiki.XWikiGuest')
-                  $services.localization.render('core.viewers.comments.add.guestName.prompt') $xwiki.getUserName($xcontext.user)
+                  $escapetool.xml($services.localization.render('core.viewers.comments.add.guestName.prompt')) $xwiki.getUserName($xcontext.user)
                   &lt;input type="hidden" name="${xCommentClass}_author" value="$xcontext.user"/&gt;
                 #else
-                  $services.localization.render('core.viewers.comments.add.guestName.prompt') 
+                  $escapetool.xml($services.localization.render('core.viewers.comments.add.guestName.prompt'))
                   &lt;input type="text" id="${xCommentClass}_author" name="${xCommentClass}_author" value="$author"/&gt;
-                  &lt;a href="$escapetool.xml($xwiki.getURL('XWiki.XWikiLogin', 'login', "xredirect=$escapetool.url($xwiki.getRequestURL())"))"&gt;$services.localization.render('login')&lt;/a&gt;
+                  &lt;a href="$escapetool.xml($xwiki.getURL('XWiki.XWikiLogin', 'login', "xredirect=$escapetool.url($xwiki.getRequestURL())"))"&gt;$escapetool.xml($services.localization.render('login'))&lt;/a&gt;
                 #end
               &lt;/span&gt;
               &lt;div class="comment-content"&gt;
@@ -254,7 +254,7 @@
                 &lt;input type="hidden" name="${xCommentClass}_date" value=""/&gt;
                 &lt;input type="hidden" name="${xCommentClass}_replyto" value="$!replyTo"/&gt;
                 &lt;div class="commentcontainer"&gt;
-                  &lt;label for="${xCommentClass}_comment_${conversationId}"&gt;$services.localization.render('core.viewers.comments.add.comment.label')&lt;/label&gt;
+                  &lt;label for="${xCommentClass}_comment_${conversationId}"&gt;$escapetool.xml($services.localization.render('core.viewers.comments.add.comment.label'))&lt;/label&gt;
                   &lt;textarea id='${xCommentClass}_comment_${conversationId}' rows="5" cols="80" name="${xCommentClass}_comment" class="maximizable"&gt;$!comment&lt;/textarea&gt;
                 &lt;/div&gt;
                 #if ($xcontext.user == 'XWiki.XWikiGuest' &amp;&amp; $offerGuestsCaptcha)
@@ -262,10 +262,10 @@
                 #end
                 &lt;div class="buttons"&gt;
                   &lt;span class="buttonwrapper"&gt;
-                    &lt;input class="button" type="submit" value="$services.localization.render('core.viewers.comments.add.submit')"/&gt;
+                    &lt;input class="button" type="submit" value="$escapetool.xml($services.localization.render('core.viewers.comments.add.submit'))"/&gt;
                   &lt;/span&gt;
                   &lt;span class="buttonwrapper"&gt;
-                    &lt;a class="cancel secondary button" href="$doc.getURL('view')"&gt;$services.localization.render('core.viewers.comments.add.cancel')&lt;/a&gt;
+                    &lt;a class="cancel secondary button" href="$escapetool.xml($doc.getURL('view'))"&gt;$escapetool.xml($services.localization.render('core.viewers.comments.add.cancel'))&lt;/a&gt;
                   &lt;/span&gt;
                 &lt;/div&gt;
               &lt;/div&gt;&lt;!-- comment-content --&gt; 
@@ -277,9 +277,9 @@
   #else
     &lt;div class="answer user"&gt;
       #if ($doc.space.startsWith('Group_') || $doc.space.startsWith('Discussions_Group_'))
-        &lt;p class="norights"&gt;$services.localization.render('conversation.groups.norights')&lt;/p&gt;
+        &lt;p class="norights"&gt;$escapetool.xml($services.localization.render('conversation.groups.norights'))&lt;/p&gt;
       #else
-        &lt;p class="norights"&gt;$services.localization.render('conversation.norights')&lt;/p&gt;
+        &lt;p class="norights"&gt;$escapetool.xml($services.localization.render('conversation.norights'))&lt;/p&gt;
       #end
     &lt;/div&gt;
   #end
@@ -303,15 +303,15 @@
         Event.observe($("${xCommentClass}_comment"), 'focus', handler);
       &lt;/script&gt;
     #else
-      &lt;img src="$commentDoc.getURL('imagecaptcha')?nounce=$datetool.getSystemTime()" alt="$services.localization.render('core.captcha.image.alternateText')" /&gt;
+      &lt;img src="$escapetool.xml("$commentDoc.getURL('imagecaptcha')?nounce=$datetool.getSystemTime()")" alt="$escapetool.xml($services.localization.render('core.captcha.image.alternateText'))" /&gt;
     #end
     &lt;input type="hidden" name="captcha_type" value="image" /&gt;
     &lt;br/&gt;
-    &lt;label for="captcha_answer"&gt;$services.localization.render('core.captcha.image.instruction')&lt;/label&gt;
+    &lt;label for="captcha_answer"&gt;$escapetool.xml($services.localization.render('core.captcha.image.instruction'))&lt;/label&gt;
     &lt;br/&gt;
     &lt;input id="captcha_answer" name="captcha_answer" type="text"&gt;
     #if ($captchaAnswerWrong)
-      &lt;span style="color:#C00; font-weight:bold; margin:0 0 0 5px;"&gt;$services.localization.render('core.captcha.captchaAnswerIsWrong')&lt;/span&gt;
+      &lt;span style="color:#C00; font-weight:bold; margin:0 0 0 5px;"&gt;$escapetool.xml($services.localization.render('core.captcha.captchaAnswerIsWrong'))&lt;/span&gt;
     #end
     &lt;div class="wikimodel-emptyline"&gt;&lt;/div&gt;
   &lt;/div&gt;
@@ -380,26 +380,36 @@
       #set ($nextorder = 'desc')
     #end
   #end
-  &lt;span class="${sortclass} ${style}"&gt;&lt;a href="$doc.getURL('view', "sortfield=${field}&amp;sortorder=${nextorder}")" onclick=""&gt;$services.localization.render("conversations.forum.sorttopicsby.${field}")&lt;/a&gt;&lt;/span&gt;
+  &lt;span class="${sortclass} ${style}"&gt;&lt;a href="$escapetool.xml($doc.getURL('view', "sortfield=${field}&amp;sortorder=${nextorder}"))" onclick=""&gt;$escapetool.xml($services.localization.render("conversations.forum.sorttopicsby.${field}"))&lt;/a&gt;&lt;/span&gt;
 #end
 ##
 #macro (displayAddConversationButton $space $entity)
+  #set ($entityClassName = '')
+  #if ($entity == 'Topic')
+    #set ($escapedCreate = $escapetool.xml($services.localization.render("conversation.topic.create")))
+    #set ($entityClassName = 'ForumCode.TopicClass')
+    #set ($entityLower = 'topic')
+  #elseif ($entity == 'Answer')
+    #set ($escapedCreate = $escapetool.xml($services.localization.render("conversation.answer.create")))
+    #set ($entityClassName = 'ForumCode.AnswerClass')
+    #set ($entityLower = 'answer')
+  #end
   #set ($uniquePageReference = '')
   ## Use a fake document in order to use the user input for topics and answers creation (title and description to compute the name)
   #set ($spaceRef = $services.model.resolveSpace($space, 'currentmixed'))
   #set ($fakeDocRef = $services.model.createDocumentReference('FakeDocument', $spaceRef))
   #set ($fakeEntityDoc = $xwiki.getDocument($fakeDocRef))
-  #if ($fakeEntityDoc.hasAccessLevel('edit'))
-    &lt;div class="addconversation-container add${entity.toLowerCase()}-container"&gt;
-      &lt;div class="addconversation-container-button add${entity.toLowerCase()}-container-button buttonwrapper"&gt;
-        &lt;button class="button btn btn-success addconversation-activator"&gt;$!services.icon.renderHTML('add') $services.localization.render("conversation.${entity.toLowerCase()}.create")&lt;/button&gt;
+  #if ($entityClassName != '' &amp;&amp; $fakeEntityDoc.hasAccessLevel('edit'))
+    &lt;div class="addconversation-container add${entityLower}-container"&gt;
+      &lt;div class="addconversation-container-button add${entityLower}-container-button buttonwrapper"&gt;
+        &lt;button class="button btn btn-success addconversation-activator"&gt;$!services.icon.renderHTML('add') $escapedCreate&lt;/button&gt;
       &lt;/div&gt;
-      &lt;div class="addconversation-container-form add${entity.toLowerCase()}-container-form"&gt;
+      &lt;div class="addconversation-container-form add${entityLower}-container-form"&gt;
         ## Create a fake entity object to be able to display the status and the type selectors
-        #set ($fakeEntity = $fakeEntityDoc.newObject("ForumCode.${entity}Class"))
-        &lt;form class="#if ("$!request.action" != "add${entity.toLowerCase()}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
+        #set ($fakeEntity = $fakeEntityDoc.newObject($entityClassName))
+        &lt;form class="#if ("$!request.action" != "add${entityLower}")hidden#end addconversation xform" method="post" action="$xwiki.getURL('ForumCode.Actions')"&gt;
           &lt;div&gt;
-            &lt;input type="hidden" name="action" value="add${entity.toLowerCase()}" /&gt;
+            &lt;input type="hidden" name="action" value="add${entityLower}" /&gt;
             &lt;input type="hidden" name="space" value="$escapetool.xml($space)" /&gt;
             &lt;input type="hidden" name="parent" value="$escapetool.xml($doc.fullName)" /&gt;
             &lt;input type="hidden" name="form_token" value="$services.csrf.token" /&gt;
@@ -407,20 +417,20 @@
           &lt;/div&gt;
           &lt;dl&gt;
             #if ($entity == 'Topic')
-              &lt;dt&gt;&lt;label&gt;$services.localization.render("ForumCode.${entity}Class_title")&lt;/label&gt;&lt;/dt&gt;
+              &lt;dt&gt;&lt;label&gt;$escapetool.xml($services.localization.render("${entityClassName}_title"))&lt;/label&gt;&lt;/dt&gt;
               &lt;dd&gt;&lt;input type="text" name="title" /&gt;&lt;/dd&gt;
               ## Cannot choose status, will always create as in progress
-              &lt;input type="hidden" name="ForumCode.${entity}Class_${fakeEntity.number}_status" value="inprogress" /&gt; 
+              &lt;input type="hidden" name="ForumCode.TopicClass_${fakeEntity.number}_status" value="inprogress" /&gt;
             #end
-            &lt;dt&gt;&lt;label&gt;$services.localization.render("ForumCode.${entity}Class_description")&lt;/label&gt;&lt;/dt&gt;
+            &lt;dt&gt;&lt;label&gt;$escapetool.xml($services.localization.render("${entityClassName}_description"))&lt;/label&gt;&lt;/dt&gt;
             &lt;dd&gt;#cleanHTMLMacro($fakeEntityDoc.display('description', 'edit', $fakeEntity))&lt;/dd&gt;
           &lt;/dl&gt;
           &lt;div class="buttons"&gt;
             &lt;span class="buttonwrapper"&gt;
-              &lt;input class="button" type="submit" class="button" value="$services.localization.render("conversation.${entity.toLowerCase()}.create")" /&gt;
+              &lt;input class="button" type="submit" class="button" value="$escapedCreate" /&gt;
             &lt;/span&gt;
             &lt;span class="buttonwrapper"&gt;
-              &lt;a class="button secondary cancel" href="$doc.getURL('view')" class="cancel"&gt;$services.localization.render('cancel')&lt;/a&gt;
+              &lt;a class="button secondary cancel" href="$escapetool.xml($doc.getURL('view'))" class="cancel"&gt;$escapetool.xml($services.localization.render('cancel'))&lt;/a&gt;
             &lt;/span&gt;
           &lt;/div&gt;
         &lt;/form&gt;
@@ -431,7 +441,7 @@
 #end
 #*
 #set ($option == {
-  'nonZeroQuery' : $nonZeroQuery,         
+  'nonZeroQuery' : $nonZeroQuery,
   'coutNonZeroQuery' : $coutNonZeroQuery,
   'zeroQuery' : $zeroQuery,
   'countZeroQuery' : $countZeroQuery,
@@ -549,11 +559,11 @@
       #end 
     #end
   #else
-    &lt;p class="noitems"&gt;$services.localization.render('conversations.topic.empty')&lt;/p&gt;
+    &lt;p class="noitems"&gt;$escapetool.xml($services.localization.render('conversations.topic.empty'))&lt;/p&gt;
   #end
   #if ($topics.size() == $nb)
     &lt;div id="forum-more"&gt;
-      &lt;a href="$doc.getURL('view', "start=${nextstart}")"&gt;$services.localization.render('conversations.forum.more', [$step])&lt;/a&gt;
+      &lt;a href="$escapetool.xml($doc.getURL('view', "start=${nextstart}"))"&gt;$escapetool.xml($services.localization.render('conversations.forum.more', [$step]))&lt;/a&gt;
     &lt;/div&gt;
   #end
 #end
@@ -591,11 +601,11 @@
 #macro(displayForumActions $topicDoc) 
   #if (!$isGuest)
     &lt;span class="topic-actions-flag conversation-flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
-      &lt;a href="$xwiki.getURL('Forums.NewFlag', 'view', "target=${escapetool.url($topicDoc.fullName)}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
+      &lt;a href="$escapetool.xml($xwiki.getURL('Forums.NewFlag', 'view', "target=${escapetool.url($topicDoc.fullName)}"))"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
     &lt;/span&gt;
   #end
   &lt;span class="topic-actions-permalink" title="$services.localization.render('conversation.permalink.tooltip')"&gt;
-   &lt;a href="$topicDoc.getURL()"&gt;&lt;/a&gt;
+   &lt;a href="$escapetool.xml($topicDoc.getURL())"&gt;&lt;/a&gt;
   &lt;/span&gt;
 #end
 ##
@@ -630,9 +640,9 @@
         #end
         &lt;div class="topic-container"&gt;
           #if (!$withdetails)
-            &lt;h3 class="topic-title"&gt;&lt;a href="$topicDoc.getURL()" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+            &lt;h3 class="topic-title"&gt;&lt;a href="$escapetool.xml($topicDoc.getURL())" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
           #end
-          &lt;span class="topic-comments" title="$services.localization.render('conversations.topic.tooltip.totalcommentsandanswers')"&gt;$nbCommentsAnswers&lt;/span&gt;
+          &lt;span class="topic-comments" title="$escapetool.xml($services.localization.render('conversations.topic.tooltip.totalcommentsandanswers'))"&gt;$nbCommentsAnswers&lt;/span&gt;
           &lt;div class="topic-description"&gt;
             #cleanHTMLMacro($!topicDescription)
             #if ($withdetails)
@@ -655,16 +665,16 @@
                 $!xwiki.getUserName($topicDoc.creator)
               &lt;/span&gt;
               &lt;span class="topic-date"&gt;$xwiki.formatDate($topicDoc.date)&lt;/span&gt; ## Maybe it should be creation date ?
-              &lt;span class="topic-answers" title="$services.localization.render('conversations.topic.tooltip.totalanswers')"&gt;$topicAnswers.size() $services.localization.render('conversations.answer.count')&lt;/span&gt;
+              &lt;span class="topic-answers" title="$escapetool.xml($services.localization.render('conversations.topic.tooltip.totalanswers'))"&gt;$topicAnswers.size() $escapetool.xml($services.localization.render('conversations.answer.count'))&lt;/span&gt;
               #if ($notAllowed)
                 #set ($voteAllowedClass = '')
               #else
                 #set ($voteAllowedClass = 'allow-vote')
               #end
-              &lt;div class="topic-vote $voteAllowedClass conversation-like" #if ($services.ratings.getRating($topicReference, $xcontext.user) == $util.null) title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end&gt;
+              &lt;div class="topic-vote $voteAllowedClass conversation-like" #if ($services.ratings.getRating($topicReference, $xcontext.user) == $util.null) title="$escapetool.xml($services.localization.render('conversation.like.button.tooltip'))"#else title="$escapetool.xml($services.localization.render('conversation.like.button.alreadyliked.tooltip'))"#end&gt;
                 #set ($rating = $services.ratings.getAverageRating($topicReference).nbVotes)
                 &lt;input type="hidden" name="documenttolike" value="$escapetool.xml($topicReference)" /&gt;
-                &lt;span class="conversation-score" title="$services.localization.render('conversation.like.score.tooltip', [$rating])"&gt;$!rating&lt;/span&gt;
+                &lt;span class="conversation-score" title="$escapetool.xml($services.localization.render('conversation.like.score.tooltip', [$rating]))"&gt;$!rating&lt;/span&gt;
               &lt;/div&gt;
             &lt;/span&gt;
           &lt;/div&gt;
@@ -674,11 +684,11 @@
             #if (($topicDoc.creator==$xcontext.user) || $doc.creator == $xcontext.user || $hasAdmin)
               &lt;div id="moderation-buttons"&gt;
                 ## edit
-                &lt;a class="edit" href="$topicDoc.getURL('edit')" title="$services.localization.render('conversations.forum.edit')"&gt;$services.localization.render('conversations.forum.edit')&lt;/a&gt;
+                &lt;a class="edit" href="$escapetool.xml($topicDoc.getURL('edit'))" title="$escapetool.xml($services.localization.render('conversations.forum.edit'))"&gt;$escapetool.xml($services.localization.render('conversations.forum.edit'))&lt;/a&gt;
                 #set ($redirecToParentForum = $xwiki.getURL($topicDoc.parent))
-                #set ($actionParams =  "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;amp;xredirect=${escapetool.url($redirecToParentForum)}")
+                #set ($actionParams =  "action=deleteconversation&amp;form_token=$!{services.csrf.getToken()}&amp;conversationdoc=${escapetool.url($topicDoc.fullName)}&amp;xredirect=${escapetool.url($redirecToParentForum)}")
                 ## delete
-                &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'view', $actionParams)" title="$services.localization.render('conversation.forum.delete.title')"&gt;$services.localization.render('conversations.forum.delete')&lt;/a&gt;
+                &lt;a class="delete" href="$escapetool.xml($xwiki.getURL('ForumCode.Actions', 'view', $actionParams))" title="$escapetool.xml($services.localization.render('conversation.forum.delete.title'))"&gt;$escapetool.xml($services.localization.render('conversations.forum.delete'))&lt;/a&gt;
               &lt;/div&gt;
             #end
           &lt;/div&gt;
@@ -712,20 +722,20 @@
               &lt;div class="answer-reply"&gt;
                 &lt;span class="answer-meta"&gt;
                   &lt;span class="user"&gt;$xwiki.getUserName($topicAnswerDoc.creator)&lt;/span&gt;
-                  &lt;span class="time"&gt;$services.localization.render('conversation.updatedate', [$xwiki.formatDate($topicAnswerDoc.date)])&lt;/span&gt;
+                  &lt;span class="time"&gt;$escapetool.xml($services.localization.render('conversation.updatedate', [$xwiki.formatDate($topicAnswerDoc.date)]))&lt;/span&gt;
                   &lt;span class="votes conversation-ratings"&gt;
-                    &lt;span class="conversation-like" #if ($services.ratings.getRating($answerReference, $xcontext.user) == $util.null)class="canVote" title="$services.localization.render('conversation.like.button.tooltip')"#else title="$services.localization.render('conversation.like.button.alreadyliked.tooltip')"#end &gt;
+                    &lt;span class="conversation-like" #if ($services.ratings.getRating($answerReference, $xcontext.user) == $util.null)class="canVote" title="$escapetool.xml($services.localization.render('conversation.like.button.tooltip'))"#else title="$escapetool.xml($services.localization.render('conversation.like.button.alreadyliked.tooltip'))"#end &gt;
                       &lt;input type="hidden" name="documenttolike" value="$escapetool.xml($answerReference)" /&gt;
                     &lt;/span&gt;
                   &lt;/span&gt;
-                  &lt;span class="comments" objtype="nbComments" title="$services.localization.render('conversations.topic.answer.tooltip.totalcomments')"&gt;$comments.size() $services.localization.render('conversations.comment.count')&lt;/span&gt;
+                  &lt;span class="comments" objtype="nbComments" title="$escapetool.xml($services.localization.render('conversations.topic.answer.tooltip.totalcomments'))"&gt;$comments.size() $escapetool.xml($services.localization.render('conversations.comment.count'))&lt;/span&gt;
                 &lt;/span&gt;
                 &lt;div class="answer-content"&gt;
                   #cleanHTMLMacro($topicAnswerDoc.description)
                   &lt;span class="actions"&gt;
                     #if (!$isGuest)
                       &lt;span class="flag" title="$services.localization.render('conversation.flag.tooltip')"&gt;
-                        &lt;a href="$xwiki.getURL('Forums.NewFlag', 'view', "target=${escapetool.url($doc.fullName)}:${topicAnswerID}")"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
+                        &lt;a href="$escapetool.xml($xwiki.getURL('Forums.NewFlag', 'view', "target=${escapetool.url($doc.fullName)}:${topicAnswerID}"))"&gt;$services.localization.render("conversations.flag.button")&lt;/a&gt;
                       &lt;/span&gt;
                     #end
                     &lt;span class="conversation-permalink"&gt;
@@ -739,9 +749,9 @@
               &lt;div class="answer-moderation"&gt;
                 #if (($topicAnswerDoc.creator==$xcontext.user) || $hasAdmin)
                   ## edit
-                  &lt;a class="edit" href="$topicAnswerDoc.getURL('edit')" title="$services.localization.render('conversation.edit.title')"&gt;$services.localization.render('conversation.edit')&lt;/a&gt;
+                  &lt;a class="edit" href="$escapetool.xml($topicAnswerDoc.getURL('edit'))" title="$escapetool.xml($services.localization.render('conversation.edit.title'))"&gt;$escapetool.xml($services.localization.render('conversation.edit'))&lt;/a&gt;
                   ## delete
-                  &lt;a class="delete" href="$xwiki.getURL('ForumCode.Actions', 'get', "action=deleteconversation&amp;amp;form_token=$!{services.csrf.getToken()}&amp;amp;conversationdoc=${escapetool.url($topicAnswerDoc.fullName)}")" title="$services.localization.render('conversation.delete.title')"&gt;$services.localization.render('conversation.delete')&lt;/a&gt;
+                  &lt;a class="delete" href="$escapetool.xml($xwiki.getURL('ForumCode.Actions', 'get', "action=deleteconversation&amp;form_token=$!{services.csrf.getToken()}&amp;conversationdoc=${escapetool.url($topicAnswerDoc.fullName)}"))" title="$escapetool.xml($services.localization.render('conversation.delete.title'))"&gt;$escapetool.xml($services.localization.render('conversation.delete'))&lt;/a&gt;
                 #end
               &lt;/div&gt;&lt;!-- / .answer-moderation --&gt;
             &lt;/div&gt;&lt;!-- / .answer-layout --&gt;
@@ -761,7 +771,7 @@
                 ##
                 #displayThread($rootKey, $commentThreads, $commentDoc)
               #else
-                &lt;p class="noitems"&gt;$services.localization.render('conversation.empty')&lt;/p&gt;
+                &lt;p class="noitems"&gt;$escapetool.xml($services.localization.render('conversation.empty'))&lt;/p&gt;
               #end
               #if (!$replied)
                 #displayCommentForm($topicAnswerDoc)
@@ -771,7 +781,7 @@
         #end
       #end
     #else
-      &lt;p class="noitems"&gt;$services.localization.render('conversations.answer.empty')&lt;/p&gt;
+      &lt;p class="noitems"&gt;$escapetool.xml($services.localization.render('conversations.answer.empty'))&lt;/p&gt;
     #end
   &lt;/div&gt;&lt;!-- / .answers --&gt;
 #end
@@ -795,7 +805,7 @@
   #else
     #set ($nextOrder = 'desc')
   #end
-  
+
   #set ($topicsDoc = $xwiki.getDocument($topicsPage))
   #set ($commentsurl = $topicsDoc.getURL('get', "xpage=plain&amp;sortfield=comments&amp;sortorder=${nextOrder}"))
   #set ($votesurl = $topicsDoc.getURL('get', "xpage=plain&amp;sortfield=votes&amp;sortorder=${nextOrder}"))
@@ -816,21 +826,21 @@
 
   #set ($isPanelSort = 1)
   #getOrdredTopics('', $start, $nb, $sortField, 'topics')
-  $services.localization.render('discussion.panel.sortby') &lt;a class="date $!{datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$services.localization.render('discussion.panel.dates')&lt;/a&gt;
-  &lt;a class="votes $!{votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$services.localization.render('discussion.panel.votes')&lt;/a&gt;
-  &lt;a class="comments $!{commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$services.localization.render('discussion.panel.comments')&lt;/a&gt;
+  $escapetool.xml($services.localization.render('discussion.panel.sortby')) &lt;a class="date $!{datesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${datesurl}');"&gt;$escapetool.xml($services.localization.render('discussion.panel.dates'))&lt;/a&gt;
+  &lt;a class="votes $!{votesorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${votesurl}');"&gt;$escapetool.xml($services.localization.render('discussion.panel.votes'))&lt;/a&gt;
+  &lt;a class="comments $!{commentsorder}" href="javascript:void(0)" onclick="new Ajax.Updater('discussionTopics','${commentsurl}');"&gt;$escapetool.xml($services.localization.render('discussion.panel.comments'))&lt;/a&gt;
   &lt;div class="tableScroll"&gt;
     &lt;table id="discussionTopicsTable" cellspacing="0" cellpadding="0" border="0"&gt;
-      &lt;caption&gt;$services.localization.render('discussion.panel.title')&lt;/caption&gt;
+      &lt;caption&gt;$escapetool.xml($services.localization.render('discussion.panel.title'))&lt;/caption&gt;
       &lt;colgroup&gt;
         &lt;col class="date" /&gt;
         &lt;col class="votes" /&gt;
         &lt;col class="comments" /&gt;
       &lt;/colgroup&gt;
       &lt;tr&gt;
-        &lt;th class="topics"&gt;$services.localization.render('discussion.panel.topics')&lt;/th&gt;
-        &lt;th class="votes"&gt;$services.localization.render('discussion.panel.votes')&lt;/th&gt;
-        &lt;th class="comments"&gt;$services.localization.render('discussion.panel.comments')&lt;/th&gt;
+        &lt;th class="topics"&gt;$escapetool.xml($services.localization.render('discussion.panel.topics'))&lt;/th&gt;
+        &lt;th class="votes"&gt;$escapetool.xml($services.localization.render('discussion.panel.votes'))&lt;/th&gt;
+        &lt;th class="comments"&gt;$escapetool.xml($services.localization.render('discussion.panel.comments'))&lt;/th&gt;
       &lt;/tr&gt;
       #foreach ($topic in $topics)
         #set ($topicReference = $services.model.resolveDocument($topic))
@@ -857,19 +867,19 @@
             #set ($topicodd = 'even')
           #end
           &lt;tr class="${topicodd}"&gt;
-            &lt;td class="topic"&gt;&lt;a href="$topicDoc.getURL()"&gt;$!topicTitle&lt;/a&gt;&lt;/td&gt;
+            &lt;td class="topic"&gt;&lt;a href="$escapetool.xml($topicDoc.getURL())"&gt;$!topicTitle&lt;/a&gt;&lt;/td&gt;
             &lt;td class="votes"&gt;$!rating&lt;/td&gt;
             &lt;td class="comments"&gt;$!nbCommentsAnswers&lt;/td&gt;
           &lt;/tr&gt;
         #end
       #end
     &lt;/table&gt;
-    &lt;h1 class="xwikipaneltitle subscribe"&gt;$services.localization.render('discussion.panel.subscribe')&lt;/h1&gt;
+    &lt;h1 class="xwikipaneltitle subscribe"&gt;$escapetool.xml($services.localization.render('discussion.panel.subscribe'))&lt;/h1&gt;
     &lt;div class="subscribe-content"&gt;
-      &lt;p&gt;$services.localization.render('discussion.panel.text1')&lt;/p&gt;
-      &lt;p class="subscribe-text left"&gt;$services.icon.renderHTML('rss')&lt;a href="$xwiki.getURL('ForumCode.TopicsRss', 'view', 'xpage=plain&amp;outputSyntax=plain')"&gt; $services.localization.render('discussion.panel.topics')&lt;/a&gt;&lt;/p&gt;
-      &lt;p class="subscribe-text"&gt;$services.localization.render('discussion.panel.text2')&lt;/p&gt;
-      &lt;p class="subscribe-text right"&gt;$services.icon.renderHTML('rss')&lt;a href="$xwiki.getURL('ForumCode.CommentsRss', 'view', 'xpage=plain&amp;outputSyntax=plain')"&gt; $services.localization.render('discussion.panel.comments')&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;$escapetool.xml($services.localization.render('discussion.panel.text1'))&lt;/p&gt;
+      &lt;p class="subscribe-text left"&gt;$services.icon.renderHTML('rss')&lt;a href="$escapetool.xml($xwiki.getURL('ForumCode.TopicsRss', 'view', 'xpage=plain&amp;outputSyntax=plain'))"&gt; $escapetool.xml($services.localization.render('discussion.panel.topics'))&lt;/a&gt;&lt;/p&gt;
+      &lt;p class="subscribe-text"&gt;$escapetool.xml($services.localization.render('discussion.panel.text2'))&lt;/p&gt;
+      &lt;p class="subscribe-text right"&gt;$services.icon.renderHTML('rss')&lt;a href="$escapetool.xml($xwiki.getURL('ForumCode.CommentsRss', 'view', 'xpage=plain&amp;outputSyntax=plain'))"&gt; $escapetool.xml($services.localization.render('discussion.panel.comments'))&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   #if (!$request.xpage)
@@ -902,11 +912,12 @@
  * Displays different kinds of messages (info ,success ,warning ,error)
  *#
 #macro(displayAlertsMessages)
-  #if ("$!{request.success}" != '')
-    {{success}}$services.localization.render("conversations.$!{request.success}.success"){{/success}}
-  #end
-  #if ($request.mailsent == '0')
-    {{warning}}$services.localization.render("conversations.$!{request.success}.error.nomailsent"){{/warning}}
+  #if ("$!request.success" != '' &amp;&amp; $stringtool.isAlpha($request.sucess))
+    #set ($action = $request.success)
+    {{success}}{{translation key="conversations.${action}.success"/}}{{/success}}
+    #if ($request.mailsent == '0')
+      {{warning}}{{translation key="conversations.${action}.error.nomailsent"/}}{{/warning}}
+    #end
   #end
 #end
 #**
@@ -922,9 +933,9 @@
     #set ($titleIsValid = !$xcontext.validationStatus.errors.contains($titleErrorKey))
     ##
       &lt;dt class="field-mandatory"&gt;
-        &lt;label&gt;$services.localization.render('conversations.forum.title')&lt;/label&gt;
+        &lt;label&gt;$escapetool.xml($services.localization.render('conversations.forum.title'))&lt;/label&gt;
         #if (!$titleIsValid)
-          &lt;span class="xErrorMsg"&gt;$services.localization.render($titleErrorKey)&lt;/span&gt;
+          &lt;span class="xErrorMsg"&gt;$escapetool.xml($services.localization.render($titleErrorKey))&lt;/span&gt;
         #end
       &lt;/dt&gt;
       &lt;dd&gt;

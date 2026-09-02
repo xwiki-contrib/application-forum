@@ -261,7 +261,7 @@
     <property>
       <codeToExecute>{{include reference="ForumCode.FlagsHome"/}}
 
-== $services.localization.render('forum.administration.configuration.title') ==
+== {{translation key="forum.administration.configuration.title"/}} ==
 </codeToExecute>
     </property>
     <property>

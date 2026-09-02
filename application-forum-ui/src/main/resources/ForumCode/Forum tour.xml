@@ -161,9 +161,7 @@
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumTour.forumDetails.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumTour.forumDetails.content"/}}</content>
     </property>
     <property>
       <element>.forum-container</element>
@@ -302,9 +300,7 @@ $services.localization.render('tour.forumTour.forumDetails.content')
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumTour.addTopic.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumTour.addTopic.content"/}}</content>
     </property>
     <property>
       <element>.addtopic-container-button&gt;.addconversation-activator</element>
@@ -443,9 +439,7 @@ $services.localization.render('tour.forumTour.addTopic.content')
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumTour.sortTopics.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumTour.sortTopics.content"/}}</content>
     </property>
     <property>
       <element>#forum-buttons</element>
@@ -584,9 +578,7 @@ $services.localization.render('tour.forumTour.sortTopics.content')
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumTour.listOfTopics.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumTour.listOfTopics.content"/}}</content>
     </property>
     <property>
       <element>#xwikicontent&gt;.topics</element>

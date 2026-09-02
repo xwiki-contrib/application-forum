@@ -161,9 +161,7 @@
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumsHomepageTour.welcome.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumsHomepageTour.welcome.content"/}}</content>
     </property>
     <property>
       <element/>
@@ -302,9 +300,7 @@ $services.localization.render('tour.forumsHomepageTour.welcome.content')
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumsHomepageTour.addForum.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumsHomepageTour.addForum.content"/}}</content>
     </property>
     <property>
       <element>#addForum</element>
@@ -443,10 +439,7 @@ $services.localization.render('tour.forumsHomepageTour.addForum.content')
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumsHomepageTour.forumsLivetable.content')
-{{/velocity}}
-</content>
+      <content>{{translation key="tour.forumsHomepageTour.forumsLivetable.content"/}}</content>
     </property>
     <property>
       <element>#forums.xwiki-livetable</element>
@@ -585,9 +578,7 @@ $services.localization.render('tour.forumsHomepageTour.forumsLivetable.content')
       <backdrop>1</backdrop>
     </property>
     <property>
-      <content>{{velocity}}
-$services.localization.render('tour.forumsHomepageTour.mostActiveTopics.content')
-{{/velocity}}</content>
+      <content>{{translation key="tour.forumsHomepageTour.mostActiveTopics.content"/}}</content>
     </property>
     <property>
       <element>.MostActiveTopicsPanel</element>

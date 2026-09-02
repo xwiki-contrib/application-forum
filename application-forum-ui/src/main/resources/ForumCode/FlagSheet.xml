@@ -51,57 +51,55 @@
   #if($prop.getName() == "user") #set($user = $prop.prettyName)#end
   #if($prop.getName() == "moderator") #set($moderator = $prop.prettyName)#end
 #end
-{{html wiki='true'}}
-    (% class="xform" %)
+(% class="xform" %)
+(((
+  (% class = "row" %)
+  (((
+    (% class="col-xs-12 col-sm-4 col-md-4" %)
     (((
-      (% class = "row" %)
-      (((
-        (% class="col-xs-12 col-sm-4 col-md-4" %)
-        (((
-          ; &lt;label&gt;$reason&lt;/label&gt;
-          : $doc.display('reason')
-        )))
-        (% class="col-xs-12 col-sm-4 col-md-4" %)
-        (((
-          ; &lt;label&gt;$target&lt;/label&gt;
-          #if($xcontext.action=="view")
-            #set($target = $doc.getValue("target"))
-            #set($pos = $target.indexOf(":"))
-            #if($pos==-1)
-              #set($targetDocName = $target)
-              #set($anchor = "")
-            #else
-              #set($targetDocName = $target.substring(0, $pos))
-              #set($pos = $pos + 1)
-              #set($anchor = $target.substring($pos))
-            #end
-            : &lt;label&gt;[[$services.localization.render("conversations.flag.viewsource")&gt;&gt;${targetDocName}||target="_blank" anchor="${anchor}"]]&lt;/label&gt;
-          #else
-            : $doc.display('target')
-          #end
-          ; &lt;label&gt;$status&lt;/label&gt;
-          : $doc.display('status')
-        )))
-        (% class="col-xs-12 col-sm-4 col-md-4" %)
-        (((
-          ; &lt;label&gt;$user&lt;/label&gt;
-          : $doc.display('user')
-          ; &lt;label&gt;$moderator&lt;/label&gt;
-          : $doc.display('moderator')
-        )))
-      )))
-      (% class="row" %)
-      (((
-        (% class="col-xs-12 col-sm-12 col-md-12" %)
-        (((
-          ; &lt;label&gt;$message&lt;/label&gt;
-          : $doc.display('message')
-          ; &lt;label&gt;$comment&lt;/label&gt;
-          : $doc.display('comment')
-        )))
-      )))
+      ; {{html}}&lt;label&gt;$escapetool.xml($reason)&lt;/label&gt;{{/html}}
+      : $doc.display('reason')
     )))
-{{/html}}
+    (% class="col-xs-12 col-sm-4 col-md-4" %)
+    (((
+      ; {{html}}&lt;label&gt;$escapetool.xml($target)&lt;/label&gt;{{/html}}
+      #if($xcontext.action=="view")
+        #set($target = $doc.getValue("target"))
+        #set($pos = $target.indexOf(":"))
+        #if($pos==-1)
+          #set($targetDocName = $target)
+          #set($anchor = "")
+        #else
+          #set($targetDocName = $target.substring(0, $pos))
+          #set($pos = $pos + 1)
+          #set($anchor = $target.substring($pos))
+        #end
+        : {{html clean="false"}}&lt;label&gt;{{/html}}[[{{translation key="conversations.flag.viewsource"/}}&gt;&gt;$services.rendering.escape($targetDocName, $xwiki.currentContentSyntaxId)||target="_blank" anchor="$services.rendering.escape($anchor, $xwiki.currentContentSyntaxId)"]]{{html clean="false"}}&lt;/label&gt;{{/html}}
+      #else
+        : $doc.display('target')
+      #end
+      ; {{html}}&lt;label&gt;$escapetool.xml($status)&lt;/label&gt;{{/html}}
+      : $doc.display('status')
+    )))
+    (% class="col-xs-12 col-sm-4 col-md-4" %)
+    (((
+      ; {{html}}&lt;label&gt;$escapetool.xml($user)&lt;/label&gt;{{/html}}
+      : $doc.display('user')
+      ; {{html}}&lt;label&gt;$moderator&lt;/label&gt;{{/html}}
+      : $doc.display('moderator')
+    )))
+  )))
+  (% class="row" %)
+  (((
+    (% class="col-xs-12 col-sm-12 col-md-12" %)
+    (((
+      ; {{html}}&lt;label&gt;$escapetool.xml($message)&lt;/label&gt;{{/html}}
+      : $doc.display('message')
+      ; {{html}}&lt;label&gt;$comment&lt;/label&gt;{{/html}}
+      : $doc.display('comment')
+    )))
+  )))
+)))
 #set($docextras = [])
 {{/velocity}}</content>
 </xwikidoc>

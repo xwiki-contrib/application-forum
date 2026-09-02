@@ -46,7 +46,7 @@
     &lt;div class="xform"&gt;
       &lt;dl&gt;
         #edittitle('conversations.titleError')
-        &lt;dt&gt;&lt;label for="ForumCode.ForumClass_0_description"&gt;$services.localization.render('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
+        &lt;dt&gt;&lt;label for="ForumCode.ForumClass_0_description"&gt;$escapetool.xml($services.localization.render('conversations.forum.description'))&lt;/label&gt;&lt;/dt&gt;
         &lt;dd&gt;#cleanHTMLMacro($doc.display('description'))&lt;/dd&gt;
       &lt;/dl&gt;
     &lt;/div&gt;
@@ -60,7 +60,7 @@
   {{html clean='false'}}
     &lt;div class="forum"&gt;
       &lt;div class="forum-container"&gt;
-        &lt;span class="forum-topics-nb" title="$services.localization.render('conversations.forum.tooltip.totaltopics')"&gt;$topics.size()&lt;/span&gt;
+        &lt;span class="forum-topics-nb" title="$escapetool.xml($services.localization.render('conversations.forum.tooltip.totaltopics'))"&gt;$topics.size()&lt;/span&gt;
         &lt;div class="forum-description"&gt;
           #cleanHTMLMacro($doc.display('description'))
         &lt;/div&gt;
@@ -68,15 +68,15 @@
           &lt;span class="forum-metas"&gt;
             &lt;span class="forum-author"&gt;&lt;span class="user-avatar"&gt;#smallUserAvater2($doc.creator)&lt;/span&gt;$!xwiki.getUserName($doc.creator)&lt;/span&gt;
             &lt;span class="forum-date"&gt;$xwiki.formatDate($doc.date)&lt;/span&gt;
-            &lt;span class="forum-topics" title="$services.localization.render('conversations.forum.tooltip.totaltopics')"&gt;$topics.size() $services.localization.render('conversations.topic.count')&lt;/span&gt;
+            &lt;span class="forum-topics" title="$escapetool.xml($services.localization.render('conversations.forum.tooltip.totaltopics'))"&gt;$topics.size() $escapetool.xml($services.localization.render('conversations.topic.count'))&lt;/span&gt;
           &lt;/span&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;h3 class="topics-title"&gt;$services.localization.render('conversations.topic.all')&lt;/h3&gt;
+    &lt;h3 class="topics-title"&gt;$escapetool.xml($services.localization.render('conversations.topic.all'))&lt;/h3&gt;
     #displayAddConversationButton($space 'Topic')
     &lt;div id="forum-buttons"&gt;
-      &lt;label&gt;$services.localization.render('conversations.forum.sorttopicsby')&lt;/label&gt;
+      &lt;label&gt;$escapetool.xml($services.localization.render('conversations.forum.sorttopicsby'))&lt;/label&gt;
       #displayTopicSortButton('date')
       #displayTopicSortButton('votes')
       #displayTopicSortButton('comments')

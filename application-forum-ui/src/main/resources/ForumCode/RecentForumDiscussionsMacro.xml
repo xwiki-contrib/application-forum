@@ -318,13 +318,19 @@
       #set ($action = 'editedAnswerOnTopic')
     #end
   #end
-  * $services.icon.render('comment') [[$xwiki.getUserName($document.author, false)&gt;&gt;$document.author]] $services.localization.render("recent.forum.discussions.${action}") [[$topicTitle&gt;&gt;$document]] $services.localization.render('recent.forum.discussions.creationDate', [$xwiki.formatDate($document.date)])
+  * $services.icon.render('comment') [[$services.rendering.escape($services.rendering.escape($xwiki.getUserName($document.author, false), $xwiki.currentContentSyntaxId), $xwiki.currentContentSyntaxId)&gt;&gt;$services.rendering.escape($document.author, $xwiki.currentContentSyntaxId)]] {{translation key="recent.forum.discussions.${action}"/}} [[$services.rendering.escape($services.rendering.escape($topicTitle, $xwiki.currentContentSyntaxId), $xwiki.currentContentSyntaxId)&gt;&gt;$services.rendering.escape($services.model.serialize($document.documentReference), $xwiki.currentContentSyntaxId)]] ##
+  #if ($objecttool.isNull($services.component.getInstance("org.xwiki.rendering.macro.Macro", "translation").descriptor.parameterDescriptorMap.scriptparameters))
+    {{translation key='recent.forum.discussions.creationDate' parameters="services.rendering.escape($xwiki.formatDate($document.date).replace(',', ' '), 'xwiki/2.1)"/}}
+  #else
+    #set ($txparameters = [$xwiki.formatDate($document.date)])
+    {{translation key='recent.forum.discussions.creationDate' scriptParameters="txparameters"/}}
+  #end
 #end
 
 #if ($results.size() &gt; 0)
-  [[$services.localization.render('recent.forum.discussions.seeAllDiscussions')&gt;&gt;Forums.WebHome]]
+  [[{{translation key="recent.forum.discussions.seeAllDiscussions"/}}&gt;&gt;Forums.WebHome]]
 #else
-  [[$services.localization.render('recent.forum.discussions.addDiscussion')&gt;&gt;Forums.WebHome]]
+  [[{{translation key="recent.forum.discussions.addDiscussion"/}}&gt;&gt;Forums.WebHome]]
 #end
 
 {{/velocity}}</code>

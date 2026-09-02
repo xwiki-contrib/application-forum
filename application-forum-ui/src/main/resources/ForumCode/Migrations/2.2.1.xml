@@ -138,7 +138,7 @@
 #end
 
 #if ("$!request.confirm" != 'true')
-  {{html}}&lt;a href="$doc.getURL('view', 'confirm=true')" class='button'&gt;Start&lt;/a&gt;{{/html}}
+  {{html}}&lt;a href="$escapetool.xml($doc.getURL('view', 'confirm=true'))" class='button'&gt;Start&lt;/a&gt;{{/html}}
 #end
 {{/velocity}}</content>
 </xwikidoc>

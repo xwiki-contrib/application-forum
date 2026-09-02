@@ -57,14 +57,14 @@
     &lt;/ul&gt;"))
   #set ($actionsLink = '')
   #if ($xwiki.hasAccessLevel('delete', $xcontext.user, $docName))
-    #set ($text = $services.localization.render('platform.livetable._actions.delete'))
+    #set ($escapedText = $escapetool.xml($services.localization.render('platform.livetable._actions.delete')))
     #set ($deleteURL = 'javascript:void(0)')
-    #set ($actionsLink = "&lt;a href='$deleteURL' class='action actiondelete deleteforum' space='$escapetool.xml($forumDoc.space)'&gt;${text}&lt;/a&gt;")
+    #set ($actionsLink = "&lt;a href='$escapetool.xml($deleteURL)' class='action actiondelete deleteforum' space='$escapetool.xml($forumDoc.space)'&gt;$escapedText&lt;/a&gt;")
   #end
   #if ($xwiki.hasAccessLevel('edit', $xcontext.user, $docName))
     #set ($editURL = $forumDoc.getURL('edit'))
-    #set ($text = $services.localization.render('platform.livetable._actions.edit'))
-    #set ($actionsLink = "&lt;a href='$editURL' class='action actionedit'&gt;${text}&lt;/a&gt; ${actionsLink}")
+    #set ($escapedText = $escapetool.xml($services.localization.render('platform.livetable._actions.edit')))
+    #set ($actionsLink = "&lt;a href='$escapetool.xml($editURL)' class='action actionedit'&gt;$escapedText&lt;/a&gt; ${actionsLink}")
   #end
   #set ($discard = $row.put('doc_creator_url', $xwiki.getURL($forumDoc.creator)))
   #set ($discard = $row.put('actions', $actionsLink))

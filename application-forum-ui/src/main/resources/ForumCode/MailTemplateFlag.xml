@@ -102,7 +102,7 @@
 &lt;br /&gt;&lt;br /&gt;
 You can view the flag record at the following url:
 &lt;br /&gt;&lt;br /&gt;
-&lt;a href="${url}"&gt;${url}&lt;/a&gt;
+&lt;a href="$escapetool.xml($url)"&gt;${url}&lt;/a&gt;
 &lt;br /&gt;&lt;br /&gt;
 Thank you
 &lt;br /&gt;&lt;br /&gt;</html>

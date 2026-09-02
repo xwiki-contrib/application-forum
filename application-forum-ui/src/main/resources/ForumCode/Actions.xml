@@ -86,15 +86,15 @@
           #end
         #else
           #set($discard = $response.setStatus(403))
-          {{warning}}$services.localization.render('conversations.create.error.topic.norights'){{/warning}}
+          {{warning}}{{translation key="conversations.create.error.topic.norights"/}}{{/warning}}
         #end
       #else
-        {{warning}}$services.localization.render('conversations.create.error.missingmetadata'){{/warning}}
+        {{warning}}{{translation key="conversations.create.error.missingmetadata"/}}{{/warning}}
       #end
     #else
       #set($discard = $response.setStatus(403))
-      {{warning}}$services.localization.render('conversations.create.error.missingtitle'){{/warning}}
-    #end  
+      {{warning}}{{translation key="conversations.create.error.missingtitle"/}}{{/warning}}
+    #end
   #elseif ("$!request.action" == 'addanswer')
     #if ("$!request.space" != '')
       #set ($title = "Answer_${datetool.date.time}_${mathtool.random(1, 99)}")
@@ -108,8 +108,8 @@
         #end
       #else
         #set($discard = $response.setStatus(403))
-        {{warning}}$services.localization.render('conversations.create.error.answer.norights'){{/warning}}
-      #end    
+        {{warning}}{{translation key="conversations.create.error.answer.norights"/}}{{/warning}}
+      #end
     #else
       {{warning}}Not enough parameters.{{/warning}}
     #end
@@ -209,12 +209,12 @@
       #else
         ## set the status and print a message
         #set($discard = $response.setStatus(403))
-        {{warning}}$services.localization.render("conversations.${request.action}.error.norights", [$!request.xredirect]){{/warning}}
+        {{warning}}{{translation key="conversations.${request.action}.error.norights" parameters="$services.rendering.escape($!request.xredirect, $xwiki.currentContentSyntaxId)"/}}{{/warning}}
       #end
     #else
       ## set the status and print a message
       #set($discard = $response.setStatus(404))
-      {{warning}}$services.localization.render("conversations.${request.action}.error.notfound",  [$!request.xredirect ]){{/warning}}
+      {{warning}}{{translation key="conversations.${request.action}.error.notfound" parameters="$services.rendering.escape($!request.xredirect, $xwiki.currentContentSyntaxId)"/}}{{/warning}}
     #end
   #else
     {{warning}}No action specified.{{/warning}}
@@ -293,14 +293,14 @@
       </text>
     </class>
     <property>
-      <html>$services.localization.render("forum.mail.notif.${action}.delete.message")
+      <html>$escapetool.xml($services.localization.render("forum.mail.notif.${action}.delete.message"))
 &lt;br /&gt;&lt;br /&gt;
 $deleted_content
 #if ($action != 'comment')
-  &lt;a href="$xwiki.getURL($deletedDoc, 'view', 'viewer=recyclebin')"&gt;$services.localization.render("forum.mail.notif.delete.view")&lt;/a&gt;
+  &lt;a href="$escapetool.xml($xwiki.getURL($deletedDoc, 'view', 'viewer=recyclebin'))"&gt;$escapetool.xml($services.localization.render("forum.mail.notif.delete.view"))&lt;/a&gt;
 #end
 &lt;br /&gt;&lt;br /&gt;
-$services.localization.render("forum.mail.notif.delete.thanks")</html>
+$escapetool.xml($services.localization.render("forum.mail.notif.delete.thanks"))</html>
     </property>
     <property>
       <language>en</language>

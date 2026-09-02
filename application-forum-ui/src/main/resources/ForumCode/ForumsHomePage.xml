@@ -50,9 +50,9 @@
   #end
   #set ($newForumDoc = $xwiki.getDocument($newForumDocName))
   #if (!$newForumDoc.isNew())
-    {{warning}}$services.localization.render('forum.create.alreadyexists', [$forumName, $newForumDocName])
+    {{warning}}$services.rendering.escape($services.localization.render('forum.create.alreadyexists', [$forumName, $newForumDocName]), $xwiki.currentContentSyntaxId){{/warning}}
   #else
-	  ## Add encode uri to handle special chars in the title
+    ## Add encode uri to handle special chars in the title
     #set ($forumTitle = $escapetool.url($forumName))
     ##
     $response.sendRedirect($newForumDoc.getURL('edit', "title=${forumTitle}&amp;parent=Forums.WebHome&amp;template=ForumCode.ForumTemplate"))
@@ -64,7 +64,7 @@
   {{html clean='false'}}
     &lt;div class="row all-forums-home-title"&gt;
     	&lt;div class="document-info col-xs-12 col-md-7"&gt;
-      		&lt;h3 class="forums-title"&gt;$services.localization.render('conversations.forum.all')&lt;/h3&gt;
+          &lt;h3 class="forums-title"&gt;$escapetool.xml($services.localization.render('conversations.forum.all'))&lt;/h3&gt;
     	&lt;/div&gt;
       ## only allow users that have edit right on this page to create a forum. This is a way to restrict the users which can create a forum.
       #if ($hasEdit)
@@ -72,7 +72,7 @@
       	&lt;div class="document-info col-xs-12 col-md-5 pull-right" id="actionBox"&gt;
       		&lt;div class="pull-right buttonwrapper"&gt;
             &lt;a class="btn btn-success hasIcon add button" id="addForum" href="#AddNewEntry"&gt;
-              $!services.icon.renderHTML('add') $services.localization.render('conversations.forum.add')
+              $!services.icon.renderHTML('add') $escapetool.xml($services.localization.render('conversations.forum.add'))
             &lt;/a&gt;
       		&lt;/div&gt;
           #set ($entryDoc = $services.model.createDocumentReference($doc.wiki, ['Forums', '__entryName__'], 'WebHome'))
@@ -224,10 +224,10 @@
           }
         },
         {
-          confirmationText: "$services.localization.render('forum.admin.action.delete.confiramtion_text')",
-          progressMessageText : "$services.localization.render('forum.admin.action.delete.inprogress')",
-          successMessageText : "$services.localization.render('forum.admin.action.delete.success')",
-          failureMessageText : "$services.localization.render('forum.admin.action.delete.failed')"
+          confirmationText: $jsontool.serialize($services.localization.render('forum.admin.action.delete.confiramtion_text')),
+          progressMessageText : $jsontool.serialize($services.localization.render('forum.admin.action.delete.inprogress')),
+          successMessageText : $jsontool.serialize($services.localization.render('forum.admin.action.delete.success')),
+          failureMessageText : $jsontool.serialize($services.localization.render('forum.admin.action.delete.failed'))
         }
       );
     }

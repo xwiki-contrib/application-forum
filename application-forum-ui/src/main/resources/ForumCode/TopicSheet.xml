@@ -46,7 +46,7 @@
     &lt;div class="xform"&gt;
       &lt;dl&gt;
         #edittitle("conversations.titleError")
-        &lt;dt&gt;&lt;label&gt;$services.localization.render('conversations.forum.description')&lt;/label&gt;&lt;/dt&gt;
+        &lt;dt&gt;&lt;label&gt;$escapetool.xml($services.localization.render('conversations.forum.description'))&lt;/label&gt;&lt;/dt&gt;
         &lt;dd&gt;$doc.display('description')&lt;/dd&gt;
       &lt;/dl&gt;
     &lt;/div&gt;
@@ -55,7 +55,7 @@
   {{html clean='false'}}
     ## Display topic header
     #displayForumTopic($doc.fullName true)
-    &lt;h3 class="answers-title"&gt;$services.localization.render('conversations.answer.all')&lt;/h3&gt;
+    &lt;h3 class="answers-title"&gt;$escapetool.xml($services.localization.render('conversations.answer.all'))&lt;/h3&gt;
     ## Display answer (conversation) add form
     #displayAddConversationButton($space 'Answer')
     #displayAnswers()
