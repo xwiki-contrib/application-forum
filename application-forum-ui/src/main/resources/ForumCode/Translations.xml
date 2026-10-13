@@ -292,7 +292,10 @@ templateProvider.forum.name=Forum
 templateProvider.forum.description=Start a conversation
 
 ## Forum Administration Section
-forum.administration.configuration.title=Configuration</content>
+forum.administration.configuration.title=Configuration
+
+forum.migration.legacyAnswers.warning=Some answers created with an older version of the Forum Application are displayed without their text.
+forum.migration.legacyAnswers.link=Run the migration</content>
   <object>
     <name>ForumCode.Translations</name>
     <number>0</number>

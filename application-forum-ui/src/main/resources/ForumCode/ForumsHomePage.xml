@@ -61,6 +61,20 @@
   #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css'))
   #set ($discard = $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true'))
   #set ($discard = $xwiki.jsx.use('ForumCode.ForumsHomePage', {'language' : $xcontext.language, 'derfer' : false}))
+  ## The answers created before 2.2 are displayed without their text until the 2.3.14 migration is executed.
+  #if ($hasAdmin)
+    #set ($legacyAnswersStatement = ", BaseObject as obj, LargeStringProperty as prop where obj.name = doc.fullName and obj.className = 'ForumCode.AnswerClass' and prop.id.id = obj.id and prop.id.name = 'answer'")
+    #set ($legacyAnswers = $services.query.hql($legacyAnswersStatement).setLimit(1).execute())
+    #if (!$legacyAnswers.isEmpty())
+      #set ($migrationReference = $services.model.createDocumentReference($doc.wiki, ['ForumCode', 'Migrations'], '2.3.14'))
+      {{html clean='false'}}
+        &lt;div class="box warningmessage"&gt;
+          $escapetool.xml($services.localization.render('forum.migration.legacyAnswers.warning'))
+          &lt;a href="$escapetool.xml($xwiki.getURL($migrationReference))"&gt;$escapetool.xml($services.localization.render('forum.migration.legacyAnswers.link'))&lt;/a&gt;
+        &lt;/div&gt;
+      {{/html}}
+    #end
+  #end
   {{html clean='false'}}
     &lt;div class="row all-forums-home-title"&gt;
     	&lt;div class="document-info col-xs-12 col-md-7"&gt;

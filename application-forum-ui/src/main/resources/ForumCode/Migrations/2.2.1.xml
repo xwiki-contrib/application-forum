@@ -92,7 +92,11 @@
         #set ($discard = $answerDoc.save('Marked as visible.'))
         ## Rename the answer
         #set ($answerSource = $answerDoc.documentReference.lastSpaceReference)
-        #set ($title = $answerObj.getValue('description'))
+        #set ($title = "$!answerObj.getValue('description')")
+        ## The answers created before 2.2 keep their text in the 'answer' property until the 2.3.14 migration is executed.
+        #if ($title == '')
+          #set ($title = "$!answerObj.getValue('answer')")
+        #end
         ## Keep only 50 chars from the description to represent the answer's title
         #if ($title.length() &gt; 50)
           #set ($title = "${title.substring(0,50)}...")

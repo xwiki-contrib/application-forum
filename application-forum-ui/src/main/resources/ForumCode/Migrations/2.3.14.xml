@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.2" reference="ForumCode.Migrations.2\.3\.14" locale="">
+  <web>ForumCode.Migrations</web>
+  <name>2.3.14</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1791849600000</creationDate>
+  <parent>ForumCode.Migrations.WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1791849600000</date>
+  <contentUpdateDate>1791849600000</contentUpdateDate>
+  <version>1.1</version>
+  <title>2.3.14</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>This migration script restores the text of the answers created before the version 2.2 of the Forum Application. That version renamed the ##answer## property of ##ForumCode.AnswerClass## to ##description## without migrating the existing answers, so their text is still stored but it is not displayed anymore. The script moves the text to the ##description## property. It can be executed before or after the 2.2.1 migration and it is safe to execute it more than once. For more details, please see: https://jira.xwiki.org/browse/XAFORUM-261.
+
+{{velocity}}
+#set ($answerClassName = 'ForumCode.AnswerClass')
+## The 'answer' property is not part of the class anymore, so it can be found only by looking at the stored properties.
+#set ($legacyAnswersStatement = ", BaseObject as obj, LargeStringProperty as prop where obj.name = doc.fullName and obj.className = :className and prop.id.id = obj.id and prop.id.name = 'answer'")
+#set ($legacyAnswers = $services.query.hql($legacyAnswersStatement).bindValue('className', $answerClassName).addFilter('unique').execute())
+#if (!$hasAdmin)
+  {{error}}Only the administrators can execute this migration.{{/error}}
+#elseif (!$xcontext.hasProgrammingRights())
+  ## Removing a property that is not part of the class anymore is not possible through the script API.
+  {{error}}This page needs programming rights in order to execute the migration. Please save it with a user having programming rights.{{/error}}
+#elseif ($legacyAnswers.isEmpty())
+  {{info}}There is no answer to migrate.{{/info}}
+#elseif ("$!request.confirm" == 'true' &amp;&amp; $services.csrf.isTokenValid($request.form_token))
+  == Result ==
+  #set ($logger = $services.logging.getLogger($doc.fullName))
+  #set ($discard = $logger.info('Migration of the answers text started...'))
+  {{html clean="false"}}
+  &lt;ul&gt;
+  #foreach ($answer in $legacyAnswers)
+    #set ($answerDoc = $xwiki.getDocument($answer))
+    #set ($isRestored = false)
+    #foreach ($answerObj in $answerDoc.getObjects($answerClassName))
+      #set ($legacyText = "$!answerObj.getValue('answer')")
+      ## An answer that was edited after the upgrade already has a text, which is more recent than the legacy one.
+      #if ("$!answerObj.getValue('description')" == '' &amp;&amp; $legacyText != '')
+        #set ($discard = $answerObj.set('description', $legacyText))
+        #set ($isRestored = true)
+      #end
+      #set ($discard = $answerObj.getXWikiObject().removeField('answer'))
+    #end
+    #set ($discard = $answerDoc.save('Moved the answer text to the description property.', true))
+    &lt;li&gt;
+      &lt;a href="$escapetool.xml($answerDoc.getURL())"&gt;$escapetool.xml($answerDoc.fullName)&lt;/a&gt;
+      #if ($isRestored)
+        (text restored)
+      #else
+        (existing text kept)
+      #end
+    &lt;/li&gt;
+  #end
+  &lt;/ul&gt;
+  {{/html}}
+  #set ($discard = $logger.info('Migration of the answers text complete.'))
+#else
+  == Answers to migrate ==
+  {{html clean="false"}}
+  &lt;ul&gt;
+  #foreach ($answer in $legacyAnswers)
+    #set ($answerDoc = $xwiki.getDocument($answer))
+    &lt;li&gt;&lt;a href="$escapetool.xml($answerDoc.getURL())"&gt;$escapetool.xml($answerDoc.fullName)&lt;/a&gt;&lt;/li&gt;
+  #end
+  &lt;/ul&gt;
+  &lt;form action="$escapetool.xml($doc.getURL())" method="post"&gt;
+    &lt;input type="hidden" name="form_token" value="$escapetool.xml($services.csrf.token)" /&gt;
+    &lt;input type="hidden" name="confirm" value="true" /&gt;
+    &lt;input type="submit" class="button" value="Start" /&gt;
+  &lt;/form&gt;
+  {{/html}}
+#end
+{{/velocity}}</content>
+</xwikidoc>
