@@ -304,7 +304,7 @@ XWIKI STYLES
 .blue, .members .headerbar, .groups .headerbar, .form-wrp fieldset h3 { background: #164891; }
 
 .odd, .even {background-color: transparent;}
-.none, .hidden { display: none; }
+.hidden { display: none; }
 
 /*
 ==================================================================================================
