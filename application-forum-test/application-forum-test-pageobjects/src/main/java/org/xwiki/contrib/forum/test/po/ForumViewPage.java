@@ -31,24 +31,13 @@ import org.xwiki.test.ui.po.ViewPage;
  */
 public class ForumViewPage extends ViewPage
 {
+    private static final int TOUR_STEPS_COUNT = 4;
+
     @FindBy(css = ".addconversation-activator")
     private WebElement addTopicActivator;
 
     @FindBy(css = ".forum-description")
     private WebElement description;
-
-    // Tour steps
-    @FindBy(css = "#step-0 [data-role = 'next']")
-    private WebElement step0;
-
-    @FindBy(css = "#step-1 [data-role = 'next']")
-    private WebElement step1;
-
-    @FindBy(css = "#step-2 [data-role = 'next']")
-    private WebElement step2;
-
-    @FindBy(css = "#step-3 [data-role = 'end']")
-    private WebElement step3;
 
     /**
      * @return the form to enter new topic
@@ -73,9 +62,6 @@ public class ForumViewPage extends ViewPage
      */
     public void viewTour()
     {
-        step0.click();
-        step1.click();
-        step2.click();
-        step3.click();
+        new TourElement().view(TOUR_STEPS_COUNT);
     }
 }

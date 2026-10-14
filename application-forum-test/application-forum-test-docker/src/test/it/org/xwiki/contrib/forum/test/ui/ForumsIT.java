@@ -19,15 +19,20 @@
  */
 package org.xwiki.contrib.forum.test.ui;
 
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.xwiki.contrib.forum.test.po.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.xwiki.contrib.forum.test.po.ForumEditPage;
+import org.xwiki.contrib.forum.test.po.ForumViewPage;
+import org.xwiki.contrib.forum.test.po.ForumsHomePage;
+import org.xwiki.contrib.forum.test.po.TopicAddElement;
 import org.xwiki.panels.test.po.ApplicationsPanel;
-import org.xwiki.test.ui.AbstractTest;
-import org.xwiki.test.ui.SuperAdminAuthenticationRule;
+import org.xwiki.test.docker.junit5.UITest;
+import org.xwiki.test.ui.TestUtils;
 import org.xwiki.test.ui.po.ViewPage;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * UI tests for the Forum application.
@@ -35,11 +40,16 @@ import org.xwiki.test.ui.po.ViewPage;
  * @version $Id$
  * @since 1.9.4
  */
-public class ForumsTest extends AbstractTest
+@UITest(properties = {
+    // The Forum application needs programming rights, for instance to display its panel on a newly created forum.
+    "xwikiPropertiesAdditionalProperties=test.prchecker.excludePattern=.*:(ForumCode|Forums)\\..*"
+}, extraJARs = {
+    // Solr is needed by the Ratings Application and installing it as an extension fails: the parent POM of Solr
+    // cannot be resolved at runtime.
+    "org.xwiki.platform:xwiki-platform-search-solr-api"
+}, resolveExtraJARs = true)
+class ForumsIT
 {
-    @Rule
-    public SuperAdminAuthenticationRule authenticationRule = new SuperAdminAuthenticationRule(getUtil());
-
     private static final String FORUM_TITLE = "MyForum";
 
     private static final String FORUM_DESCRIPTION = "MyForum Description";
@@ -48,68 +58,58 @@ public class ForumsTest extends AbstractTest
 
     private static final String TOPIC_DESCRIPTION = "MyTopic Description";
 
+    @BeforeEach
+    void setUp(TestUtils setup)
+    {
+        setup.loginAsSuperAdmin();
+    }
+
     @Test
-    public void testApplicationPanelLinksToForumsHomePage()
+    @Order(1)
+    void applicationPanelLinksToForumsHomePage()
     {
         ApplicationsPanel applicationPanel = ApplicationsPanel.gotoPage();
         ViewPage vp = applicationPanel.clickApplication(ForumsHomePage.getAppTitle());
 
-        Assert.assertEquals(ForumsHomePage.getSpace(), vp.getMetaDataValue("space"));
-        Assert.assertEquals(ForumsHomePage.getPage(), vp.getMetaDataValue("page"));
+        assertEquals(ForumsHomePage.getSpace(), vp.getMetaDataValue("space"));
+        assertEquals(ForumsHomePage.getPage(), vp.getMetaDataValue("page"));
     }
 
     @Test
-    public void testCreateForumEntities() throws Exception
+    @Order(2)
+    void createForumEntities()
     {
         ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
         // View Forums homepage tour
         forumsHomePage.viewTour();
-        waitUntilTourDisappears();
         // Create new forum
         forumsHomePage.clickAddForumButton();
         forumsHomePage.setAddForumEntryInput(FORUM_TITLE);
 
         ForumEditPage forumEditPage = forumsHomePage.clickAddForumEntryButton();
-        Assert.assertEquals(FORUM_TITLE, forumEditPage.getTitle());
+        assertEquals(FORUM_TITLE, forumEditPage.getTitle());
         forumEditPage.setDescription(FORUM_DESCRIPTION);
         forumEditPage.clickSaveAndView();
 
         ForumViewPage forumViewPage = new ForumViewPage();
-        Assert.assertEquals(FORUM_TITLE, forumViewPage.getDocumentTitle());
-        Assert.assertEquals(FORUM_DESCRIPTION, forumViewPage.getDescription());
+        assertEquals(FORUM_TITLE, forumViewPage.getDocumentTitle());
+        assertEquals(FORUM_DESCRIPTION, forumViewPage.getDescription());
 
         // View Forum tour
         forumViewPage.viewTour();
-        waitUntilTourDisappears();
         // Create new topic
         TopicAddElement topicAddForm = forumViewPage.clickAddTopicActivator();
         topicAddForm.getEditForm().setTitle(TOPIC_TITLE);
         topicAddForm.getEditForm().setDescription(TOPIC_DESCRIPTION);
-        forumViewPage = topicAddForm.clickAddTopicButton();
+        topicAddForm.clickAddTopicButton();
 
         // TODO: Test the visit on Topic page + creation of Answers and Comments after
         // http://jira.xwiki.org/browse/XAFORUM-222 is fixed
         // Topic page can't be visited due the fact that the name contains timestamp(no static value can be taken).
 
-        cleanUp(FORUM_TITLE);    
-    }
-
-    private void cleanUp(String page) throws Exception
-    {
-        ForumsHomePage forumsHomePage = ForumsHomePage.gotoPage();
-        forumsHomePage.deleteForumPage(page);
-
-        // Verify that the forum has been deleted.
-        Assert.assertTrue(forumsHomePage.getNotification().contains("Forum deleted"));
-
-    }
-
-    private void waitUntilTourDisappears()
-    {
-        // Waiting for all the tour elements to disappear instead of the last one because the order varies.
-        getDriver().waitUntilElementDisappears(By.className("tour-backdrop"));
-        getDriver().waitUntilElementDisappears(By.className("tour-step-background"));
-        getDriver().waitUntilElementDisappears(By.cssSelector("id^='step-'"));
-
+        // Delete the forum and verify that it has been deleted.
+        forumsHomePage = ForumsHomePage.gotoPage();
+        forumsHomePage.deleteForumPage(FORUM_TITLE);
+        assertTrue(forumsHomePage.getNotification().contains("Forum deleted"));
     }
 }

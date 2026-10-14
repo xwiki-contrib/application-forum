@@ -69,6 +69,18 @@
         <version>${commons.version}</version>
       </extension>
     </extensions>
+    <plugins>
+      <plugin>
+        <groupId>org.xwiki.commons</groupId>
+        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
+        <configuration>
+          <!-- The Forums home page is the entry point of the application, so it must not be hidden. -->
+          <visibleTechnicalPages>
+            <visibleTechnicalPage>.*/Forums/WebHome\.xml</visibleTechnicalPage>
+          </visibleTechnicalPages>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
   <!-- Put the project URL here so Extension Manager will not try to compute a wrong url by adding
        "/application-forum-ui" to the parent module url... -->

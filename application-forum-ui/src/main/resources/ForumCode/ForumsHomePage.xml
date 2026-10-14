@@ -27,12 +27,9 @@
   <defaultLanguage/>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
-  <creationDate>1400156985000</creationDate>
   <parent>WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1715080413000</date>
-  <contentUpdateDate>1715080413000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -60,7 +57,7 @@
 #else
   #set ($discard = $xwiki.ssfx.use('uicomponents/widgets/userpicker/userPicker.css'))
   #set ($discard = $xwiki.ssfx.use('uicomponents/pagination/pagination.css', 'true'))
-  #set ($discard = $xwiki.jsx.use('ForumCode.ForumsHomePage', {'language' : $xcontext.language, 'derfer' : false}))
+  #set ($discard = $xwiki.jsx.use('ForumCode.ForumsHomePage', {'language' : $xcontext.locale, 'derfer' : false}))
   ## The answers created before 2.2 are displayed without their text until the 2.3.14 migration is executed.
   #if ($hasAdmin)
     #set ($legacyAnswersStatement = ", BaseObject as obj, LargeStringProperty as prop where obj.name = doc.fullName and obj.className = 'ForumCode.AnswerClass' and prop.id.id = obj.id and prop.id.name = 'answer'")

@@ -34,6 +34,8 @@ import org.xwiki.test.ui.po.ViewPage;
  */
 public class ForumsHomePage extends ViewPage
 {
+    private static final int TOUR_STEPS_COUNT = 4;
+
     @FindBy(id = "addForum")
     private WebElement addForumButton;
 
@@ -42,19 +44,6 @@ public class ForumsHomePage extends ViewPage
 
     @FindBy(xpath = "//div[@id = 'entryNamePopup']//input[@type = 'image']")
     private WebElement addForumEntryButton;
-
-    // Forums homepage tour steps
-    @FindBy(css = "#step-0 [data-role = 'next']")
-    private WebElement step0;
-
-    @FindBy(css = "#step-1 [data-role = 'next']")
-    private WebElement step1;
-
-    @FindBy(css = "#step-2 [data-role = 'next']")
-    private WebElement step2;
-
-    @FindBy(css = "#step-3 [data-role = 'end']")
-    private WebElement step3;
 
     @FindBy(xpath = "//tbody[@id='forums-display']//tr")
     private List<WebElement> forums;
@@ -67,7 +56,9 @@ public class ForumsHomePage extends ViewPage
      */
     public static ForumsHomePage gotoPage()
     {
-        getUtil().gotoPage(getSpace(), getPage());
+        // Use the URL the application links to (without the page name) because the tour is started automatically
+        // only for that URL.
+        getUtil().gotoPage(getUtil().getBaseBinURL() + "view/" + getSpace() + "/");
         return new ForumsHomePage();
     }
 
@@ -126,10 +117,7 @@ public class ForumsHomePage extends ViewPage
      */
     public void viewTour()
     {
-        step0.click();
-        step1.click();
-        step2.click();
-        step3.click();
+        new TourElement().view(TOUR_STEPS_COUNT);
     }
 
     /**

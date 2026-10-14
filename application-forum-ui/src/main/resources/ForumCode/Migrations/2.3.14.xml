@@ -27,12 +27,9 @@
   <defaultLanguage>en</defaultLanguage>
   <translation>0</translation>
   <creator>xwiki:XWiki.Admin</creator>
-  <creationDate>1791849600000</creationDate>
   <parent>ForumCode.Migrations.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1791849600000</date>
-  <contentUpdateDate>1791849600000</contentUpdateDate>
   <version>1.1</version>
   <title>2.3.14</title>
   <comment/>
