@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <!--
  * See the NOTICE file distributed with this work for additional
@@ -290,5 +290,7 @@ templateProvider.forum.description=Eine Unterhaltung beginnen
 
 ## Forum Administration Section
 forum.administration.configuration.title=Konfiguration
+forum.migration.legacyAnswers.warning=Einige Antworten, die mit einer älteren Version der Forum-Anwendung erstellt wurden, werden ohne Text angezeigt.
+forum.migration.legacyAnswers.link=Migration ausführen
 </content>
 </xwikidoc>
