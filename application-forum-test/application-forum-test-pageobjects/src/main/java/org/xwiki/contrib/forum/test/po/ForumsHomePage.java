@@ -24,6 +24,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.xwiki.test.ui.po.LiveTableElement;
 import org.xwiki.test.ui.po.ViewPage;
 
 /**
@@ -127,12 +128,13 @@ public class ForumsHomePage extends ViewPage
      */
     public void deleteForumPage(String forumName)
     {
-        for (WebElement row : forums) {
-            WebElement name = row.findElement(By.xpath("//td[contains(@class, 'doc_title')]/a"));
-            if (forumName.equals(name.getText())) {
-                row.findElement(By.xpath("//a[contains(@class, 'deleteforum') and contains(@space, 'Forums.MyForum')]"))
-                    .click();
+        // The forums are loaded asynchronously in the live table.
+        new LiveTableElement("forums").waitUntilReady();
+        for (WebElement row : this.forums) {
+            if (forumName.equals(row.findElement(By.cssSelector("td.doc_title a")).getText())) {
+                row.findElement(By.cssSelector("a.deleteforum")).click();
                 getDriver().findElement(By.cssSelector(".xdialog-box-confirmation [value = 'Yes']")).click();
+                break;
             }
         }
     }
