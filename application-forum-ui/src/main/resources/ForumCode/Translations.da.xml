@@ -37,260 +37,260 @@
   <syntaxId>plain/1.0</syntaxId>
   <hidden>true</hidden>
   <content>## Classes
-### Missing: ForumCode.TopicClass_title=
-### Missing: ForumCode.TopicClass_type=
-### Missing: ForumCode.TopicClass_type_question=
-### Missing: ForumCode.TopicClass_type_suggestion=
-### Missing: ForumCode.TopicClass_type_alert=
-### Missing: ForumCode.TopicClass_type_feedback=
-### Missing: ForumCode.TopicClass_status=
-### Missing: ForumCode.TopicClass_status_inprogress=
-### Missing: ForumCode.TopicClass_status_closed=
-### Missing: ForumCode.TopicClass_status_integrated=
-### Missing: ForumCode.TopicClass_description=
-### Missing: ForumCode.AnswerClass_answer=
-### Missing: ForumCode.AnswerClass_description=
+ForumCode.TopicClass_title=Titel
+ForumCode.TopicClass_type=Type
+ForumCode.TopicClass_type_question=Spørgsmål
+ForumCode.TopicClass_type_suggestion=Forslag
+ForumCode.TopicClass_type_alert=Advarsel
+ForumCode.TopicClass_type_feedback=Feedback
+ForumCode.TopicClass_status=Status
+ForumCode.TopicClass_status_inprogress=I gang
+ForumCode.TopicClass_status_closed=Lukket
+ForumCode.TopicClass_status_integrated=Indarbejdet
+ForumCode.TopicClass_description=Beskrivelse
+ForumCode.AnswerClass_answer=Svar
+ForumCode.AnswerClass_description=Svar
 
 ## Forums
-### Missing: conversations.forum.tooltip.totaltopics=
-### Missing: conversations.forum.create=
-### Missing: conversations.forum.create.alreadyexists=
-### Missing: conversations.forum.create.submit=
-### Missing: conversations.forum.sorttopicsby=
-### Missing: conversations.forum.sorttopicsby.date=
-### Missing: conversations.forum.sorttopicsby.votes=
-### Missing: conversations.forum.sorttopicsby.comments=
-### Missing: conversations.titleError=
-### Missing: conversations.forum.title=
-### Missing: conversations.forum.description=
-### Missing: conversations.forum.edit=
-### Missing: conversations.forum.delete=
-### Missing: conversations.forum.more=
-### Missing: forum.admin.action.delete.confiramtion_text=
-### Missing: forum.admin.action.delete.inprogress=
-### Missing: forum.admin.action.delete.success=
-### Missing: forum.admin.action.delete.failed=
-### Missing: conversations.forum.all=
-### Missing: conversations.forum.add=
+conversations.forum.tooltip.totaltopics=Emner i alt
+conversations.forum.create=Nyt forum
+conversations.forum.create.alreadyexists=Forummet findes allerede: [[{0}&gt;&gt;ForumCode.{1}]]
+conversations.forum.create.submit=Opret
+conversations.forum.sorttopicsby=Sortér emner efter
+conversations.forum.sorttopicsby.date=Dato
+conversations.forum.sorttopicsby.votes=Stemmer
+conversations.forum.sorttopicsby.comments=Kommentarer
+conversations.titleError=Titlen må ikke være længere end 250 tegn.
+conversations.forum.title=Titel
+conversations.forum.description=Beskrivelse
+conversations.forum.edit=Rediger emne
+conversations.forum.delete=Slet emne
+conversations.forum.more=Vis {0} mere
+forum.admin.action.delete.confiramtion_text=Vil du slette dette forum?
+forum.admin.action.delete.inprogress=Sletter...
+forum.admin.action.delete.success=Forummet er slettet
+forum.admin.action.delete.failed=Forummet kunne ikke slettes
+conversations.forum.all=Alle fora
+conversations.forum.add=Tilføj forum
 
 
 ## Topics
-### Missing: conversations.topic.tooltip.totalcommentsandanswers=
-### Missing: conversations.topic.tooltip.totalanswers=
-### Missing: conversations.topic.answer.tooltip.totalcomments=
-### Missing: conversations.topic.create=
-### Missing: conversation.topic.create=
-### Missing: conversations.topic.create.submit=
-### Missing: conversations.topic.all=
-### Missing: conversations.topic.empty=
-### Missing: conversations.topic.count=
-### Missing: conversations.topic.delete.confirm.withReplies=
+conversations.topic.tooltip.totalcommentsandanswers=Svar og kommentarer i alt
+conversations.topic.tooltip.totalanswers=Svar i alt
+conversations.topic.answer.tooltip.totalcomments=Kommentarer til svaret i alt
+conversations.topic.create=Tilføj emne
+conversation.topic.create=Tilføj emne
+conversations.topic.create.submit=Opret
+conversations.topic.all=Alle emner
+conversations.topic.empty=Intet emne
+conversations.topic.count=emner
+conversations.topic.delete.confirm.withReplies=Vil du slette dette emne og dets svar?
 
 ## Answers
-### Missing: conversations.title=
-### Missing: conversation.add.activator=
-### Missing: conversation.answer.create=
-### Missing: conversation.delete.confirm=
-### Missing: conversation.delete.confirm.withReplies=
-### Missing: conversation.delete.done=
-### Missing: conversation.delete.success=
-### Missing: conversation.delete.failed=
-### Missing: conversation.delete.inProgress=
-### Missing: conversation.edit=
-### Missing: conversation.edit.failed=
-### Missing: conversation.delete=
-### Missing: conversation.delete.title=
-### Missing: conversation.edit.title=
-### Missing: conversation.empty=
-### Missing: conversation.forum.delete.title=
-### Missing: conversation.updatedate=
-### Missing: conversation.creationdate=
-### Missing: conversation.groups.norights=
-### Missing: conversation.norights=
-### Missing: conversations.answer.edit=
-### Missing: conversations.answer=
-### Missing: conversations.answer.all=
-### Missing: conversations.answer.empty=
-### Missing: conversations.answer.count=
+conversations.title=Svar
+conversation.add.activator=Tilføj svar
+conversation.answer.create=Tilføj svar
+conversation.delete.confirm=Vil du slette emnet?
+conversation.delete.confirm.withReplies=Vil du slette dette svar og dets kommentarer?
+conversation.delete.done=Svaret er slettet
+conversation.delete.success=Svaret er slettet
+conversation.delete.failed=Svaret kunne ikke slettes
+conversation.delete.inProgress=Sletter ...
+conversation.edit=Rediger svar
+conversation.edit.failed=Formularen til at oprette svar kunne ikke vises
+conversation.delete=Slet svar
+conversation.delete.title=Slet svar
+conversation.edit.title=Rediger svar
+conversation.empty=Ingen kommentar
+conversation.forum.delete.title=Slet emne
+conversation.updatedate={0}
+conversation.creationdate={1}
+conversation.groups.norights=Du skal være medlem af denne gruppe for at deltage i diskussionen. Kontakt gruppens administrator.
+conversation.norights=Du har ikke rettighed til at deltage i denne diskussion.
+conversations.answer.edit=Svar på emnet {0}
+conversations.answer=Svar
+conversations.answer.all=Alle svar
+conversations.answer.empty=Intet svar
+conversations.answer.count=svar
 
 ## Comments
-### Missing: conversations.comment.count=
+conversations.comment.count=kommentarer
 
 ## Votes
-### Missing: conversation.like.button=
-### Missing: conversation.like.button.tooltip=
-### Missing: conversation.like.button.alreadyliked.tooltip=
-### Missing: conversation.like.score.tooltip=
-### Missing: conversation.like.failed=
-### Missing: conversation.like.done=
-### Missing: conversation.like.loading=
-### Missing: rating.saveexception=
-### Missing: rating.votenotvalid=
-### Missing: rating.voteoutofbounds=
+conversation.like.button=Stemmer
+conversation.like.button.tooltip=Stem på emnet
+conversation.like.button.alreadyliked.tooltip=Du har allerede stemt
+conversation.like.score.tooltip={0} brugere fandt svaret interessant.
+conversation.like.failed=Stemmen kunne ikke gemmes:
+conversation.like.done=Din stemme er gemt.
+conversation.like.loading=Gemmer stemmen...
+rating.saveexception=Der opstod en fejl, da stemmen skulle gemmes.
+rating.votenotvalid=Stemmen er ikke gyldig.
+rating.voteoutofbounds=Stemmen er ikke gyldig.
 
 ## Permalink
-### Missing: conversation.permalink.tooltip=
-### Missing: conversation.permalink=
+conversation.permalink.tooltip=Permanent link
+conversation.permalink=Permanent link
 
 ## Livetable
-### Missing: conversations.doc.title=
-### Missing: conversations.doc.date=
-### Missing: conversations.doc.creator=
-### Missing: conversations.actions=
-### Missing: conversations._avatar=
+conversations.doc.title=Titel
+conversations.doc.date=Dato
+conversations.doc.creator=Opretter
+conversations.actions=Handlinger
+conversations._avatar=Avatar
 
 ## Messages
-### Missing: conversations.create.error.topic.norights=
-### Missing: conversations.create.error.answer.missingParams=
-### Missing: conversations.create.error.answer.norights=
-### Missing: conversations.create.success.answer=
-### Missing: conversations.create.error.missingmetadata=
-### Missing: conversations.create.error.missingtitle=
-### Missing: conversations.create.inProgress=
-### Missing: conversations.create.requestError=
-### Missing: conversations.create.success.topic=
-### Missing: conversations.deleteconversation.changecomment=
-### Missing: conversations.deletecomment.changecomment=
-### Missing: conversations.deletecomment.error.nomailsent=
-### Missing: conversations.deletecomment.success=
-### Missing: conversations.deletecomment.error.norights=
-### Missing: conversations.deletecomment.error.notfound=
-### Missing: conversations.deleteconversation.error.nomailsent=
-### Missing: conversations.deleteconversation.success=
-### Missing: conversations.deleteconversation.error.norights=
-### Missing: conversations.deleteconversation.error.notfound=
-### Missing: core.viewers.comments.delete.failed=
-### Missing: conversations.deleteanswer.error.nomailsent=
+conversations.create.error.topic.norights=Du har ikke rettighed til at oprette et nyt emne!
+conversations.create.error.answer.missingParams=Der er ikke nok parametre!
+conversations.create.error.answer.norights=Du har ikke rettighed til at oprette et nyt svar!
+conversations.create.success.answer=Svaret er tilføjet!
+conversations.create.error.missingmetadata=Oprettelsen kunne ikke gennemføres, fordi der mangler metadata!
+conversations.create.error.missingtitle=Titlen mangler!
+conversations.create.inProgress=Tilføjer...
+conversations.create.requestError=Der opstod en fejl, da din anmodning skulle sendes. Prøv igen.
+conversations.create.success.topic=Emnet er tilføjet!
+conversations.deleteconversation.changecomment=Slettede svar
+conversations.deletecomment.changecomment=Slettede kommentar
+conversations.deletecomment.error.nomailsent=Mailen om sletningen af kommentaren kunne ikke sendes.
+conversations.deletecomment.success=Mailen om sletningen af kommentaren er sendt.
+conversations.deletecomment.error.norights=Du har ikke rettighed til at slette kommentaren.
+conversations.deletecomment.error.notfound=Kommentaren blev ikke fundet.
+conversations.deleteconversation.error.nomailsent=Mailen om sletningen af emnet kunne ikke sendes.
+conversations.deleteconversation.success=Emnet er slettet.
+conversations.deleteconversation.error.norights=Du har ikke rettighed til at slette svaret.
+conversations.deleteconversation.error.notfound=Emnet blev ikke fundet.
+core.viewers.comments.delete.failed=Kommentaren kunne ikke slettes.
+conversations.deleteanswer.error.nomailsent=Mailen om sletningen af svaret kunne ikke sendes.
 
 ## FLAG DIALOG
-### Missing: conversation.flag.tooltip=
-### Missing: conversations.flag.edit=
-### Missing: conversations.flag.button=
-### Missing: conversations.flag.viewsource=
-### Missing: conversations.flag.dialog.header=
-### Missing: conversations.flag.dialog.guidingquestion1.txt=
-### Missing: conversations.flag.dialog.instruction1.txt=
-### Missing: conversations.flag.dialog.guidingquestion2.txt=
-### Missing: conversations.flag.dialog.required.field.icon=
-### Missing: conversations.flag.dialog.instruction2.txt=
-### Missing: conversations.flag.dialog.instruction3.txt=
-### Missing: conversations.flag.dialog.reason.label=
-### Missing: conversations.flag.dialog.message.label=
-### Missing: conversations.flag.dialog.mandatory=
-### Missing: conversations.flag.dialog.cancel.btt=
-### Missing: conversations.flag.dialog.submit.btt=
-### Missing: conversations.flag.error.nomailsent=
+conversation.flag.tooltip=Anmeld
+conversations.flag.edit=Rediger
+conversations.flag.button=Anmeld
+conversations.flag.viewsource=Vis anmeldelsens kilde
+conversations.flag.dialog.header=Anmeld en kommentar
+conversations.flag.dialog.guidingquestion1.txt=Hvad sker der, når du anmelder en kommentar?
+conversations.flag.dialog.instruction1.txt=Du sender kommentartråden til øjeblikkelig vurdering hos forummets administratorer.
+conversations.flag.dialog.guidingquestion2.txt=Hvorfor anmelder du denne diskussion?
+conversations.flag.dialog.required.field.icon=&lt;em class="required-indicator"&gt;* &lt;/em&gt;
+conversations.flag.dialog.instruction2.txt=Jeg anmelder kommentaren, fordi den
+conversations.flag.dialog.instruction3.txt=Skriv en note (højst 300 tegn), der beskriver, hvad der gør kommentaren stødende:
+conversations.flag.dialog.reason.label=Årsag
+conversations.flag.dialog.message.label=Beskrivelse
+conversations.flag.dialog.mandatory=Feltet er obligatorisk
+conversations.flag.dialog.cancel.btt=Annuller
+conversations.flag.dialog.submit.btt=Send
+conversations.flag.error.nomailsent=Mailen om den anmeldte kommentar kunne ikke sendes.
 ## REASONS FOR FLAGGING - USE IN FLAG DIALOG
-### Missing: ForumCode.FlagClass_reason_=
-### Missing: ForumCode.FlagClass_reason_1=
-### Missing: ForumCode.FlagClass_reason_2=
-### Missing: ForumCode.FlagClass_reason_3=
-### Missing: ForumCode.FlagClass_reason_4=
-### Missing: ForumCode.FlagClass_reason_5=
-### Missing: ForumCode.FlagClass_reason_6=
-### Missing: ForumCode.FlagClass_reason_alt=
+ForumCode.FlagClass_reason_=Vælg
+ForumCode.FlagClass_reason_1=Fremmer had eller vold
+ForumCode.FlagClass_reason_2=Viser pornografi
+ForumCode.FlagClass_reason_3=Er tom
+ForumCode.FlagClass_reason_4=Er tydeligvis kommerciel uden klar uddannelsesmæssig relevans
+ForumCode.FlagClass_reason_5=Er ødelagt eller har en virus
+ForumCode.FlagClass_reason_6=Ser ud til at være meningsløs
+ForumCode.FlagClass_reason_alt=Anden årsag
 ## STATUS FOR A FLAG - USE IN FLAG DIALOG
-### Missing: ForumCode.FlagClass_status=
-### Missing: ForumCode.FlagClass_status_open=
-### Missing: ForumCode.FlagClass_status_inprogress=
-### Missing: ForumCode.FlagClass_status_resolved=
+ForumCode.FlagClass_status=Status
+ForumCode.FlagClass_status_open=Åben
+ForumCode.FlagClass_status_inprogress=I gang
+ForumCode.FlagClass_status_resolved=Løst
 ## FLAG SUCCESS MESSAGE
-### Missing: conversations.flag.success.dialog.header=
-### Missing: conversations.flag.success.dialog.message=
-### Missing: conversations.flag.success.dialog.button=
+conversations.flag.success.dialog.header=Diskussionen er anmeldt
+conversations.flag.success.dialog.message=Du har anmeldt kommentaren.
+conversations.flag.success.dialog.button=Luk
 ## FLAG livetable
-### Missing: conversations.flag.reason=
-### Missing: conversations.flag.user=
-### Missing: conversations.flag.doc.creationDate=
-### Missing: conversations.flag.message=
-### Missing: conversations.flag.moderator=
-### Missing: conversations.flag.status=
-### Missing: conversations.flag._actions=
-### Missing: conversations.flag.target=
-### Missing: conversations.flag.emptyvalue=
-### Missing: conversations.flag.list.title=
-### Missing: conversations.flag.list.instructions=
-### Missing: conversations.flag.success.dialog.goback=
-### Missing: conversations.addthis.title=
-### Missing: conversations.addthis.desc=
+conversations.flag.reason=Årsag
+conversations.flag.user=Bruger
+conversations.flag.doc.creationDate=Dato
+conversations.flag.message=Besked
+conversations.flag.moderator=Moderator
+conversations.flag.status=Status
+conversations.flag._actions=Handlinger
+conversations.flag.target=Mål
+conversations.flag.emptyvalue=-
+conversations.flag.list.title=Liste over anmeldelser
+conversations.flag.list.instructions=Dette er listen over anmeldte elementer
+conversations.flag.success.dialog.goback=Tilbage til diskussionen
+conversations.addthis.title={0} #xwikiforum
+conversations.addthis.desc={0}
 
 ## most active discussions
-### Missing: discussion.panel.title=
-### Missing: discussion.panel.sortby=
-### Missing: discussion.panel.dates=
-### Missing: discussion.panel.votes=
-### Missing: discussion.panel.comments=
-### Missing: discussion.panel.topics=
-### Missing: discussion.panel.subscribe=
-### Missing: discussion.panel.text1=
-### Missing: discussion.panel.text2=
+discussion.panel.title=Mest aktive emner
+discussion.panel.sortby=Sortér efter:
+discussion.panel.dates=Datoer
+discussion.panel.votes=Stemmer
+discussion.panel.comments=Kommentarer
+discussion.panel.topics=Emner
+discussion.panel.subscribe=Abonner
+discussion.panel.text1=Hold dig opdateret med de nyeste indlæg ved at abonnere på:
+discussion.panel.text2=eller
 
 ## applications panel entry
-### Missing: forum.applicationsPanelEntryLabel=
+forum.applicationsPanelEntryLabel=Fora
 ## mail notif
-### Missing: forum.mail.notif.topic.delete.title=
-### Missing: forum.mail.notif.topic.delete.message=
-### Missing: forum.mail.notif.answer.delete.title=
-### Missing: forum.mail.notif.answer.delete.message=
-### Missing: forum.mail.notif.comment.delete.title=
-### Missing: forum.mail.notif.comment.delete.message=
-### Missing: forum.mail.notif.delete.thanks=
-### Missing: forum.mail.notif.delete.view=
+forum.mail.notif.topic.delete.title=Slettet emne
+forum.mail.notif.topic.delete.message=Følgende emne er slettet:
+forum.mail.notif.answer.delete.title=Slettet svar
+forum.mail.notif.answer.delete.message=Følgende svar er slettet:
+forum.mail.notif.comment.delete.title=Slettet kommentar
+forum.mail.notif.comment.delete.message=Følgende kommentar er slettet:
+forum.mail.notif.delete.thanks=Tak
+forum.mail.notif.delete.view=Vis slettet
 
 ## recent forum discussions
-### Missing: recent.forum.discussions.addDiscussion=
-### Missing: recent.forum.discussions.createdAnswerOnTopic=
-### Missing: recent.forum.discussions.createdTopic=
-### Missing: recent.forum.discussions.creationDate=
-### Missing: recent.forum.discussions.editedAnswerOnTopic=
-### Missing: recent.forum.discussions.editedTopic=
-### Missing: recent.forum.discussions.seeAllDiscussions=
+recent.forum.discussions.addDiscussion=Tilføj diskussion
+recent.forum.discussions.createdAnswerOnTopic=svarede på emnet
+recent.forum.discussions.createdTopic=oprettede emnet
+recent.forum.discussions.creationDate=den {0}
+recent.forum.discussions.editedAnswerOnTopic=redigerede svar på emnet
+recent.forum.discussions.editedTopic=redigerede emnet
+recent.forum.discussions.seeAllDiscussions=Se alle diskussioner
 
 ## rendering macro
-### Missing: rendering.macro.forum.recentForumDiscussions.name=
+rendering.macro.forum.recentForumDiscussions.name=Seneste forumdiskussioner
 
 ## TOURS
 ## Forums homepage tour
-### Missing: tour.forumsHomepageTour.welcome.title=
-### Missing: tour.forumsHomepageTour.welcome.content=
-### Missing: tour.forumsHomepageTour.addForum.title=
-### Missing: tour.forumsHomepageTour.addForum.content=
-### Missing: tour.forumsHomepageTour.forumsLivetable.title=
-### Missing: tour.forumsHomepageTour.forumsLivetable.content=
-### Missing: tour.forumsHomepageTour.mostActiveTopics.title=
-### Missing: tour.forumsHomepageTour.mostActiveTopics.content=
+tour.forumsHomepageTour.welcome.title=Velkommen til programmet Forum!
+tour.forumsHomepageTour.welcome.content=Forum er et kommunikationsværktøj, hvor du kan oprette et ubegrænset antal diskussionsfora, stemme på dem og endda anmelde upassende indhold.
+tour.forumsHomepageTour.addForum.title=Tilføj forum
+tour.forumsHomepageTour.addForum.content=Opret et nyt forum.
+tour.forumsHomepageTour.forumsLivetable.title=Livetabel over fora
+tour.forumsHomepageTour.forumsLivetable.content=Se alle fora. Tjek de mulige handlinger: sortér, filtrer, rediger, slet.
+tour.forumsHomepageTour.mostActiveTopics.title=Mest aktive emner
+tour.forumsHomepageTour.mostActiveTopics.content=Panelet viser de mest aktive emner målt på stemmer og kommentarer. Emnerne kan sorteres efter dato, antal stemmer og antal kommentarer. Klik på den tilhørende knap for at sortere stigende/faldende. Abonner for at få de nyeste oplysninger om emnerne!
 ## Forum Tour
-### Missing: tour.forumTour.forumDetails.title=
-### Missing: tour.forumTour.forumDetails.content=
-### Missing: tour.forumTour.addTopic.title=
-### Missing: tour.forumTour.addTopic.content=
-### Missing: tour.forumTour.sortTopics.title=
-### Missing: tour.forumTour.sortTopics.content=
-### Missing: tour.forumTour.listOfTopics.title=
-### Missing: tour.forumTour.listOfTopics.content=
+tour.forumTour.forumDetails.title=Oplysninger om forummet
+tour.forumTour.forumDetails.content=Oplysninger: forummets beskrivelse, opretter, oprettelsesdato, antal emner og antal stemmer.
+tour.forumTour.addTopic.title=Tilføj emne
+tour.forumTour.addTopic.content=Opret et nyt emne.
+tour.forumTour.sortTopics.title=Sortér emner
+tour.forumTour.sortTopics.content=Emnerne kan sorteres efter dato, antal stemmer eller antal kommentarer. Klik på den tilhørende knap, og skift så mellem stigende og faldende rækkefølge.
+tour.forumTour.listOfTopics.title=Liste over emner
+tour.forumTour.listOfTopics.content=Se alle emner. Oplysninger: emnets navn, beskrivelse, opretter, oprettelsesdato, antal svar, antal kommentarer og antal stemmer.
 ## Topic Tour
-### Missing: tour.topicTour.topicDetails.title=
-### Missing: tour.topicTour.topicDetails.content=
-### Missing: tour.topicTour.flagAndPermalink.title=
-### Missing: tour.topicTour.flagAndPermalink.content=
-### Missing: tour.topicTour.socialMedia.title=
-### Missing: tour.topicTour.socialMedia.content=
-### Missing: tour.topicTour.topicModeration.title=
-### Missing: tour.topicTour.topicModeration.content=
-### Missing: tour.topicTour.vote.title=
-### Missing: tour.topicTour.vote.content=
-### Missing: tour.topicTour.addAnswer.title=
-### Missing: tour.topicTour.addAnswer.content=
-### Missing: tour.topicTour.listOfAnswers.title=
-### Missing: tour.topicTour.listOfAnswers.content=
+tour.topicTour.topicDetails.title=Oplysninger om emnet
+tour.topicTour.topicDetails.content=Oplysninger: emnets beskrivelse, opretter, oprettelsesdato, antal emner og antal stemmer. Læs de næste trin for at se, hvad du kan gøre med emner.
+tour.topicTour.flagAndPermalink.title=Anmeld og permanent link
+tour.topicTour.flagAndPermalink.content=Hvis emnets indhold er upassende, kan du bruge Anmeld til at advare administratorerne. Permanent link giver dig URL'en.
+tour.topicTour.socialMedia.title=Del på sociale medier
+tour.topicTour.socialMedia.content=Du kan dele emnet med dine venner via knapperne til sociale medier.
+tour.topicTour.topicModeration.title=Moderering af emner
+tour.topicTour.topicModeration.content=Her er knapperne Rediger og Slet.
+tour.topicTour.vote.title=Stem
+tour.topicTour.vote.content=Stem på emnet.
+tour.topicTour.addAnswer.title=Tilføj svar
+tour.topicTour.addAnswer.content=Opret et nyt svar.
+tour.topicTour.listOfAnswers.title=Liste over svar
+tour.topicTour.listOfAnswers.content=Se alle svar og deres kommentarer.
 
 ## Template Provider
-### Missing: templateProvider.forum.name=
-### Missing: templateProvider.forum.description=
+templateProvider.forum.name=Forum
+templateProvider.forum.description=Start en samtale
 
 ## Forum Administration Section
-### Missing: forum.administration.configuration.title=
-### Missing: forum.migration.legacyAnswers.warning=
-### Missing: forum.migration.legacyAnswers.link=
+forum.administration.configuration.title=Konfiguration
+forum.migration.legacyAnswers.warning=Nogle svar, der er oprettet med en ældre version af programmet Forum, vises uden deres tekst.
+forum.migration.legacyAnswers.link=Kør overflytningen
 </content>
 </xwikidoc>
