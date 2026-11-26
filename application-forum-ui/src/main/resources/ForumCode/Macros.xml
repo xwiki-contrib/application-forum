@@ -637,7 +637,7 @@
         #end
         &lt;div class="topic-container"&gt;
           #if (!$withdetails)
-            &lt;h3 class="topic-title"&gt;&lt;a href="$escapetool.xml($topicDoc.getURL())" title="$escapetool.xml($topicTitle)"&gt;$topicTitle&lt;/a&gt;&lt;/h3&gt;
+            &lt;h3 class="topic-title"&gt;&lt;a href="$escapetool.xml($topicDoc.getURL())" title="$escapetool.xml($topicTitle)"&gt;$escapetool.xml($topicTitle)&lt;/a&gt;&lt;/h3&gt;
           #end
           &lt;span class="topic-comments" title="$escapetool.xml($services.localization.render('conversations.topic.tooltip.totalcommentsandanswers'))"&gt;$nbCommentsAnswers&lt;/span&gt;
           &lt;div class="topic-description"&gt;
@@ -864,7 +864,7 @@
             #set ($topicodd = 'even')
           #end
           &lt;tr class="${topicodd}"&gt;
-            &lt;td class="topic"&gt;&lt;a href="$escapetool.xml($topicDoc.getURL())"&gt;$!topicTitle&lt;/a&gt;&lt;/td&gt;
+            &lt;td class="topic"&gt;&lt;a href="$escapetool.xml($topicDoc.getURL())"&gt;$!escapetool.xml($topicTitle)&lt;/a&gt;&lt;/td&gt;
             &lt;td class="votes"&gt;$!rating&lt;/td&gt;
             &lt;td class="comments"&gt;$!nbCommentsAnswers&lt;/td&gt;
           &lt;/tr&gt;
